@@ -1,0 +1,10 @@
+{
+  "status": "planned",
+  "success_once": null,
+  "success_at_end": null,
+  "return": null,
+  "train_steps": 0,
+  "wall_clock_minutes": 0,
+  "demo_count": 0,
+  "notes": "Fill this file after a real run and rename it to metrics.json inside a combo folder."
+}

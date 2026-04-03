@@ -69,3 +69,14 @@ sac_pandapush-v3/
 
 # PyBullet data
 *.urdf.cache
+
+# ManiSkill experiment scaffold
+maniskill_suite/.venv/
+maniskill_suite/external/
+maniskill_suite/data/raw/
+maniskill_suite/data/processed/
+maniskill_suite/data/videos/
+maniskill_suite/reports/experiment_results.md
+maniskill_suite/experiments/*/metrics.json
+maniskill_suite/experiments/*/logs/
+maniskill_suite/experiments/*/videos/

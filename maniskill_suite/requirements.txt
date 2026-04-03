@@ -1,0 +1,6 @@
+mani_skill>=3.0.0b20
+torch
+gymnasium==0.29.1
+stable-baselines3>=2.3
+numpy>=1.24,<2
+tensorboard>=2.20
