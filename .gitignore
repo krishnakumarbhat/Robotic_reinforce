@@ -80,3 +80,7 @@ maniskill_suite/reports/experiment_results.md
 maniskill_suite/experiments/*/metrics.json
 maniskill_suite/experiments/*/logs/
 maniskill_suite/experiments/*/videos/
+
+# Upstream lerobot clone (pristine huggingface/lerobot, re-clone via git) + local venv
+lerobot_rl/lerobot/
+lerobot_rl/.venv/
