@@ -1,0 +1,313 @@
+{
+ "variant": "T209 = robust band-local s=(w191-med_b)/(1.4826*MAD_b+eps)-0.5*clip(jerk/J90_b,0,1), pooled-0, no hard gates, global tie-break |d|<0.05",
+ "frozen": {
+  "TAU50_global_ref": 68.0452,
+  "theta_marg_bitident": true,
+  "C99": 100.0,
+  "C99_degenerate": true,
+  "J95_global_ref": 0.015175,
+  "i7_binds_heldB": 0,
+  "w191_T173_embedded_kept": true,
+  "no_TAUhi_lo_hard_gates": true,
+  "fit_scope": "CALIB pooled only, jerk-tertile bands, single held eval, lam FIXED 0.5"
+ },
+ "bands": {
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "cal_n": [
+   40,
+   40,
+   40
+  ],
+  "cal_fails": [
+   6,
+   4,
+   7
+  ],
+  "med_band": [
+   82.7989,
+   75.1409,
+   65.6217
+  ],
+  "MAD_band": [
+   12.9517,
+   13.4071,
+   18.3332
+  ],
+  "scale_band": [
+   19.2021,
+   19.8774,
+   27.1809
+  ],
+  "J90_band": [
+   0.00345,
+   0.008876,
+   0.016811
+  ],
+  "J95_band": [
+   0.003611,
+   0.008967,
+   0.019942
+  ],
+  "mu_band_T207ref": [
+   83.4572,
+   75.1447,
+   51.0233
+  ],
+  "sig_band_T207ref": [
+   15.3323,
+   16.282,
+   36.3569
+  ],
+  "med_global": 74.3101,
+  "MAD_global": 14.9494,
+  "scale_global": 22.164,
+  "J90_global": 0.014133
+ },
+ "fit": {
+  "LAM_FIXED": 0.5,
+  "TIE": 0.05,
+  "tau_star_per_band": {
+   "0": {
+    "TAU": 0.5081717991729511,
+    "calib_recall_b": 0.8333,
+    "calib_pf_b": 0.1111,
+    "feasible": true
+   },
+   "1": {
+    "TAU": -0.3989835424599484,
+    "calib_recall_b": 0.75,
+    "calib_pf_b": 0.0526,
+    "feasible": true
+   },
+   "2": {
+    "TAU": 0.03187923024771144,
+    "calib_recall_b": 0.8571,
+    "calib_pf_b": 0.0909,
+    "feasible": true
+   }
+  },
+  "TAU_STAR_band": {
+   "0": 0.5082,
+   "1": -0.399,
+   "2": 0.0319
+  },
+  "global_tiebreak": {
+   "TAU_G": -0.0397,
+   "calib_recall": 0.7647,
+   "calib_pf": 0.08,
+   "feasible": true,
+   "tie_uses_held": 2
+  },
+  "abl_feasible": {
+   "lam0": false,
+   "sig": true,
+   "J95": true
+  },
+  "abl_tau": {
+   "lam0": {
+    "0": {
+     "TAU": null,
+     "calib_recall_b": null,
+     "calib_pf_b": null,
+     "feasible": false
+    },
+    "1": {
+     "TAU": -0.02698472400528684,
+     "calib_recall_b": 0.75,
+     "calib_pf_b": 0.0455,
+     "feasible": true
+    },
+    "2": {
+     "TAU": 0.320909959154642,
+     "calib_recall_b": 0.8571,
+     "calib_pf_b": 0.0909,
+     "feasible": true
+    }
+   },
+   "sig": {
+    "0": {
+     "TAU": 0.6913387468528354,
+     "calib_recall_b": 0.8333,
+     "calib_pf_b": 0.1111,
+     "feasible": true
+    },
+    "1": {
+     "TAU": -0.4051770751720034,
+     "calib_recall_b": 0.75,
+     "calib_pf_b": 0.05,
+     "feasible": true
+    },
+    "2": {
+     "TAU": 0.35241258356201594,
+     "calib_recall_b": 0.8571,
+     "calib_pf_b": 0.1,
+     "feasible": true
+    }
+   },
+   "J95": {
+    "0": {
+     "TAU": 0.5255294915322715,
+     "calib_recall_b": 0.8333,
+     "calib_pf_b": 0.1111,
+     "feasible": true
+    },
+    "1": {
+     "TAU": -0.39521264001432554,
+     "calib_recall_b": 0.75,
+     "calib_pf_b": 0.0526,
+     "feasible": true
+    },
+    "2": {
+     "TAU": 0.07725617579425809,
+     "calib_recall_b": 0.8571,
+     "calib_pf_b": 0.0833,
+     "feasible": true
+    }
+   }
+  }
+ },
+ "perband_ROC_held": {
+  "0": {
+   "n": 39,
+   "n_fails": 5,
+   "TAU_star": 0.5082,
+   "recall_band": 0.8
+  },
+  "1": {
+   "n": 40,
+   "n_fails": 3,
+   "TAU_star": -0.399,
+   "recall_band": 0.0
+  },
+  "2": {
+   "n": 41,
+   "n_fails": 7,
+   "TAU_star": 0.0319,
+   "recall_band": 0.7143
+  }
+ },
+ "runA_keep_cited": true,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T209": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "ref_T205": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "cov_all": 0.9883,
+  "yield_vs_T205_pts": 0.0
+ },
+ "pooled_held": {
+  "T199": {
+   "n_adm": 60,
+   "veto_rate": 0.5,
+   "p_fail_adm": 0.1333,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T205": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T207_local_ref": {
+   "n_adm": 43,
+   "score_recall_pts": 60.0
+  },
+  "T209": {
+   "n_adm": 43,
+   "veto_rate": 0.6417,
+   "p_fail_adm": 0.1395,
+   "recall_fail_reject": 0.6,
+   "score_recall_pts": 60.0
+  },
+  "T209_lam0": {
+   "n_adm": 0,
+   "veto_rate": 1.0,
+   "p_fail_adm": 0.0,
+   "recall_fail_reject": 1.0,
+   "score_recall_pts": 100.0
+  },
+  "T209_sig": {
+   "n_adm": 43,
+   "veto_rate": 0.6417,
+   "p_fail_adm": 0.1395,
+   "recall_fail_reject": 0.6,
+   "score_recall_pts": 60.0
+  },
+  "T209_J95": {
+   "n_adm": 43,
+   "veto_rate": 0.6417,
+   "p_fail_adm": 0.1395,
+   "recall_fail_reject": 0.6,
+   "score_recall_pts": 60.0
+  },
+  "recall_vs_T199_pts": 13.33,
+  "recall_vs_T205_pts": 13.33,
+  "recall_vs_T207_pts": 0.0,
+  "lam_vs_lam0_pts": -40.0,
+  "MAD_vs_sig_pts": 0.0,
+  "J90_vs_J95_pts": 0.0,
+  "selective_risk_lift_vs_T173_pts": -3.17
+ },
+ "rescue_vs_T205": {
+  "rescued": 7,
+  "new_mistakes": 0,
+  "rescue_rate": 0.4667
+ },
+ "admit_overlap_held": {
+  "T209_vs_T205": {
+   "agreement": 0.8833,
+   "jaccard": 0.7544,
+   "n_a": 43,
+   "n_b": 57,
+   "n_both": 43
+  },
+  "T209_vs_T199": {
+   "agreement": 0.8583,
+   "jaccard": 0.7167,
+   "n_a": 43,
+   "n_b": 60,
+   "n_both": 43
+  }
+ },
+ "archive_adm_frac_T209": 0.0,
+ "cov_ok": true,
+ "kill_rule": {
+  "pts_le_48_67": false,
+  "keep_lt_60": true,
+  "plateau": 46.67,
+  "KILL_PTS": 48.67,
+  "KEEP_BAR": 60.0
+ },
+ "director_legs": {
+  "pts_ge_70": false,
+  "heldB_keep_ge_70": false,
+  "predicted_pts_71_74": 60.0,
+  "predicted_keep": 40.0
+ },
+ "verdict_rule": {
+  "runA_keep": true,
+  "pts_gt_48_67": true,
+  "HELD_keep_ge_60": false,
+  "no_cov_regression": true,
+  "archive_zero": true
+ },
+ "keep": false,
+ "verdict": "DISCARD",
+ "robust_line": "KILLED per director fail-branch"
+}

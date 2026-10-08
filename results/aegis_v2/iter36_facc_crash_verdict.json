@@ -1,0 +1,16 @@
+{
+ "idea": "FACC-SE3-iter36",
+ "run": 594,
+ "status": "crash",
+ "crash_reason": "canonical_rig_integration_missing",
+ "canonical_rig": "experiments/kaggle_aegis_sweep.py",
+ "physical_smoke_file": "results/aegis_v2/iter36_facc_crash_smoke.jsonl",
+ "smoke_seeds": 3,
+ "compare_champion": "trochoid",
+ "compare_record_keep": false,
+ "p_value_coverage_cont": null,
+ "p_value_fisher_success": null,
+ "fixture_B_transfer_success": null,
+ "synthetic_proxy_excluded": true,
+ "note": "FACC mechanism requires integration into kaggle_aegis_sweep.py; synthetic_proxy result excluded per G7"
+}

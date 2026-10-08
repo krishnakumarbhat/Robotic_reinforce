@@ -1,0 +1,809 @@
+{
+ "harness_facts": {
+  "H1_arm_mixing": "a --compare run writes BOTH arms into one jsonl and the episode record has no arm label, so the arms are split BY POSITION: modes[0] = candidate FIRST, baseline SECOND (rig source kaggle_aegis_sweep.py:2047). Verified three ways: the champion-vs-champion control is bit-identical, the first block equals the compare record's mean_b, and the second block equals mean_a AND equals the champion value of the control file. CORRECTED this iteration: an earlier cut of this readout labelled the arms the other way round, which flipped the sign of every P1/P2 dose delta.",
+  "H2_compare_naming": "in the rig compare record mean_a/mean_b and succ_a/succ_b are (BASELINE, CANDIDATE) -- a = by_mode[base_m], b = by_mode[cand] (kaggle_aegis_sweep.py:2095-2099) -- so mean_a is the SECOND block and mean_b the FIRST",
+  "H3_partial_knob_restore": "a baseline arm restores only the knobs named in --compare-env, so N202d (AMP overridden, W not) has a baseline at w=8.333 and its compare record is NOT a champion pairing"
+ },
+ "files": {
+  "N202_r312_s100_amp0p005": {
+   "A_m": 0.005,
+   "w": 33.333333333333336,
+   "k_wA": 0.16666666666666669,
+   "seeds": 100,
+   "suites": "ABR",
+   "pairing_valid": true,
+   "aegis_reg": "depth",
+   "pose_noise_cfg": "0,56",
+   "rig_version": 2,
+   "pts_source": "physics_contact",
+   "compare_keep": false,
+   "compare_means_a_baseline_b_candidate": {
+    "fixture_A": {
+     "covc_a_base": 0.7169,
+     "covc_b_cand": 0.7109,
+     "delta": -0.0059,
+     "welch_p": 0.8266610132324367,
+     "succ_a_base": 23,
+     "succ_b_cand": 22,
+     "fisher_p": 1.0
+    },
+    "fixture_B": {
+     "covc_a_base": 0.992,
+     "covc_b_cand": 0.9942,
+     "delta": 0.0022,
+     "welch_p": 0.4463884234156922,
+     "succ_a_base": 100,
+     "succ_b_cand": 100,
+     "fisher_p": 1.0
+    },
+    "fixture_R": {
+     "covc_a_base": 0.8623,
+     "covc_b_cand": 0.8592,
+     "delta": -0.0032,
+     "welch_p": 0.9018996209379195,
+     "succ_a_base": 61,
+     "succ_b_cand": 60,
+     "fisher_p": 1.0
+    }
+   }
+  },
+  "N202b_r312_s200_amp0p010": {
+   "A_m": 0.01,
+   "w": 33.333333333333336,
+   "k_wA": 0.33333333333333337,
+   "seeds": 200,
+   "suites": "A",
+   "pairing_valid": true,
+   "aegis_reg": "depth",
+   "pose_noise_cfg": "0,56",
+   "rig_version": 2,
+   "pts_source": "physics_contact",
+   "compare_keep": false,
+   "compare_means_a_baseline_b_candidate": {
+    "fixture_A": {
+     "covc_a_base": 0.7204,
+     "covc_b_cand": 0.7154,
+     "delta": -0.005,
+     "welch_p": 0.7916068678541893,
+     "succ_a_base": 48,
+     "succ_b_cand": 46,
+     "fisher_p": 0.9061774961069088
+    }
+   }
+  },
+  "N202c_r312_s200_amp0p0075": {
+   "A_m": 0.0075,
+   "w": 33.333333333333336,
+   "k_wA": 0.25,
+   "seeds": 200,
+   "suites": "A",
+   "pairing_valid": true,
+   "aegis_reg": "depth",
+   "pose_noise_cfg": "0,56",
+   "rig_version": 2,
+   "pts_source": "physics_contact",
+   "compare_keep": false,
+   "compare_means_a_baseline_b_candidate": {
+    "fixture_A": {
+     "covc_a_base": 0.7204,
+     "covc_b_cand": 0.714,
+     "delta": -0.0064,
+     "welch_p": 0.7373963474377583,
+     "succ_a_base": 48,
+     "succ_b_cand": 46,
+     "fisher_p": 0.9061774961069088
+    }
+   }
+  },
+  "N202b_r312_s200_amp0p015": {
+   "A_m": 0.015,
+   "w": 33.333333333333336,
+   "k_wA": 0.5,
+   "seeds": 200,
+   "suites": "A",
+   "pairing_valid": true,
+   "aegis_reg": "depth",
+   "pose_noise_cfg": "0,56",
+   "rig_version": 2,
+   "pts_source": "physics_contact",
+   "compare_keep": false,
+   "compare_means_a_baseline_b_candidate": {
+    "fixture_A": {
+     "covc_a_base": 0.7204,
+     "covc_b_cand": 0.7204,
+     "delta": 0.0,
+     "welch_p": 1.0,
+     "succ_a_base": 48,
+     "succ_b_cand": 48,
+     "fisher_p": 1.0
+    }
+   }
+  },
+  "N202_r312_s100_amp0p015": {
+   "A_m": 0.015,
+   "w": 33.333333333333336,
+   "k_wA": 0.5,
+   "seeds": 100,
+   "suites": "ABR",
+   "pairing_valid": true,
+   "aegis_reg": "depth",
+   "pose_noise_cfg": "0,56",
+   "rig_version": 2,
+   "pts_source": "physics_contact",
+   "compare_keep": false,
+   "compare_means_a_baseline_b_candidate": {
+    "fixture_A": {
+     "covc_a_base": 0.7169,
+     "covc_b_cand": 0.7169,
+     "delta": 0.0,
+     "welch_p": 1.0,
+     "succ_a_base": 23,
+     "succ_b_cand": 23,
+     "fisher_p": 1.0
+    },
+    "fixture_B": {
+     "covc_a_base": 0.992,
+     "covc_b_cand": 0.992,
+     "delta": 0.0,
+     "welch_p": 1.0,
+     "succ_a_base": 100,
+     "succ_b_cand": 100,
+     "fisher_p": 1.0
+    },
+    "fixture_R": {
+     "covc_a_base": 0.8623,
+     "covc_b_cand": 0.8623,
+     "delta": 0.0,
+     "welch_p": 1.0,
+     "succ_a_base": 61,
+     "succ_b_cand": 61,
+     "fisher_p": 1.0
+    }
+   }
+  },
+  "N202e_r312_s100_amp0p0165": {
+   "A_m": 0.0165,
+   "w": 33.333333333333336,
+   "k_wA": 0.55,
+   "seeds": 100,
+   "suites": "ABR",
+   "pairing_valid": true,
+   "aegis_reg": "depth",
+   "pose_noise_cfg": "0,56",
+   "rig_version": 2,
+   "pts_source": "physics_contact",
+   "compare_keep": false,
+   "compare_means_a_baseline_b_candidate": {
+    "fixture_A": {
+     "covc_a_base": 0.7169,
+     "covc_b_cand": 0.7168,
+     "delta": -0.0001,
+     "welch_p": 0.9969548045572605,
+     "succ_a_base": 23,
+     "succ_b_cand": 23,
+     "fisher_p": 1.0
+    },
+    "fixture_B": {
+     "covc_a_base": 0.992,
+     "covc_b_cand": 0.9922,
+     "delta": 0.0002,
+     "welch_p": 0.9603253552990493,
+     "succ_a_base": 100,
+     "succ_b_cand": 100,
+     "fisher_p": 1.0
+    },
+    "fixture_R": {
+     "covc_a_base": 0.8623,
+     "covc_b_cand": 0.8632,
+     "delta": 0.0009,
+     "welch_p": 0.9722881019799796,
+     "succ_a_base": 61,
+     "succ_b_cand": 61,
+     "fisher_p": 1.0
+    }
+   }
+  },
+  "N202d_r312_s100_amp0p060_w8p33": {
+   "A_m": 0.06,
+   "w": 8.333333333333334,
+   "k_wA": 0.5,
+   "seeds": 100,
+   "suites": "ABR",
+   "pairing_valid": false,
+   "aegis_reg": "depth",
+   "pose_noise_cfg": "0,56",
+   "rig_version": 2,
+   "pts_source": "physics_contact",
+   "compare_keep": false,
+   "compare_means_a_baseline_b_candidate": {
+    "fixture_A": {
+     "covc_a_base": 0.6731,
+     "covc_b_cand": 0.5171,
+     "delta": -0.156,
+     "welch_p": 1.1840739610284786e-08,
+     "succ_a_base": 19,
+     "succ_b_cand": 0,
+     "fisher_p": 1.4845070643582561e-06
+    },
+    "fixture_B": {
+     "covc_a_base": 0.98,
+     "covc_b_cand": 0.7181,
+     "delta": -0.2619,
+     "welch_p": 1.7630223469490006e-71,
+     "succ_a_base": 87,
+     "succ_b_cand": 0,
+     "fisher_p": 8.480115818865096e-43
+    },
+    "fixture_R": {
+     "covc_a_base": 0.8314,
+     "covc_b_cand": 0.613,
+     "delta": -0.2184,
+     "welch_p": 8.129544006796275e-16,
+     "succ_a_base": 50,
+     "succ_b_cand": 0,
+     "fisher_p": 4.445939502415725e-19
+    }
+   }
+  }
+ },
+ "P1_amplitude_dose": {
+  "A=0.005 (w=33.33, k=0.167) pairing_valid=True": {
+   "stem": "N202_r312_s100_amp0p005",
+   "candidate": {
+    "fixture_A": {
+     "n": 100,
+     "coverage_cont": 0.7109349999999999,
+     "sem": 0.019384806003359404,
+     "min_coverage_cont": 0.4375,
+     "success": 0.22,
+     "success_n": 22
+    },
+    "fixture_B": {
+     "n": 100,
+     "coverage_cont": 0.9942179999999999,
+     "sem": 0.0017858271320188152,
+     "min_coverage_cont": 0.9219,
+     "success": 1.0,
+     "success_n": 100
+    },
+    "fixture_R": {
+     "n": 100,
+     "coverage_cont": 0.859171,
+     "sem": 0.018415897902232588,
+     "min_coverage_cont": 0.4583,
+     "success": 0.6,
+     "success_n": 60
+    }
+   },
+   "baseline": {
+    "fixture_A": {
+     "n": 100,
+     "coverage_cont": 0.71687,
+     "sem": 0.018889566918906277,
+     "min_coverage_cont": 0.4375,
+     "success": 0.23,
+     "success_n": 23
+    },
+    "fixture_B": {
+     "n": 100,
+     "coverage_cont": 0.992034,
+     "sem": 0.002236755957211516,
+     "min_coverage_cont": 0.9219,
+     "success": 1.0,
+     "success_n": 100
+    },
+    "fixture_R": {
+     "n": 100,
+     "coverage_cont": 0.8623480000000001,
+     "sem": 0.01798529059363161,
+     "min_coverage_cont": 0.4688,
+     "success": 0.61,
+     "success_n": 61
+    }
+   },
+   "paired": {
+    "fixture_A": {
+     "n": 100,
+     "covc_cand": 0.7109349999999999,
+     "covc_base": 0.71687,
+     "delta_covc": -0.005935000000000135,
+     "welch_p": 0.8266610132324367,
+     "paired_wilcoxon_p": 0.00012863193671668825,
+     "n_seeds_differing": 62,
+     "succ_cand_n": 22,
+     "succ_base_n": 23,
+     "fisher_p_success": 1.0
+    },
+    "fixture_B": {
+     "n": 100,
+     "covc_cand": 0.9942179999999999,
+     "covc_base": 0.992034,
+     "delta_covc": 0.0021839999999999637,
+     "welch_p": 0.4463884234156922,
+     "paired_wilcoxon_p": 0.0021721536873098523,
+     "n_seeds_differing": 11,
+     "succ_cand_n": 100,
+     "succ_base_n": 100,
+     "fisher_p_success": 1.0
+    },
+    "fixture_R": {
+     "n": 100,
+     "covc_cand": 0.859171,
+     "covc_base": 0.8623480000000001,
+     "delta_covc": -0.0031770000000000964,
+     "welch_p": 0.9018996209379195,
+     "paired_wilcoxon_p": 0.05152050203797137,
+     "n_seeds_differing": 44,
+     "succ_cand_n": 60,
+     "succ_base_n": 61,
+     "fisher_p_success": 1.0
+    }
+   }
+  },
+  "A=0.01 (w=33.33, k=0.333) pairing_valid=True": {
+   "stem": "N202b_r312_s200_amp0p010",
+   "candidate": {
+    "fixture_A": {
+     "n": 200,
+     "coverage_cont": 0.7153614999999999,
+     "sem": 0.013490386204198982,
+     "min_coverage_cont": 0.4271,
+     "success": 0.23,
+     "success_n": 46
+    }
+   },
+   "baseline": {
+    "fixture_A": {
+     "n": 200,
+     "coverage_cont": 0.7203624999999999,
+     "sem": 0.013257546508152598,
+     "min_coverage_cont": 0.4375,
+     "success": 0.24,
+     "success_n": 48
+    }
+   },
+   "paired": {
+    "fixture_A": {
+     "n": 200,
+     "covc_cand": 0.7153614999999999,
+     "covc_base": 0.7203624999999999,
+     "delta_covc": -0.005001000000000033,
+     "welch_p": 0.7916068678541893,
+     "paired_wilcoxon_p": 1.5451572970572604e-08,
+     "n_seeds_differing": 109,
+     "succ_cand_n": 46,
+     "succ_base_n": 48,
+     "fisher_p_success": 0.9061774961069088
+    }
+   }
+  },
+  "A=0.0075 (w=33.33, k=0.250) pairing_valid=True": {
+   "stem": "N202c_r312_s200_amp0p0075",
+   "candidate": {
+    "fixture_A": {
+     "n": 200,
+     "coverage_cont": 0.7140090000000001,
+     "sem": 0.01351969585363792,
+     "min_coverage_cont": 0.4271,
+     "success": 0.23,
+     "success_n": 46
+    }
+   },
+   "baseline": {
+    "fixture_A": {
+     "n": 200,
+     "coverage_cont": 0.7203624999999999,
+     "sem": 0.013257546508152598,
+     "min_coverage_cont": 0.4375,
+     "success": 0.24,
+     "success_n": 48
+    }
+   },
+   "paired": {
+    "fixture_A": {
+     "n": 200,
+     "covc_cand": 0.7140090000000001,
+     "covc_base": 0.7203624999999999,
+     "delta_covc": -0.00635349999999979,
+     "welch_p": 0.7373963474377583,
+     "paired_wilcoxon_p": 5.266792808043878e-10,
+     "n_seeds_differing": 125,
+     "succ_cand_n": 46,
+     "succ_base_n": 48,
+     "fisher_p_success": 0.9061774961069088
+    }
+   }
+  },
+  "A=0.0165 (w=33.33, k=0.550) pairing_valid=True": {
+   "stem": "N202e_r312_s100_amp0p0165",
+   "candidate": {
+    "fixture_A": {
+     "n": 100,
+     "coverage_cont": 0.716768,
+     "sem": 0.018858133195954568,
+     "min_coverage_cont": 0.4375,
+     "success": 0.23,
+     "success_n": 23
+    },
+    "fixture_B": {
+     "n": 100,
+     "coverage_cont": 0.9921899999999999,
+     "sem": 0.0021923468814229294,
+     "min_coverage_cont": 0.9219,
+     "success": 1.0,
+     "success_n": 100
+    },
+    "fixture_R": {
+     "n": 100,
+     "coverage_cont": 0.863231,
+     "sem": 0.01791618700950612,
+     "min_coverage_cont": 0.4688,
+     "success": 0.61,
+     "success_n": 61
+    }
+   },
+   "baseline": {
+    "fixture_A": {
+     "n": 100,
+     "coverage_cont": 0.71687,
+     "sem": 0.018889566918906277,
+     "min_coverage_cont": 0.4375,
+     "success": 0.23,
+     "success_n": 23
+    },
+    "fixture_B": {
+     "n": 100,
+     "coverage_cont": 0.992034,
+     "sem": 0.002236755957211516,
+     "min_coverage_cont": 0.9219,
+     "success": 1.0,
+     "success_n": 100
+    },
+    "fixture_R": {
+     "n": 100,
+     "coverage_cont": 0.8623480000000001,
+     "sem": 0.01798529059363161,
+     "min_coverage_cont": 0.4688,
+     "success": 0.61,
+     "success_n": 61
+    }
+   },
+   "paired": {
+    "fixture_A": {
+     "n": 100,
+     "covc_cand": 0.716768,
+     "covc_base": 0.71687,
+     "delta_covc": -0.0001020000000000465,
+     "welch_p": 0.9969548045572605,
+     "paired_wilcoxon_p": 0.7157618539097782,
+     "n_seeds_differing": 36,
+     "succ_cand_n": 23,
+     "succ_base_n": 23,
+     "fisher_p_success": 1.0
+    },
+    "fixture_B": {
+     "n": 100,
+     "covc_cand": 0.9921899999999999,
+     "covc_base": 0.992034,
+     "delta_covc": 0.00015599999999993397,
+     "welch_p": 0.9603253552990493,
+     "paired_wilcoxon_p": 0.31731050786291415,
+     "n_seeds_differing": 1,
+     "succ_cand_n": 100,
+     "succ_base_n": 100,
+     "fisher_p_success": 1.0
+    },
+    "fixture_R": {
+     "n": 100,
+     "covc_cand": 0.863231,
+     "covc_base": 0.8623480000000001,
+     "delta_covc": 0.0008829999999998561,
+     "welch_p": 0.9722881019799796,
+     "paired_wilcoxon_p": 0.2131540034936913,
+     "n_seeds_differing": 15,
+     "succ_cand_n": 61,
+     "succ_base_n": 61,
+     "fisher_p_success": 1.0
+    }
+   }
+  },
+  "A=0.06 (w=8.33, k=0.500) pairing_valid=False": {
+   "stem": "N202d_r312_s100_amp0p060_w8p33",
+   "candidate": {
+    "fixture_A": {
+     "n": 100,
+     "coverage_cont": 0.5170859999999999,
+     "sem": 0.016440465230950767,
+     "min_coverage_cont": 0.2917,
+     "success": 0.0,
+     "success_n": 0
+    },
+    "fixture_B": {
+     "n": 100,
+     "coverage_cont": 0.7181150000000001,
+     "sem": 0.007131573327906903,
+     "min_coverage_cont": 0.5781,
+     "success": 0.0,
+     "success_n": 0
+    },
+    "fixture_R": {
+     "n": 100,
+     "coverage_cont": 0.612966,
+     "sem": 0.014550885996142205,
+     "min_coverage_cont": 0.2604,
+     "success": 0.0,
+     "success_n": 0
+    }
+   },
+   "baseline": {
+    "fixture_A": {
+     "n": 100,
+     "coverage_cont": 0.6731239999999998,
+     "sem": 0.0203536351266472,
+     "min_coverage_cont": 0.375,
+     "success": 0.19,
+     "success_n": 19
+    },
+    "fixture_B": {
+     "n": 100,
+     "coverage_cont": 0.9800059999999999,
+     "sem": 0.005159641718827643,
+     "min_coverage_cont": 0.8438,
+     "success": 0.87,
+     "success_n": 87
+    },
+    "fixture_R": {
+     "n": 100,
+     "coverage_cont": 0.8314059999999999,
+     "sem": 0.019958080048750264,
+     "min_coverage_cont": 0.4062,
+     "success": 0.5,
+     "success_n": 50
+    }
+   },
+   "paired": {
+    "fixture_A": {
+     "n": 100,
+     "covc_cand": 0.5170859999999999,
+     "covc_base": 0.6731239999999998,
+     "delta_covc": -0.1560379999999999,
+     "welch_p": 1.1840739610284786e-08,
+     "paired_wilcoxon_p": 3.849787982397915e-18,
+     "n_seeds_differing": 100,
+     "succ_cand_n": 0,
+     "succ_base_n": 19,
+     "fisher_p_success": 1.4845070643582561e-06
+    },
+    "fixture_B": {
+     "n": 100,
+     "covc_cand": 0.7181150000000001,
+     "covc_base": 0.9800059999999999,
+     "delta_covc": -0.2618909999999999,
+     "welch_p": 1.7630223469490006e-71,
+     "paired_wilcoxon_p": 3.1065464968120752e-18,
+     "n_seeds_differing": 100,
+     "succ_cand_n": 0,
+     "succ_base_n": 87,
+     "fisher_p_success": 8.480115818865096e-43
+    },
+    "fixture_R": {
+     "n": 100,
+     "covc_cand": 0.612966,
+     "covc_base": 0.8314059999999999,
+     "delta_covc": -0.21843999999999986,
+     "welch_p": 8.129544006796275e-16,
+     "paired_wilcoxon_p": 3.869174818934531e-18,
+     "n_seeds_differing": 100,
+     "succ_cand_n": 0,
+     "succ_base_n": 50,
+     "fisher_p_success": 4.445939502415725e-19
+    }
+   }
+  }
+ },
+ "P2_supply_denominator": {
+  "A=0.0075": {
+   "n": 200,
+   "x_mean": 183.57076556225928,
+   "x_shift_pct_vs_champion": 15.620610922917905,
+   "equivalent_yaw_shift_deg": 6.277579831413077,
+   "covc_delta_paired_vs_champion": -0.00635349999999979,
+   "predicted_delta_from_fixture_A_yaw_line": -0.0453832939326143,
+   "yaw_line": {
+    "slope_covc_per_deg": -0.007229425216628199,
+    "intercept": 1.0177907040879204,
+    "pearson_r": -0.9729553504978611,
+    "n": 880
+   },
+   "measured_over_predicted": 0.13999644912142226,
+   "reading": "if A were part of the denominator the yaw line predicts this delta; measured/predicted far below 1 -> A carries only a fraction of the weight a supply term needs"
+  },
+  "A=0.01": {
+   "n": 200,
+   "x_mean": 174.4750269067425,
+   "x_shift_pct_vs_champion": 9.891731071461521,
+   "equivalent_yaw_shift_deg": 3.977688228806593,
+   "covc_delta_paired_vs_champion": -0.005001000000000033,
+   "predicted_delta_from_fixture_A_yaw_line": -0.02875639958521954,
+   "yaw_line": {
+    "slope_covc_per_deg": -0.007229425216628199,
+    "intercept": 1.0177907040879204,
+    "pearson_r": -0.9729553504978611,
+    "n": 880
+   },
+   "measured_over_predicted": 0.17390911491473673,
+   "reading": "if A were part of the denominator the yaw line predicts this delta; measured/predicted far below 1 -> A carries only a fraction of the weight a supply term needs"
+  },
+  "A=0.005": {
+   "n": 100,
+   "x_mean": 193.89257099872356,
+   "x_shift_pct_vs_champion": 22.12171934688828,
+   "equivalent_yaw_shift_deg": 8.840740259371357,
+   "covc_delta_paired_vs_champion": -0.005935000000000135,
+   "predicted_delta_from_fixture_A_yaw_line": -0.0639134705647594,
+   "yaw_line": {
+    "slope_covc_per_deg": -0.007229425216628199,
+    "intercept": 1.0177907040879204,
+    "pearson_r": -0.9729553504978611,
+    "n": 880
+   },
+   "measured_over_predicted": 0.09285992369928622,
+   "reading": "if A were part of the denominator the yaw line predicts this delta; measured/predicted far below 1 -> A carries only a fraction of the weight a supply term needs"
+  },
+  "A=0.0165": {
+   "n": 100,
+   "x_mean": 154.87807291673712,
+   "x_shift_pct_vs_champion": -2.4512571250128756,
+   "equivalent_yaw_shift_deg": -1.059274840296383,
+   "covc_delta_paired_vs_champion": -0.0001020000000000465,
+   "predicted_delta_from_fixture_A_yaw_line": 0.0076579482417784795,
+   "yaw_line": {
+    "slope_covc_per_deg": -0.007229425216628199,
+    "intercept": 1.0177907040879204,
+    "pearson_r": -0.9729553504978611,
+    "n": 880
+   },
+   "measured_over_predicted": -0.013319494566910006,
+   "reading": "if A were part of the denominator the yaw line predicts this delta; measured/predicted far below 1 -> A carries only a fraction of the weight a supply term needs"
+  }
+ },
+ "P3_c1_law": {
+  "source": "N202_kinematic.py",
+  "predicted_max_turn_deg": {
+   "k=0.1667": 14.87,
+   "k=0.2500": 19.23,
+   "k=0.3333": 26.04,
+   "k=0.4167": 32.32,
+   "k=0.5000": 45.37,
+   "k=0.5500": 50.9,
+   "k=0.6000": 61.65,
+   "k=0.6500": 66.58,
+   "k=0.7000": 88.56,
+   "k=0.7500": 102.94,
+   "k=0.8000": 95.37,
+   "k=0.9000": 111.36,
+   "k=1.0000": 173.2
+  },
+  "rig_asserted_max_turn_deg": {
+   "k=0.6000 (A=0.018)": 61.7,
+   "k=0.7500 (A=0.0225)": 102.9,
+   "k=1.0000 (A=0.030, elongated)": 150.6
+  },
+  "C1_threshold_deg": 60.0,
+  "k_star_c1_boundary": 0.592312210061682,
+  "A_max_at_champion_rate_m": 0.01776936630185046,
+  "champion_A_m": 0.015,
+  "champion_k": 0.5,
+  "champion_max_turn_deg": 45.36829850475862,
+  "champion_C1_budget_used_frac": 0.7561383084126436,
+  "k_invariance_line_at_k_0p5": [
+   {
+    "A_m": 0.0075,
+    "w": 66.66666666666667,
+    "k": 0.5,
+    "max_turn_deg": 49.13957528263096,
+    "len_m": 1.413217467204332
+   },
+   {
+    "A_m": 0.015,
+    "w": 33.333333333333336,
+    "k": 0.5,
+    "max_turn_deg": 45.36829850475797,
+    "len_m": 1.4117817027811626
+   },
+   {
+    "A_m": 0.03,
+    "w": 16.666666666666668,
+    "k": 0.5,
+    "max_turn_deg": 40.035059938967095,
+    "len_m": 1.4620678710792145
+   },
+   {
+    "A_m": 0.06,
+    "w": 8.333333333333334,
+    "k": 0.5,
+    "max_turn_deg": 33.36618406115794,
+    "len_m": 1.26177499543273
+   }
+  ],
+  "k_invariance_spread_deg": 15.77339122147302,
+  "cusp_law": "min|T| = 1 - k, so the cusp is k = 1 for ANY (A, w) (rig R29 note)",
+  "exactness": "k alone is NOT the whole invariant: at fixed k the max turn still spans 15.8 deg over an 8x amplitude range, because the offset is sampled once per base point so the phase step is w*BASE_DS_M"
+ },
+ "H3_invalid_pairing": {
+  "file": "results/aegis_v2/N202d_r312_s100_amp0p060_w8p33.jsonl",
+  "why": "--compare-env overrode AEGIS_TROCH_AMP_M only; the baseline arm kept AEGIS_TROCH_W=8.333 from the environment, so it is A=0.015, w=8.333, k=0.125 -- not the champion",
+  "candidate_arm_absolute": {
+   "fixture_A": {
+    "n": 100,
+    "coverage_cont": 0.5170859999999999,
+    "sem": 0.016440465230950767,
+    "min_coverage_cont": 0.2917,
+    "success": 0.0,
+    "success_n": 0
+   },
+   "fixture_B": {
+    "n": 100,
+    "coverage_cont": 0.7181150000000001,
+    "sem": 0.007131573327906903,
+    "min_coverage_cont": 0.5781,
+    "success": 0.0,
+    "success_n": 0
+   },
+   "fixture_R": {
+    "n": 100,
+    "coverage_cont": 0.612966,
+    "sem": 0.014550885996142205,
+    "min_coverage_cont": 0.2604,
+    "success": 0.0,
+    "success_n": 0
+   }
+  },
+  "cross_file_paired_vs_champion_same_seeds": {
+   "fixture_A": {
+    "n": 100,
+    "covc_cand": 0.5170859999999999,
+    "covc_base": 0.71687,
+    "delta_covc": -0.19978400000000007,
+    "welch_p": 1.2570823956507712e-13,
+    "paired_wilcoxon_p": 3.863501700781969e-18,
+    "n_seeds_differing": 100,
+    "succ_cand_n": 0,
+    "succ_base_n": 23,
+    "fisher_p_success": 5.710246485980471e-08
+   },
+   "fixture_B": {
+    "n": 100,
+    "covc_cand": 0.7181150000000001,
+    "covc_base": 0.992034,
+    "delta_covc": -0.2739189999999999,
+    "welch_p": 2.0222271361665646e-66,
+    "paired_wilcoxon_p": 3.0237389002783078e-18,
+    "n_seeds_differing": 100,
+    "succ_cand_n": 0,
+    "succ_base_n": 100,
+    "fisher_p_success": 2.208760693199503e-59
+   },
+   "fixture_R": {
+    "n": 100,
+    "covc_cand": 0.612966,
+    "covc_base": 0.8623480000000001,
+    "delta_covc": -0.2493820000000001,
+    "welch_p": 1.9293579231037203e-21,
+    "paired_wilcoxon_p": 3.859143130316534e-18,
+    "n_seeds_differing": 100,
+    "succ_cand_n": 0,
+    "succ_base_n": 61,
+    "fisher_p_success": 1.115685751040197e-24
+   }
+  }
+ },
+ "episodes_total": 3600,
+ "new_rig_bytes": 0,
+ "metric_quantum_B": {
+  "grid_unit": 0.0078125,
+  "observed_spacing_fixture_B": 0.015625,
+  "note": "N199 measured six even-k values over 600 B episodes, so 2/128 = 0.0156 is the usable quantum on the anchored suite and 1/128 the grid unit; fixture_A is on k/96 and fixture_R on k/192."
+ },
+ "episodes_all_n202_files": 4320
+}

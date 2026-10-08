@@ -1,0 +1,47 @@
+{
+ "record": "compare",
+ "candidate": "trochoid d/R=0.5",
+ "baseline": "archived champion v2_trochoid_0,0 (same seeds)",
+ "metric": "coverage_cont",
+ "fixture_A": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9354,
+  "mean_b": 0.9354,
+  "delta": 0.0,
+  "welch_t": 0.0,
+  "welch_p": 1.0,
+  "paired_t": NaN,
+  "paired_p": NaN,
+  "p_method": "scipy",
+  "fisher_p": 1.0
+ },
+ "fixture_B": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9453,
+  "mean_b": 0.9453,
+  "delta": 0.0,
+  "welch_t": 0.0,
+  "welch_p": 1.0,
+  "paired_t": NaN,
+  "paired_p": NaN,
+  "p_method": "scipy",
+  "fisher_p": 1.0
+ },
+ "fixture_R": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9427,
+  "mean_b": 0.9427,
+  "delta": 0.0,
+  "welch_t": 0.0,
+  "welch_p": 1.0,
+  "paired_t": NaN,
+  "paired_p": NaN,
+  "p_method": "scipy",
+  "fisher_p": 1.0
+ },
+ "identical_path_proof": true,
+ "keep": false
+}

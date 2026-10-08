@@ -1,0 +1,27 @@
+
+===== pose_noise n00 =====
+arm                   floor    theta   press   scale   Bcovc    Bslip   Bfnc  Bsucc   Rcovc  Rsucc  keep
+trig001                0.30   0.0100  0.2244  0.3000  0.9461  0.00664  0.213   20/20  0.9448   20/20 False
+  gate-off ref            -        -  0.5000       -  0.9453  0.01059  1.000   20/20  0.9427   19/20
+trig005                0.30   0.0500  0.2376  0.3000  0.9453  0.00660  0.250   20/20  0.9440   20/20 False
+  gate-off ref            -        -  0.5000       -  0.9453  0.01059  1.000   20/20  0.9427   19/20
+trig015                0.30   0.1500  0.2394  0.3000  0.9453  0.00660  0.255   20/20  0.9440   20/20 False
+  gate-off ref            -        -  0.5000       -  0.9453  0.01059  1.000   20/20  0.9427   19/20
+CTRLstatic003          0.30   0.0001  0.1860  0.3000  0.9476  0.00641  0.103   20/20  0.9440   20/20 False
+  gate-off ref            -        -  0.5000       -  0.9453  0.01059  1.000   20/20  0.9427   19/20
+floor06                0.60   0.0100  0.3415  0.6000  0.9453  0.00871  1.000   20/20  0.9432   20/20 False
+  gate-off ref            -        -  0.5000       -  0.9453  0.01059  1.000   20/20  0.9427   19/20
+floor015               0.15   0.0100  0.1653  0.1500  0.9492  0.00549  0.213   20/20  0.9471   20/20 False
+  gate-off ref            -        -  0.5000       -  0.9453  0.01059  1.000   20/20  0.9427   19/20
+
+===== pose_noise n012 =====
+arm                   floor    theta   press   scale   Bcovc    Bslip   Bfnc  Bsucc   Rcovc  Rsucc  keep
+trig001                0.30   0.0100  0.2244  0.3000  0.9422  0.00664  0.213   15/20  0.9075   13/20 False
+trig_floor015          0.15   0.0100  0.1653  0.1500  0.9437  0.00549  0.213   15/20  0.9096   14/20 False
+CTRLstatic003          0.30   0.0001  0.1856  0.3000  0.9422  0.00641  0.102   15/20  0.9081   13/20 False
+
+mean press_scale on triggered ticks, 6 arms: [0.3, 0.3, 0.3, 0.3, 0.6, 0.15]
+  GATE_PROP_MIN per arm: [0.3, 0.3, 0.3, 0.3, 0.6, 0.15]
+  every value == GATE_PROP_MIN exactly -> the law is evaluated on the TRIGGERED tick and re-evaluated to 1.0 on the next one, so it never sits between the rails.
+  Spearman slip~press rho=+0.7714 p=0.0724   slip~theta rho=+0.1518 p=0.774
+  -> slip follows the PRESS; the threshold carries no signal of its own.

@@ -1,0 +1,42 @@
+{
+  "iteration": 47,
+  "segment": 15,
+  "brain": "muse-spark-1.3-contributor-free",
+  "frontier": "bridge flow-matching -> affordance-equivalence + violate pi0 fixed-manifold",
+  "mechanism": "energy-based physical in-context attention (contact/physics cost as energy, info-bottleneck selection)",
+  "validation_split": "Fixture B OOD (elongated/wall-hung/matte/\u00b115cm/\u00b110\u00b0) vs Fixture A",
+  "seeds_run": 20,
+  "seeds_required": 20,
+  "physical_engine": "pybullet_rigid_contact_friction_0.05_0.80 (local DIRECT; remote GPU deferred)",
+  "fixed_manifold_mean_fixture_B": 0.8728,
+  "deformable_flow_mean_fixture_B": 0.8879,
+  "ood_gain_pct": 1.73,
+  "falsifier_triggered": true,
+  "falsifier_rule": "kill if <5% OOD gain over fixed-manifold pi0 baseline",
+  "tier4_gate_preserved": true,
+  "tier4_max_jerk": 0.618,
+  "gate_with_without_reported": true,
+  "edge_budget_proxy": {
+    "vram_mb_est": 950,
+    "latency_ms_est": 1.8,
+    "params_approx": 1024,
+    "ok": true
+  },
+  "architecture_status": "DISCARD (falsifier triggered)",
+  "champion_preserved": "N74 (92.3) unconditionally",
+  "freeze_core_N74": true,
+  "evidence_artifacts": [
+    "experiments/run-47-iter.py",
+    "benchmarks/restroom_sim.py",
+    "src/affordance_flow_expert.py",
+    "equations.md row 77-78",
+    "results/seg15_physics.json",
+    "results/benchmark_restroom_sim.json"
+  ],
+  "same_dependency_deferred": "full 3s demo calibration + remote GPU ManiSkill for calibrated >=70 confirmation",
+  "same_cross_cutting_calibration": "unified 3s demo calibration protocol (M_spec spectral mask, entropy-stability loss L_ent, bounded-shift s, calibration dependency covering N2-N74)",
+  "physical_validated": false,
+  "validated_candidate_predicted_only": true,
+  "note": "Synthetic proxy comparison completed; real Fixture-A/B 20-seed physical confirmation deferred to remote GPU (ManiSkill). Falsifier <5% OOD gain => DISCARD from champion contention. Freeze N74 champion unconditionally. No adapter/retrain/cross-edge. Zero new adapter/retrain. No secrets committed.",
+  "interception_delta_proxy": 0.01
+}

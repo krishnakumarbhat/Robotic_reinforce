@@ -1,0 +1,115 @@
+==============================================================================
+N215 FIXTURE-FACE AXIS -- rig-side identity
+==============================================================================
+arm files: 40
+identity vs run 350: 60 episodes, bit-identical on ('coverage_cont', 'success', 'escaped', 'coverage', 'stall_frac', 'z_exc_max_m'), max |d fn_mean| 0.1540 N (N210's cross-process force floor)
+identity header face_realized = {'round': [0.32, 0.32], 'elongated': [0.34, 0.14]} (frozen literals at default 0.0)
+rig keep = false in all 40 arms BY CONSTRUCTION (no keep claimed)
+[aegis-sweep] /kaggle/working unavailable -> WORKDIR=/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce/results
+pybullet build time: Jan 29 2025 23:16:28
+[aegis-sweep] /kaggle/working unavailable -> WORKDIR=/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce/results
+[aegis-sweep] /kaggle/working unavailable -> WORKDIR=/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce/results
+commanded plan reach, trochoid/elongated: u 0.2230 v 0.0500
+commanded plan reach, trochoid/round:     u 0.2320 v 0.0800
+commanded plan reach, raster/elongated:   u 0.2000 v 0.0350
+
+==============================================================================
+N215.1  THE THREE LADDERS (candidate arm; the paired baseline reads 1.0000 / 20-20 everywhere)
+==============================================================================
+arm           face |         B cov/succ/esc |         A cov/succ/esc |         R cov/succ/esc | keep
+id         v=0.1400 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_120     v=0.1200 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_100     v=0.1000 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_080     v=0.0800 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_070     v=0.0700 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_065     v=0.0650 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_060     v=0.0600 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_055     v=0.0550 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_0525    v=0.0525 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fv_050     v=0.0500 | 1.0000 20/20  0 | 1.0000 20/20  0 | 0.9352 18/20  2 | False
+fv_0475    v=0.0475 | 0.2789  0/20 20 | 1.0000 20/20  0 | 0.6086  9/20 11 | False
+fv_045     v=0.0450 | 0.3359  0/20 20 | 1.0000 20/20  0 | 0.6328  9/20 11 | False
+fv_040     v=0.0400 | 0.2281  0/20 19 | 1.0000 20/20  0 | 0.5977  9/20 11 | False
+fv_030     v=0.0300 | 0.2164  0/20 16 | 1.0000 20/20  0 | 0.5594  9/20 11 | False
+fv_020     v=0.0200 | 0.1570  0/20 16 | 1.0000 20/20  0 | 0.5648  9/20  9 | False
+fv_010     v=0.0100 | 0.0852  0/20 19 | 1.0000 20/20  0 | 0.5000  9/20 11 | False
+id         u=0.3400 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fu_300     u=0.3000 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fu_280     u=0.2800 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fu_260     u=0.2600 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fu_240     u=0.2400 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fu_225     u=0.2250 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fu_220     u=0.2200 | 1.0000 19/20  1 | 1.0000 20/20  0 | 1.0000 19/20  1 | False
+fu_210     u=0.2100 | 1.0000  2/20 18 | 1.0000 20/20  0 | 1.0000 12/20  8 | False
+fu_200     u=0.2000 | 0.8133  0/20 20 | 1.0000 20/20  0 | 0.8945  9/20 10 | False
+id         r=0.3200 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fr_300     r=0.3000 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fr_280     r=0.2800 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fr_260     r=0.2600 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fr_240     r=0.2400 | 1.0000 20/20  0 | 1.0000 20/20  0 | 1.0000 20/20  0 | False
+fr_230     r=0.2300 | 1.0000 20/20  0 | 0.9370 13/20  7 | 0.9901 19/20  1 | False
+fr_225     r=0.2250 | 1.0000 20/20  0 | 0.8807  8/20 12 | 0.9370 14/20  6 | False
+fr_220     r=0.2200 | 1.0000 20/20  0 | 0.8667  5/20 14 | 0.9464 14/20  6 | False
+fr_215     r=0.2150 | 1.0000 20/20  0 | 0.8312  0/20 20 | 0.9151 11/20  9 | False
+fr_200     r=0.2000 | 1.0000 20/20  0 | 0.4797  0/20 20 | 0.7208 11/20  9 | False
+ras_fv060  v=0.0600 | RASTER B 1.0000 20/20  0 | False
+ras_fv050  v=0.0500 | RASTER B 1.0000 20/20  0 | False
+ras_fv040  v=0.0400 | RASTER B 1.0000 20/20  0 | False
+ras_fv030  v=0.0300 | RASTER B 0.1399  0/20 13 | False
+ras_fv020  v=0.0200 | RASTER B 0.0914  0/20 20 | False
+
+fixture_B v cliff bracket (last_fail, last_pass] = (0.0475, 0.05)   plan reach_v 0.0500
+fixture_B u cliff bracket                    = (0.22, 0.225)   plan reach_u 0.2230
+fixture_A r cliff bracket                    = (0.23, 0.24)   plan corner rho 0.2454
+fixture_B v cliff, RASTER                    = (0.03, 0.04)   raster reach_v 0.0350
+
+==============================================================================
+N215.2  F1 (CONFIRMED): order of first loss v < u < round, as fractions of the frozen face
+==============================================================================
+v 0.0500/0.14 = 0.357 | u 0.2250/0.34 = 0.662 | round r 0.2400/0.32 = 0.750
+
+==============================================================================
+N215.3  F2 (REFUTED): the cliff is the PLAN REACH, 2.0x below patch_half + r_eff
+==============================================================================
+pre-registered F2 cliff window = patch_v 0.05 + r_eff (0.035, 0.04, 0.05) = [0.0850, 0.1000]
+measured bracket = (0.0475, 0.05), and it CONTAINS plan reach_v 0.0500
+raster's own reach 0.0350 (1.43x below trochoid's 0.0500) and its cliff (0.03, 0.04) -> the law is the PLAN, not the patch
+
+==============================================================================
+N215.4  F3 (REFUTED): escaped flips 0 -> 20/20 at the cliff; the loss is a step, not a ramp
+==============================================================================
+  face_v 0.0525: cov 1.0000 succ 20/20 esc  0 stall_frac 0.000 launch_frac 0.0000
+  face_v 0.0475: cov 0.2789 succ  0/20 esc 20 stall_frac 0.844 launch_frac 0.0218
+  face_v 0.0450: cov 0.3359 succ  0/20 esc 20 stall_frac 0.827 launch_frac 0.0230
+  face_v 0.0300: cov 0.2164 succ  0/20 esc 16 stall_frac 0.749 launch_frac 0.0154
+  -> the head loses contact (0.84 contact-free fraction), the lateral servo keeps driving it, it slides off the edge and trips the 0.60 m workspace escape test. launch_frac 0.0218 rules N213's launch channel OUT.
+
+==============================================================================
+N215.5  F4 (CONFIRMED): raster and trochoid fail in the same band and through the same channel
+==============================================================================
+trochoid cliff (0.0475, 0.05) (step 0.0025) | raster cliff (0.03, 0.04) (step 0.0100) | separation 0.0100
+  raster at face_v 0.030: esc 13/20, stall_frac 0.672 -> same channel, and the 1-step offset is exactly the two plans' reaches
+
+==============================================================================
+N215.6  F5 (region CONFIRMED / 'sits close to its edge' REFUTED)
+==============================================================================
+frozen face margin at the measured cliff: v 0.14/0.0500 = 2.80x | u 0.34/0.2250 = 1.51x | round 0.32/0.2400 = 1.33x
+pre-registered claim: v margin 1.27x is the TIGHTEST term in the segment
+fixture_B certificate region: face_v in [0.0500, 0.14] (2.80x) and face_u in [0.2250, 0.34] (1.51x), all at 1.0000 / 20-20
+
+==============================================================================
+N215.7  cliff SHARPNESS is a face-SHAPE property (graded disc vs flat edge)
+==============================================================================
+  round radius -> 0.300:1.000 0.280:1.000 0.260:1.000 0.240:1.000 0.230:0.937 0.225:0.881 0.220:0.867 0.215:0.831 0.200:0.480
+  elongated v  -> 0.1200:1.000 0.1000:1.000 0.0800:1.000 0.0700:1.000 0.0650:1.000 0.0600:1.000 0.0550:1.000 0.0525:1.000 0.0500:1.000 0.0475:0.279 0.0450:0.336 0.0400:0.228 0.0300:0.216 0.0200:0.157 0.0100:0.085
+  -> a flat edge PARALLEL to the plan's excursion gives a knife edge; a convex boundary the plan's corner crosses obliquely gives a graded loss. Same channel, different geometry.
+
+==============================================================================
+N215.8  the face requirement is ADDITIVE in the plan-frame offset (N213's term)
+==============================================================================
+  face_v 0.1400 pose noise 0,0: cov 1.0000 succ 20/20 esc  0
+  face_v 0.0600 pose noise 0.03,6: cov 0.6125 succ  6/20 esc 13
+  face_v 0.0550 pose noise 0.03,6: cov 0.5281 succ  3/20 esc 16
+  -> the same head that certifies at the frozen 0.140 loses coverage at 0.060 under (0.03,6), i.e. face_half must cover plan_reach + the REALISED offset (N213: up to 3.63x the labelled sigma). The face law is not a constant: it is a budget shared with N213.
+
+N215 ASSERTIONS PASS: identity bit-identical on the scored metric; keep=false in all 40 arms; F1 and F4 confirmed; F2, F3 and F5's second half refuted and left refuted; the cliff is the commanded plan's own reach.

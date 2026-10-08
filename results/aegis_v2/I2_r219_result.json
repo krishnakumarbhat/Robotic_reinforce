@@ -1,0 +1,266 @@
+{
+ "variant": "T219 = band-local upper-tail asymmetric upper-MAD EB-lite single-floor soft-score pooled-0 + 20% global anchor: med*=0.8*med_b+0.2*med_g; MADup*=w*MADup_b+(1-w)*MADup_g, w=n_b/(n_b+20); s=max(0,w191-med*)/(1.4826*max(MADup*,floor)); floor=max(5,0.5*MADup_g); p=1-exp(-s); per-band ROC TAU_p",
+ "bands": {
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "cal_n": [
+   40,
+   40,
+   40
+  ],
+  "cal_fails": [
+   6,
+   4,
+   7
+  ],
+  "med_band": [
+   82.7989,
+   75.1409,
+   65.6217
+  ],
+  "MED_global": 74.3101,
+  "anchor": 0.2,
+  "center_star": [
+   81.1012,
+   74.9747,
+   67.3593
+  ],
+  "MADup_band": [
+   17.2011,
+   13.7229,
+   9.7016
+  ],
+  "MADlow_band": [
+   11.6301,
+   13.4071,
+   65.6217
+  ],
+  "MADsym_band": [
+   12.9517,
+   13.4071,
+   18.3332
+  ],
+  "skew_up_over_low": [
+   1.479,
+   1.0236,
+   0.1478
+  ],
+  "MADUP_global": 17.8596,
+  "MADLOW_global": 12.8785,
+  "MADsym_global": 14.9494,
+  "n_band": [
+   40,
+   40,
+   40
+  ],
+  "shrink_w": [
+   0.6667,
+   0.6667,
+   0.6667
+  ],
+  "MADup_star": [
+   17.4206,
+   15.1018,
+   12.421
+  ],
+  "floor_single": 8.9298,
+  "scale_star": [
+   25.8277,
+   22.3899,
+   18.4153
+  ],
+  "floor_binds": [
+   false,
+   false,
+   false
+  ],
+  "floor_frac": 0.0,
+  "collapse_raw_MADup": [
+   false,
+   false,
+   false
+  ],
+  "collapse_frac": 0.0
+ },
+ "fit": {
+  "tau_star_per_band": {
+   "0": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false
+   },
+   "1": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false
+   },
+   "2": {
+    "TAU": 0.31565959604780325,
+    "calib_recall_b": 0.8571,
+    "calib_pf_b": 0.0909,
+    "feasible": true
+   }
+  },
+  "TAU_STAR_band": null,
+  "feasible": false,
+  "hard_fit_feasible": false,
+  "hard_TAU_band": null
+ },
+ "finite_audit": {
+  "nonfinite_or_neg_calib": 0,
+  "nonfinite_or_neg_held": 0,
+  "nonfinite_or_neg_arch": 0,
+  "zero_inf_nan": true
+ },
+ "mad0_slice": {
+  "0": {
+   "MADup_b_set0": true,
+   "scale": 13.2393,
+   "s_per_10units": 0.7553,
+   "p_per_10units": 0.5301,
+   "finite": true
+  },
+  "1": {
+   "MADup_b_set0": true,
+   "scale": 13.2393,
+   "s_per_10units": 0.7553,
+   "p_per_10units": 0.5301,
+   "finite": true
+  },
+  "2": {
+   "MADup_b_set0": true,
+   "scale": 13.2393,
+   "s_per_10units": 0.7553,
+   "p_per_10units": 0.5301,
+   "finite": true
+  }
+ },
+ "nsub_slice": {
+  "10": {
+   "feasible": false,
+   "shrink_w": 0.3333,
+   "pooled_recall_pts": 100.0,
+   "n_adm": 0,
+   "nonfinite_held": 0
+  },
+  "20": {
+   "feasible": false,
+   "shrink_w": 0.5,
+   "pooled_recall_pts": 100.0,
+   "n_adm": 0,
+   "nonfinite_held": 0
+  }
+ },
+ "lobo": {
+  "per_leftout": {
+   "0": {
+    "feasible": true,
+    "held_recall_pts": 53.33,
+    "TAU": 0.1465
+   },
+   "1": {
+    "feasible": true,
+    "held_recall_pts": 60.0,
+    "TAU": 0.3157
+   },
+   "2": {
+    "feasible": true,
+    "held_recall_pts": 66.67,
+    "TAU": 0.5189
+   }
+  },
+  "var_pts": 13.34,
+  "pass_var_lt15": true
+ },
+ "pooled1_ablation": {
+  "feasible": true,
+  "held_recall_pts": 60.0,
+  "TAU": 0.3157,
+  "n_adm": 40
+ },
+ "pooled1_wins": false,
+ "ablations": {
+  "anchor0_pooled0": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "TAU": null
+  },
+  "symmetricMAD_pooled0": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "TAU": null
+  },
+  "anchor_delta_pts": 0.0,
+  "upper_vs_sym_delta_pts": 0.0
+ },
+ "soft_vs_hard": {
+  "rank_corr_spearman": 1.0,
+  "admit_agreement_held": 1.0
+ },
+ "runA_keep_cited": true,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T219": {
+   "n_adm": 0,
+   "yield_sel": 0.0,
+   "keep_pct": 0.0,
+   "precision_adm": 1.0,
+   "veto_rate": 1.0,
+   "cov_adm": 0.0
+  },
+  "cov_all": 0.9883
+ },
+ "perband_held": {
+  "0": {
+   "n": 39,
+   "n_fails": 5,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0
+  },
+  "1": {
+   "n": 40,
+   "n_fails": 3,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0
+  },
+  "2": {
+   "n": 41,
+   "n_fails": 7,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0
+  }
+ },
+ "pooled_held": {
+  "T219_pooled0": {
+   "n_adm": 0,
+   "veto_rate": 1.0,
+   "p_fail_adm": 0.0,
+   "precision_adm": 1.0,
+   "recall_fail_reject": 1.0,
+   "score_recall_pts": 100.0
+  },
+  "recall_vs_T207_pts": 40.0,
+  "recall_vs_plateau_pts": 53.33,
+  "selective_risk_lift_vs_T173_pts": 89.22
+ },
+ "archive_adm_frac_T219": 0.0,
+ "cov_ok": false,
+ "director_legs": {
+  "pts_ge_70": true,
+  "heldB_keep_ge_70": false,
+  "zero_inf_nan": true,
+  "lobo_var_lt15": true,
+  "predicted_pts_75_85": 100.0,
+  "predicted_keep": 0.0
+ },
+ "degenerate_all_reject": true,
+ "verdict": "DISCARD",
+ "keep": false
+}

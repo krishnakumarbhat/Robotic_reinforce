@@ -1,0 +1,520 @@
+{
+ "yaw_only": {
+  "orbit_t0": {
+   "orbit": {
+    "n": 40,
+    "succ": "40/40",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 0.0
+   },
+   "trochoid": {
+    "n": 40,
+    "succ": "40/40",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 0.0
+   }
+  },
+  "orbit_t20": {
+   "orbit": {
+    "n": 40,
+    "succ": "40/40",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 15.4
+   },
+   "trochoid": {
+    "n": 40,
+    "succ": "25/40",
+    "covc": 0.906,
+    "pred": 0.9122,
+    "resid": -0.0062,
+    "maxresid": 0.0417,
+    "r": 0.9901,
+    "analytic_predicts_success": "38/40",
+    "yaw_med": 15.4
+   }
+  },
+  "orbit_t40": {
+   "orbit": {
+    "n": 40,
+    "succ": "40/40",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 30.7
+   },
+   "trochoid": {
+    "n": 40,
+    "succ": "11/40",
+    "covc": 0.7687,
+    "pred": 0.7693,
+    "resid": -0.0005,
+    "maxresid": 0.0312,
+    "r": 0.9984,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 30.7
+   }
+  },
+  "orbit_t56": {
+   "orbit": {
+    "n": 40,
+    "succ": "40/40",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 43.0
+   },
+   "trochoid": {
+    "n": 40,
+    "succ": "6/40",
+    "covc": 0.6867,
+    "pred": 0.6891,
+    "resid": -0.0023,
+    "maxresid": 0.0312,
+    "r": 0.9977,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 43.0
+   }
+  },
+  "orbit_t64": {
+   "orbit": {
+    "n": 40,
+    "succ": "40/40",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 49.2
+   },
+   "trochoid": {
+    "n": 40,
+    "succ": "6/40",
+    "covc": 0.6687,
+    "pred": 0.6695,
+    "resid": -0.0008,
+    "maxresid": 0.0312,
+    "r": 0.9976,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 49.2
+   }
+  },
+  "trochoid_t0": {
+   "trochoid": {
+    "n": 40,
+    "succ": "40/40",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 0.0
+   }
+  },
+  "trochoid_t20": {
+   "trochoid": {
+    "n": 40,
+    "succ": "25/40",
+    "covc": 0.906,
+    "pred": 0.9122,
+    "resid": -0.0062,
+    "maxresid": 0.0417,
+    "r": 0.9901,
+    "analytic_predicts_success": "38/40",
+    "yaw_med": 15.4
+   }
+  },
+  "trochoid_t40": {
+   "trochoid": {
+    "n": 40,
+    "succ": "11/40",
+    "covc": 0.7687,
+    "pred": 0.7693,
+    "resid": -0.0005,
+    "maxresid": 0.0312,
+    "r": 0.9984,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 30.7
+   }
+  },
+  "trochoid_t56": {
+   "trochoid": {
+    "n": 40,
+    "succ": "6/40",
+    "covc": 0.6867,
+    "pred": 0.6891,
+    "resid": -0.0023,
+    "maxresid": 0.0312,
+    "r": 0.9977,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 43.0
+   }
+  },
+  "trochoid_t64": {
+   "trochoid": {
+    "n": 40,
+    "succ": "6/40",
+    "covc": 0.6687,
+    "pred": 0.6695,
+    "resid": -0.0008,
+    "maxresid": 0.0312,
+    "r": 0.9976,
+    "analytic_predicts_success": "40/40",
+    "yaw_med": 49.2
+   }
+  }
+ },
+ "candidate_full_stack": {
+  "0.0_0": {
+   "orbit": {
+    "fixture_A": {
+     "transfer_success": 1.0,
+     "mean_coverage_cont": 1.0,
+     "path_len_m": null,
+     "harness_errors": null,
+     "escaped_frac": 0.0,
+     "mean_slip_m": 0.0071,
+     "mean_stick_frac": 0.0
+    }
+   },
+   "trochoid": {
+    "fixture_A": {
+     "transfer_success": 1.0,
+     "mean_coverage_cont": 1.0,
+     "path_len_m": null,
+     "harness_errors": null,
+     "escaped_frac": 0.0,
+     "mean_slip_m": 0.0075,
+     "mean_stick_frac": 0.0068
+    }
+   },
+   "compare": {
+    "fixture_A": {
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 1.0,
+     "mean_b": 1.0,
+     "delta": 0.0,
+     "welch_p": NaN,
+     "paired_p": NaN,
+     "succ_a": 100,
+     "succ_b": 100,
+     "fisher_p": 1.0
+    }
+   },
+   "rig_keep": false,
+   "pose_noise_cfg": "0,0",
+   "baseline": "trochoid"
+  },
+  "0.28_56": {
+   "orbit": {
+    "fixture_A": {
+     "transfer_success": 0.99,
+     "mean_coverage_cont": 1.0,
+     "path_len_m": null,
+     "harness_errors": null,
+     "escaped_frac": 0.01,
+     "mean_slip_m": 0.0071,
+     "mean_stick_frac": 0.0
+    }
+   },
+   "trochoid": {
+    "fixture_A": {
+     "transfer_success": 0.21,
+     "mean_coverage_cont": 0.7225,
+     "path_len_m": null,
+     "harness_errors": null,
+     "escaped_frac": 0.0,
+     "mean_slip_m": 0.0075,
+     "mean_stick_frac": 0.0069
+    }
+   },
+   "compare": {
+    "fixture_A": {
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.7225,
+     "mean_b": 1.0,
+     "delta": 0.2775,
+     "welch_p": 5.022153728622934e-29,
+     "paired_p": 5.022153728622791e-29,
+     "succ_a": 21,
+     "succ_b": 99,
+     "fisher_p": 2.4855554847617e-34
+    }
+   },
+   "rig_keep": false,
+   "pose_noise_cfg": "0.28,56",
+   "baseline": "trochoid"
+  },
+  "0.32_64": {
+   "orbit": {
+    "fixture_A": {
+     "transfer_success": 1.0,
+     "mean_coverage_cont": 1.0,
+     "path_len_m": null,
+     "harness_errors": null,
+     "escaped_frac": 0.0,
+     "mean_slip_m": 0.0071,
+     "mean_stick_frac": 0.0
+    }
+   },
+   "trochoid": {
+    "fixture_A": {
+     "transfer_success": 0.15,
+     "mean_coverage_cont": 0.6979,
+     "path_len_m": null,
+     "harness_errors": null,
+     "escaped_frac": 0.0,
+     "mean_slip_m": 0.0075,
+     "mean_stick_frac": 0.0068
+    }
+   },
+   "compare": {
+    "fixture_A": {
+     "n_a": 100,
+     "n_b": 100,
+     "mean_a": 0.6979,
+     "mean_b": 1.0,
+     "delta": 0.3021,
+     "welch_p": 5.158704387898275e-32,
+     "paired_p": 5.158704387898497e-32,
+     "succ_a": 15,
+     "succ_b": 100,
+     "fisher_p": 5.294015161205783e-41
+    }
+   },
+   "rig_keep": false,
+   "pose_noise_cfg": "0.32,64",
+   "baseline": "trochoid"
+  }
+ },
+ "attribution_auto_s100": {
+  "0,0": {
+   "fixture_A/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 0.0
+   },
+   "fixture_A/trochoid": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 0.0
+   },
+   "fixture_B/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 1.0,
+    "pred": 0.9845,
+    "resid": 0.0155,
+    "maxresid": 0.0312,
+    "r": null,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 0.0
+   },
+   "fixture_B/trochoid": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 1.0,
+    "pred": 0.9845,
+    "resid": 0.0155,
+    "maxresid": 0.0312,
+    "r": null,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 0.0
+   },
+   "fixture_R/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 1.0,
+    "pred": 0.9956,
+    "resid": 0.0044,
+    "maxresid": 0.0781,
+    "r": null,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 0.0
+   },
+   "fixture_R/trochoid": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 1.0,
+    "pred": 0.9904,
+    "resid": 0.0096,
+    "maxresid": 0.0781,
+    "r": null,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 0.0
+   }
+  },
+  "0.28,56": {
+   "fixture_A/auto": {
+    "n": 100,
+    "succ": "99/100",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "99/100",
+    "yaw_med": 39.7
+   },
+   "fixture_A/trochoid": {
+    "n": 100,
+    "succ": "21/100",
+    "covc": 0.7225,
+    "pred": 0.7244,
+    "resid": -0.0019,
+    "maxresid": 0.0313,
+    "r": 0.9978,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 39.7
+   },
+   "fixture_B/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 0.9984,
+    "pred": 0.5664,
+    "resid": 0.432,
+    "maxresid": 0.6875,
+    "r": 0.0589,
+    "analytic_predicts_success": "13/100",
+    "yaw_med": 41.2
+   },
+   "fixture_B/trochoid": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 0.9984,
+    "pred": 0.5664,
+    "resid": 0.432,
+    "maxresid": 0.6875,
+    "r": 0.0589,
+    "analytic_predicts_success": "13/100",
+    "yaw_med": 41.2
+   },
+   "fixture_R/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 0.9969,
+    "pred": 0.7953,
+    "resid": 0.2016,
+    "maxresid": 0.6875,
+    "r": 0.3319,
+    "analytic_predicts_success": "59/100",
+    "yaw_med": 47.8
+   },
+   "fixture_R/trochoid": {
+    "n": 100,
+    "succ": "61/100",
+    "covc": 0.8473,
+    "pred": 0.6506,
+    "resid": 0.1967,
+    "maxresid": 0.6875,
+    "r": 0.185,
+    "analytic_predicts_success": "58/100",
+    "yaw_med": 47.8
+   }
+  },
+  "0.32,64": {
+   "fixture_A/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 1.0,
+    "pred": 1.0,
+    "resid": 0.0,
+    "maxresid": 0.0,
+    "r": null,
+    "analytic_predicts_success": "100/100",
+    "yaw_med": 45.4
+   },
+   "fixture_A/trochoid": {
+    "n": 100,
+    "succ": "15/100",
+    "covc": 0.6979,
+    "pred": 0.6997,
+    "resid": -0.0018,
+    "maxresid": 0.0417,
+    "r": 0.9969,
+    "analytic_predicts_success": "97/100",
+    "yaw_med": 45.4
+   },
+   "fixture_B/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 0.9953,
+    "pred": 0.5559,
+    "resid": 0.4394,
+    "maxresid": 0.7031,
+    "r": 0.1267,
+    "analytic_predicts_success": "10/100",
+    "yaw_med": 47.1
+   },
+   "fixture_B/trochoid": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 0.9953,
+    "pred": 0.5559,
+    "resid": 0.4394,
+    "maxresid": 0.7031,
+    "r": 0.1267,
+    "analytic_predicts_success": "10/100",
+    "yaw_med": 47.1
+   },
+   "fixture_R/auto": {
+    "n": 100,
+    "succ": "100/100",
+    "covc": 0.9973,
+    "pred": 0.7834,
+    "resid": 0.2139,
+    "maxresid": 0.6875,
+    "r": 0.1698,
+    "analytic_predicts_success": "60/100",
+    "yaw_med": 54.6
+   },
+   "fixture_R/trochoid": {
+    "n": 100,
+    "succ": "59/100",
+    "covc": 0.8343,
+    "pred": 0.6252,
+    "resid": 0.2091,
+    "maxresid": 0.6875,
+    "r": 0.1736,
+    "analytic_predicts_success": "59/100",
+    "yaw_med": 54.6
+   }
+  }
+ }
+}

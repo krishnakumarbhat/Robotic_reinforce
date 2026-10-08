@@ -1,0 +1,216 @@
+{
+ "variant": "T222 = band-local median-only symmetric hard-keep control pooled-0 + 0% global, single floor, zero extra: s=|wraw-med_b| raw (no C99 clip, no fence/scale/soft/EB/MAD); admit iff s<=TAU*_b (per-band 8-pt success grid)",
+ "bands": {
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "cal_n": [
+   40,
+   40,
+   40
+  ],
+  "cal_fails": [
+   6,
+   4,
+   7
+  ],
+  "med_band": [
+   82.7989,
+   75.1409,
+   65.6217
+  ],
+  "MED_global": 74.3101,
+  "anchor": 0.0,
+  "wraw_var_band": [
+   229.2012,
+   258.4751,
+   1288.7819
+  ],
+  "wraw_var_gt0": true,
+  "wraw_no_C99_cap": true
+ },
+ "fit": {
+  "tau_star_per_band": {
+   "0": {
+    "TAU": 15.769152038979342,
+    "calib_recall_b": 0.6667,
+    "calib_pf_b": 0.087,
+    "feasible": true,
+    "grid": [
+     12.4174,
+     15.7692,
+     17.2011
+    ]
+   },
+   "1": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false,
+    "grid": [
+     13.3477,
+     17.631,
+     18.5667,
+     21.5285,
+     21.7795,
+     23.0438,
+     24.3451,
+     24.8591
+    ]
+   },
+   "2": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false,
+    "grid": [
+     18.722,
+     22.9956,
+     34.3783,
+     65.6217
+    ]
+   }
+  },
+  "feasible": false
+ },
+ "s_dist": {
+  "succ_q10": 2.6759,
+  "succ_q50": 15.0245,
+  "succ_q90": 35.0773,
+  "fail_q10": 0.5364,
+  "fail_q50": 15.9621,
+  "fail_q90": 65.6217,
+  "succ_var": 290.1876,
+  "fail_var": 478.4349,
+  "pooled_var": 317.4525,
+  "per_band": [
+   {
+    "med": 12.892,
+    "q90": 17.2011,
+    "var": 49.6803,
+    "frac_zero": 0.0
+   },
+   {
+    "med": 13.3477,
+    "q90": 24.8591,
+    "var": 82.8156,
+    "frac_zero": 0.0
+   },
+   {
+    "med": 17.9445,
+    "q90": 65.6217,
+    "var": 653.6086,
+    "frac_zero": 0.0
+   }
+  ]
+ },
+ "finite_audit": {
+  "nonfinite_or_neg_calib": 0,
+  "nonfinite_or_neg_held": 0,
+  "nonfinite_or_neg_arch": 0,
+  "zero_inf_nan": true
+ },
+ "discard_counter": {
+  "trailing_100_streak_pre": 5,
+  "degenerate_now": true,
+  "counter": 6,
+  "streak_broken_keep_ge5": false
+ },
+ "lobo": {
+  "per_leftout": {
+   "0": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   },
+   "1": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   },
+   "2": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   }
+  },
+  "var_pts": 0.0,
+  "pass_var_lt15": true
+ },
+ "ablations": {
+  "anchor20": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  },
+  "anchor50": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  },
+  "pooled8": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  }
+ },
+ "runA_keep_cited": true,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T222": {
+   "n_adm": 0,
+   "yield_sel": 0.0,
+   "keep_pct": 0.0,
+   "precision_adm": 1.0,
+   "veto_rate": 1.0,
+   "cov_adm": 0.0
+  },
+  "cov_all": 0.9883
+ },
+ "perband_held": {
+  "0": {
+   "n": 39,
+   "n_fails": 5,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0,
+   "TAU": 15.769152038979342
+  },
+  "1": {
+   "n": 40,
+   "n_fails": 3,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0,
+   "TAU": null
+  },
+  "2": {
+   "n": 41,
+   "n_fails": 7,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0,
+   "TAU": null
+  }
+ },
+ "pooled_held": {
+  "T222_pooled0": {
+   "n_adm": 0,
+   "veto_rate": 1.0,
+   "p_fail_adm": 0.0,
+   "precision_adm": 1.0,
+   "recall_fail_reject": 1.0,
+   "score_recall_pts": 100.0
+  },
+  "recall_vs_T207_pts": 40.0,
+  "recall_vs_plateau_pts": 53.33,
+  "selective_risk_lift_vs_T173_pts": 10.78
+ },
+ "archive_adm_frac_T222": 0.0,
+ "cov_ok": false,
+ "director_legs": {
+  "predicted_pts_65_75": 100.0,
+  "predicted_keep_10_20": 0.0,
+  "zero_inf_nan": true,
+  "keep_ge5_breaks_streak": false
+ },
+ "degenerate_all_reject": true,
+ "keep": false,
+ "verdict": "DISCARD"
+}

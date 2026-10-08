@@ -1,0 +1,122 @@
+{
+ "episodes": 2640,
+ "tools": {
+  "0": 880,
+  "1": 880,
+  "2": 880
+ },
+ "pooled_spearman_yaw": -0.7556999796871056,
+ "theta90_yaw_per_tool": {
+  "0": 16.38450258669421,
+  "1": 17.232759217218174,
+  "2": 22.16488095445732
+ },
+ "n_bins_per_tool": {
+  "0": 30,
+  "1": 30,
+  "2": 28
+ },
+ "theta90_x_r_eff_only_per_tool": {
+  "0": 97.5299769876443,
+  "1": 93.64606843365269,
+  "2": 97.84977283523878
+ },
+ "theta90_x_r_eff_plus_A_per_tool": {
+  "0": 68.27098389135102,
+  "1": 68.10623158811104,
+  "2": 75.26905602710676
+ },
+ "x_bins_per_tool": {
+  "0": 31,
+  "1": 28,
+  "2": 33
+ },
+ "bin_ranges": {
+  "yaw_hi": 60.0,
+  "x_hi": "per-stratum 99.5th percentile (C2)"
+ },
+ "loo_sse_yaw_unstratified": 0.20110593414857308,
+ "loo_sse_x_r_eff_only": 0.03831002478633152,
+ "loo_sse_x_r_eff_plus_A": 0.03390045107857424,
+ "theta_star_vs_r_eff": {
+  "r_eff_m": {
+   "0": 0.035,
+   "1": 0.04,
+   "2": 0.05
+  },
+  "theta90_deg": {
+   "0": 16.38450258669421,
+   "1": 17.232759217218174,
+   "2": 22.16488095445732
+  },
+  "deg_per_m": {
+   "0": 468.1286453341203,
+   "1": 430.81898043045436,
+   "2": 443.2976190891464
+  },
+  "mean_deg_per_m": 447.415081617907,
+  "relative_spread": 0.08338937697126718,
+  "monotone_in_r_eff": true,
+  "n201_quoted_r_eff_m": {
+   "0": 0.035,
+   "1": 0.03,
+   "2": 0.006
+  },
+  "monotone_under_n201_quoted_r_eff": false,
+  "reading": "N201.4's r_eff quoted min over ALL axes for tools 1 and 2 (the 30 mm / 6 mm pad THICKNESS), so its 'not monotone in r_eff' compared 35/30/6 against 16.4/17.2/22.2 deg. With the rig's own kernel radius 35/40/50 mm the ordering is monotone and theta* is proportional to r_eff to the spread quoted above.",
+  "n201_order_by_radius": [
+   [
+    2,
+    0.006,
+    22.16488095445732
+   ],
+   [
+    1,
+    0.03,
+    17.232759217218174
+   ],
+   [
+    0,
+    0.035,
+    16.38450258669421
+   ]
+  ]
+ },
+ "slip_tertiles_note": "slip is flat across tools (p50 below) -> not the offset",
+ "slip_tertiles_m": [
+  0.006787835265649349,
+  0.010049042137544952
+ ],
+ "slip_by_tool_p50_mm": {
+  "0": 8.653584711562782,
+  "1": 8.395506364388499,
+  "2": 8.314954789228945
+ },
+ "mass_by_tool_kg": {
+  "0": 0.08,
+  "1": 0.105,
+  "2": 0.092
+ },
+ "half_extents_m": {
+  "0": [
+   0.05,
+   0.035,
+   0.012
+  ],
+  "1": [
+   0.04,
+   0.04,
+   0.03
+  ],
+  "2": [
+   0.09,
+   0.05,
+   0.006
+  ]
+ },
+ "r_eff_m": {
+  "0": 0.035,
+  "1": 0.04,
+  "2": 0.05
+ }
+}

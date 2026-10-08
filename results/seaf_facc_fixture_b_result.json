@@ -1,0 +1,42 @@
+{
+  "controller": "seaf_facc",
+  "fixtures_tested": [
+    "fixture_B"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "scripted_baseline": 0.8125,
+  "with_gate": 0.2381,
+  "without_gate": 0.181,
+  "mean_transfer_success": 0.20955,
+  "keep_bar_met": true,
+  "vs_scripted_p": false,
+  "force_compliance_with_gate": 0.3308,
+  "force_compliance_without_gate": 0.3184,
+  "registration_latency_ms": 18.1,
+  "energy_latency_ms": 18.1,
+  "attention_entropy": 0.0,
+  "seaf_facc_energy_curvature": null,
+  "vs_n84_cfap_with_gate": 0.10950000000000001,
+  "vs_n84_cfap_improvement_pct": 85.14774494556767
+}

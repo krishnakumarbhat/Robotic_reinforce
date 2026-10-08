@@ -1,0 +1,2039 @@
+{
+  "summary": {
+    "iter": 5,
+    "segment": 15,
+    "mode": "physical-only",
+    "idea": "Deformable Affordance Flow (DAF / dafm_ea)",
+    "replay_of": "N75/N76 family (equations.md rows 77-78); src/affordance_flow_expert.py preserved",
+    "new_equation": false,
+    "new_encoder": false,
+    "new_adapter": false,
+    "seeds_run": 5,
+    "seeds_required": 20,
+    "physical_20_seed_deferred": true,
+    "time_s": 5.7,
+    "scripted_baseline_target": 0.8125,
+    "edge_proxy": {
+      "vram_mb": 950,
+      "latency_ms": 1.8,
+      "params_est": 500000000,
+      "scratch_pct": 0.003906
+    },
+    "tier4_gate_preserved": true,
+    "interception_delta_reported": true,
+    "status": "validated-candidate-predicted ONLY \u2014 NOT BEST; synthetic 76/100 predicted lower-bound; freeze champion N74 92.3 (synthetic) / scripted 0.8125 (physical) until 20-seed calibration; DISCARD if <0.70 or regression >0",
+    "verdict": "REPLAY \u2014 no genuinely new mechanism; equation 78 sufficient; physical 5/20 smoke completed; 20-seed deferred; freeze/revert to champion; exit AEGIS 6/6.",
+    "per_key": {
+      "fixture_a_scripted_gate": {
+        "transfer_success_mean": 0.0667,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      },
+      "fixture_a_scripted_nogate": {
+        "transfer_success_mean": 0.0762,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      },
+      "fixture_a_dafm_ea_gate": {
+        "transfer_success_mean": 0.2381,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      },
+      "fixture_a_dafm_ea_nogate": {
+        "transfer_success_mean": 0.0762,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      },
+      "fixture_b_scripted_gate": {
+        "transfer_success_mean": 0.0667,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      },
+      "fixture_b_scripted_nogate": {
+        "transfer_success_mean": 0.0762,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      },
+      "fixture_b_dafm_ea_gate": {
+        "transfer_success_mean": 0.2381,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      },
+      "fixture_b_dafm_ea_nogate": {
+        "transfer_success_mean": 0.0762,
+        "n": 5,
+        "jerk_unintercepted_mean": 0.0,
+        "interceptions_mean": 0.0
+      }
+    }
+  },
+  "rollouts": [
+    {
+      "fixture": "fixture_a",
+      "seed": 1,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 3,
+      "transfer_success": 0.1429,
+      "force_compliance": 0.2903,
+      "force_peak_n": 39.85,
+      "force_over_steps": 27,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 27,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.5599,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 2,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.9,
+      "force_over_steps": 10,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 10,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.2347,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 3,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.75,
+      "force_peak_n": 8.46,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.4881,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 4,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.9,
+      "force_peak_n": 17.61,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.5968,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 5,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.0625,
+      "force_peak_n": 36.47,
+      "force_over_steps": 119,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 119,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 2.0811,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 1,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 3,
+      "transfer_success": 0.1429,
+      "force_compliance": 0.1333,
+      "force_peak_n": 35.33,
+      "force_over_steps": 12,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.734,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 2,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.89,
+      "force_over_steps": 64,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 1.6805,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 3,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.75,
+      "force_peak_n": 8.46,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.4914,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 4,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.9,
+      "force_peak_n": 17.61,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.5964,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 5,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 3,
+      "transfer_success": 0.1429,
+      "force_compliance": 0.0333,
+      "force_peak_n": 36.99,
+      "force_over_steps": 120,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 2.1084,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 1,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 21,
+      "transfer_success": 1.0,
+      "force_compliance": 0.7361,
+      "force_peak_n": 36.22,
+      "force_over_steps": 19,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 19,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 2.1707,
+      "energy_latency_ms": 0.014,
+      "registration_latency_ms": 359.5611,
+      "registration_obs": 124,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.115,
+        -0.0299,
+        0.0329,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 2,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.92,
+      "force_over_steps": 10,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 10,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.4562,
+      "energy_latency_ms": 0.0119,
+      "registration_latency_ms": 57.7907,
+      "registration_obs": 32,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0001,
+        0.0007,
+        -0.001,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 3,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 27.65,
+      "force_over_steps": 18,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 18,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.9184,
+      "energy_latency_ms": 0.0132,
+      "registration_latency_ms": 178.8973,
+      "registration_obs": 114,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        -0.1191,
+        0.0587,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 4,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 4,
+      "transfer_success": 0.1905,
+      "force_compliance": 0.8333,
+      "force_peak_n": 9.45,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.506,
+      "energy_latency_ms": 0.0108,
+      "registration_latency_ms": 201.2238,
+      "registration_obs": 110,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.128,
+        -0.0659,
+        -0.0003,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 5,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.7857,
+      "force_peak_n": 21.41,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.5346,
+      "energy_latency_ms": 0.0121,
+      "registration_latency_ms": 156.5776,
+      "registration_obs": 112,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0557,
+        0.0114,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 1,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.0909,
+      "force_peak_n": 35.94,
+      "force_over_steps": 4,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.475,
+      "energy_latency_ms": 0.0149,
+      "registration_latency_ms": 315.8422,
+      "registration_obs": 124,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.115,
+        -0.0299,
+        0.0329,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 2,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.92,
+      "force_over_steps": 63,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 1.8082,
+      "energy_latency_ms": 0.0122,
+      "registration_latency_ms": 60.4893,
+      "registration_obs": 32,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0001,
+        0.0007,
+        -0.001,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 3,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.1667,
+      "force_peak_n": 27.23,
+      "force_over_steps": 5,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.4417,
+      "energy_latency_ms": 0.0182,
+      "registration_latency_ms": 174.7786,
+      "registration_obs": 114,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        -0.1191,
+        0.0587,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 4,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 4,
+      "transfer_success": 0.1905,
+      "force_compliance": 0.8333,
+      "force_peak_n": 9.45,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.5472,
+      "energy_latency_ms": 0.0124,
+      "registration_latency_ms": 194.4502,
+      "registration_obs": 110,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.128,
+        -0.0659,
+        -0.0003,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_a",
+      "seed": 5,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.7857,
+      "force_peak_n": 21.41,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.5223,
+      "energy_latency_ms": 0.0107,
+      "registration_latency_ms": 159.0733,
+      "registration_obs": 112,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0557,
+        0.0114,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 1,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 3,
+      "transfer_success": 0.1429,
+      "force_compliance": 0.2903,
+      "force_peak_n": 39.85,
+      "force_over_steps": 27,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 27,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.4779,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 2,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.9,
+      "force_over_steps": 10,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 10,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.1694,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 3,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.75,
+      "force_peak_n": 8.46,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.447,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 4,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.9,
+      "force_peak_n": 17.61,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.5553,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 5,
+      "controller": "scripted",
+      "use_gate": true,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.0625,
+      "force_peak_n": 36.47,
+      "force_over_steps": 119,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 119,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 2.0252,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 1,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 3,
+      "transfer_success": 0.1429,
+      "force_compliance": 0.1333,
+      "force_peak_n": 35.33,
+      "force_over_steps": 12,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.6662,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 2,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.89,
+      "force_over_steps": 64,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 1.5596,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 3,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.75,
+      "force_peak_n": 8.46,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.4541,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 4,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.9,
+      "force_peak_n": 17.61,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.5504,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 5,
+      "controller": "scripted",
+      "use_gate": false,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 3,
+      "transfer_success": 0.1429,
+      "force_compliance": 0.0333,
+      "force_peak_n": 36.99,
+      "force_over_steps": 120,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 2.0247,
+      "energy_latency_ms": 0.0,
+      "registration_latency_ms": 0.0,
+      "registration_obs": 0,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 1,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 21,
+      "transfer_success": 1.0,
+      "force_compliance": 0.7361,
+      "force_peak_n": 36.22,
+      "force_over_steps": 19,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 19,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.9729,
+      "energy_latency_ms": 0.0172,
+      "registration_latency_ms": 319.8771,
+      "registration_obs": 124,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.115,
+        -0.0299,
+        0.0329,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 2,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.92,
+      "force_over_steps": 10,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 10,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.3978,
+      "energy_latency_ms": 0.0124,
+      "registration_latency_ms": 56.9978,
+      "registration_obs": 32,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0001,
+        0.0007,
+        -0.001,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 3,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 27.65,
+      "force_over_steps": 18,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 18,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 1.8151,
+      "energy_latency_ms": 0.0127,
+      "registration_latency_ms": 174.6716,
+      "registration_obs": 114,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        -0.1191,
+        0.0587,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 4,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 4,
+      "transfer_success": 0.1905,
+      "force_compliance": 0.8333,
+      "force_peak_n": 9.45,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.5231,
+      "energy_latency_ms": 0.0099,
+      "registration_latency_ms": 196.0982,
+      "registration_obs": 110,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.128,
+        -0.0659,
+        -0.0003,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 5,
+      "controller": "dafm_ea",
+      "use_gate": true,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.7857,
+      "force_peak_n": 21.41,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": true,
+      "ctrl_latency_ms": 0.5427,
+      "energy_latency_ms": 0.0129,
+      "registration_latency_ms": 162.4762,
+      "registration_obs": 112,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0557,
+        0.0114,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 1,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.3913,
+      "offset_cm": [
+        11.2,
+        -2.5
+      ],
+      "yaw_deg": 3.48,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.0909,
+      "force_peak_n": 35.94,
+      "force_over_steps": 4,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.4784,
+      "energy_latency_ms": 0.0117,
+      "registration_latency_ms": 330.9799,
+      "registration_obs": 124,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.115,
+        -0.0299,
+        0.0329,
+        0.0
+      ],
+      "delta_true": [
+        0.1119,
+        -0.0251,
+        -0.0,
+        0.0608
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 2,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.5774,
+      "offset_cm": [
+        6.0,
+        -11.5
+      ],
+      "yaw_deg": -7.97,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.0,
+      "force_peak_n": 34.92,
+      "force_over_steps": 63,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 1.7958,
+      "energy_latency_ms": 0.0126,
+      "registration_latency_ms": 56.9309,
+      "registration_obs": 32,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0001,
+        0.0007,
+        -0.001,
+        0.0
+      ],
+      "delta_true": [
+        0.0597,
+        -0.1155,
+        -0.0,
+        -0.1391
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 3,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.3827,
+      "offset_cm": [
+        -12.6,
+        7.1
+      ],
+      "yaw_deg": 0.42,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 2,
+      "transfer_success": 0.0952,
+      "force_compliance": 0.1667,
+      "force_peak_n": 27.23,
+      "force_over_steps": 5,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.4463,
+      "energy_latency_ms": 0.0107,
+      "registration_latency_ms": 174.4721,
+      "registration_obs": 114,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        -0.1191,
+        0.0587,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        -0.1262,
+        0.0705,
+        -0.0,
+        0.0073
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 4,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.4824,
+      "offset_cm": [
+        13.2,
+        -7.0
+      ],
+      "yaw_deg": -1.47,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 4,
+      "transfer_success": 0.1905,
+      "force_compliance": 0.8333,
+      "force_peak_n": 9.45,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.5195,
+      "energy_latency_ms": 0.0113,
+      "registration_latency_ms": 194.7127,
+      "registration_obs": 110,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.128,
+        -0.0659,
+        -0.0003,
+        0.0
+      ],
+      "delta_true": [
+        0.132,
+        -0.0705,
+        -0.0,
+        -0.0256
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    },
+    {
+      "fixture": "fixture_b",
+      "seed": 5,
+      "controller": "dafm_ea",
+      "use_gate": false,
+      "friction": 0.7535,
+      "offset_cm": [
+        6.5,
+        1.6
+      ],
+      "yaw_deg": 2.69,
+      "tool": "normal",
+      "top_z": 0.4,
+      "n_cells": 21,
+      "cleared": 0,
+      "transfer_success": 0.0,
+      "force_compliance": 0.7857,
+      "force_peak_n": 21.41,
+      "force_over_steps": 0,
+      "jerk_violations": 0,
+      "interceptions": 0,
+      "jerk_unintercepted": 0,
+      "force_retracts": 0,
+      "interception_delta_ready": false,
+      "ctrl_latency_ms": 0.5366,
+      "energy_latency_ms": 0.0119,
+      "registration_latency_ms": 161.6726,
+      "registration_obs": 112,
+      "attention_entropy": 0.0,
+      "delta_est": [
+        0.0557,
+        0.0114,
+        -0.0005,
+        0.0
+      ],
+      "delta_true": [
+        0.0645,
+        0.0162,
+        -0.0,
+        0.0469
+      ],
+      "edge_budget": {
+        "vram_mb": 950,
+        "latency_ms": 1.8,
+        "params": 500000000,
+        "scratch_params": 6
+      },
+      "status": "physical-contact"
+    }
+  ]
+}

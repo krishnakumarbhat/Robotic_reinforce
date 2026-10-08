@@ -1,0 +1,301 @@
+{
+ "variant": "T210 = max(0,w191-med_b)/(1.4826*MAD_b+eps)*exp(-jerk/J90_b), pooled-0, no lam/shrink/hard-gate/tie-break",
+ "frozen": {
+  "TAU50_global_ref": 68.0452,
+  "theta_marg_bitident": true,
+  "C99": 100.0,
+  "C99_degenerate": true,
+  "i7_binds_heldB": 0,
+  "w191_T173_embedded_kept": true,
+  "fit_scope": "CALIB pooled only, jerk-tertile bands, single held eval, no lam sweep"
+ },
+ "bands": {
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "cal_n": [
+   40,
+   40,
+   40
+  ],
+  "cal_fails": [
+   6,
+   4,
+   7
+  ],
+  "med_band": [
+   82.7989,
+   75.1409,
+   65.6217
+  ],
+  "scale_band": [
+   19.2021,
+   19.8774,
+   27.1809
+  ],
+  "J90_band": [
+   0.00345,
+   0.008876,
+   0.016811
+  ],
+  "jmed_cal": 0.007147
+ },
+ "fit": {
+  "TAU_mult_per_band": {
+   "0": {
+    "TAU": 0.41259628315453645,
+    "calib_recall_b": 0.8333,
+    "calib_pf_b": 0.1111,
+    "feasible": true
+   },
+   "1": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false
+   },
+   "2": {
+    "TAU": 0.18002561114226664,
+    "calib_recall_b": 0.8571,
+    "calib_pf_b": 0.0833,
+    "feasible": true
+   }
+  },
+  "TAU_add_per_band": {
+   "0": {
+    "TAU": 0.5081717991729511,
+    "calib_recall_b": 0.8333,
+    "calib_pf_b": 0.1111,
+    "feasible": true
+   },
+   "1": {
+    "TAU": -0.3989835424599484,
+    "calib_recall_b": 0.75,
+    "calib_pf_b": 0.0526,
+    "feasible": true
+   },
+   "2": {
+    "TAU": 0.03187923024771144,
+    "calib_recall_b": 0.8571,
+    "calib_pf_b": 0.0909,
+    "feasible": true
+   }
+  },
+  "TAU_s0_per_band": {
+   "0": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false
+   },
+   "1": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false
+   },
+   "2": {
+    "TAU": 0.320909959154642,
+    "calib_recall_b": 0.8571,
+    "calib_pf_b": 0.0909,
+    "feasible": true
+   }
+  },
+  "feasible": {
+   "mult": false,
+   "add": true,
+   "s0": false
+  }
+ },
+ "cal_curve_locked": {
+  "mult": {
+   "recall": 1.0,
+   "pf": 1.0,
+   "n_adm": 0
+  },
+  "add": {
+   "recall": 0.8235,
+   "pf": 0.0769,
+   "n_adm": 39
+  },
+  "s0": {
+   "recall": 1.0,
+   "pf": 1.0,
+   "n_adm": 0
+  }
+ },
+ "perband_ROC_held_mult": {
+  "0": {
+   "n": 39,
+   "n_fails": 5
+  },
+  "1": {
+   "n": 40,
+   "n_fails": 3
+  },
+  "2": {
+   "n": 41,
+   "n_fails": 7
+  }
+ },
+ "high_jerk_slice_held": {
+  "mult": {
+   "band2": {
+    "n_fails": 7,
+    "recall": 1.0
+   },
+   "above_med": {
+    "n_fails": 9,
+    "recall": 1.0
+   }
+  },
+  "add": {
+   "band2": {
+    "n_fails": 7,
+    "recall": 0.7143
+   },
+   "above_med": {
+    "n_fails": 9,
+    "recall": 0.5556
+   }
+  },
+  "s0": {
+   "band2": {
+    "n_fails": 7,
+    "recall": 1.0
+   },
+   "above_med": {
+    "n_fails": 9,
+    "recall": 1.0
+   }
+  }
+ },
+ "high_jerk_gain_mult_vs_add_band2": 0.2857,
+ "runA_keep_cited": true,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T210_mult": {
+   "n_adm": 0,
+   "yield_sel": 0.0,
+   "keep_pct": 0.0,
+   "precision_adm": 1.0,
+   "veto_rate": 1.0,
+   "cov_adm": 0.0
+  },
+  "ref_T205": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "ref_add": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "ref_s0": {
+   "n_adm": 0,
+   "yield_sel": 0.0,
+   "keep_pct": 0.0,
+   "precision_adm": 1.0,
+   "veto_rate": 1.0,
+   "cov_adm": 0.0
+  },
+  "cov_all": 0.9883,
+  "yield_vs_T205_pts": -40.0
+ },
+ "pooled_held": {
+  "T199": {
+   "n_adm": 60,
+   "veto_rate": 0.5,
+   "p_fail_adm": 0.1333,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T205": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T210_mult": {
+   "n_adm": 0,
+   "veto_rate": 1.0,
+   "p_fail_adm": 0.0,
+   "recall_fail_reject": 1.0,
+   "score_recall_pts": 100.0
+  },
+  "T210_add": {
+   "n_adm": 43,
+   "veto_rate": 0.6417,
+   "p_fail_adm": 0.1395,
+   "recall_fail_reject": 0.6,
+   "score_recall_pts": 60.0
+  },
+  "T210_s0": {
+   "n_adm": 0,
+   "veto_rate": 1.0,
+   "p_fail_adm": 0.0,
+   "recall_fail_reject": 1.0,
+   "score_recall_pts": 100.0
+  },
+  "recall_vs_T199_pts": 53.33,
+  "recall_vs_T205_pts": 53.33,
+  "recall_vs_T207_60_pts": 40.0,
+  "mult_vs_add_pts": 40.0,
+  "mult_vs_s0_pts": 0.0,
+  "selective_risk_lift_vs_T173_pts": 10.78
+ },
+ "admit_overlap_held": {
+  "mult_vs_add": {
+   "agreement": 0.6417,
+   "jaccard": 0.0,
+   "n_a": 0,
+   "n_b": 43,
+   "n_both": 0
+  },
+  "mult_vs_s0": {
+   "agreement": 1.0,
+   "jaccard": 1.0,
+   "n_a": 0,
+   "n_b": 0,
+   "n_both": 0
+  },
+  "mult_vs_T205": {
+   "agreement": 0.525,
+   "jaccard": 0.0,
+   "n_a": 0,
+   "n_b": 57,
+   "n_both": 0
+  }
+ },
+ "archive_adm_frac_T210": 0.0,
+ "cov_ok": false,
+ "kill_rule": {
+  "pts_lt_65": false,
+  "no_high_jerk_gain": false,
+  "KILL_PTS": 65.0,
+  "KEEP_BAR": 70.0
+ },
+ "director_legs": {
+  "pts_ge_70": true,
+  "heldB_keep_ge_70": false,
+  "predicted_pts_72_75": 100.0,
+  "predicted_keep": 0.0
+ },
+ "verdict_rule": {
+  "runA_keep": true,
+  "pts_ge_65": true,
+  "high_jerk_gain": true,
+  "HELD_keep_ge_70": false,
+  "no_cov_regression": false,
+  "archive_zero": true
+ },
+ "keep": false,
+ "verdict": "DISCARD"
+}

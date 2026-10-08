@@ -1,0 +1,210 @@
+{
+ "file": "I21_r238_fitted_vs_trochoid_n00.jsonl",
+ "pose_noise_cfg": "0,0",
+ "path_mode": "fitted",
+ "compare": "trochoid",
+ "seeds": 20,
+ "suites": [
+  "fixture_A",
+  "fixture_B",
+  "fixture_R"
+ ],
+ "rig_version": 2,
+ "arms": {
+  "fitted": {
+   "episodes": 60,
+   "per_suite": {
+    "fixture_A": {
+     "n": 20,
+     "success_k": "20/20",
+     "transfer_success": 1.0,
+     "coverage_cont": 1.0,
+     "coverage_min": 1.0,
+     "n_eps_at_ceiling": 20,
+     "slip_m": 0.0071,
+     "slip_max": 0.01131,
+     "path_len_m": 1.3878,
+     "force_compliance": 0.4988,
+     "escaped": 0
+    },
+    "fixture_B": {
+     "n": 20,
+     "success_k": "20/20",
+     "transfer_success": 1.0,
+     "coverage_cont": 1.0,
+     "coverage_min": 1.0,
+     "n_eps_at_ceiling": 20,
+     "slip_m": 0.01057,
+     "slip_max": 0.01595,
+     "path_len_m": 0.8939,
+     "force_compliance": 1.0,
+     "escaped": 0
+    },
+    "fixture_R": {
+     "n": 20,
+     "success_k": "20/20",
+     "transfer_success": 1.0,
+     "coverage_cont": 1.0,
+     "coverage_min": 1.0,
+     "n_eps_at_ceiling": 20,
+     "slip_m": 0.00804,
+     "slip_max": 0.01595,
+     "path_len_m": 0.8939,
+     "force_compliance": 0.7674,
+     "escaped": 0
+    }
+   },
+   "statuses": [
+    "PHYSICAL-VALIDATION"
+   ],
+   "pts_sources": [
+    "physics_contact"
+   ],
+   "max_turn_deg": 0.0,
+   "steps_mean": 423.9
+  },
+  "trochoid": {
+   "episodes": 60,
+   "per_suite": {
+    "fixture_A": {
+     "n": 20,
+     "success_k": "20/20",
+     "transfer_success": 1.0,
+     "coverage_cont": 0.9354,
+     "coverage_min": 0.9062,
+     "n_eps_at_ceiling": 0,
+     "slip_m": 0.0073,
+     "slip_max": 0.01163,
+     "path_len_m": 1.4118,
+     "force_compliance": 0.4778,
+     "escaped": 0
+    },
+    "fixture_B": {
+     "n": 20,
+     "success_k": "20/20",
+     "transfer_success": 1.0,
+     "coverage_cont": 0.9453,
+     "coverage_min": 0.9062,
+     "n_eps_at_ceiling": 6,
+     "slip_m": 0.01059,
+     "slip_max": 0.01598,
+     "path_len_m": 0.9098,
+     "force_compliance": 1.0,
+     "escaped": 0
+    },
+    "fixture_R": {
+     "n": 20,
+     "success_k": "19/20",
+     "transfer_success": 0.95,
+     "coverage_cont": 0.9427,
+     "coverage_min": 0.8958,
+     "n_eps_at_ceiling": 4,
+     "slip_m": 0.00813,
+     "slip_max": 0.01598,
+     "path_len_m": 0.9098,
+     "force_compliance": 0.7536,
+     "escaped": 0
+    }
+   },
+   "statuses": [
+    "PHYSICAL-VALIDATION"
+   ],
+   "pts_sources": [
+    "physics_contact"
+   ],
+   "max_turn_deg": 0.0,
+   "steps_mean": 430.9
+  }
+ },
+ "rig_compare_record": {
+  "ts": 7.832,
+  "record": "compare",
+  "candidate": "fitted",
+  "baseline": "trochoid",
+  "candidate_knobs": {
+   "TROCHOID_R_M": 0.015,
+   "TROCHOID_DS_M": 0.004,
+   "TROCHOID_DR": 0.5,
+   "BASE_DS_M": 0.01,
+   "TROCHOID_AMP_M": 0.015,
+   "TROCHOID_W": 33.333333333333336,
+   "TROCH_ALT": 0.0,
+   "SPEED_ALPHA": 0.0,
+   "FORCE_PI": 0,
+   "FN_SET_N": 0.5,
+   "FN_KP": 0.0,
+   "FN_KI": 0.0,
+   "INSET_M": 0.0,
+   "WALL_ONLY": 0,
+   "WALL_KP": 25.0,
+   "AEGIS_GATE": "post-hoc"
+  },
+  "baseline_knobs": {
+   "TROCHOID_R_M": 0.015,
+   "TROCHOID_DS_M": 0.004,
+   "TROCHOID_DR": 0.5,
+   "BASE_DS_M": 0.01,
+   "TROCHOID_AMP_M": 0.015,
+   "TROCHOID_W": 33.333333333333336,
+   "TROCH_ALT": 0.0,
+   "SPEED_ALPHA": 0.0,
+   "FORCE_PI": 0,
+   "FN_SET_N": 0.5,
+   "FN_KP": 0.0,
+   "FN_KI": 0.0,
+   "INSET_M": 0.0,
+   "WALL_ONLY": 0,
+   "WALL_KP": 25.0,
+   "AEGIS_GATE": "post-hoc"
+  },
+  "pose_noise_cfg": "0,0",
+  "metric": "coverage_cont",
+  "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression",
+  "fixture_A": {
+   "n_a": 20,
+   "n_b": 20,
+   "mean_a": 0.9354,
+   "mean_b": 1.0,
+   "delta": 0.0646,
+   "welch_t": 10.8715,
+   "welch_p": 1.3475417150857079e-09,
+   "paired_t": 10.8715,
+   "paired_p": 1.3475417150856936e-09,
+   "p_method": "scipy",
+   "succ_a": 20,
+   "succ_b": 20,
+   "fisher_p": 1.0
+  },
+  "fixture_B": {
+   "n_a": 20,
+   "n_b": 20,
+   "mean_a": 0.9453,
+   "mean_b": 1.0,
+   "delta": 0.0547,
+   "welch_t": 6.2535,
+   "welch_p": 5.264280635564357e-06,
+   "paired_t": 6.2535,
+   "paired_p": 5.264280635564357e-06,
+   "p_method": "scipy",
+   "succ_a": 20,
+   "succ_b": 20,
+   "fisher_p": 1.0
+  },
+  "fixture_R": {
+   "n_a": 20,
+   "n_b": 20,
+   "mean_a": 0.9427,
+   "mean_b": 1.0,
+   "delta": 0.0573,
+   "welch_t": 6.961,
+   "welch_p": 1.2399374592265432e-06,
+   "paired_t": 6.961,
+   "paired_p": 1.2399374592265432e-06,
+   "p_method": "scipy",
+   "succ_a": 19,
+   "succ_b": 20,
+   "fisher_p": 1.0
+  },
+  "keep": true
+ }
+}

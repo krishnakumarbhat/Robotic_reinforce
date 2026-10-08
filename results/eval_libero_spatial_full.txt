@@ -1,0 +1,297 @@
+Creating LIBERO envs | suites=['libero_spatial'] | n_envs(per task)=1 | init_states=True
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Local assets not found. Downloading from HuggingFace Hub...
+Assets already downloaded at /home/pope/.cache/libero/assets
+Built vec env | suite=libero_spatial | task_id=0 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=1 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=2 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=3 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=4 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=5 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=6 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=7 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=8 | n_envs=1
+Built vec env | suite=libero_spatial | task_id=9 | n_envs=1
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+WARNING 2026-09-24 15:55:59 figs/eval.py:65 No job name provided, using 'libero_smolvla' as job name.
+INFO 2026-09-24 15:55:59 bot_eval.py:507 {'env': {'camera_name': 'agentview_image,robot0_eye_in_hand_image',
+         'camera_name_mapping': None,
+         'control_mode': 'relative',
+         'disable_env_checker': True,
+         'episode_length': None,
+         'features': {'action': {'shape': (7,),
+                                 'type': <FeatureType.ACTION: 'ACTION'>},
+                      'pixels/agentview_image': {'shape': (360, 360, 3),
+                                                 'type': <FeatureType.VISUAL: 'VISUAL'>},
+                      'pixels/robot0_eye_in_hand_image': {'shape': (360,
+                                                                    360,
+                                                                    3),
+                                                          'type': <FeatureType.VISUAL: 'VISUAL'>},
+                      'robot_state/eef/mat': {'shape': (3, 3),
+                                              'type': <FeatureType.STATE: 'STATE'>},
+                      'robot_state/eef/pos': {'shape': (3,),
+                                              'type': <FeatureType.STATE: 'STATE'>},
+                      'robot_state/eef/quat': {'shape': (4,),
+                                               'type': <FeatureType.STATE: 'STATE'>},
+                      'robot_state/gripper/qpos': {'shape': (2,),
+                                                   'type': <FeatureType.STATE: 'STATE'>},
+                      'robot_state/gripper/qvel': {'shape': (2,),
+                                                   'type': <FeatureType.STATE: 'STATE'>},
+                      'robot_state/joints/pos': {'shape': (7,),
+                                                 'type': <FeatureType.STATE: 'STATE'>},
+                      'robot_state/joints/vel': {'shape': (7,),
+                                                 'type': <FeatureType.STATE: 'STATE'>}},
+         'features_map': {'action': 'action',
+                          'pixels/agentview_image': 'observation.images.image',
+                          'pixels/robot0_eye_in_hand_image': 'observation.images.image2',
+                          'robot_state/eef/mat': 'observation.state.eef_mat',
+                          'robot_state/eef/pos': 'observation.state.eef_pos',
+                          'robot_state/eef/quat': 'observation.state.eef_quat',
+                          'robot_state/gripper/qpos': 'observation.state.gripper_qpos',
+                          'robot_state/gripper/qvel': 'observation.state.gripper_qvel',
+                          'robot_state/joints/pos': 'observation.state.joint_pos',
+                          'robot_state/joints/vel': 'observation.state.joint_vel'},
+         'fps': 30,
+         'init_states': True,
+         'max_parallel_tasks': 1,
+         'obs_type': 'pixels_agent_pos',
+         'observation_height': 360,
+         'observation_width': 360,
+         'render_mode': 'rgb_array',
+         'task': 'libero_spatial',
+         'task_ids': None},
+ 'eval': {'batch_size': 1, 'n_episodes': 1, 'use_async_envs': False},
+ 'job_name': 'libero_smolvla',
+ 'output_dir': PosixPath('outputs/eval/2026-09-24/15-55-59_libero_smolvla'),
+ 'policy': {'adapt_to_pi_aloha': False,
+            'add_image_special_tokens': False,
+            'attention_mode': 'cross_attn',
+            'chunk_size': 50,
+            'compile_mode': 'max-autotune',
+            'compile_model': False,
+            'device': 'cuda',
+            'empty_cameras': 0,
+            'expert_width_multiplier': 0.75,
+            'freeze_vision_encoder': True,
+            'input_features': {'observation.images.camera1': {'shape': (3,
+                                                                        256,
+                                                                        256),
+                                                              'type': <FeatureType.VISUAL: 'VISUAL'>},
+                               'observation.images.camera2': {'shape': (3,
+                                                                        256,
+                                                                        256),
+                                                              'type': <FeatureType.VISUAL: 'VISUAL'>},
+                               'observation.images.camera3': {'shape': (3,
+                                                                        256,
+                                                                        256),
+                                                              'type': <FeatureType.VISUAL: 'VISUAL'>},
+                               'observation.state': {'shape': (6,),
+                                                     'type': <FeatureType.STATE: 'STATE'>}},
+            'license': None,
+            'load_vlm_weights': True,
+            'max_action_dim': 32,
+            'max_period': 4.0,
+            'max_state_dim': 32,
+            'min_period': 0.004,
+            'n_action_steps': 50,
+            'n_obs_steps': 1,
+            'normalization_mapping': {'ACTION': <NormalizationMode.MEAN_STD: 'MEAN_STD'>,
+                                      'STATE': <NormalizationMode.MEAN_STD: 'MEAN_STD'>,
+                                      'VISUAL': <NormalizationMode.IDENTITY: 'IDENTITY'>},
+            'num_expert_layers': 0,
+            'num_steps': 10,
+            'num_vlm_layers': 16,
+            'optimizer_betas': (0.9, 0.95),
+            'optimizer_eps': 1e-08,
+            'optimizer_grad_clip_norm': 10.0,
+            'optimizer_lr': 0.0001,
+            'optimizer_weight_decay': 1e-10,
+            'output_features': {'action': {'shape': (7,),
+                                           'type': <FeatureType.ACTION: 'ACTION'>}},
+            'pad_language_to': 'max_length',
+            'prefix_length': 0,
+            'pretrained_path': PosixPath('checkpoints/g3_10k_local'),
+            'private': None,
+            'push_to_hub': False,
+            'repo_id': None,
+            'resize_imgs_with_padding': (512, 512),
+            'rtc_config': None,
+            'scheduler_decay_lr': 2.5e-06,
+            'scheduler_decay_steps': 30000,
+            'scheduler_warmup_steps': 1000,
+            'self_attn_every_n_layers': 2,
+            'tags': None,
+            'tokenizer_max_length': 48,
+            'train_expert_only': True,
+            'train_state_proj': True,
+            'use_amp': False,
+            'use_cache': True,
+            'use_delta_joint_actions_aloha': False,
+            'use_peft': False,
+            'vlm_model_name': 'HuggingFaceTB/SmolVLM2-500M-Video-Instruct'},
+ 'rename_map': {'observation.images.image': 'observation.images.camera1',
+                'observation.images.image2': 'observation.images.camera2'},
+ 'seed': 1000,
+ 'trust_remote_code': False}
+INFO 2026-09-24 15:55:59 bot_eval.py:516 Output dir: outputs/eval/2026-09-24/15-55-59_libero_smolvla
+INFO 2026-09-24 15:55:59 bot_eval.py:518 Making environment.
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+WARNING 2026-09-24 15:55:59 e/__init__.py:7 No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+WARNING 2026-09-24 15:55:59 e/__init__.py:8 It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+WARNING 2026-09-24 15:55:59 e/__init__.py:9 To setup, run: python /home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+INFO 2026-09-24 15:55:59 tesupport.py:24 No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+INFO 2026-09-24 15:56:54 bot_eval.py:526 Making policy.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/lerobot/scripts/lerobot_eval.py", line 813, in <module>
+    main()
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/lerobot/scripts/lerobot_eval.py", line 809, in main
+    eval_main()
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/lerobot/configs/parser.py", line 233, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/lerobot/scripts/lerobot_eval.py", line 528, in eval_main
+    policy = make_policy(
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/lerobot/policies/factory.py", line 492, in make_policy
+    policy = policy_cls.from_pretrained(**kwargs)
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/lerobot/policies/pretrained.py", line 112, in from_pretrained
+    policy = cls._load_as_safetensor(instance, model_file, config.device, strict)
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/lerobot/policies/pretrained.py", line 146, in _load_as_safetensor
+    missing_keys, unexpected_keys = load_model_as_safetensor(model, model_file, **kwargs)
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/safetensors/torch.py", line 228, in load_model
+    state_dict = load_file(filename, device=device, backend=backend)
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/safetensors/torch.py", line 360, in load_file
+    return f.get_tensors()
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function MjRenderContext.__del__ at 0x77bb10df9d80>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 150, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x77bb10df9bd0>
+Traceback (most recent call last):
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/home/pope/.venvs/infer/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>

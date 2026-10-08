@@ -1,0 +1,141 @@
+{
+ "theta_marginal_logonly": 0.014133,
+ "theta_bitidentical_172_173": true,
+ "n_success_calib": 103,
+ "P50_slip_frozen_trainonly": 0.008106,
+ "i7_binds_heldout": 0,
+ "i7_binds_calib": 0,
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "spot_check": {
+  "seed": 91000,
+  "suite": "fixture_A",
+  "slip": 0.003875140692432574,
+  "fric": 0.0643,
+  "w178": 0.654812,
+  "w177": 0.63306
+ },
+ "trainfold_T173": {
+  "n": 120,
+  "n_adm": 108,
+  "recall": 0.9126,
+  "score": 91.26,
+  "precision": 0.8704,
+  "p_fail_given_adm": 0.1296,
+  "cov_adm": 0.9655,
+  "cov_all": 0.9612
+ },
+ "trainfold_T177": {
+  "n": 120,
+  "sum_w": 37.2944,
+  "mean_w": 0.3108,
+  "ess": 88.06,
+  "p_fail_weighted": 0.1168,
+  "precision_w": 0.8832,
+  "score_w": 88.32,
+  "recall_w": 0.3198,
+  "cov_w": 0.9656,
+  "cov_all": 0.9612
+ },
+ "trainfold_T178": {
+  "n": 120,
+  "sum_w": 46.2445,
+  "mean_w": 0.3854,
+  "ess": 98.73,
+  "p_fail_weighted": 0.1211,
+  "precision_w": 0.8789,
+  "score_w": 87.89,
+  "recall_w": 0.3946,
+  "cov_w": 0.9657,
+  "cov_all": 0.9612
+ },
+ "held_T173": {
+  "n": 120,
+  "n_adm": 102,
+  "recall": 0.8667,
+  "score": 86.67,
+  "precision": 0.8922,
+  "p_fail_given_adm": 0.1078,
+  "cov_adm": 0.9729,
+  "cov_all": 0.9695
+ },
+ "held_T177": {
+  "n": 120,
+  "sum_w": 35.6474,
+  "mean_w": 0.2971,
+  "ess": 80.27,
+  "p_fail_weighted": 0.1211,
+  "precision_w": 0.8789,
+  "score_w": 87.89,
+  "recall_w": 0.2984,
+  "cov_w": 0.9727,
+  "cov_all": 0.9695
+ },
+ "held_T178": {
+  "n": 120,
+  "sum_w": 44.0933,
+  "mean_w": 0.3674,
+  "ess": 91.44,
+  "p_fail_weighted": 0.1163,
+  "precision_w": 0.8837,
+  "score_w": 88.37,
+  "recall_w": 0.3711,
+  "cov_w": 0.9728,
+  "cov_all": 0.9695
+ },
+ "lift_T178_vs_T173_pts": -0.85,
+ "lift_T178_vs_T177_pts": 0.48,
+ "train_lift_T178_vs_T173_pts": 0.85,
+ "train_lift_T178_vs_T177_pts": -0.43,
+ "cov_ok": true,
+ "held_fric_stability_T177": {
+  "T177": {
+   "lo": {
+    "n": 52,
+    "mean_w": 0.4569,
+    "p_fail_w": 0.1611
+   },
+   "mid": {
+    "n": 48,
+    "mean_w": 0.2278,
+    "p_fail_w": 0.0388
+   },
+   "hi": {
+    "n": 20,
+    "mean_w": 0.0479,
+    "p_fail_w": 0.0703
+   }
+  }
+ },
+ "held_fric_stability_T178": {
+  "T178": {
+   "lo": {
+    "n": 52,
+    "mean_w": 0.4983,
+    "p_fail_w": 0.1652
+   },
+   "mid": {
+    "n": 48,
+    "mean_w": 0.3257,
+    "p_fail_w": 0.0413
+   },
+   "hi": {
+    "n": 20,
+    "mean_w": 0.1274,
+    "p_fail_w": 0.0793
+   }
+  }
+ },
+ "archive_valid_mass_rate": 0.0,
+ "archive_T173_valid_rate": 0.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "score_w_ge_70": true,
+  "no_cov_regression": true
+ },
+ "keep": true
+}

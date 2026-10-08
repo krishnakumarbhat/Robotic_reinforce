@@ -1,0 +1,281 @@
+[aegis-sweep] /kaggle/working unavailable -> WORKDIR=/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce/results
+pybullet build time: Jan 29 2025 23:16:28
+[aegis-sweep      0.0s] backend=pybullet seeds/suite=20 steps=400 budget=7.0h hard_cap=8.0h jsonl=results/aegis_v2/i7_soft_fitted_0.02_4.jsonl
+[aegis-sweep      1.3s] episode failed fixture_A/seed91000: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep      1.3s] fitted/fixture_A seed=91000 f=0.06 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.05s
+[aegis-sweep      1.5s] episode failed fixture_A/seed91001: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep      1.5s] fitted/fixture_A seed=91001 f=0.07 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.24s
+[aegis-sweep      1.8s] episode failed fixture_A/seed91002: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep      1.8s] fitted/fixture_A seed=91002 f=0.17 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.29s
+[aegis-sweep      1.8s] time estimate: 0.00h (0.19s/ep)
+[aegis-sweep      2.3s] episode failed fixture_A/seed91003: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep      2.3s] fitted/fixture_A seed=91003 f=0.39 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.48s
+[aegis-sweep      2.4s] episode failed fixture_A/seed91004: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep      2.4s] fitted/fixture_A seed=91004 f=0.45 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.13s
+[aegis-sweep      4.3s] episode failed fixture_A/seed91005: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep      4.3s] fitted/fixture_A seed=91005 f=0.05 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 1.90s
+[aegis-sweep      8.4s] episode failed fixture_A/seed91006: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep      8.4s] fitted/fixture_A seed=91006 f=0.36 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 4.06s
+[aegis-sweep     14.5s] fitted/fixture_A seed=91007 f=0.34 tool=2 tag=SUCCESS cov=0.71 covc=1.000 stick=0.00 slip=0.006 6.07s
+[aegis-sweep     14.5s] episode failed fixture_A/seed91008: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     14.5s] fitted/fixture_A seed=91008 f=0.22 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.06s
+[aegis-sweep     14.8s] episode failed fixture_A/seed91009: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     14.8s] fitted/fixture_A seed=91009 f=0.42 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.28s
+[aegis-sweep     15.2s] episode failed fixture_A/seed91010: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     15.2s] fitted/fixture_A seed=91010 f=0.43 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.45s
+[aegis-sweep     16.6s] fitted/fixture_A seed=91011 f=0.09 tool=0 tag=SUCCESS cov=0.75 covc=0.906 stick=0.00 slip=0.008 1.31s
+[aegis-sweep     16.6s] fitted/fixture_A seed=91012 f=0.06 tool=1 tag=SUCCESS cov=0.88 covc=0.969 stick=0.00 slip=0.004 0.05s
+[aegis-sweep     16.7s] fitted/fixture_A seed=91013 f=0.34 tool=2 tag=SUCCESS cov=0.71 covc=1.000 stick=0.00 slip=0.008 0.05s
+[aegis-sweep     16.7s] fitted/fixture_A seed=91014 f=0.43 tool=0 tag=SUCCESS cov=0.92 covc=0.979 stick=0.00 slip=0.009 0.06s
+[aegis-sweep     16.8s] fitted/fixture_A seed=91015 f=0.47 tool=1 tag=SUCCESS cov=1.00 covc=1.000 stick=0.00 slip=0.010 0.06s
+[aegis-sweep     16.8s] fitted/fixture_A seed=91016 f=0.57 tool=2 tag=SUCCESS cov=0.71 covc=1.000 stick=0.00 slip=0.011 0.05s
+[aegis-sweep     16.9s] episode failed fixture_A/seed91017: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     16.9s] fitted/fixture_A seed=91017 f=0.10 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.05s
+[aegis-sweep     17.0s] episode failed fixture_A/seed91018: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.0s] fitted/fixture_A seed=91018 f=0.19 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.12s
+[aegis-sweep     17.5s] fitted/fixture_A seed=91019 f=0.36 tool=2 tag=SUCCESS cov=0.71 covc=0.958 stick=0.00 slip=0.005 0.50s
+[aegis-sweep     17.5s] episode failed fixture_B/seed111000: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.5s] fitted/fixture_B seed=111000 f=0.27 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep     17.5s] episode failed fixture_B/seed111001: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.5s] fitted/fixture_B seed=111001 f=0.22 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep     17.5s] episode failed fixture_B/seed111002: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.5s] fitted/fixture_B seed=111002 f=0.80 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep     17.6s] episode failed fixture_B/seed111003: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.6s] fitted/fixture_B seed=111003 f=0.80 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep     17.6s] episode failed fixture_B/seed111004: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.6s] fitted/fixture_B seed=111004 f=0.29 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep     17.7s] episode failed fixture_B/seed111005: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.7s] fitted/fixture_B seed=111005 f=0.49 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.10s
+[aegis-sweep     17.7s] episode failed fixture_B/seed111006: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     17.7s] fitted/fixture_B seed=111006 f=0.48 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.04s
+[aegis-sweep     18.5s] episode failed fixture_B/seed111007: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     18.5s] fitted/fixture_B seed=111007 f=0.80 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.72s
+[aegis-sweep     19.5s] episode failed fixture_B/seed111008: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     19.5s] fitted/fixture_B seed=111008 f=0.80 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 1.01s
+[aegis-sweep     29.1s] fitted/fixture_B seed=111009 f=0.35 tool=0 tag=OBSTACLE_STALL cov=0.88 covc=0.844 stick=0.03 slip=0.066 9.64s
+[aegis-sweep     29.1s] episode failed fixture_B/seed111010: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.1s] fitted/fixture_B seed=111010 f=0.29 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep     29.1s] episode failed fixture_B/seed111011: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.1s] fitted/fixture_B seed=111011 f=0.29 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep     29.1s] episode failed fixture_B/seed111012: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.1s] fitted/fixture_B seed=111012 f=0.73 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep     29.2s] episode failed fixture_B/seed111013: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.2s] fitted/fixture_B seed=111013 f=0.53 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep     29.2s] episode failed fixture_B/seed111014: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.2s] fitted/fixture_B seed=111014 f=0.37 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep     29.2s] episode failed fixture_B/seed111015: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.2s] fitted/fixture_B seed=111015 f=0.63 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.03s
+[aegis-sweep     29.3s] episode failed fixture_B/seed111016: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.3s] fitted/fixture_B seed=111016 f=0.38 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.12s
+[aegis-sweep     29.6s] episode failed fixture_B/seed111017: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.7s] fitted/fixture_B seed=111017 f=0.70 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.35s
+[aegis-sweep     29.7s] episode failed fixture_B/seed111018: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.7s] fitted/fixture_B seed=111018 f=0.42 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.05s
+[aegis-sweep     29.8s] episode failed fixture_B/seed111019: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     29.8s] fitted/fixture_B seed=111019 f=0.35 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.08s
+[aegis-sweep     30.0s] episode failed fixture_R/seed131000: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     30.0s] fitted/fixture_R seed=131000 f=0.12 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.23s
+[aegis-sweep     37.1s] episode failed fixture_R/seed131001: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     37.1s] fitted/fixture_R seed=131001 f=0.80 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 7.08s
+[aegis-sweep     37.2s] episode failed fixture_R/seed131002: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     37.2s] fitted/fixture_R seed=131002 f=0.39 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.11s
+[aegis-sweep     37.3s] episode failed fixture_R/seed131003: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     37.3s] fitted/fixture_R seed=131003 f=0.21 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.09s
+[aegis-sweep     37.4s] episode failed fixture_R/seed131004: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     37.4s] fitted/fixture_R seed=131004 f=0.38 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.10s
+[aegis-sweep     41.4s] episode failed fixture_R/seed131005: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     41.4s] fitted/fixture_R seed=131005 f=0.15 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 3.96s
+[aegis-sweep     49.0s] episode failed fixture_R/seed131006: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     49.0s] fitted/fixture_R seed=131006 f=0.80 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 7.64s
+[aegis-sweep     70.0s] episode failed fixture_R/seed131007: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     70.0s] fitted/fixture_R seed=131007 f=0.36 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 20.97s
+[aegis-sweep     70.2s] episode failed fixture_R/seed131008: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     70.2s] fitted/fixture_R seed=131008 f=0.14 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.17s
+[aegis-sweep     97.0s] fitted/fixture_R seed=131009 f=0.41 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=0.25 slip=0.113 26.87s
+[aegis-sweep     97.0s] episode failed fixture_R/seed131010: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     97.0s] fitted/fixture_R seed=131010 f=0.20 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep     97.0s] episode failed fixture_R/seed131011: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     97.0s] fitted/fixture_R seed=131011 f=0.23 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep     97.2s] episode failed fixture_R/seed131012: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     97.2s] fitted/fixture_R seed=131012 f=0.07 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.12s
+[aegis-sweep     97.2s] episode failed fixture_R/seed131013: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     97.2s] fitted/fixture_R seed=131013 f=0.44 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep     97.2s] episode failed fixture_R/seed131014: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     97.2s] fitted/fixture_R seed=131014 f=0.58 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep     97.2s] episode failed fixture_R/seed131015: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     97.2s] fitted/fixture_R seed=131015 f=0.14 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.03s
+[aegis-sweep     99.3s] episode failed fixture_R/seed131016: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     99.3s] fitted/fixture_R seed=131016 f=0.37 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 2.09s
+[aegis-sweep     99.4s] episode failed fixture_R/seed131017: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep     99.4s] fitted/fixture_R seed=131017 f=0.42 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.03s
+[aegis-sweep    102.1s] episode failed fixture_R/seed131018: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    102.1s] fitted/fixture_R seed=131018 f=0.42 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 2.75s
+[aegis-sweep    102.1s] episode failed fixture_R/seed131019: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    102.1s] fitted/fixture_R seed=131019 f=0.48 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.04s
+[aegis-sweep    107.6s] trochoid/fixture_A seed=91000 f=0.06 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=0.10 slip=0.069 5.46s
+[aegis-sweep    107.7s] episode failed fixture_A/seed91001: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    107.7s] trochoid/fixture_A seed=91001 f=0.07 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.06s
+[aegis-sweep    108.0s] episode failed fixture_A/seed91002: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    108.0s] trochoid/fixture_A seed=91002 f=0.17 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.32s
+[aegis-sweep    108.8s] episode failed fixture_A/seed91003: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    108.8s] trochoid/fixture_A seed=91003 f=0.39 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.79s
+[aegis-sweep    110.0s] trochoid/fixture_A seed=91004 f=0.45 tool=2 tag=SUCCESS cov=0.88 covc=0.979 stick=0.02 slip=0.009 1.21s
+[aegis-sweep    110.0s] episode failed fixture_A/seed91005: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    110.0s] trochoid/fixture_A seed=91005 f=0.05 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.05s
+[aegis-sweep    110.3s] episode failed fixture_A/seed91006: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    110.3s] trochoid/fixture_A seed=91006 f=0.36 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.30s
+[aegis-sweep    110.3s] episode failed fixture_A/seed91007: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    110.3s] trochoid/fixture_A seed=91007 f=0.34 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep    110.4s] episode failed fixture_A/seed91008: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    110.4s] trochoid/fixture_A seed=91008 f=0.22 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.05s
+[aegis-sweep    110.4s] episode failed fixture_A/seed91009: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    110.4s] trochoid/fixture_A seed=91009 f=0.42 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.05s
+[aegis-sweep    111.5s] episode failed fixture_A/seed91010: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    111.5s] trochoid/fixture_A seed=91010 f=0.43 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 1.08s
+[aegis-sweep    115.4s] episode failed fixture_A/seed91011: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    115.4s] trochoid/fixture_A seed=91011 f=0.09 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 3.92s
+[aegis-sweep    121.1s] episode failed fixture_A/seed91012: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    121.1s] trochoid/fixture_A seed=91012 f=0.06 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 5.64s
+[aegis-sweep    128.6s] trochoid/fixture_A seed=91013 f=0.34 tool=2 tag=SUCCESS cov=0.67 covc=0.906 stick=0.01 slip=0.008 7.47s
+[aegis-sweep    128.6s] episode failed fixture_A/seed91014: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    128.6s] trochoid/fixture_A seed=91014 f=0.43 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.06s
+[aegis-sweep    128.9s] episode failed fixture_A/seed91015: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    128.9s] trochoid/fixture_A seed=91015 f=0.47 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.27s
+[aegis-sweep    129.5s] trochoid/fixture_A seed=91016 f=0.57 tool=2 tag=SUCCESS cov=0.83 covc=0.927 stick=0.01 slip=0.011 0.61s
+[aegis-sweep    129.5s] episode failed fixture_A/seed91017: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    129.5s] trochoid/fixture_A seed=91017 f=0.10 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.05s
+[aegis-sweep    129.7s] episode failed fixture_A/seed91018: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    129.7s] trochoid/fixture_A seed=91018 f=0.19 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.12s
+[aegis-sweep    130.3s] trochoid/fixture_A seed=91019 f=0.36 tool=2 tag=SUCCESS cov=0.96 covc=1.000 stick=0.00 slip=0.007 0.64s
+[aegis-sweep    130.3s] episode failed fixture_B/seed111000: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.3s] trochoid/fixture_B seed=111000 f=0.27 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep    130.3s] episode failed fixture_B/seed111001: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.3s] trochoid/fixture_B seed=111001 f=0.22 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep    130.3s] episode failed fixture_B/seed111002: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.3s] trochoid/fixture_B seed=111002 f=0.80 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.01s
+[aegis-sweep    130.4s] episode failed fixture_B/seed111003: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.4s] trochoid/fixture_B seed=111003 f=0.80 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep    130.4s] episode failed fixture_B/seed111004: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.4s] trochoid/fixture_B seed=111004 f=0.29 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.02s
+[aegis-sweep    130.5s] episode failed fixture_B/seed111005: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.5s] trochoid/fixture_B seed=111005 f=0.49 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.09s
+[aegis-sweep    130.5s] episode failed fixture_B/seed111006: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.5s] trochoid/fixture_B seed=111006 f=0.48 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.04s
+[aegis-sweep    130.5s] episode failed fixture_B/seed111007: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    130.5s] trochoid/fixture_B seed=111007 f=0.80 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.04s
+[aegis-sweep    131.5s] episode failed fixture_B/seed111008: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    131.5s] trochoid/fixture_B seed=111008 f=0.80 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 1.00s
+[aegis-sweep    131.6s] episode failed fixture_B/seed111009: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    131.6s] trochoid/fixture_B seed=111009 f=0.35 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.07s
+[aegis-sweep    131.7s] episode failed fixture_B/seed111010: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    131.7s] trochoid/fixture_B seed=111010 f=0.29 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.10s
+[aegis-sweep    139.9s] episode failed fixture_B/seed111011: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    139.9s] trochoid/fixture_B seed=111011 f=0.29 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 8.17s
+[aegis-sweep    144.3s] episode failed fixture_B/seed111012: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    144.3s] trochoid/fixture_B seed=111012 f=0.73 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 4.38s
+[aegis-sweep    144.4s] episode failed fixture_B/seed111013: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    144.4s] trochoid/fixture_B seed=111013 f=0.53 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.14s
+[aegis-sweep    153.6s] episode failed fixture_B/seed111014: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    153.6s] trochoid/fixture_B seed=111014 f=0.37 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 9.23s
+[aegis-sweep    153.8s] episode failed fixture_B/seed111015: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    153.8s] trochoid/fixture_B seed=111015 f=0.63 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.16s
+[aegis-sweep    154.0s] episode failed fixture_B/seed111016: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    154.0s] trochoid/fixture_B seed=111016 f=0.38 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.18s
+[aegis-sweep    163.0s] episode failed fixture_B/seed111017: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    163.0s] trochoid/fixture_B seed=111017 f=0.70 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 9.02s
+[aegis-sweep    163.2s] episode failed fixture_B/seed111018: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    163.2s] trochoid/fixture_B seed=111018 f=0.42 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.22s
+[aegis-sweep    163.4s] episode failed fixture_B/seed111019: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    163.4s] trochoid/fixture_B seed=111019 f=0.35 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.22s
+[aegis-sweep    163.7s] episode failed fixture_R/seed131000: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    163.7s] trochoid/fixture_R seed=131000 f=0.12 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.26s
+[aegis-sweep    193.7s] episode failed fixture_R/seed131001: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    193.7s] trochoid/fixture_R seed=131001 f=0.80 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 30.05s
+[aegis-sweep    194.2s] episode failed fixture_R/seed131002: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    194.2s] trochoid/fixture_R seed=131002 f=0.39 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.43s
+[aegis-sweep    194.5s] episode failed fixture_R/seed131003: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    194.5s] trochoid/fixture_R seed=131003 f=0.21 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.34s
+[aegis-sweep    194.9s] episode failed fixture_R/seed131004: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    194.9s] trochoid/fixture_R seed=131004 f=0.38 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.34s
+[aegis-sweep    200.5s] episode failed fixture_R/seed131005: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    200.5s] trochoid/fixture_R seed=131005 f=0.15 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 5.65s
+[aegis-sweep    249.3s] episode failed fixture_R/seed131006: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    249.3s] trochoid/fixture_R seed=131006 f=0.80 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 48.80s
+[aegis-sweep    263.0s] episode failed fixture_R/seed131007: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    263.0s] trochoid/fixture_R seed=131007 f=0.36 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 13.74s
+[aegis-sweep    263.7s] episode failed fixture_R/seed131008: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    263.7s] trochoid/fixture_R seed=131008 f=0.14 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.70s
+[aegis-sweep    324.5s] episode failed fixture_R/seed131009: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    324.5s] trochoid/fixture_R seed=131009 f=0.41 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 60.76s
+[aegis-sweep    325.1s] episode failed fixture_R/seed131010: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    325.1s] trochoid/fixture_R seed=131010 f=0.20 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.63s
+[aegis-sweep    325.5s] episode failed fixture_R/seed131011: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    325.5s] trochoid/fixture_R seed=131011 f=0.23 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.40s
+[aegis-sweep    363.1s] episode failed fixture_R/seed131012: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    363.1s] trochoid/fixture_R seed=131012 f=0.07 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 37.59s
+[aegis-sweep    363.6s] episode failed fixture_R/seed131013: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    363.6s] trochoid/fixture_R seed=131013 f=0.44 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.50s
+[aegis-sweep    364.1s] episode failed fixture_R/seed131014: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    364.2s] trochoid/fixture_R seed=131014 f=0.58 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.52s
+[aegis-sweep    366.6s] episode failed fixture_R/seed131015: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    366.6s] trochoid/fixture_R seed=131015 f=0.14 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 2.43s
+[aegis-sweep    395.3s] episode failed fixture_R/seed131016: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    395.3s] trochoid/fixture_R seed=131016 f=0.37 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 28.71s
+[aegis-sweep    395.9s] episode failed fixture_R/seed131017: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    395.9s] trochoid/fixture_R seed=131017 f=0.42 tool=1 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.62s
+[aegis-sweep    418.8s] episode failed fixture_R/seed131018: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    418.9s] trochoid/fixture_R seed=131018 f=0.42 tool=2 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 22.94s
+[aegis-sweep    419.5s] episode failed fixture_R/seed131019: AttributeError: 'PyBulletScrub' object has no attribute 'pose_noise_cfg'
+[aegis-sweep    419.5s] trochoid/fixture_R seed=131019 f=0.48 tool=0 tag=OBSTACLE_STALL cov=0.00 covc=0.000 stick=1.00 slip=0.000 0.69s
+/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce/experiments/kaggle_aegis_sweep.py:1367: SmallSampleWarning: One or more sample arguments is too small; all returned values will be NaN. See documentation for sample size requirements.
+  w = stats.ttest_ind(b, a, equal_var=False)
+[aegis-sweep    420.0s] COMPARE {"record": "compare", "candidate": "fitted", "baseline": "trochoid", "candidate_knobs": {"TROCHOID_R_M": 0.015, "TROCHOID_DS_M": 0.004, "TROCHOID_DR": 0.5, "BASE_DS_M": 0.01, "TROCHOID_AMP_M": 0.015, "TROCHOID_W": 33.333333333333336, "AEGIS_GATE": "inloop"}, "baseline_knobs": {"TROCHOID_R_M": 0.015, "TROCHOID_DS_M": 0.004, "TROCHOID_DR": 0.5, "BASE_DS_M": 0.01, "TROCHOID_AMP_M": 0.015, "TROCHOID_W": 33.333333333333336, "AEGIS_GATE": "inloop"}, "pose_noise_cfg": "0.02,4", "metric": "coverage_cont", "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression", "fixture_A": {"n_a": 5, "n_b": 8, "mean_a": 0.7625, "mean_b": 0.9766, "delta": 0.2141, "welch_t": 1.1165, "welch_p": 0.3263321332216691, "p_method": "scipy", "succ_a": 4, "succ_b": 8, "fisher_p": 0.38461538461538464}, "fixture_B": {"n_a": 0, "n_b": 1, "mean_a": 0.0, "mean_b": 0.8438, "delta": 0.8438, "welch_t": NaN, "welch_p": NaN, "p_method": "scipy", "succ_a": 0, "succ_b": 0, "fisher_p": 1.0}, "fixture_R": {"n_a": 0, "n_b": 1, "mean_a": 0.0, "mean_b": 0.0, "delta": 0.0, "welch_t": NaN, "welch_p": NaN, "p_method": "scipy", "succ_a": 0, "succ_b": 0, "fisher_p": 1.0}, "keep": false}
+[aegis-sweep    420.0s] {
+ "per_suite": {
+  "fixture_A": {
+   "n": 8,
+   "transfer_success": 1.0,
+   "success_count": 8,
+   "gate_admitted_failures": 0,
+   "mean_jerk": 0.00245,
+   "mean_coverage": 0.7969,
+   "mean_coverage_cont": 0.9766,
+   "std_coverage_cont": 0.0328,
+   "mean_stick_frac": 0.0004,
+   "mean_slip_m": 0.0077
+  },
+  "fixture_B": {
+   "n": 1,
+   "transfer_success": 0.0,
+   "success_count": 0,
+   "gate_admitted_failures": 1,
+   "mean_jerk": 0.25407,
+   "mean_coverage": 0.875,
+   "mean_coverage_cont": 0.8438,
+   "std_coverage_cont": 0.0,
+   "mean_stick_frac": 0.0289,
+   "mean_slip_m": 0.0664
+  },
+  "fixture_R": {
+   "n": 1,
+   "transfer_success": 0.0,
+   "success_count": 0,
+   "gate_admitted_failures": 1,
+   "mean_jerk": 0.0037,
+   "mean_coverage": 0.0,
+   "mean_coverage_cont": 0.0,
+   "std_coverage_cont": 0.0,
+   "mean_stick_frac": 0.2517,
+   "mean_slip_m": 0.1126
+  }
+ },
+ "tag_counts": {
+  "SUCCESS": 8,
+  "OBSTACLE_STALL": 2
+ },
+ "harness_errors": 50,
+ "verdict": "PENDING-VALIDATION (need >=20 seeds/suite)"
+}
+[aegis-sweep    420.0s] wrote 120 episodes -> results/aegis_v2/i7_soft_fitted_0.02_4.jsonl (105.3 KiB) in 0.12h
+[aegis-sweep    420.3s] hub: skipped (--no-upload / AEGIS_UPLOAD=0)
+[aegis-sweep    420.3s] AEGIS_SWEEP_DONE

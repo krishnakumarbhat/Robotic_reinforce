@@ -1,0 +1,159 @@
+{
+ "theta_marginal_logonly": 0.014133,
+ "theta_bitidentical_172_173": true,
+ "P50_frozen_director": 0.008,
+ "P50_train_recomputed": 0.008106,
+ "variant": "T189 = T188 ablation damping OFF, w=T173/(slip+eps*), eps*=0.01",
+ "fric_term": "none",
+ "no_damp": "ON (floor removed; raw slip)",
+ "slip_floor": null,
+ "slip_floor_hits_T188ref": {
+  "calib": 17,
+  "held": 25,
+  "archive": 0
+ },
+ "eps_star": 0.01,
+ "eps_star_rule": "max(median_calib(slip>0)=0.008358,0.01) train-locked pre-reg (best from 188)",
+ "sweep_best_logonly": "eps=0.05 lift +0.19 vs T187 observed in r188, NOT refit",
+ "shrink_lambda": "1.0->0 arm = pure T173 hard tag (see held_T173/trainfold_T173)",
+ "w_cap_unnormalized_T189": 100.0,
+ "w_cap_unnormalized_T188ref": 66.6667,
+ "i7_binds_heldout": 0,
+ "i7_binds_calib": 0,
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "trainfold_T173": {
+  "n": 120,
+  "n_adm": 108,
+  "recall": 0.9126,
+  "score": 91.26,
+  "precision": 0.8704,
+  "p_fail_given_adm": 0.1296,
+  "cov_adm": 0.9655,
+  "cov_all": 0.9612
+ },
+ "held_T173": {
+  "n": 120,
+  "n_adm": 102,
+  "recall": 0.8667,
+  "score": 86.67,
+  "precision": 0.8922,
+  "p_fail_given_adm": 0.1078,
+  "cov_adm": 0.9729,
+  "cov_all": 0.9695
+ },
+ "trainfold_T188ref": {
+  "n": 120,
+  "sum_w": 5985.7715,
+  "mean_w": 49.8814,
+  "ess": 105.46,
+  "p_fail_weighted": 0.1255,
+  "precision_w": 0.8745,
+  "score_w": 87.45,
+  "recall_w": 50.8213,
+  "cov_w": 0.9656,
+  "cov_all": 0.9612,
+  "pct_w_zero": 0.1,
+  "rankIC_w_vs_success": 0.1237,
+  "rankIC_w_vs_coverage": 0.11
+ },
+ "held_T188ref": {
+  "n": 120,
+  "sum_w": 5655.2469,
+  "mean_w": 47.1271,
+  "ess": 99.04,
+  "p_fail_weighted": 0.1134,
+  "precision_w": 0.8866,
+  "score_w": 88.66,
+  "recall_w": 47.7536,
+  "cov_w": 0.9728,
+  "cov_all": 0.9695,
+  "pct_w_zero": 0.15,
+  "rankIC_w_vs_success": 0.0201,
+  "rankIC_w_vs_coverage": 0.0474
+ },
+ "trainfold_T189": {
+  "n": 120,
+  "sum_w": 6061.2977,
+  "mean_w": 50.5108,
+  "ess": 104.88,
+  "p_fail_weighted": 0.1247,
+  "precision_w": 0.8753,
+  "score_w": 87.53,
+  "recall_w": 51.5092,
+  "cov_w": 0.9657,
+  "cov_all": 0.9612,
+  "pct_w_zero": 0.1,
+  "rankIC_w_vs_success": 0.136,
+  "rankIC_w_vs_coverage": 0.1207
+ },
+ "held_T189": {
+  "n": 120,
+  "sum_w": 5758.9985,
+  "mean_w": 47.9917,
+  "ess": 98.27,
+  "p_fail_weighted": 0.1126,
+  "precision_w": 0.8874,
+  "score_w": 88.74,
+  "recall_w": 48.6696,
+  "cov_w": 0.9729,
+  "cov_all": 0.9695,
+  "pct_w_zero": 0.15,
+  "rankIC_w_vs_success": 0.023,
+  "rankIC_w_vs_coverage": 0.0538
+ },
+ "lift_T189_vs_T173_held_pts": -0.48,
+ "lift_T189_vs_T188_held_pts": 0.08,
+ "lift_T189_vs_T173_train_pts": 0.49,
+ "lift_T189_vs_T188_train_pts": 0.08,
+ "turnover_T189_vs_T188_held": {
+  "mean_abs_dw": 0.8646,
+  "max_abs_dw": 11.2075,
+  "n_changed": 22,
+  "n_total": 120
+ },
+ "turnover_T189_vs_T188_trainfold": {
+  "mean_abs_dw": 0.6294,
+  "max_abs_dw": 10.3079,
+  "n_changed": 17,
+  "n_total": 120
+ },
+ "turnover_T189_vs_T188_archive": {
+  "mean_abs_dw": 0.0,
+  "max_abs_dw": 0.0,
+  "n_changed": 0,
+  "n_total": 120
+ },
+ "breadth_delta_held": {
+  "ess_T189": 98.27,
+  "ess_T188": 99.04,
+  "mean_w_T189": 47.9917,
+  "mean_w_T188": 47.1271,
+  "pct_zero_T189": 0.15,
+  "pct_zero_T188": 0.15
+ },
+ "hitrate_delta_held": {
+  "score_w_T189": 88.74,
+  "score_w_T188": 88.66,
+  "recall_w_T189": 48.6696,
+  "recall_w_T188": 47.7536,
+  "precision_w_T189": 0.8874,
+  "precision_w_T188": 0.8866
+ },
+ "director_predicted_20_35_vs_1pt": false,
+ "director_keep_bar_10pts": false,
+ "cov_ok": true,
+ "archive_valid_mass_rate": 0.0,
+ "archive_T173_valid_rate": 0.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "score_w_ge_70": true,
+  "no_cov_regression": true
+ },
+ "keep": true,
+ "fail_path_fires": true
+}

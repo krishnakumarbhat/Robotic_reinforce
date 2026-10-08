@@ -1,0 +1,2 @@
+{"params": 450046176, "load_s": 13.4, "fp16_weight_mb": 906.6, "alloc_mb": 926.2, "int8_projected_mb": 678.3, "note": "0.4.4 has no native bnb flag; int8 projected = half weights + fp16 expert kept"}
+{"vlm_fp16_mb": 700.3, "expert_fp16_mb": 199.8, "heads_mb": 6.4, "total_fp16_mb": 906.6, "mixed_int8_mb": 556.4, "method": "tensor-level accounting of G3-10k ckpt (VLM int8 + expert/heads fp32/fp16 kept for action precision, per QVLA guidance)"}

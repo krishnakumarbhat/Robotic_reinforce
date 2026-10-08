@@ -1,0 +1,64 @@
+
+=== pose_noise 0,0 | candidate arm only (600 episodes) | fn band [0.25, 0.75] N (FN_SET_N=0.5) ===
+
+fixture_A: n=200 fc mean 0.4787 min 0.3144 max 0.6228 frac>=0.90 0.000
+    tool 0: n= 66 fc 0.4027 p10 0.3623 frac>=0.90 0.000
+    tool 1: n= 67 fc 0.4485 p10 0.3982 frac>=0.90 0.000
+    tool 2: n= 67 fc 0.5839 p10 0.5569 frac>=0.90 0.000
+    mu decade fc: 0.0:0.458(n27)  0.1:0.469(n43)  0.2:0.477(n27)  0.3:0.491(n32)  0.4:0.485(n32)  0.5:0.490(n39)
+    largest gap 0.0299 after rank 0/200 -> unimodal; fc<0.50: 0.650  fc>=0.90: 0.000
+    fn_mean 0.4324 (p10 0.3933 max 0.5479)  fn_p95 1.3140 (p10 1.1751 max 1.5536)
+    corr(fc, fn_mean) +0.268  corr(fc, fn_p95) +0.223  corr(fc, success) n/a (binary)
+    fc | success 0.4787 (n200)  fc | fail nan (n0)
+
+fixture_B: n=200 fc mean 1.0000 min 1.0000 max 1.0000 frac>=0.90 1.000
+    tool 0: n= 67 fc 1.0000 p10 1.0000 frac>=0.90 1.000
+    tool 1: n= 67 fc 1.0000 p10 1.0000 frac>=0.90 1.000
+    tool 2: n= 66 fc 1.0000 p10 1.0000 frac>=0.90 1.000
+    mu decade fc: 0.0:1.000(n3)  0.1:1.000(n21)  0.2:1.000(n22)  0.3:1.000(n18)  0.4:1.000(n24)  0.5:1.000(n22)  0.6:1.000(n17)  0.7:1.000(n22)  0.8:1.000(n51)
+    largest gap 0.0000 after rank 0.0/200 -> unimodal; fc<0.50: 0.000  fc>=0.90: 1.000
+    fn_mean 0.4957 (p10 0.4955 max 0.4961)  fn_p95 0.4969 (p10 0.4967 max 0.4974)
+    corr(fc, fn_mean) +nan  corr(fc, fn_p95) +nan  corr(fc, success) n/a (binary)
+    fc | success 1.0000 (n200)  fc | fail nan (n0)
+
+fixture_R: n=200 fc mean 0.7274 min 0.3293 max 1.0000 frac>=0.90 0.480
+    tool 0: n= 67 fc 0.6893 p10 0.3593 frac>=0.90 0.493
+    tool 1: n= 66 fc 0.7130 p10 0.4072 frac>=0.90 0.485
+    tool 2: n= 67 fc 0.7796 p10 0.5719 frac>=0.90 0.463
+    mu decade fc: 0.0:0.801(n17)  0.1:0.713(n28)  0.2:0.658(n20)  0.3:0.700(n29)  0.4:0.695(n30)  0.5:0.774(n30)  0.6:0.910(n11)  0.7:0.787(n14)  0.8:0.635(n21)
+    largest gap 0.3563 after rank 103/200 -> BIMODAL; fc<0.50: 0.335  fc>=0.90: 0.480
+    fn_mean 0.4606 (p10 0.4051 max 0.4961)  fn_p95 0.9207 (p10 0.4967 max 1.4886)
+    corr(fc, fn_mean) +0.863  corr(fc, fn_p95) -0.952  corr(fc, success) n/a (binary)
+    fc | success 0.7274 (n200)  fc | fail nan (n0)
+
+=== pose_noise 0.01,2 | candidate arm only (600 episodes) | fn band [0.25, 0.75] N (FN_SET_N=0.5) ===
+
+fixture_A: n=200 fc mean 0.4768 min 0.2725 max 0.6467 frac>=0.90 0.000
+    tool 0: n= 66 fc 0.3986 p10 0.3533 frac>=0.90 0.000
+    tool 1: n= 67 fc 0.4438 p10 0.4102 frac>=0.90 0.000
+    tool 2: n= 67 fc 0.5868 p10 0.5539 frac>=0.90 0.000
+    mu decade fc: 0.0:0.452(n27)  0.1:0.459(n43)  0.2:0.476(n27)  0.3:0.493(n32)  0.4:0.483(n32)  0.5:0.495(n39)
+    largest gap 0.0389 after rank 0/200 -> unimodal; fc<0.50: 0.660  fc>=0.90: 0.000
+    fn_mean 0.4283 (p10 0.3889 max 0.5021)  fn_p95 1.3154 (p10 1.1766 max 1.4820)
+    corr(fc, fn_mean) +0.285  corr(fc, fn_p95) +0.169  corr(fc, success) n/a (binary)
+    fc | success 0.4781 (n197)  fc | fail 0.3892 (n3)
+
+fixture_B: n=200 fc mean 1.0000 min 1.0000 max 1.0000 frac>=0.90 1.000
+    tool 0: n= 67 fc 1.0000 p10 1.0000 frac>=0.90 1.000
+    tool 1: n= 67 fc 1.0000 p10 1.0000 frac>=0.90 1.000
+    tool 2: n= 66 fc 1.0000 p10 1.0000 frac>=0.90 1.000
+    mu decade fc: 0.0:1.000(n3)  0.1:1.000(n21)  0.2:1.000(n22)  0.3:1.000(n18)  0.4:1.000(n24)  0.5:1.000(n22)  0.6:1.000(n17)  0.7:1.000(n22)  0.8:1.000(n51)
+    largest gap 0.0000 after rank 0.0/200 -> unimodal; fc<0.50: 0.000  fc>=0.90: 1.000
+    fn_mean 0.4957 (p10 0.4955 max 0.4961)  fn_p95 0.4969 (p10 0.4967 max 0.4974)
+    corr(fc, fn_mean) +nan  corr(fc, fn_p95) +nan  corr(fc, success) n/a (binary)
+    fc | success 1.0000 (n199)  fc | fail 1.0000 (n1)
+
+fixture_R: n=200 fc mean 0.7307 min 0.3443 max 1.0000 frac>=0.90 0.480
+    tool 0: n= 67 fc 0.6948 p10 0.3623 frac>=0.90 0.493
+    tool 1: n= 66 fc 0.7170 p10 0.4192 frac>=0.90 0.485
+    tool 2: n= 67 fc 0.7800 p10 0.5659 frac>=0.90 0.463
+    mu decade fc: 0.0:0.803(n17)  0.1:0.718(n28)  0.2:0.655(n20)  0.3:0.704(n29)  0.4:0.699(n30)  0.5:0.773(n30)  0.6:0.915(n11)  0.7:0.780(n14)  0.8:0.653(n21)
+    largest gap 0.3263 after rank 103/200 -> BIMODAL; fc<0.50: 0.325  fc>=0.90: 0.480
+    fn_mean 0.4642 (p10 0.4119 max 0.5005)  fn_p95 0.9331 (p10 0.4967 max 1.5404)
+    corr(fc, fn_mean) +0.857  corr(fc, fn_p95) -0.953  corr(fc, success) n/a (binary)
+    fc | success 0.7311 (n198)  fc | fail 0.6901 (n2)

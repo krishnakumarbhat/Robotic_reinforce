@@ -1,0 +1,94 @@
+{
+ "env_noise": "0.03,6",
+ "fixture_A": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.8802,
+  "mean_b": 0.9224,
+  "delta": 0.0422,
+  "welch_t": 1.7318,
+  "welch_p": 0.09646203499628878,
+  "paired_t": 1.851,
+  "paired_p": 0.07977821105326238,
+  "p_method": "scipy",
+  "succ_rate_a": 0.6,
+  "succ_rate_b": 0.8,
+  "n": 20,
+  "fisher_p": 0.30084478249105606
+ },
+ "fixture_B": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.882,
+  "mean_b": 0.9406,
+  "delta": 0.0586,
+  "welch_t": 2.3244,
+  "welch_p": 0.02839660672598376,
+  "paired_t": 2.4016,
+  "paired_p": 0.026715304415025048,
+  "p_method": "scipy",
+  "succ_rate_a": 0.5,
+  "succ_rate_b": 0.75,
+  "n": 20,
+  "fisher_p": 0.19079257232761124
+ },
+ "fixture_R": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.8044,
+  "mean_b": 0.9315,
+  "delta": 0.1271,
+  "welch_t": 3.0685,
+  "welch_p": 0.005711710243831079,
+  "paired_t": 3.1368,
+  "paired_p": 0.005429929113801961,
+  "p_method": "scipy",
+  "succ_rate_a": 0.4,
+  "succ_rate_b": 0.7,
+  "n": 20,
+  "fisher_p": 0.11096953702747578
+ },
+ "reg": {
+  "reg_ok_rate": 1.0,
+  "reg_err_xy_median_m": 0.00449,
+  "prior_sigma_m": 0.03
+ },
+ "B_failure_diag": {
+  "B_fails": 6,
+  "B_n": 20,
+  "fail_tags": {
+   "OBSTACLE_STALL": 3,
+   "FAILURE_SLIP": 3
+  },
+  "fail_covc": [
+   0.891,
+   0.891,
+   0.891,
+   0.891,
+   0.891,
+   0.891
+  ],
+  "fail_slip": [
+   0.006,
+   0.016,
+   0.01,
+   0.015,
+   0.013,
+   0.009
+  ],
+  "fail_friction": [
+   0.27,
+   0.8,
+   0.48,
+   0.73,
+   0.63,
+   0.42
+  ],
+  "all_tags": {
+   "OBSTACLE_STALL": 3,
+   "FAILURE_SLIP": 3,
+   "SUCCESS": 14
+  },
+  "covc_below_0.90_but_high": 6
+ }
+}

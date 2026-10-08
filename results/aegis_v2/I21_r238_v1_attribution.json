@@ -1,0 +1,362 @@
+{
+ "variants": {
+  "fixture_A/tool0/v1": {
+   "ceiling": 0.8229,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.056,
+   "path_len_m": 0.7472,
+   "r_eff": 0.035,
+   "defects_disabled": []
+  },
+  "fixture_A/tool0/v1_noU": {
+   "ceiling": 0.8333,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.056,
+   "path_len_m": 0.8872,
+   "r_eff": 0.035,
+   "defects_disabled": [
+    "inset_u"
+   ]
+  },
+  "fixture_A/tool0/v1_span": {
+   "ceiling": 0.8333,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.055,
+   "path_len_m": 0.7457,
+   "r_eff": 0.035,
+   "defects_disabled": [
+    "span"
+   ]
+  },
+  "fixture_A/tool0/v1_fix": {
+   "ceiling": 0.8333,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.055,
+   "path_len_m": 0.8857,
+   "r_eff": 0.035,
+   "defects_disabled": [
+    "inset_u",
+    "span"
+   ]
+  },
+  "fixture_A/tool0/v2_ship": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 3,
+   "pitch_m": 0.06,
+   "path_len_m": 1.3878,
+   "r_eff": 0.035,
+   "defects_disabled": []
+  },
+  "fixture_A/tool1/v1": {
+   "ceiling": 0.9896,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.064,
+   "path_len_m": 0.7398,
+   "r_eff": 0.04,
+   "defects_disabled": []
+  },
+  "fixture_A/tool1/v1_noU": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.064,
+   "path_len_m": 0.8998,
+   "r_eff": 0.04,
+   "defects_disabled": [
+    "inset_u"
+   ]
+  },
+  "fixture_A/tool1/v1_span": {
+   "ceiling": 0.8333,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.05,
+   "path_len_m": 0.7178,
+   "r_eff": 0.04,
+   "defects_disabled": [
+    "span"
+   ]
+  },
+  "fixture_A/tool1/v1_fix": {
+   "ceiling": 0.8333,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.05,
+   "path_len_m": 0.8778,
+   "r_eff": 0.04,
+   "defects_disabled": [
+    "inset_u",
+    "span"
+   ]
+  },
+  "fixture_A/tool1/v2_ship": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 3,
+   "pitch_m": 0.06,
+   "path_len_m": 1.3878,
+   "r_eff": 0.04,
+   "defects_disabled": []
+  },
+  "fixture_A/tool2/v1": {
+   "ceiling": 0.9792,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.08,
+   "path_len_m": 0.725,
+   "r_eff": 0.05,
+   "defects_disabled": []
+  },
+  "fixture_A/tool2/v1_noU": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.08,
+   "path_len_m": 0.925,
+   "r_eff": 0.05,
+   "defects_disabled": [
+    "inset_u"
+   ]
+  },
+  "fixture_A/tool2/v1_span": {
+   "ceiling": 0.6458,
+   "rim_frac_of_miss": 0.5882,
+   "interior_frac_of_miss": 0.4118,
+   "n_rows": 1,
+   "pitch_m": 0.08,
+   "path_len_m": 0.3,
+   "r_eff": 0.05,
+   "defects_disabled": [
+    "span"
+   ]
+  },
+  "fixture_A/tool2/v1_fix": {
+   "ceiling": 0.6667,
+   "rim_frac_of_miss": 0.5625,
+   "interior_frac_of_miss": 0.4375,
+   "n_rows": 1,
+   "pitch_m": 0.08,
+   "path_len_m": 0.4,
+   "r_eff": 0.05,
+   "defects_disabled": [
+    "inset_u",
+    "span"
+   ]
+  },
+  "fixture_A/tool2/v2_ship": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.09,
+   "path_len_m": 0.9409,
+   "r_eff": 0.05,
+   "defects_disabled": []
+  },
+  "fixture_B/tool0/v1": {
+   "ceiling": 0.7188,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.056,
+   "path_len_m": 0.33,
+   "r_eff": 0.035,
+   "defects_disabled": []
+  },
+  "fixture_B/tool0/v1_noU": {
+   "ceiling": 0.75,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.056,
+   "path_len_m": 0.4,
+   "r_eff": 0.035,
+   "defects_disabled": [
+    "inset_u"
+   ]
+  },
+  "fixture_B/tool0/v1_span": {
+   "ceiling": 0.7188,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.05,
+   "path_len_m": 0.33,
+   "r_eff": 0.035,
+   "defects_disabled": [
+    "span"
+   ]
+  },
+  "fixture_B/tool0/v1_fix": {
+   "ceiling": 0.75,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.05,
+   "path_len_m": 0.4,
+   "r_eff": 0.035,
+   "defects_disabled": [
+    "inset_u",
+    "span"
+   ]
+  },
+  "fixture_B/tool0/v2_ship": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.06,
+   "path_len_m": 0.8939,
+   "r_eff": 0.035,
+   "defects_disabled": []
+  },
+  "fixture_B/tool1/v1": {
+   "ceiling": 0.75,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.064,
+   "path_len_m": 0.32,
+   "r_eff": 0.04,
+   "defects_disabled": []
+  },
+  "fixture_B/tool1/v1_noU": {
+   "ceiling": 0.75,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.064,
+   "path_len_m": 0.4,
+   "r_eff": 0.04,
+   "defects_disabled": [
+    "inset_u"
+   ]
+  },
+  "fixture_B/tool1/v1_span": {
+   "ceiling": 0.75,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.04,
+   "path_len_m": 0.32,
+   "r_eff": 0.04,
+   "defects_disabled": [
+    "span"
+   ]
+  },
+  "fixture_B/tool1/v1_fix": {
+   "ceiling": 0.75,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.04,
+   "path_len_m": 0.4,
+   "r_eff": 0.04,
+   "defects_disabled": [
+    "inset_u",
+    "span"
+   ]
+  },
+  "fixture_B/tool1/v2_ship": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.06,
+   "path_len_m": 0.8939,
+   "r_eff": 0.04,
+   "defects_disabled": []
+  },
+  "fixture_B/tool2/v1": {
+   "ceiling": 0.9375,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.08,
+   "path_len_m": 0.3,
+   "r_eff": 0.05,
+   "defects_disabled": []
+  },
+  "fixture_B/tool2/v1_noU": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.08,
+   "path_len_m": 0.4,
+   "r_eff": 0.05,
+   "defects_disabled": [
+    "inset_u"
+   ]
+  },
+  "fixture_B/tool2/v1_span": {
+   "ceiling": 0.9688,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.02,
+   "path_len_m": 0.3,
+   "r_eff": 0.05,
+   "defects_disabled": [
+    "span"
+   ]
+  },
+  "fixture_B/tool2/v1_fix": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 1,
+   "pitch_m": 0.02,
+   "path_len_m": 0.4,
+   "r_eff": 0.05,
+   "defects_disabled": [
+    "inset_u",
+    "span"
+   ]
+  },
+  "fixture_B/tool2/v2_ship": {
+   "ceiling": 1.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "n_rows": 2,
+   "pitch_m": 0.06,
+   "path_len_m": 0.8939,
+   "r_eff": 0.05,
+   "defects_disabled": []
+  }
+ },
+ "per_suite": {
+  "fixture_A": {
+   "v1": 0.9306,
+   "v1_noU": 0.9444,
+   "v1_span": 0.7708,
+   "v1_fix": 0.7778,
+   "v2_ship": 1.0
+  },
+  "fixture_B": {
+   "v1": 0.8021,
+   "v1_noU": 0.8333,
+   "v1_span": 0.8125,
+   "v1_fix": 0.8333,
+   "v2_ship": 1.0
+  }
+ }
+}

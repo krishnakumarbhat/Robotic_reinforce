@@ -1,0 +1,1 @@
+{"rc": 1, "err": "RuntimeError: Tensor on device meta is not on the expected device cuda:0!", "wall_s": 53.5}

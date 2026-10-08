@@ -1,0 +1,258 @@
+{
+ "variant": "T207 = band-local soft-score s=(w191-mu_band)/sig_band - lam*clip(jerk,0,J95_band), pooled-0, no hard gates",
+ "frozen": {
+  "TAU50_global_ref": 68.0452,
+  "theta_marg_bitident": true,
+  "C99": 100.0,
+  "C99_degenerate": true,
+  "J95_global_ref": 0.015175,
+  "i7_binds_heldB": 0,
+  "w191_T173_embedded_kept": true,
+  "no_TAUhi_lo_hard_gates": true,
+  "fit_scope": "CALIB pooled only, jerk-tertile bands, single held eval"
+ },
+ "bands": {
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "cal_n": [
+   40,
+   40,
+   40
+  ],
+  "cal_fails": [
+   6,
+   4,
+   7
+  ],
+  "J95_band": [
+   0.003611,
+   0.008967,
+   0.019942
+  ],
+  "mu_band": [
+   83.4572,
+   75.1447,
+   51.0233
+  ],
+  "sig_band": [
+   15.3323,
+   16.282,
+   36.3569
+  ],
+  "mu_global": 69.8751,
+  "sig_global": 28.0701
+ },
+ "fit": {
+  "LAM_GRID": [
+   0,
+   0.25,
+   0.5
+  ],
+  "tau_star_per_band": {
+   "0": {
+    "0": {
+     "TAU": null,
+     "calib_recall_b": null,
+     "calib_pf_b": null,
+     "feasible": false
+    },
+    "1": {
+     "TAU": -0.0331782567173419,
+     "calib_recall_b": 0.75,
+     "calib_pf_b": 0.0455,
+     "feasible": true
+    },
+    "2": {
+     "TAU": 0.6414433124689465,
+     "calib_recall_b": 0.8571,
+     "calib_pf_b": 0.0909,
+     "feasible": true
+    }
+   },
+   "0.25": {
+    "0": {
+     "TAU": 1.0782883850624416,
+     "calib_recall_b": 0.8333,
+     "calib_pf_b": 0.1111,
+     "feasible": true
+    },
+    "1": {
+     "TAU": -0.034829182904137286,
+     "calib_recall_b": 0.75,
+     "calib_pf_b": 0.0455,
+     "feasible": true
+    },
+    "2": {
+     "TAU": 0.6390138747426798,
+     "calib_recall_b": 0.8571,
+     "calib_pf_b": 0.0909,
+     "feasible": true
+    }
+   },
+   "0.5": {
+    "0": {
+     "TAU": 1.0776198036542561,
+     "calib_recall_b": 0.8333,
+     "calib_pf_b": 0.1111,
+     "feasible": true
+    },
+    "1": {
+     "TAU": -0.036480109090932675,
+     "calib_recall_b": 0.75,
+     "calib_pf_b": 0.0455,
+     "feasible": true
+    },
+    "2": {
+     "TAU": 0.6365844370164131,
+     "calib_recall_b": 0.8571,
+     "calib_pf_b": 0.0909,
+     "feasible": true
+    }
+   }
+  },
+  "LAM_STAR": 0.25,
+  "TAU_STAR_band": {
+   "0": 1.0783,
+   "1": -0.0348,
+   "2": 0.639
+  },
+  "calib_star_recall": 0.8235,
+  "calib_star_pf": 0.0714,
+  "global_abl": {
+   "G_LAM": 0,
+   "G_TAU": 0.1801,
+   "calib_recall": 0.7647,
+   "calib_pf": 0.0714
+  }
+ },
+ "perband_ROC_held": {
+  "0": {
+   "n": 39,
+   "n_fails": 5,
+   "TAU_star": 1.0783,
+   "recall_band": 0.8
+  },
+  "1": {
+   "n": 40,
+   "n_fails": 3,
+   "TAU_star": -0.0348,
+   "recall_band": 0.0
+  },
+  "2": {
+   "n": 41,
+   "n_fails": 7,
+   "TAU_star": 0.639,
+   "recall_band": 0.7143
+  }
+ },
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T207": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "ref_T205": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "cov_all": 0.9883,
+  "yield_vs_T205_pts": 0.0
+ },
+ "pooled_held": {
+  "T199": {
+   "n_adm": 60,
+   "veto_rate": 0.5,
+   "p_fail_adm": 0.1333,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T205": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T207_local": {
+   "n_adm": 43,
+   "veto_rate": 0.6417,
+   "p_fail_adm": 0.1395,
+   "recall_fail_reject": 0.6,
+   "score_recall_pts": 60.0
+  },
+  "T207_global_abl": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "recall_vs_T199_pts": 13.33,
+  "recall_vs_T205_pts": 13.33,
+  "local_vs_global_pts": 13.33,
+  "selective_risk_lift_vs_T173_pts": -3.17
+ },
+ "rescue_vs_T205": {
+  "rescued": 7,
+  "new_mistakes": 0,
+  "rescue_rate": 0.4667
+ },
+ "admit_overlap_held": {
+  "T207_vs_T205": {
+   "agreement": 0.8833,
+   "jaccard": 0.7544,
+   "n_a": 43,
+   "n_b": 57,
+   "n_both": 43
+  },
+  "T207_vs_T199": {
+   "agreement": 0.8583,
+   "jaccard": 0.7167,
+   "n_a": 43,
+   "n_b": 60,
+   "n_both": 43
+  },
+  "T207_vs_global": {
+   "agreement": 0.8833,
+   "jaccard": 0.7544,
+   "n_a": 43,
+   "n_b": 57,
+   "n_both": 43
+  }
+ },
+ "archive_adm_frac_T207": 0.0,
+ "cov_ok": true,
+ "kill_rule": {
+  "pts_le_48_67": false,
+  "keep_lt_60": true,
+  "plateau": 46.67,
+  "KILL_PTS": 48.67,
+  "KEEP_BAR": 60.0
+ },
+ "director_predicted_pts_55pm5": 60.0,
+ "director_predicted_keep_gt_60": 40.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "pts_gt_48_67": true,
+  "HELD_keep_ge_60": false,
+  "no_cov_regression": true,
+  "archive_zero": true
+ },
+ "keep": false,
+ "verdict": "DISCARD",
+ "frontier": "band-local soft-score adds no outcome signal; CLOSE localization line"
+}

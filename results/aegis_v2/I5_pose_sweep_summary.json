@@ -1,0 +1,52 @@
+{
+  "005_1": {
+    "pose_noise": "0.005,1",
+    "fixture_A": 0.9,
+    "fixture_B": 0.8,
+    "fixture_R": 0.75,
+    "mean_coverage_cont_B": 0.943,
+    "mean_coverage_cont_R": 0.9292,
+    "B_n": 20,
+    "R_n": 20
+  },
+  "00_00": {
+    "pose_noise": "0,0",
+    "fixture_A": 1.0,
+    "fixture_B": 1.0,
+    "fixture_R": 0.95,
+    "mean_coverage_cont_B": 0.9453,
+    "mean_coverage_cont_R": 0.9427,
+    "B_n": 20,
+    "R_n": 20
+  },
+  "01_2": {
+    "pose_noise": "0.01,2",
+    "fixture_A": 0.75,
+    "fixture_B": 0.75,
+    "fixture_R": 0.65,
+    "mean_coverage_cont_B": 0.9398,
+    "mean_coverage_cont_R": 0.9068,
+    "B_n": 20,
+    "R_n": 20
+  },
+  "02_4": {
+    "pose_noise": "0.02,4",
+    "fixture_A": 0.7,
+    "fixture_B": 0.6,
+    "fixture_R": 0.5,
+    "mean_coverage_cont_B": 0.9188,
+    "mean_coverage_cont_R": 0.8651,
+    "B_n": 20,
+    "R_n": 20
+  },
+  "03_6": {
+    "pose_noise": "0.03,6",
+    "fixture_A": 0.6,
+    "fixture_B": 0.5,
+    "fixture_R": 0.4,
+    "mean_coverage_cont_B": 0.882,
+    "mean_coverage_cont_R": 0.8044,
+    "B_n": 20,
+    "R_n": 20
+  }
+}

@@ -1,0 +1,234 @@
+{
+ "variant": "T223 = band-local median asymmetric upper-only IQR soft-clip pooled-4 + 25% global anchor: s=max(0,wraw-thr_b), thr_b=max(0.75*med_b+0.25*med_g+1.5*IQRup_b,med_b), p=1-exp(-s/max(IQRup_b,eps)); admit iff p<=TAU*_b (per-band 4-pt success grid)",
+ "bands": {
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "cal_n": [
+   40,
+   40,
+   40
+  ],
+  "med_band": [
+   82.7989,
+   75.1409,
+   65.6217
+  ],
+  "MED_global": 74.3101,
+  "anchor": 0.25,
+  "IQRup_band": [
+   17.2011,
+   9.8148,
+   8.7226
+  ],
+  "center_star": [
+   80.6767,
+   74.9332,
+   67.7938
+  ],
+  "thr_band": [
+   106.4783,
+   89.6553,
+   80.8777
+  ],
+  "floor_at_med_binds": [
+   false,
+   false,
+   false
+  ],
+  "wraw_no_C99_cap": true,
+  "symmetric_off": true,
+  "EB_off": true,
+  "MAD_off": true
+ },
+ "fit": {
+  "tau_star_per_band": {
+   "0": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false,
+    "grid": [
+     0.0
+    ]
+   },
+   "1": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false,
+    "grid": [
+     0.0,
+     0.3383,
+     0.5806
+    ]
+   },
+   "2": {
+    "TAU": null,
+    "calib_recall_b": null,
+    "calib_pf_b": null,
+    "feasible": false,
+    "grid": [
+     0.0,
+     0.5257,
+     0.8741
+    ]
+   }
+  },
+  "feasible": false,
+  "grid": "Q4 pooled-4"
+ },
+ "s_dist": {
+  "succ_q10": 0.0,
+  "succ_q50": 0.0,
+  "succ_q90": 0.5257,
+  "fail_q10": 0.0,
+  "fail_q50": 0.0,
+  "fail_q90": 0.0,
+  "pooled_var": 0.048062,
+  "per_band": [
+   {
+    "med": 0.0,
+    "q90": 0.0,
+    "var": 0.0,
+    "frac_zero": 1.0
+   },
+   {
+    "med": 0.0,
+    "q90": 0.523,
+    "var": 0.04758,
+    "frac_zero": 0.75
+   },
+   {
+    "med": 0.0,
+    "q90": 0.5882,
+    "var": 0.08533,
+    "frac_zero": 0.8
+   }
+  ]
+ },
+ "soft_clip": {
+  "monotonic_rank_inert": true,
+  "note": "soft-clip monotonic in s_hard by construction (rank corr 1.0, inert)"
+ },
+ "finite_audit": {
+  "nonfinite_or_neg_calib": 0,
+  "nonfinite_or_neg_held": 0,
+  "nonfinite_or_neg_arch": 0,
+  "zero_inf_nan": true
+ },
+ "discard_counter": {
+  "trailing_100_streak_pre": 6,
+  "degenerate_now": true,
+  "counter": 7,
+  "streak_broken_keep_ge5": false
+ },
+ "lobo": {
+  "per_leftout": {
+   "0": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   },
+   "1": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   },
+   "2": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   }
+  },
+  "var_pts": 0.0,
+  "pass_var_lt15": true
+ },
+ "ablations": {
+  "anchor0": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  },
+  "symmetric_IQR": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  },
+  "hard_no_soft": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  },
+  "grid8": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  },
+  "pooled4_globalTAU": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0
+  }
+ },
+ "runA_keep_cited": true,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T223": {
+   "n_adm": 0,
+   "yield_sel": 0.0,
+   "keep_pct": 0.0,
+   "precision_adm": 1.0,
+   "veto_rate": 1.0,
+   "cov_adm": 0.0
+  },
+  "cov_all": 0.9883
+ },
+ "perband_held": {
+  "0": {
+   "n": 39,
+   "n_fails": 5,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0,
+   "TAU": null
+  },
+  "1": {
+   "n": 40,
+   "n_fails": 3,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0,
+   "TAU": null
+  },
+  "2": {
+   "n": 41,
+   "n_fails": 7,
+   "n_adm": 0,
+   "recall_band": 1.0,
+   "precision_band": 1.0,
+   "TAU": null
+  }
+ },
+ "pooled_held": {
+  "T223_pooled4": {
+   "n_adm": 0,
+   "veto_rate": 1.0,
+   "p_fail_adm": 0.0,
+   "precision_adm": 1.0,
+   "recall_fail_reject": 1.0,
+   "score_recall_pts": 100.0
+  },
+  "recall_vs_T207_pts": 40.0,
+  "recall_vs_plateau_pts": 53.33,
+  "selective_risk_lift_vs_T173_pts": 10.78
+ },
+ "archive_adm_frac_T223": 0.0,
+ "cov_ok": false,
+ "director_legs": {
+  "predicted_pts_60_80": 100.0,
+  "predicted_keep_72_78": 0.0,
+  "zero_inf_nan": true,
+  "success_keep_ge70_pts_lt100": false,
+  "abort_if_still_100pts": true
+ },
+ "degenerate_all_reject": true,
+ "keep": false,
+ "verdict": "DISCARD"
+}

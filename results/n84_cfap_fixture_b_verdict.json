@@ -1,0 +1,36 @@
+{
+  "controller": "n84_cfap",
+  "fixtures_tested": [
+    "fixture_B",
+    "fixture_B_height",
+    "fixture_B_tool"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "scripted_baseline": 0.8125,
+  "with_gate": 0.1286,
+  "without_gate": 0.0905,
+  "mean_transfer_success": 0.10955,
+  "keep_bar_met": false,
+  "vs_scripted_p": false
+}

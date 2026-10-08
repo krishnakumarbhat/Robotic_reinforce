@@ -1,0 +1,2 @@
+{"error": "AttributeError: 'dict' object has no attribute 'num_envs'", "t": 1790260403.6332836}
+{"successes": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false], "pc": 0.0, "t": 1790260615.2348356}

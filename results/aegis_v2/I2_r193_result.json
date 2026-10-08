@@ -1,0 +1,145 @@
+{
+ "variant": "T193 = T191 joint weight IN-SELECTION, w=min(T173/(max(slip,0.005)+0.005),C99), Admit iff w>=TAU30",
+ "theta_bitidentical_172_173": true,
+ "eps_star": 0.005,
+ "slip_floor": 0.005,
+ "C99_train_adm": 100.0,
+ "C99_raw_max": 100.0,
+ "C99_degenerate": true,
+ "TAU30_train_p30_calB_adm": 55.9211,
+ "TAU25_buffer": 52.3987,
+ "TAU50_ref": 68.0452,
+ "calB_adm_n": 16,
+ "calB_adm_w_sorted": [
+  47.725,
+  47.7383,
+  47.7515,
+  52.3987,
+  55.9211,
+  61.7931,
+  65.0841,
+  65.6847,
+  70.4058,
+  74.8042,
+  75.8906,
+  77.8168,
+  84.0665,
+  84.3437,
+  84.9556,
+  93.9974
+ ],
+ "i7_binds_heldB": 0,
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "heldB_raw_keep": 0.95,
+ "heldB_T173_adm": 16,
+ "heldB_T173_adm_succ": 16,
+ "decider_T193_TAU30": {
+  "n": 20,
+  "n_adm": 11,
+  "n_rej": 9,
+  "yield_sel": 0.55,
+  "keep_pct": 55.0,
+  "score_sel_pts": 100.0,
+  "precision_adm": 1.0,
+  "cov_adm": 1.0,
+  "cov_all": 0.9883,
+  "slip_adm_med": 0.0055,
+  "slip_rej_med": 0.0159,
+  "slip_adm_iqr": [
+   0.0035,
+   0.0097
+  ],
+  "slip_rej_iqr": [
+   0.0053,
+   0.0159
+  ]
+ },
+ "buffer_TAU25": {
+  "n": 20,
+  "n_adm": 11,
+  "n_rej": 9,
+  "yield_sel": 0.55,
+  "keep_pct": 55.0,
+  "score_sel_pts": 100.0,
+  "precision_adm": 1.0,
+  "cov_adm": 1.0,
+  "cov_all": 0.9883,
+  "slip_adm_med": 0.0055,
+  "slip_rej_med": 0.0159,
+  "slip_adm_iqr": [
+   0.0035,
+   0.0097
+  ],
+  "slip_rej_iqr": [
+   0.0053,
+   0.0159
+  ]
+ },
+ "ref_T192_TAU50": {
+  "n": 20,
+  "n_adm": 8,
+  "n_rej": 12,
+  "yield_sel": 0.4,
+  "keep_pct": 40.0,
+  "score_sel_pts": 100.0,
+  "precision_adm": 1.0,
+  "cov_adm": 1.0,
+  "cov_all": 0.9883,
+  "slip_adm_med": 0.0045,
+  "slip_rej_med": 0.0129,
+  "slip_adm_iqr": [
+   0.0031,
+   0.0055
+  ],
+  "slip_rej_iqr": [
+   0.0053,
+   0.0159
+  ]
+ },
+ "sensitivity_yield_drop_pts": 40.0,
+ "tail_loss_vs_T192_yield_pts": 15.0,
+ "kill_fires_keep_still_raw": false,
+ "rank_shift_mass_vs_T173": 0.25,
+ "caphit": {
+  "calib_all": {
+   "n_adm": 108,
+   "n_hit": 0,
+   "p_hit": 0.0
+  },
+  "held_all": {
+   "n_adm": 102,
+   "n_hit": 0,
+   "p_hit": 0.0
+  },
+  "heldB_fitted": {
+   "n_adm": 16,
+   "n_hit": 0,
+   "p_hit": 0.0
+  },
+  "archive_all": {
+   "n_adm": 0,
+   "n_hit": 0,
+   "p_hit": 0.0
+  }
+ },
+ "AB_vs_T188_posthoc_heldB": {
+  "T188_p_fail_weighted": 0.0,
+  "T193_selection_note": "post-hoc reweighting leaves keep invariant; in-selection moves gated yield (see sensitivity_yield_drop_pts)"
+ },
+ "archive_adm_frac_TAU30": 0.0,
+ "archive_adm_frac_TAU25": 0.0,
+ "cov_ok": true,
+ "director_predicted_keep_70_73": 11,
+ "director_predicted_score_685_695": 100.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "score_sel_ge_70": true,
+  "no_cov_regression": true
+ },
+ "keep": true
+}

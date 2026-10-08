@@ -1,0 +1,93 @@
+A1 rig integrity PASS: identity arm bit-identical to Run350 on 60/60 episodes (max |delta| 0.0 over ('coverage_cont', 'success')); the force-derived channels are NOT bit-reproducible across processes, max |delta| 0.1540 (fn_mean 0.154 N floor, N210.5); 20 seeds x 3 suites, 0 harness errors
+A2 P1 PASS sig_0012: sigma_t=0.01 m -> realized per-axis |dx| in [0.0000, 0.0351] (declared band would be [0, 0.01]), |d| max 0.0363 = 3.63 sigma
+A2 P1 PASS sig_0306: sigma_t=0.03 m -> realized per-axis |dx| in [0.0001, 0.1052] (declared band would be [0, 0.03]), |d| max 0.1090 = 3.63 sigma
+A2 P1 PASS sig_0510: sigma_t=0.05 m -> realized per-axis |dx| in [0.0002, 0.1754] (declared band would be [0, 0.05]), |d| max 0.1816 = 3.63 sigma
+A3 P2 PASS: over all 1260 offset episodes vs their paired 0,0 arm on the SAME seeds, max |d fn_mean| 0.1605 N, max |d slip_m| 1.76e-04 m; and across the 600 episodes inside the coverage regime (|offset| <= 0.08 m) there are ZERO escapes, ZERO stall and ZERO z-excursion -> a held offset is a PLAN-FRAME error, not a control, friction or launch effect (the force channel does answer, but only where the PAD overhangs the face edge: max |d fn_mean| 0.161 N at u+0.00 v+0.08 fixture_A tool 0, i.e. the pad, not the path, is off the face; the slip channel the segment's mechanism rests on is DEAD here, 1.8e-4 m). BEYOND the face boundary (A3b) the dynamics DO respond -- max |d fn_mean| 2.538 N, |d slip_m| 0.597 m -- so the axis has two regimes, not one
+    fixture_A u+1  face 0.32 - plan reach 0.2003 = pred 0.1197 | measured: clean at 0.05, first escape at 0.15 -> BRACKETED
+    fixture_A u-1  face 0.32 - plan reach 0.2271 = pred 0.0929 | measured: clean at 0.05, first escape at 0.10 -> BRACKETED
+    fixture_A v+1  face 0.32 - plan reach 0.0468 = pred 0.2732 | measured: clean at 0.02, first escape at nan -> no escape in ladder (pred beyond it)
+    fixture_A v-1  face 0.32 - plan reach 0.0793 = pred 0.2407 | measured: clean at 0.05, first escape at nan -> no escape in ladder (pred beyond it)
+    fixture_B u+1  face 0.34 - plan reach 0.2003 = pred 0.1397 | measured: clean at 0.05, first escape at 0.15 -> BRACKETED
+    fixture_B u-1  face 0.34 - plan reach 0.2271 = pred 0.1129 | measured: clean at 0.05, first escape at 0.15 -> BRACKETED
+    fixture_B v+1  face 0.14 - plan reach 0.0294 = pred 0.1106 | measured: clean at 0.02, first escape at 0.12 -> BRACKETED
+    fixture_B v-1  face 0.14 - plan reach 0.0494 = pred 0.0906 | measured: clean at 0.05, first escape at 0.10 -> BRACKETED
+A3b PASS: the escape boundary is a FACE property, closed-form exact to the ladder step on 6 (suite, axis, sign) cells, and on the mixed customer suite fixture_R it splits by FACE TYPE, not by suite: v=+0.10 0/9 round vs 0/11 elongated, v=+0.12 0/9 vs 11/11, u=-0.10 5/9 round vs 0/11 elongated -> 4/4 cells as predicted
+    (fixture_R (0, 0.04) per-tool cov 0.7909/0.8273/0.9278 -- mixed customers per tool, NOT asserted)
+    (fixture_R (0, 0.06) per-tool cov 0.6667/0.6458/0.7359 -- mixed customers per tool, NOT asserted)
+    (fixture_R (0, 0.08) per-tool cov 0.5223/0.4444/0.5618 -- mixed customers per tool, NOT asserted)
+    (fixture_R (0.1, 0) per-tool cov 0.8520/0.8559/0.8996 -- mixed customers per tool, NOT asserted)
+    (fixture_R (0.05, 0) per-tool cov 0.9799/0.9827/0.9933 -- mixed customers per tool, NOT asserted)
+    (fixture_R (0.1, 0.05) per-tool cov 0.6079/0.5747/0.7143 -- mixed customers per tool, NOT asserted)
+    (fixture_R (0, -0.05) per-tool cov 0.7128/0.6953/0.8170 -- mixed customers per tool, NOT asserted)
+A4 PASS: coverage_cont monotone in |offset| on both axes and both signs, all 3 suites (8 ladders x 20 seeds); pad order mop(50mm) >= brush(40mm) >= sponge(35mm) in EVERY escape-free arm at every offset >= 0.04 m -- the narrow pad is the brittle one, and past the face boundary the outcome is a launch that r_eff does NOT order
+
+  P3 pre-registered theta* table vs measured crossing (interp. |offset| at cov = 0.90)
+    fixture_A u+1 tool0 r_eff=0.035  pred +0.0222  measured +0.0895  pred/meas 0.25x
+    fixture_A u+1 tool1 r_eff=0.040  pred +0.0272  measured +0.0963  pred/meas 0.28x
+    fixture_A u+1 tool2 r_eff=0.050  pred +0.0372  measured +0.1008  pred/meas 0.37x
+    fixture_A v+1 tool0 r_eff=0.035  pred +0.1618  measured +0.0312  pred/meas 5.19x
+    fixture_A v+1 tool1 r_eff=0.040  pred +0.1668  measured +0.0362  pred/meas 4.61x
+    fixture_A v+1 tool2 r_eff=0.050  pred +0.1768  measured +0.0476  pred/meas 3.71x
+    fixture_A v-1 tool0 r_eff=0.035  pred +0.1593  measured +0.0192  pred/meas 8.30x
+    fixture_A v-1 tool1 r_eff=0.040  pred +0.1643  measured +0.0209  pred/meas 7.87x
+    fixture_A v-1 tool2 r_eff=0.050  pred +0.1743  measured +0.0253  pred/meas 6.90x
+    fixture_B u+1 tool0 r_eff=0.035  pred +0.0222  measured +0.0732  pred/meas 0.30x
+    fixture_B u+1 tool1 r_eff=0.040  pred +0.0272  measured +0.0800  pred/meas 0.34x
+    fixture_B u+1 tool2 r_eff=0.050  pred +0.0372  measured +0.0936  pred/meas 0.40x
+    fixture_B v+1 tool0 r_eff=0.035  pred +0.1119  measured +0.0253  pred/meas 4.43x
+    fixture_B v+1 tool1 r_eff=0.040  pred +0.1169  measured +0.0307  pred/meas 3.81x
+    fixture_B v+1 tool2 r_eff=0.050  pred +0.1269  measured +0.0407  pred/meas 3.12x
+    fixture_B v-1 tool0 r_eff=0.035  pred +0.1119  measured +0.0145  pred/meas 7.69x
+    fixture_B v-1 tool1 r_eff=0.040  pred +0.1169  measured +0.0153  pred/meas 7.62x
+    fixture_B v-1 tool2 r_eff=0.050  pred +0.1269  measured +0.0256  pred/meas 4.96x
+  (iii) pad order theta*(mop) >= theta*(brush) >= theta*(sponge) holds on all 6 crossed cells
+  P3 VERDICT: the pre-registered scale is REFUTED on every crossed cell -- pred/meas 0.25x .. 8.30x (median 4.12x), i.e. the closed form OVER-states the tolerance, and the two corrections bracket the truth from both sides: the pad-corner assumption (A5 pad) is too loose, the MEASURED-contact-band form (A5 corrected) is too tight. Its ORDERING survives (same suite, same axis, same sign: the wider pad always tolerates more), so the anisotropy in A6 -- which is a ratio of two MEASURED crossings -- is unaffected.
+
+A6 PASS: the across-patch (v) axis is the binder. brush head, +sign, theta*_u/theta*_v = 2.66 (A) / 2.61 (B); pre-registered anisotropy 2.7x / 2.5x
+    k_u100    fixture_A frozen cov 0.8937 succ 0.35 | true-RECT-footprint kernel cov 0.9453 succ 1.00  (delta +0.0516)
+    k_u100    fixture_B frozen cov 0.8500 succ 0.10 | true-RECT-footprint kernel cov 0.9195 succ 0.50  (delta +0.0695)
+    k_un100   fixture_A frozen cov 0.7031 succ 0.00 | true-RECT-footprint kernel cov 0.8073 succ 0.10  (delta +0.1042)
+    k_un100   fixture_B frozen cov 0.8211 succ 0.00 | true-RECT-footprint kernel cov 0.8946 succ 0.30  (delta +0.0735)
+    k_v050    fixture_A frozen cov 0.8187 succ 0.00 | true-RECT-footprint kernel cov 0.8833 succ 0.35  (delta +0.0646)
+    k_v050    fixture_B frozen cov 0.7140 succ 0.00 | true-RECT-footprint kernel cov 0.8094 succ 0.30  (delta +0.0954)
+A7 PASS: the along-patch penalty is mostly the KERNEL (an inscribed DISC standing in for a RECTANGULAR pad -- N211's finding, now with a magnitude), the across-patch penalty is REAL: the rect kernel restores u=+0.10 to 20/20 on A but leaves v=+0.05 below 0.90
+
+A8 P6: does the LABEL add anything over the REALIZED offset? (per-episode OLS on fixture_B, 900 physical episodes)
+    sig_0012 sigma_t=0.01: R^2(realized      ) = 0.0705  slope -0.50 /m
+    sig_0012 sigma_t=0.01: R^2(label         ) =  undefined (predictor is constant within the level; sxx = 0)
+    sig_0012 sigma_t=0.01: R^2(realized+label) = 0.0705  slope -0.50 /m
+    sig_0306 sigma_t=0.03: R^2(realized      ) = 0.4518  slope -4.16 /m
+    sig_0306 sigma_t=0.03: R^2(label         ) =  undefined (predictor is constant within the level; sxx = 0)
+    sig_0306 sigma_t=0.03: R^2(realized+label) = 0.4518  slope -4.16 /m
+    sig_0510 sigma_t=0.05: R^2(realized      ) = 0.4796  slope -5.55 /m
+    sig_0510 sigma_t=0.05: R^2(label         ) =  undefined (predictor is constant within the level; sxx = 0)
+    sig_0510 sigma_t=0.05: R^2(realized+label) = 0.4796  slope -5.55 /m
+    POOLED (300 fixture_B episodes, the only place the label varies): R^2(realized) 0.6277 slope -5.48/m | R^2(label) 0.3323 slope -6.62/m | R^2(realized+label) 0.6014 slope -3.65/m
+A8 P6 PASS: pooled over the three levels the LABEL alone explains R^2 0.3323 against the REALIZED draw's 0.6277, and adding it to the realized draw buys -0.0263 R^2 -- the mechanism is the realized OFFSET, not the label. The per-level 'label' fits are undefined by construction (constant within a level, sxx = 0), which is the sharpest form of the same statement: a labelled sigma carries NO within-level information at all.
+
+A9 PASS: 21 held-offset arms, every one paired in-rig on the SAME 20 seeds (Welch + Fisher p in the compare record), rig keep=false in EVERY arm BY CONSTRUCTION (a held offset is a defect dose, not a better plan) and no keep is claimed on the primary metric; 0 harness errors everywhere
+
+G4 anchor (fixture_B, the suite the keep bar reads), candidate arm of each arm:
+  offset u-0.150 v+0.000  B cov 0.6914 succ 0/20  vs paired champion: d_cov -0.3086 Welch p 3.12e-14  Fisher p 1.45e-11  keep False
+  offset u-0.100 v+0.000  B cov 0.8211 succ 0/20  vs paired champion: d_cov -0.1789 Welch p 4.94e-16  Fisher p 1.45e-11  keep False
+  offset u-0.050 v+0.000  B cov 0.9571 succ 20/20  vs paired champion: d_cov -0.0429 Welch p 8.12e-07  Fisher p 1  keep False
+  offset u+0.000 v-0.120  B cov 0.0063 succ 0/20  vs paired champion: d_cov -0.9938 Welch p 3.76e-31  Fisher p 1.45e-11  keep False
+  offset u+0.000 v-0.100  B cov 0.0703 succ 0/20  vs paired champion: d_cov -0.9297 Welch p 9.9e-19  Fisher p 1.45e-11  keep False
+  offset u+0.000 v-0.080  B cov 0.4148 succ 0/20  vs paired champion: d_cov -0.5852 Welch p 1.25e-23  Fisher p 1.45e-11  keep False
+  offset u+0.000 v-0.050  B cov 0.7070 succ 0/20  vs paired champion: d_cov -0.2930 Welch p 3.94e-14  Fisher p 1.45e-11  keep False
+  offset u+0.000 v+0.020  B cov 0.9711 succ 20/20  vs paired champion: d_cov -0.0289 Welch p 0.000342  Fisher p 1  keep False
+  offset u+0.000 v+0.030  B cov 0.9172 succ 13/20  vs paired champion: d_cov -0.0828 Welch p 2.74e-07  Fisher p 0.00832  keep False
+  offset u+0.000 v+0.040  B cov 0.8133 succ 6/20  vs paired champion: d_cov -0.1867 Welch p 4.52e-10  Fisher p 3.34e-06  keep False
+  offset u+0.000 v+0.050  B cov 0.7140 succ 0/20  vs paired champion: d_cov -0.2860 Welch p 8.46e-14  Fisher p 1.45e-11  keep False
+  offset u+0.000 v+0.060  B cov 0.6281 succ 0/20  vs paired champion: d_cov -0.3719 Welch p 4.74e-18  Fisher p 1.45e-11  keep False
+  offset u+0.000 v+0.080  B cov 0.4320 succ 0/20  vs paired champion: d_cov -0.5680 Welch p 5.61e-22  Fisher p 1.45e-11  keep False
+  offset u+0.000 v+0.100  B cov 0.2195 succ 0/20  vs paired champion: d_cov -0.7805 Welch p 6.12e-21  Fisher p 1.45e-11  keep False
+  offset u+0.000 v+0.120  B cov 0.1031 succ 0/20  vs paired champion: d_cov -0.8969 Welch p 2.99e-18  Fisher p 1.45e-11  keep False
+  offset u+0.050 v+0.000  B cov 0.9820 succ 20/20  vs paired champion: d_cov -0.0180 Welch p 5.08e-05  Fisher p 1  keep False
+  offset u+0.100 v+0.000  B cov 0.8500 succ 2/20  vs paired champion: d_cov -0.1500 Welch p 4.31e-16  Fisher p 3.35e-09  keep False
+  offset u+0.100 v+0.050  B cov 0.7125 succ 0/20  vs paired champion: d_cov -0.2875 Welch p 1.6e-16  Fisher p 1.45e-11  keep False
+  offset u+0.150 v+0.000  B cov 0.4297 succ 0/20  vs paired champion: d_cov -0.5703 Welch p 2.7e-11  Fisher p 1.45e-11  keep False
+  offset u+0.150 v+0.060  B cov 0.5766 succ 0/20  vs paired champion: d_cov -0.4234 Welch p 6.07e-18  Fisher p 1.45e-11  keep False
+  offset u+0.200 v+0.000  B cov 0.2109 succ 0/20  vs paired champion: d_cov -0.7891 Welch p 3.14e-22  Fisher p 1.45e-11  keep False
+
+N213_AUDIT_ALL_PASS

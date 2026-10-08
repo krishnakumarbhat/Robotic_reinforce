@@ -1,0 +1,186 @@
+{
+ "variant": "T206 = band-gated stratified soft-score (auto-admit w>=TAU_hi; auto-reject w<TAU_lo; in-band s=w-lam*clip(jerk,0,J95)>=TAU_mid, pooled-1 CALIB)",
+ "frozen": {
+  "TAU50_global_ref": 68.0452,
+  "theta_marg_bitident": true,
+  "C99": 100.0,
+  "C99_degenerate": true,
+  "J95": 0.015175,
+  "J95_recomputed": 0.0151746,
+  "J95_bitident_T204": true,
+  "i7_binds_heldB": 0,
+  "fit_scope": "pooled-1 CALIB only, TAU_hi/lo fixed P90/P30, grid lam x TAU_mid, single held eval"
+ },
+ "band": {
+  "TAU_HI_P90_allcal": 100.0,
+  "TAU_LO_P30_allcal": 65.6704,
+  "band_mass_calib": 0.5667,
+  "band_mass_held": 0.3917,
+  "band_ge_15pct": true,
+  "calib_inband_n": 68,
+  "calib_inband_fails": 7,
+  "held_inband_n": 47,
+  "held_inband_fails": 7
+ },
+ "fit": {
+  "LAM_GRID": [
+   0,
+   250,
+   500,
+   1000,
+   2000,
+   4000,
+   8000
+  ],
+  "TAU_MID_grid": [
+   70.2768,
+   73.2251,
+   74.3443,
+   74.6045,
+   74.9317,
+   100.0
+  ],
+  "feasible_ge65_n": 37,
+  "LAM_STAR": 250,
+  "TAU_MID_STAR": 74.6045,
+  "lam_at_grid_edge": false,
+  "taumid_at_grid_edge": false,
+  "calib_star_recall": 0.8235,
+  "calib_star_p_fail_adm": 0.06,
+  "calib_lam0_sameTM_recall": 0.7059,
+  "calib_lam0_sameTM_pf": 0.0847
+ },
+ "stability_splithalf": {
+  "h1_lam": 0,
+  "h1_taumid": 100.0,
+  "h2_lam": 0,
+  "h2_taumid": 73.2251,
+  "lam_pos_both": false,
+  "taumid_within_1_step": false,
+  "stable": false
+ },
+ "inband_lift": {
+  "held_T206": {
+   "n_band": 47,
+   "n_band_fails": 7,
+   "recall_inband": 0.1429
+  },
+  "held_lam0": {
+   "n_band": 47,
+   "n_band_fails": 7,
+   "recall_inband": 0.1429
+  },
+  "held_delta": 0.0,
+  "calib_T206": {
+   "n_band": 68,
+   "n_band_fails": 7,
+   "recall_inband": 1.0
+  },
+  "calib_lam0": {
+   "n_band": 68,
+   "n_band_fails": 7,
+   "recall_inband": 0.7143
+  },
+  "calib_delta": 0.2857,
+  "kill_delta_le_0": true
+ },
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T206": {
+   "n_adm": 7,
+   "yield_sel": 0.35,
+   "keep_pct": 35.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.65,
+   "cov_adm": 1.0
+  },
+  "ref_T205": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "cov_all": 0.9883,
+  "yield_vs_T205_pts": -5.0
+ },
+ "pooled_held": {
+  "T199": {
+   "n_adm": 60,
+   "veto_rate": 0.5,
+   "p_fail_adm": 0.1333,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T205": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T206_lam0": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T206": {
+   "n_adm": 55,
+   "veto_rate": 0.5417,
+   "p_fail_adm": 0.1455,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "recall_vs_T205_pts": 0.0,
+  "selective_risk_lift_vs_T173_pts": -3.77
+ },
+ "admit_overlap_held": {
+  "T206_vs_T205": {
+   "agreement": 0.9833,
+   "jaccard": 0.9649,
+   "n_a": 55,
+   "n_b": 57,
+   "n_both": 55
+  },
+  "T206_vs_lam0": {
+   "agreement": 0.9833,
+   "jaccard": 0.9649,
+   "n_a": 55,
+   "n_b": 57,
+   "n_both": 55
+  },
+  "T206_vs_T199": {
+   "agreement": 0.9583,
+   "jaccard": 0.9167,
+   "n_a": 55,
+   "n_b": 60,
+   "n_both": 55
+  }
+ },
+ "archive_adm_frac_T206": 0.0,
+ "cov_ok": true,
+ "director_predicted_pts_62_68": 46.67,
+ "director_predicted_keep_ge_70": 35.0,
+ "kill_jerk_frontier": true,
+ "verdict_rule": {
+  "runA_keep": true,
+  "HELD_keep_ge_70": false,
+  "pts_ge_70": false,
+  "no_cov_regression": true,
+  "archive_zero": true,
+  "band_ge_15pct": true,
+  "inband_delta_gt_0": false
+ },
+ "keep": false,
+ "verdict": "DISCARD",
+ "frontier": "CLOSE F-jerk entirely (band-gated conditional jerk adds zero: in-band delta<=0 or band<15pct)"
+}

@@ -1,0 +1,213 @@
+C1/C2/C3 audit inert, frozen kernel == scored metric, bit-identical to run 359 (max |d| = 0.0e+00): PASS
+C4 the true rectangular footprint dominates the inscribed disc on 420/420 episodes: PASS
+C5 grid pitch CONVERGED: mean |p2-p4| <= 0.0045 in every arm (the frozen 0.025 m pitch and its 0.0125 m refinement differ by at most a fifth of one pitch): PASS
+C6 contact stride provably dead: steps=[400], contacts <= steps, 0/420 episodes above the 400-contact trigger: PASS
+
+=== N211_r360_0_identity_trochoid  trochoid 0,0 (saturated; identity vs run 359)
+    sim_hz 240  solver_iters 80  kernel audit on: True  rig keep: False
+    suite      kernel        mean cov     succ
+    fixture_A  frozen          1.0000   20/20     <- scored
+    fixture_A  allcontacts     1.0000   20/20  
+    fixture_A  rect            1.0000   20/20  
+    fixture_A  p2              1.0000   20/20  
+    fixture_A  p4              0.9979   20/20  
+    fixture_A  nodilat         0.5901    0/20  
+    fixture_A  faithful        1.0000   20/20  
+    fixture_B  frozen          1.0000   20/20     <- scored
+    fixture_B  allcontacts     1.0000   20/20  
+    fixture_B  rect            1.0000   20/20  
+    fixture_B  p2              1.0000   20/20  
+    fixture_B  p4              1.0000   20/20  
+    fixture_B  nodilat         0.5985    0/20  
+    fixture_B  faithful        1.0000   20/20  
+    fixture_R  frozen          1.0000   20/20     <- scored
+    fixture_R  allcontacts     1.0000   20/20  
+    fixture_R  rect            1.0000   20/20  
+    fixture_R  p2              1.0000   20/20  
+    fixture_R  p4              0.9985   20/20  
+    fixture_R  nodilat         0.5943    0/20  
+    fixture_R  faithful        1.0000   20/20  
+    verdict flips vs the scored success: nodilat=60 (none = 0)
+
+=== N211_r360_1_trochoid_0p01_2  trochoid 0.01,2
+    sim_hz 240  solver_iters 80  kernel audit on: True  rig keep: False
+    suite      kernel        mean cov     succ
+    fixture_A  frozen          0.9964   20/20     <- scored
+    fixture_A  allcontacts     0.9964   20/20  
+    fixture_A  rect            1.0000   20/20  
+    fixture_A  p2              0.9934   20/20  
+    fixture_A  p4              0.9920   20/20  
+    fixture_A  nodilat         0.6083    0/20  
+    fixture_A  faithful        0.9994   20/20  
+    fixture_B  frozen          0.9961   20/20     <- scored
+    fixture_B  allcontacts     0.9961   20/20  
+    fixture_B  rect            0.9992   20/20  
+    fixture_B  p2              0.9941   20/20  
+    fixture_B  p4              0.9930   20/20  
+    fixture_B  nodilat         0.6016    0/20  
+    fixture_B  faithful        0.9990   20/20  
+    fixture_R  frozen          0.9859   20/20     <- scored
+    fixture_R  allcontacts     0.9859   20/20  
+    fixture_R  rect            0.9987   20/20  
+    fixture_R  p2              0.9833   20/20  
+    fixture_R  p4              0.9828   20/20  
+    fixture_R  nodilat         0.5693    0/20  
+    fixture_R  faithful        0.9967   20/20  
+    verdict flips vs the scored success: nodilat=60 (none = 0)
+
+=== N211_r360_2_trochoid_0p03_6  trochoid 0.03,6
+    sim_hz 240  solver_iters 80  kernel audit on: True  rig keep: False
+    suite      kernel        mean cov     succ
+    fixture_A  frozen          0.9438   15/20     <- scored
+    fixture_A  allcontacts     0.9438   15/20  
+    fixture_A  rect            0.9729   18/20  
+    fixture_A  p2              0.9405   15/20  
+    fixture_A  p4              0.9382   15/20  
+    fixture_A  nodilat         0.5224    0/20  
+    fixture_A  faithful        0.9704   18/20  
+    fixture_B  frozen          0.9266   15/20     <- scored
+    fixture_B  allcontacts     0.9266   15/20  
+    fixture_B  rect            0.9664   17/20  
+    fixture_B  p2              0.9184   15/20  
+    fixture_B  p4              0.9154   14/20  
+    fixture_B  nodilat         0.4734    0/20  
+    fixture_B  faithful        0.9547   16/20  
+    fixture_R  frozen          0.8680   12/20     <- scored
+    fixture_R  allcontacts     0.8680   12/20  
+    fixture_R  rect            0.9167   14/20  
+    fixture_R  p2              0.8590   11/20  
+    fixture_R  p4              0.8600   12/20  
+    fixture_R  nodilat         0.4484    0/20  
+    fixture_R  faithful        0.9094   15/20  
+    verdict flips vs the scored success: rect=7, p2=1, p4=1, nodilat=42, faithful=7 (none = 0)
+
+=== N211_r360_3_raster_0p03_6  raster 0.03,6 (non-saturated control, N207b rule)
+    sim_hz 240  solver_iters 80  kernel audit on: True  rig keep: False
+    suite      kernel        mean cov     succ
+    fixture_A  frozen          0.9396   15/20     <- scored
+    fixture_A  allcontacts     0.9396   15/20  
+    fixture_A  rect            0.9536   16/20  
+    fixture_A  p2              0.9400   15/20  
+    fixture_A  p4              0.9386   15/20  
+    fixture_A  nodilat         0.4641    0/20  
+    fixture_A  faithful        0.9588   18/20  
+    fixture_B  frozen          0.9039   13/20     <- scored
+    fixture_B  allcontacts     0.9039   13/20  
+    fixture_B  rect            0.9234   14/20  
+    fixture_B  p2              0.8982   13/20  
+    fixture_B  p4              0.8967   13/20  
+    fixture_B  nodilat         0.4219    0/20  
+    fixture_B  faithful        0.9221   15/20  
+    fixture_R  frozen          0.8497   10/20     <- scored
+    fixture_R  allcontacts     0.8497   10/20  
+    fixture_R  rect            0.8771   13/20  
+    fixture_R  p2              0.8502   10/20  
+    fixture_R  p4              0.8492   11/20  
+    fixture_R  nodilat         0.3953    0/20  
+    fixture_R  faithful        0.8781   12/20  
+    verdict flips vs the scored success: rect=5, p4=1, nodilat=38, faithful=7 (none = 0)
+
+=== N211_r360_4_raster_rowcentre0  raster 0,0 ROW_CENTRE=0 (pre-I22, partial cover)
+    sim_hz 240  solver_iters 80  kernel audit on: True  rig keep: False
+    suite      kernel        mean cov     succ
+    fixture_A  frozen          0.9500   14/20     <- scored
+    fixture_A  allcontacts     0.9500   14/20  
+    fixture_A  rect            0.9500   14/20  
+    fixture_A  p2              0.9459   20/20  
+    fixture_A  p4              0.9454   20/20  
+    fixture_A  nodilat         0.6615    0/20  
+    fixture_A  faithful        0.9459   20/20  
+    fixture_B  frozen          0.9109   13/20     <- scored
+    fixture_B  allcontacts     0.9109   13/20  
+    fixture_B  rect            0.9125   13/20  
+    fixture_B  p2              0.9119    6/20  
+    fixture_B  p4              0.9016    6/20  
+    fixture_B  nodilat         0.4625    0/20  
+    fixture_B  faithful        0.9125    6/20  
+    fixture_R  frozen          0.9325   13/20     <- scored
+    fixture_R  allcontacts     0.9325   13/20  
+    fixture_R  rect            0.9333   13/20  
+    fixture_R  p2              0.9311   13/20  
+    fixture_R  p4              0.9285   12/20  
+    fixture_R  nodilat         0.4471    0/20  
+    fixture_R  faithful        0.9313   13/20  
+    verdict flips vs the scored success: p2=23, p4=22, nodilat=40, faithful=23 (none = 0)
+
+=== N211_r360_5_trochoid_0p03_6_hz1920  trochoid 0.03,6 @1920 Hz (rate cross-check)
+    sim_hz 1920  solver_iters 80  kernel audit on: True  rig keep: False
+    suite      kernel        mean cov     succ
+    fixture_A  frozen          0.9443   15/20     <- scored
+    fixture_A  allcontacts     0.9443   15/20  
+    fixture_A  rect            0.9729   18/20  
+    fixture_A  p2              0.9403   15/20  
+    fixture_A  p4              0.9381   15/20  
+    fixture_A  nodilat         0.5240    0/20  
+    fixture_A  faithful        0.9704   18/20  
+    fixture_B  frozen          0.9266   15/20     <- scored
+    fixture_B  allcontacts     0.9266   15/20  
+    fixture_B  rect            0.9664   17/20  
+    fixture_B  p2              0.9184   15/20  
+    fixture_B  p4              0.9153   14/20  
+    fixture_B  nodilat         0.4734    0/20  
+    fixture_B  faithful        0.9547   16/20  
+    fixture_R  frozen          0.8675   12/20     <- scored
+    fixture_R  allcontacts     0.8675   12/20  
+    fixture_R  rect            0.9167   14/20  
+    fixture_R  p2              0.8589   11/20  
+    fixture_R  p4              0.8598   12/20  
+    fixture_R  nodilat         0.4466    0/20  
+    fixture_R  faithful        0.9094   15/20  
+    verdict flips vs the scored success: rect=7, p2=1, p4=1, nodilat=42, faithful=7 (none = 0)
+
+=== N211_r360_6_raster_identity  raster 0,0 ROW_CENTRE=1 (frozen default)
+    sim_hz 240  solver_iters 80  kernel audit on: True  rig keep: False
+    suite      kernel        mean cov     succ
+    fixture_A  frozen          1.0000   20/20     <- scored
+    fixture_A  allcontacts     1.0000   20/20  
+    fixture_A  rect            1.0000   20/20  
+    fixture_A  p2              1.0000   20/20  
+    fixture_A  p4              1.0000   20/20  
+    fixture_A  nodilat         0.7760    4/20  
+    fixture_A  faithful        1.0000   20/20  
+    fixture_B  frozen          1.0000   20/20     <- scored
+    fixture_B  allcontacts     1.0000   20/20  
+    fixture_B  rect            1.0000   20/20  
+    fixture_B  p2              1.0000   20/20  
+    fixture_B  p4              1.0000   20/20  
+    fixture_B  nodilat         0.5187    0/20  
+    fixture_B  faithful        1.0000   20/20  
+    fixture_R  frozen          1.0000   20/20     <- scored
+    fixture_R  allcontacts     1.0000   20/20  
+    fixture_R  rect            1.0000   20/20  
+    fixture_R  p2              1.0000   20/20  
+    fixture_R  p4              1.0000   20/20  
+    fixture_R  nodilat         0.5591    0/20  
+    fixture_R  faithful        1.0000   20/20  
+    verdict flips vs the scored success: nodilat=56 (none = 0)
+
+C7 footprint axis: rect - frozen, per arm (mean coverage, verdict flips)
+   trochoid 0,0 (saturated; identity vs run 359)  d +0.0000  flips   0/60  no-dilation coverage 0.5943 (0/60)
+   trochoid 0.01,2                                d +0.0065  flips   0/60  no-dilation coverage 0.5931 (0/60)
+   trochoid 0.03,6                                d +0.0392  flips   7/60  no-dilation coverage 0.4814 (0/60)
+   raster 0.03,6 (non-saturated control, N207b rule) d +0.0203  flips   5/60  no-dilation coverage 0.4271 (0/60)
+   raster 0,0 ROW_CENTRE=0 (pre-I22, partial cover) d +0.0008  flips   0/60  no-dilation coverage 0.5237 (0/60)
+   trochoid 0.03,6 @1920 Hz (rate cross-check)    d +0.0392  flips   7/60  no-dilation coverage 0.4813 (0/60)
+   raster 0,0 ROW_CENTRE=1 (frozen default)       d +0.0000  flips   0/60  no-dilation coverage 0.6180 (4/60)
+
+C8 champion vs raster baseline, paired on the SAME 20 seeds, per kernel
+   trochoid_0p03_6  vs  raster_0p03_6
+      fixture_B  allcontacts  cand 0.9266 (15/20)  base 0.9039 (13/20)  Welch p 0.51  Fisher p 0.731
+      fixture_B  rect         cand 0.9664 (17/20)  base 0.9234 (14/20)  Welch p 0.15  Fisher p 0.451
+      fixture_B  p2           cand 0.9184 (15/20)  base 0.8982 (13/20)  Welch p 0.549  Fisher p 0.731
+      fixture_B  p4           cand 0.9154 (14/20)  base 0.8967 (13/20)  Welch p 0.574  Fisher p 1
+      fixture_B  nodilat      cand 0.4734 (0/20)  base 0.4219 (0/20)  Welch p 0.129  Fisher p 1
+      fixture_B  faithful     cand 0.9547 (16/20)  base 0.9221 (15/20)  Welch p 0.269  Fisher p 1
+   trochoid_0p03_6_hz1920  vs  raster_0p03_6
+      fixture_B  allcontacts  cand 0.9266 (15/20)  base 0.9039 (13/20)  Welch p 0.51  Fisher p 0.731
+      fixture_B  rect         cand 0.9664 (17/20)  base 0.9234 (14/20)  Welch p 0.15  Fisher p 0.451
+      fixture_B  p2           cand 0.9184 (15/20)  base 0.8982 (13/20)  Welch p 0.549  Fisher p 0.731
+      fixture_B  p4           cand 0.9153 (14/20)  base 0.8967 (13/20)  Welch p 0.577  Fisher p 1
+      fixture_B  nodilat      cand 0.4734 (0/20)  base 0.4219 (0/20)  Welch p 0.129  Fisher p 1
+      fixture_B  faithful     cand 0.9547 (16/20)  base 0.9221 (15/20)  Welch p 0.269  Fisher p 1
+
+C9 240 Hz vs 1920 Hz, same seeds: max |d(cov_k)| = 0.0209 (the kernel sweep is solver-independent, extending N207.1 to the metric)

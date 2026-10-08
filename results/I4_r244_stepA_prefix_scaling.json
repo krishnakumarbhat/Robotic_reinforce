@@ -1,0 +1,55 @@
+{
+  "idea": "I4",
+  "step": "A2",
+  "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "rows": [
+    {
+      "case": "2cam_512",
+      "resize": [
+        512,
+        512
+      ],
+      "n_cams": 2,
+      "chunk_total_ms_10step": 185.29,
+      "prefix_tokens": 177,
+      "hits_25ms_1nfe": false
+    },
+    {
+      "case": "1cam_512",
+      "resize": [
+        512,
+        512
+      ],
+      "n_cams": 1,
+      "chunk_total_ms_10step": 157.39,
+      "prefix_tokens": 113,
+      "hits_25ms_1nfe": false
+    },
+    {
+      "case": "2cam_256",
+      "resize": [
+        256,
+        256
+      ],
+      "n_cams": 2,
+      "chunk_total_ms_10step": 190.2,
+      "prefix_tokens": 177,
+      "hits_25ms_1nfe": false
+    },
+    {
+      "case": "1cam_256",
+      "resize": [
+        256,
+        256
+      ],
+      "n_cams": 1,
+      "chunk_total_ms_10step": 235.3,
+      "prefix_tokens": 113,
+      "hits_25ms_1nfe": false
+    }
+  ],
+  "shipped_total_ms": 185.29,
+  "best_case": "1cam_512",
+  "best_total_ms": 157.39,
+  "note": "chunk_total_ms_10step is the FULL 10-NFE chunk, not the prefix alone; the prefix share of the shipped case is 54.87/184.99 = 29.7% (run A). Halving resolution or dropping a camera is compared against the 25 ms budget here."
+}

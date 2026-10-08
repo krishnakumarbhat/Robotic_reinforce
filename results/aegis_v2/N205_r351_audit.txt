@@ -1,0 +1,70 @@
+[aegis-sweep] /kaggle/working unavailable -> WORKDIR=/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce/results
+pybullet build time: Jan 29 2025 23:16:28
+[determinism] trochoid r350 vs r351b: identical friction AND coverage_cont on 60 paired episodes: True
+
+[planner geometry]  (deterministic scrub_uv output, no physics)
+fixture   mode         len_m reversals  max_step_turn   rev/m
+fixture_A raster         1.3         2           90.0    1.54
+fixture_A rounded     1.3568         2           11.3    1.47
+fixture_A trochoid    1.4118         2           45.4    1.42
+fixture_A fitro       1.4196         2           32.7    1.41
+fixture_A orbit       3.0252         9           17.9    2.98
+fixture_B raster        0.85         1           90.0    1.18
+fixture_B rounded     0.8784         1           11.3    1.14
+fixture_B trochoid    0.9098         1           17.6     1.1
+fixture_B fitro       0.9063         1           15.5     1.1
+
+[physics, 20 seeds, paired rig]  force_compliance / fn_p95 / coverage_cont / success
+arm               fixture      fcomp  fn_p95  cov_cont   succ   len_m
+raster@r350       fixture_A   0.4869  1.2019    1.0000  1.000  1.3000
+raster@r350       fixture_B   1.0000  0.4969    1.0000  1.000  0.8500
+raster@r350       fixture_R   0.7556  0.8827    1.0000  1.000  0.8500
+raster@r351a      fixture_A   0.4869  1.2019    1.0000  1.000  1.3000
+raster@r351a      fixture_B   1.0000  0.4969    1.0000  1.000  0.8500
+raster@r351a      fixture_R   0.7556  0.8827    1.0000  1.000  0.8500
+rounded@r351a     fixture_A   0.4437  1.2459    1.0000  1.000  1.3568
+rounded@r351a     fixture_B   1.0000  0.4968    1.0000  1.000  0.8784
+rounded@r351a     fixture_R   0.7377  0.8912    1.0000  1.000  0.8784
+trochoid@r350     fixture_A   0.4864  1.2850    1.0000  1.000  1.4118
+trochoid@r350     fixture_B   1.0000  0.4968    1.0000  1.000  0.9098
+trochoid@r350     fixture_R   0.7548  0.8672    1.0000  1.000  0.9098
+trochoid@r351b    fixture_A   0.4864  1.2850    1.0000  1.000  1.4118
+trochoid@r351b    fixture_B   1.0000  0.4968    1.0000  1.000  0.9098
+trochoid@r351b    fixture_R   0.7548  0.8672    1.0000  1.000  0.9098
+fitro@r351b       fixture_A   0.4997  1.2015    0.9719  1.000  1.4196
+fitro@r351b       fixture_B   1.0000  0.4969    0.9836  1.000  0.9063
+fitro@r351b       fixture_R   0.7756  0.8373    0.9766  1.000  0.9063
+
+[paired delta, rounded - raster]  same rows, same reversal count, C1 vs C0 flip
+  fixture_A force_compliance  delta=-0.0432  p=0.0803  n=20
+  fixture_A fn_p95            delta=+0.0440  p=0.374  n=20
+  fixture_A coverage_cont     delta=+0.0000  p=nan  n=20
+  fixture_B force_compliance  delta=+0.0000  p=nan  n=20
+  fixture_B fn_p95            delta=-0.0000  p=0.33  n=20
+  fixture_B coverage_cont     delta=+0.0000  p=nan  n=20
+  fixture_R force_compliance  delta=-0.0179  p=0.1  n=20
+  fixture_R fn_p95            delta=+0.0086  p=0.704  n=20
+  fixture_R coverage_cont     delta=+0.0000  p=nan  n=20
+
+[N193 prior run] orbit on fixture_A (rotation-invariant disc sweep, 3.03 m): force_compliance 0.5507 over 100 seeds at pose_noise 0,0 -- the WORST of all six arms, with the FEWEST row reversals; its lateral flips are spiral tangent crossings, not row reversals.
+
+[fixture_A]  reversal density vs force_compliance (orbit: prior 100-seed N193 run)
+  orbit         2.98 rev/m   max_step_turn=  17.9 deg   fcomp=0.5507
+  fitro         1.41 rev/m   max_step_turn=  32.7 deg   fcomp=0.4997
+  trochoid      1.42 rev/m   max_step_turn=  45.4 deg   fcomp=0.4864
+  raster        1.54 rev/m   max_step_turn=  90.0 deg   fcomp=0.4869
+  rounded       1.47 rev/m   max_step_turn=  11.3 deg   fcomp=0.4437
+
+[fixture effect]  trochoid, same 20 seeds, three fixtures
+  fixture_A=0.4864  fixture_B=1.0000  fixture_R=0.7548
+  fixture-driven spread 0.5136 vs path-driven spread 0.1070
+
+[paired delta, fitro - trochoid]  footprint-aware row plan vs the champion
+  fixture_A force_compliance  delta=+0.0133  p=0.447  n=20
+  fixture_A coverage_cont     delta=-0.0281  p=2.42e-05  n=20
+  fixture_B force_compliance  delta=+0.0000  p=nan  n=20
+  fixture_B coverage_cont     delta=-0.0164  p=0.00473  n=20
+  fixture_R force_compliance  delta=+0.0208  p=0.0359  n=20
+  fixture_R coverage_cont     delta=-0.0234  p=0.000448  n=20
+
+VERDICT: reversal geometry does not move force_compliance; the fixture term does.

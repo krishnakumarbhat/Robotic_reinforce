@@ -1,0 +1,283 @@
+{
+ "theta_marginal_logonly": 0.014133,
+ "theta_bitidentical_172_173": true,
+ "P50_frozen_director": 0.008,
+ "P50_train_recomputed": 0.008106,
+ "variant": "T191 = T188 base + joint eps*+cap, w=min(T173/(max(slip,0.005)+0.005),C99)",
+ "fric_term": "none",
+ "damping": "ON (decider; OFF as log-only ablation)",
+ "t173_only": true,
+ "slip_floor": 0.005,
+ "eps_star": 0.005,
+ "eps_star_rule": "director iter-16 joint-tune decider (0.005); grid log-only",
+ "caps_train_adm": {
+  "0.002": {
+   "0.95": 142.8571,
+   "0.975": 142.8571,
+   "0.99": 142.8571,
+   "0.995": 142.8571
+  },
+  "0.005": {
+   "0.95": 100.0,
+   "0.975": 100.0,
+   "0.99": 100.0,
+   "0.995": 100.0
+  },
+  "0.008": {
+   "0.95": 76.9231,
+   "0.975": 76.9231,
+   "0.99": 76.9231,
+   "0.995": 76.9231
+  },
+  "0.01": {
+   "0.95": 66.6667,
+   "0.975": 66.6667,
+   "0.99": 66.6667,
+   "0.995": 66.6667
+  }
+ },
+ "w_cap_C99_decider": 100.0,
+ "w_cap_raw_max_decider": 100.0,
+ "i7_binds_heldout": 0,
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "held_T173": {
+  "n": 120,
+  "n_adm": 102,
+  "recall": 0.8667,
+  "score": 86.67,
+  "precision": 0.8922,
+  "p_fail_given_adm": 0.1078,
+  "cov_adm": 0.9729,
+  "cov_all": 0.9695
+ },
+ "held_T191": {
+  "n": 120,
+  "sum_w": 7946.984,
+  "mean_w": 66.2249,
+  "ess": 96.74,
+  "p_fail_weighted": 0.1153,
+  "precision_w": 0.8847,
+  "score_w": 88.47,
+  "recall_w": 66.9615,
+  "cov_w": 0.9727,
+  "cov_all": 0.9695,
+  "pct_w_zero": 0.15,
+  "rankIC_w_vs_success": 0.0201,
+  "rankIC_w_vs_coverage": 0.0474
+ },
+ "trainfold_T191": {
+  "n": 120,
+  "sum_w": 8385.0069,
+  "mean_w": 69.8751,
+  "ess": 103.45,
+  "p_fail_weighted": 0.1238,
+  "precision_w": 0.8762,
+  "score_w": 87.62,
+  "recall_w": 71.3283,
+  "cov_w": 0.9656,
+  "cov_all": 0.9612,
+  "pct_w_zero": 0.1,
+  "rankIC_w_vs_success": 0.1237,
+  "rankIC_w_vs_coverage": 0.11
+ },
+ "held_T188": {
+  "n": 120,
+  "sum_w": 5655.2469,
+  "mean_w": 47.1271,
+  "ess": 99.04,
+  "p_fail_weighted": 0.1134,
+  "precision_w": 0.8866,
+  "score_w": 88.66,
+  "recall_w": 47.7536,
+  "cov_w": 0.9728,
+  "cov_all": 0.9695,
+  "pct_w_zero": 0.15,
+  "rankIC_w_vs_success": 0.0201,
+  "rankIC_w_vs_coverage": 0.0474
+ },
+ "held_dampOFF_ablation": {
+  "n": 120,
+  "sum_w": 7946.984,
+  "mean_w": 66.2249,
+  "ess": 96.74,
+  "p_fail_weighted": 0.1153,
+  "precision_w": 0.8847,
+  "score_w": 88.47,
+  "recall_w": 66.9615,
+  "cov_w": 0.9727,
+  "cov_all": 0.9695,
+  "pct_w_zero": 0.15,
+  "rankIC_w_vs_success": 0.0201,
+  "rankIC_w_vs_coverage": 0.0474
+ },
+ "lift_T188_vs_T173_held_pts": -0.56,
+ "lift_T191_vs_T173_held_pts": -0.75,
+ "lift_dampOFF_vs_T173_held_pts": -0.75,
+ "lift_T191_vs_T188_held_pts": -0.19,
+ "lift_dampOFF_vs_T191_held_pts": 0.0,
+ "lift_T191_vs_T173_train_pts": 0.58,
+ "grid_logonly_held": {
+  "eps0.002_C0.95": {
+   "p_fail_weighted": 0.1172,
+   "score_w": 88.28,
+   "ess": 93.71,
+   "lift_vs_T173_pts": -0.94
+  },
+  "eps0.002_C0.975": {
+   "p_fail_weighted": 0.1172,
+   "score_w": 88.28,
+   "ess": 93.71,
+   "lift_vs_T173_pts": -0.94
+  },
+  "eps0.002_C0.99": {
+   "p_fail_weighted": 0.1172,
+   "score_w": 88.28,
+   "ess": 93.71,
+   "lift_vs_T173_pts": -0.94
+  },
+  "eps0.002_C0.995": {
+   "p_fail_weighted": 0.1172,
+   "score_w": 88.28,
+   "ess": 93.71,
+   "lift_vs_T173_pts": -0.94
+  },
+  "eps0.005_C0.95": {
+   "p_fail_weighted": 0.1153,
+   "score_w": 88.47,
+   "ess": 96.74,
+   "lift_vs_T173_pts": -0.75
+  },
+  "eps0.005_C0.975": {
+   "p_fail_weighted": 0.1153,
+   "score_w": 88.47,
+   "ess": 96.74,
+   "lift_vs_T173_pts": -0.75
+  },
+  "eps0.005_C0.99": {
+   "p_fail_weighted": 0.1153,
+   "score_w": 88.47,
+   "ess": 96.74,
+   "lift_vs_T173_pts": -0.75
+  },
+  "eps0.005_C0.995": {
+   "p_fail_weighted": 0.1153,
+   "score_w": 88.47,
+   "ess": 96.74,
+   "lift_vs_T173_pts": -0.75
+  },
+  "eps0.008_C0.95": {
+   "p_fail_weighted": 0.114,
+   "score_w": 88.6,
+   "ess": 98.35,
+   "lift_vs_T173_pts": -0.62
+  },
+  "eps0.008_C0.975": {
+   "p_fail_weighted": 0.114,
+   "score_w": 88.6,
+   "ess": 98.35,
+   "lift_vs_T173_pts": -0.62
+  },
+  "eps0.008_C0.99": {
+   "p_fail_weighted": 0.114,
+   "score_w": 88.6,
+   "ess": 98.35,
+   "lift_vs_T173_pts": -0.62
+  },
+  "eps0.008_C0.995": {
+   "p_fail_weighted": 0.114,
+   "score_w": 88.6,
+   "ess": 98.35,
+   "lift_vs_T173_pts": -0.62
+  },
+  "eps0.01_C0.95": {
+   "p_fail_weighted": 0.1134,
+   "score_w": 88.66,
+   "ess": 99.04,
+   "lift_vs_T173_pts": -0.56
+  },
+  "eps0.01_C0.975": {
+   "p_fail_weighted": 0.1134,
+   "score_w": 88.66,
+   "ess": 99.04,
+   "lift_vs_T173_pts": -0.56
+  },
+  "eps0.01_C0.99": {
+   "p_fail_weighted": 0.1134,
+   "score_w": 88.66,
+   "ess": 99.04,
+   "lift_vs_T173_pts": -0.56
+  },
+  "eps0.01_C0.995": {
+   "p_fail_weighted": 0.1134,
+   "score_w": 88.66,
+   "ess": 99.04,
+   "lift_vs_T173_pts": -0.56
+  }
+ },
+ "turnover_T191_vs_T188_held": {
+  "mean_abs_dw": 19.0978,
+  "max_abs_dw": 33.3333,
+  "n_changed": 102,
+  "n_total": 120
+ },
+ "turnover_T191_vs_dampOFF_held": {
+  "mean_abs_dw": 0.0,
+  "max_abs_dw": 0.0,
+  "n_changed": 0,
+  "n_total": 120
+ },
+ "caphit_held": {
+  "frac_capped": 0.0,
+  "n_capped": 0,
+  "n_total": 120
+ },
+ "turnover_T191_vs_T188_trainfold": {
+  "mean_abs_dw": 19.9936,
+  "max_abs_dw": 33.3333,
+  "n_changed": 108,
+  "n_total": 120
+ },
+ "turnover_T191_vs_dampOFF_trainfold": {
+  "mean_abs_dw": 0.0,
+  "max_abs_dw": 0.0,
+  "n_changed": 0,
+  "n_total": 120
+ },
+ "caphit_trainfold": {
+  "frac_capped": 0.0,
+  "n_capped": 0,
+  "n_total": 120
+ },
+ "turnover_T191_vs_T188_archive": {
+  "mean_abs_dw": 0.0,
+  "max_abs_dw": 0.0,
+  "n_changed": 0,
+  "n_total": 120
+ },
+ "turnover_T191_vs_dampOFF_archive": {
+  "mean_abs_dw": 0.0,
+  "max_abs_dw": 0.0,
+  "n_changed": 0,
+  "n_total": 120
+ },
+ "caphit_archive": {
+  "frac_capped": 0.0,
+  "n_capped": 0,
+  "n_total": 120
+ },
+ "director_predicted_score_ge_75": 88.47,
+ "director_predicted_lift_20pts": -0.75,
+ "cov_ok": true,
+ "archive_valid_mass_rate": 0.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "score_w_ge_70": true,
+  "no_cov_regression": true
+ },
+ "keep": true
+}

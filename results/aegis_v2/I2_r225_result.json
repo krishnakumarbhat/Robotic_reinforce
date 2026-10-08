@@ -1,0 +1,851 @@
+{
+ "variant": "T225 FACC-Lite SE(3)-conditioned force-adaptive residual: s'=max(0,wraw-thr_b)*(1+alpha*E(e)), E(e)=sigmoid(z(log-partition free energy of SE(3)+contact residual vs CALIB-success in-context bank)); p=1-exp(-s'/IQRup*_b); admit iff p<=TAU*_b; frozen T224 thr_b + pooled-2 grid Q{0.65,0.8}",
+ "alpha_grid": [
+  0.0,
+  0.25,
+  0.5,
+  1.0,
+  2.0,
+  4.0
+ ],
+ "bands": {
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "cal_n": [
+   40,
+   40,
+   40
+  ],
+  "med_band": [
+   82.7989,
+   75.1409,
+   65.6217
+  ],
+  "MED_global": 74.3101,
+  "anchor": 0.1,
+  "IQRup_raw": [
+   17.2011,
+   9.8148,
+   8.7226
+  ],
+  "IQRup_EB_k2": [
+   17.2241,
+   10.1895,
+   9.1493
+  ],
+  "center_star": [
+   81.9501,
+   75.0578,
+   66.4905
+  ],
+  "thr_band_frozen_T224": [
+   107.7861,
+   90.342,
+   80.2145
+  ],
+  "thr_assert_T224_match": true,
+  "EB_k": 2,
+  "wraw_hard_ceiling": 100.0,
+  "thr_gt_wraw_ceiling_band0": true
+ },
+ "energy_head": {
+  "channels": [
+   "se3_x",
+   "se3_y",
+   "se3_z",
+   "se3_rx",
+   "se3_ry",
+   "se3_rz",
+   "slip_m",
+   "fn_mean",
+   "fn_p95",
+   "stick_frac"
+  ],
+  "bank_size": 103,
+  "sigma2": 0.32827025,
+  "E_calib_min": 0.0613,
+  "E_calib_max": 1.0,
+  "E_held_min": 0.0842,
+  "E_held_max": 0.9999,
+  "E_succ_med": 0.4849,
+  "E_fail_med": 0.5873,
+  "E_succ_q90": 0.9928,
+  "E_fail_q90": 0.9994,
+  "E_var_held_gt0": true,
+  "E_range_valid": true,
+  "E_head_params": 2,
+  "E_head_note": "log-partition free energy + CALIB robust z-sigmoid"
+ },
+ "structural": {
+  "s_base_frac_zero_calib": 0.85,
+  "s_base_frac_zero_held": 0.775,
+  "s_base_var_calib": 16.109314,
+  "s_base_var_held": 36.24434,
+  "s_base_per_band": [
+   {
+    "band": 0,
+    "frac_zero": 1.0,
+    "max": 0.0,
+    "var": 0.0
+   },
+   {
+    "band": 1,
+    "frac_zero": 0.75,
+    "max": 9.65799,
+    "var": 8.599638
+   },
+   {
+    "band": 2,
+    "frac_zero": 0.8,
+    "max": 19.78549,
+    "var": 36.210043
+   }
+  ],
+  "rank": {
+   "spearman_s_base_vs_alpha1": 0.999187,
+   "spearman_s_base_vs_alpha4": 0.999125,
+   "n_held_s_base_zero": 93,
+   "n_held_reordered_alpha1": 27
+  },
+  "e_only_auc_succ_over_fail": 0.5186,
+  "E_only_keeps_separation": true
+ },
+ "fit": {
+  "main_alpha": 0.0,
+  "main_taus": [
+   null,
+   null,
+   null
+  ],
+  "feasible": false,
+  "feasible_bands": [],
+  "grid": "pooled-2 Q{0.65,0.8}",
+  "alpha_sweep_pooled2": [
+   {
+    "alpha": 0.0,
+    "grid": "pooled-2",
+    "feasible": false,
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0,
+    "taus": [
+     null,
+     null,
+     null
+    ],
+    "feasible_bands": []
+   },
+   {
+    "alpha": 0.25,
+    "grid": "pooled-2",
+    "feasible": false,
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0,
+    "taus": [
+     null,
+     null,
+     null
+    ],
+    "feasible_bands": []
+   },
+   {
+    "alpha": 0.5,
+    "grid": "pooled-2",
+    "feasible": false,
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0,
+    "taus": [
+     null,
+     null,
+     null
+    ],
+    "feasible_bands": []
+   },
+   {
+    "alpha": 1.0,
+    "grid": "pooled-2",
+    "feasible": false,
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0,
+    "taus": [
+     null,
+     null,
+     null
+    ],
+    "feasible_bands": []
+   },
+   {
+    "alpha": 2.0,
+    "grid": "pooled-2",
+    "feasible": false,
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0,
+    "taus": [
+     null,
+     null,
+     null
+    ],
+    "feasible_bands": []
+   },
+   {
+    "alpha": 4.0,
+    "grid": "pooled-2",
+    "feasible": false,
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0,
+    "taus": [
+     null,
+     null,
+     null
+    ],
+    "feasible_bands": []
+   }
+  ],
+  "best_alpha_by_heldB_keep": 0.0,
+  "E_off_bit_identical_to_T224": true
+ },
+ "heldB": {
+  "T225": {
+   "n_adm": 0,
+   "keep_pct": 0.0,
+   "precision_adm": 1.0,
+   "veto_rate": 1.0,
+   "cov_adm": 0.0
+  },
+  "raw_keep": 0.95,
+  "cov_all": 0.9883,
+  "vs_T224_keep_pts": 0.0
+ },
+ "pooled_held": {
+  "T225": {
+   "n_adm": 0,
+   "veto_rate": 1.0,
+   "p_fail_adm": 0.0,
+   "recall_fail_reject": 1.0,
+   "score_recall_pts": 100.0
+  },
+  "score_recall_pts": 100.0,
+  "selective_risk_lift_vs_T173_pts": 10.78
+ },
+ "violated_manifold_split": {
+  "cut": {
+   "SE3_CAL_MAX": 0.19201,
+   "FN_MED": 0.4966,
+   "FN_IQR": 0.0687,
+   "FN_BAND_1p5IQR": 0.10305
+  },
+  "violation_slice": {
+   "n": 7,
+   "n_fails": 4,
+   "main": {
+    "n": 7,
+    "n_fails": 4,
+    "n_adm": 0,
+    "recall_fail_reject": 1.0,
+    "score_recall_pts": 100.0,
+    "precision_adm": 1.0
+   },
+   "best": {
+    "n": 7,
+    "n_fails": 4,
+    "n_adm": 0,
+    "recall_fail_reject": 1.0,
+    "score_recall_pts": 100.0,
+    "precision_adm": 1.0
+   }
+  },
+  "tie_slice": {
+   "n": 113,
+   "n_fails": 11,
+   "main": {
+    "n": 113,
+    "n_fails": 11,
+    "n_adm": 0,
+    "recall_fail_reject": 1.0,
+    "score_recall_pts": 100.0,
+    "precision_adm": 1.0
+   },
+   "best": {
+    "n": 113,
+    "n_fails": 11,
+    "n_adm": 0,
+    "recall_fail_reject": 1.0,
+    "score_recall_pts": 100.0,
+    "precision_adm": 1.0
+   }
+  }
+ },
+ "ablation_alpha_x_grid": {
+  "alpha_0.0_pooled-2": {
+   "alpha": 0.0,
+   "grid": "pooled-2",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_0.0_pooled-0": {
+   "alpha": 0.0,
+   "grid": "pooled-0",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_0.25_pooled-2": {
+   "alpha": 0.25,
+   "grid": "pooled-2",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_0.25_pooled-0": {
+   "alpha": 0.25,
+   "grid": "pooled-0",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_0.5_pooled-2": {
+   "alpha": 0.5,
+   "grid": "pooled-2",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_0.5_pooled-0": {
+   "alpha": 0.5,
+   "grid": "pooled-0",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_1.0_pooled-2": {
+   "alpha": 1.0,
+   "grid": "pooled-2",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_1.0_pooled-0": {
+   "alpha": 1.0,
+   "grid": "pooled-0",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_2.0_pooled-2": {
+   "alpha": 2.0,
+   "grid": "pooled-2",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_2.0_pooled-0": {
+   "alpha": 2.0,
+   "grid": "pooled-0",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_4.0_pooled-2": {
+   "alpha": 4.0,
+   "grid": "pooled-2",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  },
+  "alpha_4.0_pooled-0": {
+   "alpha": 4.0,
+   "grid": "pooled-0",
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0,
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "feasible_bands": []
+  }
+ },
+ "ablation_E_permuted": {
+  "alpha_0.0": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0
+  },
+  "alpha_0.25": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0
+  },
+  "alpha_0.5": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0
+  },
+  "alpha_1.0": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0
+  },
+  "alpha_2.0": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0
+  },
+  "alpha_4.0": {
+   "feasible": false,
+   "held_recall_pts": 100.0,
+   "n_adm": 0,
+   "heldB_keep_pct": 0.0
+  }
+ },
+ "lobo": {
+  "per_leftout": {
+   "0": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   },
+   "1": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   },
+   "2": {
+    "feasible": false,
+    "held_recall_pts": 0.0
+   }
+  },
+  "var_pts": 0.0,
+  "pass_var_lt15": true
+ },
+ "finite_audit": {
+  "nonfinite_calib_held_arch": {
+   "calib": 0,
+   "held": 0,
+   "arch": 0
+  },
+  "zero_inf_nan": true
+ },
+ "discard_counter": {
+  "trailing_streak_pre": 8,
+  "counter": 9
+ },
+ "archive_adm_frac": 0.0,
+ "runA_keep_cited": true,
+ "runA_fixture_B": {
+  "succ_a": 15,
+  "succ_b": 20,
+  "welch_p": 0.00010868123615477709,
+  "fisher_p": 0.047124047124047136
+ },
+ "held_fixture_B_unchanged": {
+  "succ_a": 17,
+  "succ_b": 19,
+  "welch_p": 0.15104392492969054,
+  "fisher_p": 0.6049896049896051
+ },
+ "viol_slice_win": false,
+ "tie_slice_nonempty": false,
+ "director_legs": {
+  "predicted_keep_38_45": 0.0,
+  "zero_inf_nan": true,
+  "feasible_fit": false,
+  "success_keep_ge70": false,
+  "kill_facc_if_pts_gt70": true
+ },
+ "root_cause_locator": {
+  "analytic_proof": "band0 thr_0=107.7861 > wraw_hard_ceiling=100.0000 (1/(FLOOR+EPS)), so s_base==0 for EVERY band-0 episode in CALIB and HELD; the multiplicative form s'=(1+alpha*E)*s_base is therefore 0 for every alpha and every finite E -- the energy head cannot act on a zero score. No TAU>=0 can then reach recall_b0>=0.65 because every TAU admits the whole band.",
+  "band0_wraw_max_calib": 100.0,
+  "band0_wraw_max_held": 100.0,
+  "thr_mult_sweep": [
+   {
+    "m": 1.0,
+    "thr_mult": [
+     107.786,
+     90.342,
+     80.215
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.95,
+    "thr_mult": [
+     102.397,
+     85.825,
+     76.204
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.9,
+    "thr_mult": [
+     97.008,
+     81.308,
+     72.193
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.85,
+    "thr_mult": [
+     91.618,
+     76.791,
+     68.182
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.8,
+    "thr_mult": [
+     86.229,
+     72.274,
+     64.172
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.75,
+    "thr_mult": [
+     80.84,
+     67.757,
+     60.161
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.7,
+    "thr_mult": [
+     75.45,
+     63.239,
+     56.15
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.65,
+    "thr_mult": [
+     70.061,
+     58.722,
+     52.139
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.6,
+    "thr_mult": [
+     64.672,
+     54.205,
+     48.129
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.55,
+    "thr_mult": [
+     59.282,
+     49.688,
+     44.118
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.5,
+    "thr_mult": [
+     53.893,
+     45.171,
+     40.107
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.45,
+    "thr_mult": [
+     48.504,
+     40.654,
+     36.097
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.4,
+    "thr_mult": [
+     43.114,
+     36.137,
+     32.086
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.35,
+    "thr_mult": [
+     37.725,
+     31.62,
+     28.075
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.3,
+    "thr_mult": [
+     32.336,
+     27.103,
+     24.064
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.25,
+    "thr_mult": [
+     26.947,
+     22.586,
+     20.054
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.2,
+    "thr_mult": [
+     21.557,
+     18.068,
+     16.043
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.15,
+    "thr_mult": [
+     16.168,
+     13.551,
+     12.032
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.1,
+    "thr_mult": [
+     10.779,
+     9.034,
+     8.021
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   },
+   {
+    "m": 0.05,
+    "thr_mult": [
+     5.389,
+     4.517,
+     4.011
+    ],
+    "feasible": false,
+    "feasible_bands": [],
+    "held_recall_pts": 100.0,
+    "n_adm": 0,
+    "heldB_keep_pct": 0.0
+   }
+  ],
+  "first_feasible_m": null,
+  "first_feasible_heldB_keep": null,
+  "first_feasible_pts": null,
+  "recoverable": false
+ },
+ "inversion_falsification": {
+  "definition": "auc_hi_is_fail = P(fail scores HIGHER than succ); <0.5 => INVERTED",
+  "per_band": {
+   "0": {
+    "auc_hi_is_fail_T225": 0.5,
+    "auc_hi_is_fail_T224_s_base": 0.5,
+    "auc_hi_is_fail_E_alone": 0.4804,
+    "n_fail": 6,
+    "fail_q90": 0.0,
+    "succ_q90": 0.0
+   },
+   "1": {
+    "auc_hi_is_fail_T225": 0.3611,
+    "auc_hi_is_fail_T224_s_base": 0.3611,
+    "auc_hi_is_fail_E_alone": 0.5278,
+    "n_fail": 4,
+    "fail_q90": 0.0,
+    "succ_q90": 7.8427
+   },
+   "2": {
+    "auc_hi_is_fail_T225": 0.3788,
+    "auc_hi_is_fail_T224_s_base": 0.3788,
+    "auc_hi_is_fail_E_alone": 0.4459,
+    "n_fail": 7,
+    "fail_q90": 0.0,
+    "succ_q90": 18.741
+   }
+  },
+  "mean_auc_hi_is_fail_T225": 0.4133,
+  "mean_auc_hi_is_fail_E_alone": 0.4847,
+  "falsified": true,
+  "statement": "DECISIVE: the residual score is INVERTED. Failures occupy the LOW-s tail (mean AUC(hi-is-fail)=0.413 < 0.5); successes occupy the HIGH-s tail. The T225 form s'=(1+alpha*E)*s_base is monotone NON-DECREASING in s_base, so it can only promote already-high (successful) episodes and can never catch a low-s failure. alpha=0 recovers T224 bit-identically; alpha>0 only sharpens the wrong ordering. The SE(3) energy head is separately near-useless on its own (AUC 0.485, i.e. chance-level), so it neither rescues the inversion nor adds an orthogonal signal. FACC-Lite's premise (energy modulation of a high-s residual separates failures) is FALSIFIED on physical rig data, not merely unvalidated."
+ },
+ "degenerate_all_reject": true,
+ "keep": false,
+ "verdict": "DISCARD"
+}

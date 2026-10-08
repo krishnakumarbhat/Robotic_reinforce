@@ -1,0 +1,696 @@
+{
+ "rig_version": 2,
+ "note": "analytic pre-count: composition priced in closed form with the rig's own fine-cell kernel; physics can only subtract from the ceiling",
+ "modes": {
+  "fixture_A/tool0/trochoid": {
+   "ceiling": 0.9062,
+   "path_len_m": 1.4118,
+   "max_turn_deg": 45.368,
+   "n_points": 355,
+   "r_eff": 0.035,
+   "miss_frac": 0.0938,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    9
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool0/fitted": {
+   "ceiling": 1.0,
+   "path_len_m": 1.3878,
+   "max_turn_deg": 11.187,
+   "n_points": 349,
+   "r_eff": 0.035,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool0/fitro": {
+   "ceiling": 0.9688,
+   "path_len_m": 1.4196,
+   "max_turn_deg": 32.697,
+   "n_points": 357,
+   "r_eff": 0.035,
+   "miss_frac": 0.0312,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 1.0,
+   "per_v_miss": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool1/trochoid": {
+   "ceiling": 0.9271,
+   "path_len_m": 1.4118,
+   "max_turn_deg": 45.368,
+   "n_points": 355,
+   "r_eff": 0.04,
+   "miss_frac": 0.0729,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    7
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool1/fitted": {
+   "ceiling": 1.0,
+   "path_len_m": 1.3878,
+   "max_turn_deg": 11.187,
+   "n_points": 349,
+   "r_eff": 0.04,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool1/fitro": {
+   "ceiling": 0.9896,
+   "path_len_m": 1.4196,
+   "max_turn_deg": 32.697,
+   "n_points": 357,
+   "r_eff": 0.04,
+   "miss_frac": 0.0104,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 1.0,
+   "per_v_miss": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool2/trochoid": {
+   "ceiling": 0.9688,
+   "path_len_m": 1.4118,
+   "max_turn_deg": 45.368,
+   "n_points": 355,
+   "r_eff": 0.05,
+   "miss_frac": 0.0312,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    3
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool2/fitted": {
+   "ceiling": 1.0,
+   "path_len_m": 0.9409,
+   "max_turn_deg": 10.949,
+   "n_points": 237,
+   "r_eff": 0.05,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_A/tool2/fitro": {
+   "ceiling": 0.9479,
+   "path_len_m": 0.9263,
+   "max_turn_deg": 15.462,
+   "n_points": 233,
+   "r_eff": 0.05,
+   "miss_frac": 0.0521,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 1.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    5,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0
+   ]
+  },
+  "fixture_B/tool0/trochoid": {
+   "ceiling": 0.9219,
+   "path_len_m": 0.9098,
+   "max_turn_deg": 17.627,
+   "n_points": 229,
+   "r_eff": 0.035,
+   "miss_frac": 0.0781,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    5
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1
+   ]
+  },
+  "fixture_B/tool0/fitted": {
+   "ceiling": 1.0,
+   "path_len_m": 0.8939,
+   "max_turn_deg": 10.647,
+   "n_points": 225,
+   "r_eff": 0.035,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_B/tool0/fitro": {
+   "ceiling": 0.9531,
+   "path_len_m": 0.9063,
+   "max_turn_deg": 15.462,
+   "n_points": 228,
+   "r_eff": 0.035,
+   "miss_frac": 0.0469,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 1.0,
+   "per_v_miss": [
+    0,
+    0,
+    3,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_B/tool1/trochoid": {
+   "ceiling": 0.9531,
+   "path_len_m": 0.9098,
+   "max_turn_deg": 17.627,
+   "n_points": 229,
+   "r_eff": 0.04,
+   "miss_frac": 0.0469,
+   "rim_frac_of_miss": 1.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    3
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0
+   ]
+  },
+  "fixture_B/tool1/fitted": {
+   "ceiling": 1.0,
+   "path_len_m": 0.8939,
+   "max_turn_deg": 10.647,
+   "n_points": 225,
+   "r_eff": 0.04,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_B/tool1/fitro": {
+   "ceiling": 0.9844,
+   "path_len_m": 0.9063,
+   "max_turn_deg": 15.462,
+   "n_points": 228,
+   "r_eff": 0.04,
+   "miss_frac": 0.0156,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 1.0,
+   "per_v_miss": [
+    0,
+    0,
+    1,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_B/tool2/trochoid": {
+   "ceiling": 1.0,
+   "path_len_m": 0.9098,
+   "max_turn_deg": 17.627,
+   "n_points": 229,
+   "r_eff": 0.05,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_B/tool2/fitted": {
+   "ceiling": 1.0,
+   "path_len_m": 0.8939,
+   "max_turn_deg": 10.647,
+   "n_points": 225,
+   "r_eff": 0.05,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "fixture_B/tool2/fitro": {
+   "ceiling": 1.0,
+   "path_len_m": 0.9063,
+   "max_turn_deg": 15.462,
+   "n_points": 228,
+   "r_eff": 0.05,
+   "miss_frac": 0.0,
+   "rim_frac_of_miss": 0.0,
+   "interior_frac_of_miss": 0.0,
+   "per_v_miss": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "per_u_miss": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "verdict_inputs": {
+  "fixture_A": {
+   "ceiling": {
+    "trochoid": [
+     0.9062,
+     0.9271,
+     0.9688
+    ],
+    "fitted": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "fitro": [
+     0.9688,
+     0.9896,
+     0.9479
+    ]
+   },
+   "len_mean_m": {
+    "trochoid": 1.4118,
+    "fitted": 1.2388,
+    "fitro": 1.2552
+   },
+   "fitro_vs_fitted_len_ratio": 1.0132,
+   "fitro_vs_trochoid_len_ratio": 0.8891,
+   "fitro_ceiling_minus_fitted": -0.0312,
+   "fitro_ceiling_minus_trochoid": 0.0347,
+   "fitro_turn_max_deg": 32.697
+  },
+  "fixture_B": {
+   "ceiling": {
+    "trochoid": [
+     0.9219,
+     0.9531,
+     1.0
+    ],
+    "fitted": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "fitro": [
+     0.9531,
+     0.9844,
+     1.0
+    ]
+   },
+   "len_mean_m": {
+    "trochoid": 0.9098,
+    "fitted": 0.8939,
+    "fitro": 0.9063
+   },
+   "fitro_vs_fitted_len_ratio": 1.0139,
+   "fitro_vs_trochoid_len_ratio": 0.9962,
+   "fitro_ceiling_minus_fitted": -0.0208,
+   "fitro_ceiling_minus_trochoid": 0.0208,
+   "fitro_turn_max_deg": 15.462
+  }
+ }
+}

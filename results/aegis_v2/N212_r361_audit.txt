@@ -1,0 +1,115 @@
+N212-TIME-DOSE axis audit -- run 361, 21 archived arms
+
+dose table (candidate arm; 20 seeds x 3 suites per cell, in-rig paired to the
+frozen AEGIS_STEPS=400 baseline on the SAME seeds)
+arm                    noise       n v_cmd_mm_s  cycle_s |    A covc/succ    B covc/succ    R covc/succ  keep
+0_identity_trochoid    0,0       400       42.5    21.40 |      1.0000/20      1.0000/20      1.0000/20 False
+1_ceiling_n100         0,0       100      170.1     5.35 |      1.0000/20      1.0000/20      1.0000/20 False
+1_ceiling_n12          0,0        12     1399.7     0.65 |      0.4688/ 0      0.6180/ 0      0.4893/ 0 False
+1_ceiling_n1600        0,0      1600       10.6    85.65 |      1.0000/20      1.0000/20      1.0000/20 False
+1_ceiling_n200         0,0       200       85.0    10.70 |      1.0000/20      1.0000/20      1.0000/20 False
+1_ceiling_n25          0,0        25      673.9     1.35 |      0.9401/12      1.0000/20      0.9698/17 False
+1_ceiling_n50          0,0        50      337.0     2.70 |      1.0000/20      1.0000/20      1.0000/20 False
+1_ceiling_n800         0,0       800       21.3    42.80 |      1.0000/20      1.0000/20      1.0000/20 False
+2_noisy_n100           0.03,6    100      170.1     5.35 |      0.9412/14      0.9227/15      0.8680/11 False
+2_noisy_n12            0.03,6     12     1399.7     0.65 |      0.4641/ 0      0.5586/ 0      0.4169/ 0 False
+2_noisy_n1600          0.03,6   1600       10.6    85.65 |      0.9443/15      0.9281/15      0.8706/12 False
+2_noisy_n200           0.03,6    200       85.0    10.70 |      0.9432/15      0.9266/15      0.8688/11 False
+2_noisy_n25            0.03,6     25      673.9     1.35 |      0.8537/ 8      0.8875/12      0.8073/ 7 False
+2_noisy_n50            0.03,6     50      337.0     2.70 |      0.9354/13      0.9187/15      0.8549/ 9 False
+2_noisy_n800           0.03,6    800       21.3    42.80 |      0.9438/15      0.9281/15      0.8706/12 False
+3_raster_noisy_n100    0.03,6    100      170.0     5.00 |      0.9375/15      0.9008/13      0.8487/10 False
+3_raster_noisy_n12     0.03,6     12     1416.7     0.60 |      0.4089/ 0      0.5133/ 0      0.4167/ 0 False
+3_raster_noisy_n1600   0.03,6   1600       10.6    80.00 |      0.9396/11      0.9039/13      0.8497/10 False
+3_raster_noisy_n25     0.03,6     25      680.0     1.25 |      0.8484/ 8      0.8672/12      0.7898/ 8 False
+4_raster_clean_n12     0,0        12     1416.7     0.60 |      0.4385/ 0      0.5930/ 0      0.4940/ 0 False
+4_raster_clean_n25     0,0        25      680.0     1.25 |      0.9490/19      1.0000/20      0.9672/16 False
+
+frozen point (the in-rig compare arm, AEGIS_STEPS=400, identical seeds in every file)
+  raster   pose_noise 0,0     fixture_A  coverage_cont min 1.0000 max 1.0000 spread 0.0e+00 over 2 files
+  raster   pose_noise 0,0     fixture_B  coverage_cont min 1.0000 max 1.0000 spread 0.0e+00 over 2 files
+  raster   pose_noise 0,0     fixture_R  coverage_cont min 1.0000 max 1.0000 spread 0.0e+00 over 2 files
+  raster   pose_noise 0.03,6  fixture_A  coverage_cont min 0.9396 max 0.9396 spread 0.0e+00 over 4 files
+  raster   pose_noise 0.03,6  fixture_B  coverage_cont min 0.9039 max 0.9039 spread 0.0e+00 over 4 files
+  raster   pose_noise 0.03,6  fixture_R  coverage_cont min 0.8497 max 0.8497 spread 0.0e+00 over 4 files
+  trochoid pose_noise 0,0     fixture_A  coverage_cont min 1.0000 max 1.0000 spread 0.0e+00 over 8 files
+  trochoid pose_noise 0,0     fixture_B  coverage_cont min 1.0000 max 1.0000 spread 0.0e+00 over 8 files
+  trochoid pose_noise 0,0     fixture_R  coverage_cont min 1.0000 max 1.0000 spread 0.0e+00 over 8 files
+  trochoid pose_noise 0.03,6  fixture_A  coverage_cont min 0.9438 max 0.9438 spread 0.0e+00 over 7 files
+  trochoid pose_noise 0.03,6  fixture_B  coverage_cont min 0.9266 max 0.9266 spread 0.0e+00 over 7 files
+  trochoid pose_noise 0.03,6  fixture_R  coverage_cont min 0.8680 max 0.8680 spread 0.0e+00 over 7 files
+
+C1 IDENTITY  default arm vs Run350 champion health: 60 episodes, success identical 60/60, max |d coverage_cont| = 0.0e+00
+C2 REPRO     frozen-arm coverage_cont spread across 21 processes = 0.0e+00
+
+contact-sampling limit: realised per-tick commanded step L/steps vs 2*r_eff = 0.070 m
+arm                    suite       steps     L_m  step_mm  step/2reff    covc  succ
+0_identity_trochoid    fixture_A     434  1.4118     3.25       0.046  1.0000    20
+0_identity_trochoid    fixture_B     428  0.9098     2.13       0.030  1.0000    20
+0_identity_trochoid    fixture_R     431  1.1357     2.64       0.038  1.0000    20
+1_ceiling_n100         fixture_A     109  1.4118    12.95       0.185  1.0000    20
+1_ceiling_n100         fixture_B     107  0.9098     8.50       0.121  1.0000    20
+1_ceiling_n100         fixture_R     108  1.1357    10.53       0.150  1.0000    20
+1_ceiling_n12          fixture_A      13  1.4118   108.60       1.551  0.4688     0
+1_ceiling_n12          fixture_B      13  0.9098    69.98       1.000  0.6180     0
+1_ceiling_n12          fixture_R      13  1.1357    87.36       1.248  0.4893     0
+1_ceiling_n1600        fixture_A    1738  1.4118     0.81       0.012  1.0000    20
+1_ceiling_n1600        fixture_B    1713  0.9098     0.53       0.008  1.0000    20
+1_ceiling_n1600        fixture_R    1724  1.1357     0.66       0.009  1.0000    20
+1_ceiling_n200         fixture_A     217  1.4118     6.51       0.093  1.0000    20
+1_ceiling_n200         fixture_B     214  0.9098     4.25       0.061  1.0000    20
+1_ceiling_n200         fixture_R     215  1.1357     5.27       0.075  1.0000    20
+1_ceiling_n25          fixture_A      27  1.4118    52.29       0.747  0.9401    12
+1_ceiling_n25          fixture_B      27  0.9098    33.70       0.481  1.0000    20
+1_ceiling_n25          fixture_R      27  1.1357    42.06       0.601  0.9698    17
+1_ceiling_n50          fixture_A      54  1.4118    26.14       0.373  1.0000    20
+1_ceiling_n50          fixture_B      54  0.9098    16.85       0.241  1.0000    20
+1_ceiling_n50          fixture_R      54  1.1357    21.03       0.300  1.0000    20
+1_ceiling_n800         fixture_A     869  1.4118     1.62       0.023  1.0000    20
+1_ceiling_n800         fixture_B     856  0.9098     1.06       0.015  1.0000    20
+1_ceiling_n800         fixture_R     862  1.1357     1.32       0.019  1.0000    20
+4_raster_clean_n12     fixture_A      12  1.3000   108.33       1.548  0.4385     0
+4_raster_clean_n12     fixture_B      12  0.8500    70.83       1.012  0.5930     0
+4_raster_clean_n12     fixture_R      12  1.0525    87.71       1.253  0.4940     0
+4_raster_clean_n25     fixture_A      25  1.3000    52.00       0.743  0.9490    19
+4_raster_clean_n25     fixture_B      25  0.8500    34.00       0.486  1.0000    20
+4_raster_clean_n25     fixture_R      25  1.0525    42.10       0.601  0.9672    16
+
+C3 D1        n in [100, 200, 400, 800, 1600] at pose noise 0,0: coverage_cont 1.0000 and 20/20 on A, B and R
+C4 PLATEAU   pose_noise 0,0     n in [50, 1600] fixture_B coverage_cont min 1.0000 max 1.0000 spread 0.0000
+C4 PLATEAU   pose_noise 0.03,6  n in [50, 1600] fixture_B coverage_cont min 0.9187 max 0.9281 spread 0.0094
+
+C5 D2 REFUTED v_crit = sqrt((r_eff/2) KP R / m) = 0.286 m/s. D2 put the first loss at n ~= 54 ticks. Measured fixture_B: n=50 (337 mm/s) covc 1.0000, n=100 (170 mm/s) covc 1.0000 -- the fastest CLEAN dose is 0.59x v_crit, and the arm that DOES lose coverage (n=12) commands 1400 mm/s = 4.9x v_crit
+            D2 also predicted n=25 degraded; measured fixture_B n=25 1.0000/20/20
+
+C6 D3        fixture_A              smallest realised step/2r_eff seen in the ladder 0.046
+C6 D3        fixture_B              smallest realised step/2r_eff seen in the ladder 0.030
+C6 D3        fixture_R              smallest realised step/2r_eff seen in the ladder 0.038
+            pose noise 0,0, BOTH path modes (30 arm-suite cells): every cell with s/2r_eff <= 0.486 reads EXACTLY 1.0000, every cell with s/2r_eff >= 0.601 loses coverage, disjoint with no counter-example
+            the 1-D analytic tiling bound is s = 2*r_eff = 0.070 m, so the measured threshold sits 1.7x tighter than the bound (grid discreteness, not tiling, sets it) and the frozen dose n=400 (s/2r_eff 0.030) is 16x below the fastest CLEAN dose
+            cross-mode check: the clean frontier is s/2r_eff = 0.481 for trochoid (path 0.9098 m on B) and 0.486 for raster (path 0.8500 m on B) -- the SAME threshold in a length unit, from two different path lengths, so the binder is sampled contact spacing and not the path, the servo or the force
+
+C7 D4 REFUTED at n=12 fixture_B: coverage_cont 1.0000/20/20 -> 0.6180/0/20, slip 0.0106 -> 0.1780 m (x16.8), stick 0.0159 -> 0.0000 -- coverage is lost, not just time
+C8 NOISY     n=  100 fixture_B 0.9227/15 vs frozen 0.9266/15  (Welch p=0.894, Fisher p=1, keep=False)
+C8 NOISY     n=   12 fixture_B 0.5586/ 0 vs frozen 0.9266/15  (Welch p=8.78e-12, Fisher p=7.71e-07, keep=False)
+C8 NOISY     n= 1600 fixture_B 0.9281/15 vs frozen 0.9266/15  (Welch p=0.957, Fisher p=1, keep=False)
+C8 NOISY     n=  200 fixture_B 0.9266/15 vs frozen 0.9266/15  (Welch p=1, Fisher p=1, keep=False)
+C8 NOISY     n=   25 fixture_B 0.8875/12 vs frozen 0.9266/15  (Welch p=0.223, Fisher p=0.501, keep=False)
+C8 NOISY     n=   50 fixture_B 0.9187/15 vs frozen 0.9266/15  (Welch p=0.793, Fisher p=1, keep=False)
+C8 NOISY     n=  800 fixture_B 0.9281/15 vs frozen 0.9266/15  (Welch p=0.957, Fisher p=1, keep=False)
+C9 SATURATE  2_noisy_n12            n=   12  A/B/R 0.4641 0.5586 0.4169  vs frozen 0.9438 0.9266 0.8680
+C9 SATURATE  3_raster_noisy_n12     n=   12  A/B/R 0.4089 0.5133 0.4167  vs frozen 0.9396 0.9039 0.8497
+C9 SATURATE  2_noisy_n25            n=   25  A/B/R 0.8537 0.8875 0.8073  vs frozen 0.9438 0.9266 0.8680
+C9 SATURATE  3_raster_noisy_n25     n=   25  A/B/R 0.8484 0.8672 0.7898  vs frozen 0.9396 0.9039 0.8497
+C9 SATURATE  2_noisy_n50            n=   50  A/B/R 0.9354 0.9187 0.8549  vs frozen 0.9438 0.9266 0.8680
+C9 SATURATE  2_noisy_n100           n=  100  A/B/R 0.9412 0.9227 0.8680  vs frozen 0.9438 0.9266 0.8680
+C9 SATURATE  3_raster_noisy_n100    n=  100  A/B/R 0.9375 0.9008 0.8487  vs frozen 0.9396 0.9039 0.8497
+C9 SATURATE  2_noisy_n200           n=  200  A/B/R 0.9432 0.9266 0.8688  vs frozen 0.9438 0.9266 0.8680
+C9 SATURATE  2_noisy_n800           n=  800  A/B/R 0.9438 0.9281 0.8706  vs frozen 0.9438 0.9266 0.8680
+C9 SATURATE  2_noisy_n1600          n= 1600  A/B/R 0.9443 0.9281 0.8706  vs frozen 0.9438 0.9266 0.8680
+C9 SATURATE  3_raster_noisy_n1600   n= 1600  A/B/R 0.9396 0.9039 0.8497  vs frozen 0.9396 0.9039 0.8497
+            fixture_B @0.03,6 is monotone increasing in the dose and SATURATES at 0.9281 for n >= 800 (v_cmd <= 21.3 mm/s); the frozen point 0.9266 sits 0.0015 under the saturated value, so the pose-noise numbers of I12/N211 are dose-robust, not an artefact of one speed
+
+C10 HYGIENE  21 arms, 2520 episodes, harness errors 0, rig keep=true in 0 arms (by construction: every candidate is a dose, not a better plan, and the paired champion is the ceiling)
+
+ALL N212 CLAIMS HOLD

@@ -1,0 +1,144 @@
+{
+ "idea": "I6",
+ "run": 245,
+ "metric_axis": "quality-tag action sensitivity (normalised action space, paired, same noise)",
+ "n_obs": 32,
+ "arms": {
+  "none": "clean the restroom fixture",
+  "Q_SUCCESS": "clean the restroom fixture [Q:SUCCESS]",
+  "Q_PASS": "clean the restroom fixture [Q:PASS]",
+  "Q_FAILURE_SLIP": "clean the restroom fixture [Q:FAILURE_SLIP]",
+  "Q_SLIP": "clean the restroom fixture [Q:SLIP]",
+  "Q_SUCCESS_PRE": "[Q:SUCCESS] clean the restroom fixture",
+  "IRRELEVANT": "fold a shirt"
+ },
+ "prefix_tokens_per_arm": {
+  "none": {
+   "padded": 48,
+   "real": 6
+  },
+  "Q_SUCCESS": {
+   "padded": 48,
+   "real": 12
+  },
+  "Q_PASS": {
+   "padded": 48,
+   "real": 12
+  },
+  "Q_FAILURE_SLIP": {
+   "padded": 48,
+   "real": 15
+  },
+  "Q_SLIP": {
+   "padded": 48,
+   "real": 12
+  },
+  "Q_SUCCESS_PRE": {
+   "padded": 48,
+   "real": 12
+  },
+  "IRRELEVANT": {
+   "padded": 48,
+   "real": 4
+  }
+ },
+ "lang_token_budget": 48,
+ "chunk_ms_median": {
+  "none": 208.69,
+  "Q_SUCCESS": 207.85,
+  "Q_PASS": 209.19,
+  "Q_FAILURE_SLIP": 210.04,
+  "Q_SLIP": 211.63,
+  "Q_SUCCESS_PRE": 211.89,
+  "IRRELEVANT": 213.26
+ },
+ "determinism_bit_identical": true,
+ "pairwise": {
+  "Q_SUCCESS__Q_FAILURE_SLIP": {
+   "mean": 2.929829,
+   "sd": 1.081982,
+   "ci95": [
+    2.566243,
+    3.306617
+   ],
+   "min": 1.108617,
+   "max": 4.874166,
+   "wilcoxon_p": 2.3283064365386963e-10
+  },
+  "Q_SUCCESS__Q_PASS": {
+   "mean": 1.295607,
+   "sd": 0.54989,
+   "ci95": [
+    1.120773,
+    1.488083
+   ],
+   "min": 0.546991,
+   "max": 2.829487,
+   "wilcoxon_p": 2.3283064365386963e-10
+  },
+  "Q_FAILURE_SLIP__Q_SLIP": {
+   "mean": 2.631185,
+   "sd": 0.954762,
+   "ci95": [
+    2.306604,
+    2.952522
+   ],
+   "min": 0.666975,
+   "max": 4.564353,
+   "wilcoxon_p": 2.3283064365386963e-10
+  },
+  "none__Q_SUCCESS": {
+   "mean": 2.553438,
+   "sd": 0.643355,
+   "ci95": [
+    2.343054,
+    2.777572
+   ],
+   "min": 1.537551,
+   "max": 3.800144,
+   "wilcoxon_p": 2.3283064365386963e-10
+  },
+  "none__Q_FAILURE_SLIP": {
+   "mean": 2.850239,
+   "sd": 0.609614,
+   "ci95": [
+    2.64989,
+    3.058409
+   ],
+   "min": 1.652408,
+   "max": 4.247957,
+   "wilcoxon_p": 2.3283064365386963e-10
+  },
+  "none__IRRELEVANT": {
+   "mean": 1.887125,
+   "sd": 0.563378,
+   "ci95": [
+    1.695107,
+    2.08962
+   ],
+   "min": 0.707419,
+   "max": 3.620165,
+   "wilcoxon_p": 2.3283064365386963e-10
+  },
+  "Q_SUCCESS__Q_SUCCESS_PRE": {
+   "mean": 1.334166,
+   "sd": 0.595458,
+   "ci95": [
+    1.141912,
+    1.546876
+   ],
+   "min": 0.498643,
+   "max": 2.735942,
+   "wilcoxon_p": 2.3283064365386963e-10
+  }
+ },
+ "scale_d_obs_mean": 4.523446,
+ "scale_d_same_obs": 0.0,
+ "frac_of_d_obs_primary": 0.6477,
+ "delta_direction_mean_cosine": 0.3737,
+ "delta_direction_null_mean_cosine": 0.3833,
+ "cos_wilcoxon_p": 0.584794568082174,
+ "pre_registered_abort_threshold": 0.001,
+ "pre_registered_abort_triggered": false,
+ "verdict": "tag moves the chunk"
+}

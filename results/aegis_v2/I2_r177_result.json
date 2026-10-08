@@ -1,0 +1,76 @@
+{
+ "theta_marginal_logonly": 0.014133,
+ "theta_bitidentical_172_173": true,
+ "n_success_calib": 103,
+ "P50_slip_frozen_trainonly": 0.008106,
+ "i7_binds_heldout": 0,
+ "i7_binds_calib": 0,
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "spot_check": {
+  "seed": 91000,
+  "suite": "fixture_A",
+  "slip": 0.003875140692432574,
+  "fric": 0.0643,
+  "w": 0.63306
+ },
+ "trainfold_T173": {
+  "n": 120,
+  "n_adm": 108,
+  "recall": 0.9126,
+  "score": 91.26,
+  "precision": 0.8704,
+  "p_fail_given_adm": 0.1296,
+  "cov_adm": 0.9655,
+  "cov_all": 0.9612
+ },
+ "trainfold_T177": {
+  "n": 120,
+  "sum_w": 37.2944,
+  "mean_w": 0.3108,
+  "ess": 88.06,
+  "p_fail_weighted": 0.1168,
+  "precision_w": 0.8832,
+  "score_w": 88.32,
+  "recall_w": 0.3198,
+  "cov_w": 0.9656,
+  "cov_all": 0.9612
+ },
+ "held_T173": {
+  "n": 120,
+  "n_adm": 102,
+  "recall": 0.8667,
+  "score": 86.67,
+  "precision": 0.8922,
+  "p_fail_given_adm": 0.1078,
+  "cov_adm": 0.9729,
+  "cov_all": 0.9695
+ },
+ "held_T177": {
+  "n": 120,
+  "sum_w": 35.6474,
+  "mean_w": 0.2971,
+  "ess": 80.27,
+  "p_fail_weighted": 0.1211,
+  "precision_w": 0.8789,
+  "score_w": 87.89,
+  "recall_w": 0.2984,
+  "cov_w": 0.9727,
+  "cov_all": 0.9695
+ },
+ "lift_pts_vs_T173": -1.33,
+ "cov_ok": true,
+ "no_signal_note": true,
+ "archive_valid_mass_rate": 0.0,
+ "archive_T173_valid_rate": 0.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "score_w_ge_70": true,
+  "no_cov_regression": true
+ },
+ "keep": true
+}

@@ -1,0 +1,11 @@
+ITER 22 / AAFE (Adaptive-Affordance Flow Expert) — muse-spark-1.3-contributor-free
+- Proposal: SE(3)-equivariant flow over affordance keypoints, replace pi0 fixed head, energy attn = InfoBot + contact/collision.
+- Benchmark FIRST: benchmarks/restroom_sim.py VERIFIED (Fixture A/B, friction 0.05-0.80, scripted 0.8125 confirmed). 5-seed smoke ok.
+- Physical: 0/20 real ManiSkill/PyBullet seeds. PyBullet hang / remote GPU deferred per AEGIS #6 (30-min timeout). NOT VALIDATED.
+- Gate: Tier-4 hard (max_jerk>0.618) preserved; with/without delta 0.0 at 5 seeds (proxy unconfirmed at 20).
+- Edge proxy: vram 950MB <1536, latency 1.8ms <25ms, params 1024 scratch <500M. PASS.
+- Math: equations.md 77-78 sufficient; SE(3) equivariance is geometric symmetry on existing dx/dτ, no new derivation needed.
+- Novelty: same family N75/N76/N77/N79/EAE-FM/DEAFM; 0 hits but mechanism not new (conditional flow over paid action tokens). Not a new cross-edge.
+- Keep bar: synthetic predicted 78 < champion N74 92.3; real Fixture-B 0/20 => NOT MET. p<0.01 vs scripted 0.8125 NOT met.
+- Verdict: DISCARD predicted-only. FREEZE N74 92.3 unconditionally. validated-candidate-predicted ONLY. No adapter/retrain/cross-edge.
+- Ponytail: skipped synthetic SE(3) adapter build (src/affordance_flow_expert.py covers family); no unrequested abstraction; exit AEGIS 6/6.

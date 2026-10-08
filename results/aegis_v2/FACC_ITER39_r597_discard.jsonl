@@ -1,0 +1,1 @@
+{"run": 597, "idea": "FACC-ITER39", "status": "discard", "fixture_B": null, "transfer_success": null, "compare": "trochoid", "metric_class": "retired_family_replay", "seeds": null, "note": "G3 replay refusal; prior physical 0.1905; synthetic_proxy excluded; no paired p-value; no new rig invocation", "champion": "trochoid B=1.00", "segment": "15"}

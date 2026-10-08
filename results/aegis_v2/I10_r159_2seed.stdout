@@ -1,0 +1,67 @@
+[aegis-sweep] /kaggle/working unavailable -> WORKDIR=/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce/results
+pybullet build time: Jan 29 2025 23:16:28
+[aegis-sweep      0.0s] backend=pybullet seeds/suite=2 steps=400 budget=7.0h hard_cap=8.0h jsonl=results/aegis_v2/I10_r159_2seed.jsonl
+[aegis-sweep      1.7s] fitted/fixture_A seed=91000 f=0.06 tool=1 tag=SUCCESS cov=1.00 covc=1.000 stick=0.00 slip=0.004 0.07s
+[aegis-sweep      1.8s] fitted/fixture_A seed=91001 f=0.07 tool=2 tag=SUCCESS cov=0.71 covc=1.000 stick=0.00 slip=0.004 0.07s
+[aegis-sweep      1.8s] fitted/fixture_B seed=93000 f=0.19 tool=0 tag=SUCCESS cov=1.00 covc=1.000 stick=0.00 slip=0.005 0.05s
+[aegis-sweep      1.8s] time estimate: 0.00h (0.06s/ep)
+[aegis-sweep      1.9s] fitted/fixture_B seed=93001 f=0.80 tool=1 tag=SUCCESS cov=1.00 covc=1.000 stick=0.01 slip=0.016 0.06s
+[aegis-sweep      1.9s] fitted/fixture_R seed=95000 f=0.18 tool=2 tag=SUCCESS cov=1.00 covc=1.000 stick=0.00 slip=0.005 0.06s
+[aegis-sweep      2.0s] fitted/fixture_R seed=95001 f=0.80 tool=0 tag=SUCCESS cov=1.00 covc=1.000 stick=0.01 slip=0.016 0.06s
+[aegis-sweep      2.1s] trochoid/fixture_A seed=91000 f=0.06 tool=1 tag=SUCCESS cov=0.83 covc=0.927 stick=0.00 slip=0.004 0.07s
+[aegis-sweep      2.1s] trochoid/fixture_A seed=91001 f=0.07 tool=2 tag=SUCCESS cov=0.83 covc=0.969 stick=0.01 slip=0.004 0.07s
+[aegis-sweep      2.2s] trochoid/fixture_B seed=93000 f=0.19 tool=0 tag=SUCCESS cov=0.94 covc=0.906 stick=0.00 slip=0.005 0.05s
+[aegis-sweep      2.3s] trochoid/fixture_B seed=93001 f=0.80 tool=1 tag=SUCCESS cov=0.94 covc=0.938 stick=0.00 slip=0.016 0.06s
+[aegis-sweep      2.3s] trochoid/fixture_R seed=95000 f=0.18 tool=2 tag=SUCCESS cov=0.94 covc=1.000 stick=0.00 slip=0.005 0.05s
+[aegis-sweep      2.4s] trochoid/fixture_R seed=95001 f=0.80 tool=0 tag=SUCCESS cov=0.94 covc=0.906 stick=0.00 slip=0.016 0.05s
+/media/pope/projecteo/python_libs/site-packages/scipy/stats/_axis_nan_policy.py:573: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, **kwds)
+[aegis-sweep      2.8s] COMPARE {"record": "compare", "candidate": "fitted", "baseline": "trochoid", "candidate_knobs": {"TROCHOID_R_M": 0.015, "TROCHOID_DS_M": 0.004, "TROCHOID_DR": 0.5, "BASE_DS_M": 0.01, "TROCHOID_AMP_M": 0.015, "TROCHOID_W": 33.333333333333336}, "baseline_knobs": {"TROCHOID_R_M": 0.015, "TROCHOID_DS_M": 0.004, "TROCHOID_DR": 0.5, "BASE_DS_M": 0.01, "TROCHOID_AMP_M": 0.015, "TROCHOID_W": 33.333333333333336}, "pose_noise_cfg": "0,0", "metric": "coverage_cont", "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression", "fixture_A": {"n_a": 2, "n_b": 2, "mean_a": 0.948, "mean_b": 1.0, "delta": 0.052, "welch_t": 2.4964, "welch_p": 0.2425541373893365, "paired_t": 2.4964, "paired_p": 0.24255413738933632, "p_method": "scipy", "succ_a": 2, "succ_b": 2, "fisher_p": 1.0}, "fixture_B": {"n_a": 2, "n_b": 2, "mean_a": 0.9219, "mean_b": 1.0, "delta": 0.0781, "welch_t": 4.9936, "welch_p": 0.1258225649408762, "paired_t": 4.9936, "paired_p": 0.12582256494087612, "p_method": "scipy", "succ_a": 2, "succ_b": 2, "fisher_p": 1.0}, "fixture_R": {"n_a": 2, "n_b": 2, "mean_a": 0.9531, "mean_b": 1.0, "delta": 0.0469, "welch_t": 1.0, "welch_p": 0.5000000000000009, "paired_t": 1.0, "paired_p": 0.49999999999999956, "p_method": "scipy", "succ_a": 2, "succ_b": 2, "fisher_p": 1.0}, "keep": false}
+[aegis-sweep      2.8s] {
+ "per_suite": {
+  "fixture_A": {
+   "n": 2,
+   "transfer_success": 1.0,
+   "success_count": 2,
+   "gate_admitted_failures": 0,
+   "mean_jerk": 0.00207,
+   "mean_coverage": 0.8541,
+   "mean_coverage_cont": 1.0,
+   "std_coverage_cont": 0.0,
+   "mean_stick_frac": 0.0,
+   "mean_slip_m": 0.0038
+  },
+  "fixture_B": {
+   "n": 2,
+   "transfer_success": 1.0,
+   "success_count": 2,
+   "gate_admitted_failures": 0,
+   "mean_jerk": 0.01043,
+   "mean_coverage": 1.0,
+   "mean_coverage_cont": 1.0,
+   "std_coverage_cont": 0.0,
+   "mean_stick_frac": 0.0036,
+   "mean_slip_m": 0.0105
+  },
+  "fixture_R": {
+   "n": 2,
+   "transfer_success": 1.0,
+   "success_count": 2,
+   "gate_admitted_failures": 0,
+   "mean_jerk": 0.0118,
+   "mean_coverage": 1.0,
+   "mean_coverage_cont": 1.0,
+   "std_coverage_cont": 0.0,
+   "mean_stick_frac": 0.0036,
+   "mean_slip_m": 0.0104
+  }
+ },
+ "tag_counts": {
+  "SUCCESS": 6
+ },
+ "harness_errors": 0,
+ "verdict": "PENDING-VALIDATION (need >=20 seeds/suite)"
+}
+[aegis-sweep      2.8s] wrote 12 episodes -> results/aegis_v2/I10_r159_2seed.jsonl (13.7 KiB) in 0.00h
+[aegis-sweep      3.2s] hub: skipped (--no-upload / AEGIS_UPLOAD=0)
+[aegis-sweep      3.2s] AEGIS_SWEEP_DONE

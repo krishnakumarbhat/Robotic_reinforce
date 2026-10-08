@@ -1,0 +1,302 @@
+{
+ "variant": "T205 = w191-only ablation (admit iff w191>=TAU*, no jerk term, pooled-1 CALIB, 5-fold CV-tuned)",
+ "frozen": {
+  "TAU50_global_ref": 68.0452,
+  "theta_marg_bitident": true,
+  "C99": 100.0,
+  "C99_degenerate": true,
+  "calB_adm_n": 16,
+  "cal_fails_n": 17,
+  "i7_binds_heldB": 0,
+  "fit_scope": "5-fold stratified CV on CALIB only (pooled-1), single held eval"
+ },
+ "cv_tuning": {
+  "Q_grid": [
+   0.5,
+   0.6,
+   0.65,
+   0.7,
+   0.75,
+   0.8,
+   0.85,
+   0.9
+  ],
+  "per_q": {
+   "0.5": {
+    "TAU_full": 70.2768,
+    "mean_recall": 0.45,
+    "mean_pf": 0.1069,
+    "fold_recalls": [
+     0.6667,
+     1.0,
+     0.0,
+     0.25,
+     0.3333
+    ]
+   },
+   "0.6": {
+    "TAU_full": 73.2251,
+    "mean_recall": 0.5833,
+    "mean_pf": 0.1007,
+    "fold_recalls": [
+     0.6667,
+     1.0,
+     0.3333,
+     0.25,
+     0.6667
+    ]
+   },
+   "0.65": {
+    "TAU_full": 74.3443,
+    "mean_recall": 0.5833,
+    "mean_pf": 0.1054,
+    "fold_recalls": [
+     0.6667,
+     1.0,
+     0.3333,
+     0.25,
+     0.6667
+    ]
+   },
+   "0.7": {
+    "TAU_full": 74.3443,
+    "mean_recall": 0.6833,
+    "mean_pf": 0.0821,
+    "fold_recalls": [
+     0.6667,
+     1.0,
+     0.3333,
+     0.75,
+     0.6667
+    ]
+   },
+   "0.75": {
+    "TAU_full": 74.6045,
+    "mean_recall": 0.6833,
+    "mean_pf": 0.0851,
+    "fold_recalls": [
+     0.6667,
+     1.0,
+     0.3333,
+     0.75,
+     0.6667
+    ]
+   },
+   "0.8": {
+    "TAU_full": 74.9317,
+    "mean_recall": 0.8167,
+    "mean_pf": 0.0533,
+    "fold_recalls": [
+     1.0,
+     1.0,
+     0.6667,
+     0.75,
+     0.6667
+    ]
+   },
+   "0.85": {
+    "TAU_full": 100.0,
+    "mean_recall": 0.8167,
+    "mean_pf": 0.1367,
+    "fold_recalls": [
+     1.0,
+     1.0,
+     0.6667,
+     0.75,
+     0.6667
+    ]
+   },
+   "0.9": {
+    "TAU_full": 100.0,
+    "mean_recall": 0.8167,
+    "mean_pf": 0.25,
+    "fold_recalls": [
+     1.0,
+     1.0,
+     0.6667,
+     0.75,
+     0.6667
+    ]
+   }
+  },
+  "Q_STAR": 0.8,
+  "TAU_STAR": 74.9317,
+  "q_at_grid_edge": false
+ },
+ "locked_refs": {
+  "T202_TAU_JMAX": [
+   74.9317,
+   0.020572
+  ],
+  "T203_E1_E2_TAUB": [
+   0.003652,
+   0.009075,
+   [
+    73.2251,
+    74.9317,
+    74.9317
+   ]
+  ],
+  "T204_LAM_J95_TAU": [
+   250,
+   0.015175,
+   72.5843
+  ]
+ },
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T205": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "ref_T199": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "veto_rate": 0.6,
+   "cov_adm": 1.0
+  },
+  "cov_all": 0.9883,
+  "yield_vs_T199_pts": 0.0
+ },
+ "pooled_held": {
+  "T199": {
+   "n_adm": 60,
+   "veto_rate": 0.5,
+   "p_fail_adm": 0.1333,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T202": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T203": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T204": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "T205": {
+   "n_adm": 57,
+   "veto_rate": 0.525,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "recall_vs_T199_pts": 0.0,
+  "recall_vs_T202_pts": 0.0,
+  "recall_vs_T203_pts": 0.0,
+  "recall_vs_T204_pts": 0.0,
+  "selective_risk_lift_vs_T173_pts": -3.26
+ },
+ "admit_overlap_held": {
+  "T205_vs_T199": {
+   "agreement": 0.975,
+   "jaccard": 0.95,
+   "n_a": 57,
+   "n_b": 60,
+   "n_both": 57
+  },
+  "T205_vs_T202": {
+   "agreement": 1.0,
+   "jaccard": 1.0,
+   "n_a": 57,
+   "n_b": 57,
+   "n_both": 57
+  },
+  "T205_vs_T203": {
+   "agreement": 1.0,
+   "jaccard": 1.0,
+   "n_a": 57,
+   "n_b": 57,
+   "n_both": 57
+  },
+  "T205_vs_T204": {
+   "agreement": 1.0,
+   "jaccard": 1.0,
+   "n_a": 57,
+   "n_b": 57,
+   "n_both": 57
+  }
+ },
+ "admit_overlap_calib": {
+  "T205_vs_T199": {
+   "agreement": 0.8,
+   "jaccard": 0.7,
+   "n_a": 56,
+   "n_b": 80,
+   "n_both": 56
+  },
+  "T205_vs_T202": {
+   "agreement": 0.9917,
+   "jaccard": 0.9821,
+   "n_a": 56,
+   "n_b": 55,
+   "n_both": 55
+  },
+  "T205_vs_T203": {
+   "agreement": 0.9833,
+   "jaccard": 0.9655,
+   "n_a": 56,
+   "n_b": 58,
+   "n_both": 56
+  },
+  "T205_vs_T204": {
+   "agreement": 0.9583,
+   "jaccard": 0.918,
+   "n_a": 56,
+   "n_b": 61,
+   "n_both": 56
+  }
+ },
+ "corr_w191_jerk": {
+  "calib_all": -0.6147,
+  "held_all": -0.6192,
+  "calib_admitted_T205": -0.1766,
+  "held_admitted_T205": 0.2477
+ },
+ "rescue_vs_T199": {
+  "held_succ_rejected_by_T199": 53,
+  "rescued_by_T205": 0,
+  "rescue_rate": 0.0,
+  "new_mistakes": 0
+ },
+ "archive_adm_frac_T205": 0.0,
+ "cov_ok": true,
+ "tie_vs_T202_T203_T204": true,
+ "director_predicted_pts_46.67": 46.67,
+ "director_predicted_keep_ge_70": 40.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "HELD_keep_ge_70": false,
+  "pts_ge_70": false,
+  "no_cov_regression": true,
+  "archive_zero": true
+ },
+ "keep": false,
+ "verdict": "DISCARD",
+ "frontier": "CLOSE F-jerk (tie proves jerk adds zero); T206 = new orthogonal signal"
+}

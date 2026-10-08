@@ -1,0 +1,53 @@
+{
+ "record": "compare",
+ "candidate": "results/aegis_v2/R27_troch_dr055.jsonl",
+ "baseline": "results/aegis_v2/R27_troch_dr050.jsonl",
+ "metric": "coverage_cont",
+ "pairing": "same seeds, same friction/tool/noise/customer draws",
+ "fixture_A": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9354,
+  "mean_b": 0.924,
+  "delta": -0.0115,
+  "welch_t": -1.2061,
+  "welch_p": 0.23558591919217772,
+  "paired_t": -6.8606,
+  "paired_p": 1.5160345892775642e-06,
+  "p_method": "scipy",
+  "success_base": 1.0,
+  "success_cand": 0.7,
+  "fisher_p": 0.020196020196020202
+ },
+ "fixture_B": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9453,
+  "mean_b": 0.9508,
+  "delta": 0.0055,
+  "welch_t": 0.4758,
+  "welch_p": 0.6370154887445831,
+  "paired_t": 3.1986,
+  "paired_p": 0.004729458789911824,
+  "p_method": "scipy",
+  "success_base": 1.0,
+  "success_cand": 1.0,
+  "fisher_p": 1.0
+ },
+ "fixture_R": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9427,
+  "mean_b": 0.9391,
+  "delta": -0.0036,
+  "welch_t": -0.2962,
+  "welch_p": 0.7687113243014676,
+  "paired_t": -1.5184,
+  "paired_p": 0.14536732040457104,
+  "p_method": "scipy",
+  "success_base": 0.95,
+  "success_cand": 0.75,
+  "fisher_p": 0.18176418176418174
+ },
+ "keep": false
+}

@@ -1,0 +1,150 @@
+{
+ "champion_w": 33.333333333333336,
+ "rows": [
+  {
+   "A_m": 0.005,
+   "k": 0.16666666666666669,
+   "min_speed_1_minus_k": 0.8333333333333333,
+   "max_turn_deg": 14.87452920409187,
+   "len_m": 1.3544133739128406,
+   "max_turn_elongated_deg": 11.015790431799006
+  },
+  {
+   "A_m": 0.0075,
+   "k": 0.25,
+   "min_speed_1_minus_k": 0.75,
+   "max_turn_deg": 19.22590835537589,
+   "len_m": 1.360804420082677,
+   "max_turn_elongated_deg": 10.934167451132154
+  },
+  {
+   "A_m": 0.01,
+   "k": 0.33333333333333337,
+   "min_speed_1_minus_k": 0.6666666666666666,
+   "max_turn_deg": 26.03879183421898,
+   "len_m": 1.3725452933326145,
+   "max_turn_elongated_deg": 11.484806065651439
+  },
+  {
+   "A_m": 0.0125,
+   "k": 0.41666666666666674,
+   "min_speed_1_minus_k": 0.5833333333333333,
+   "max_turn_deg": 32.3222049353759,
+   "len_m": 1.3893866423355052,
+   "max_turn_elongated_deg": 11.913858424587891
+  },
+  {
+   "A_m": 0.015,
+   "k": 0.5,
+   "min_speed_1_minus_k": 0.5,
+   "max_turn_deg": 45.36829850475862,
+   "len_m": 1.4117817027811619,
+   "max_turn_elongated_deg": 17.626564341792864
+  },
+  {
+   "A_m": 0.0165,
+   "k": 0.55,
+   "min_speed_1_minus_k": 0.44999999999999996,
+   "max_turn_deg": 50.90032068253375,
+   "len_m": 1.4280306194301136,
+   "max_turn_elongated_deg": 20.46082851672417
+  },
+  {
+   "A_m": 0.018,
+   "k": 0.6,
+   "min_speed_1_minus_k": 0.4,
+   "max_turn_deg": 61.653338906116126,
+   "len_m": 1.4460431786323897,
+   "max_turn_elongated_deg": 24.02653742224642
+  },
+  {
+   "A_m": 0.0195,
+   "k": 0.65,
+   "min_speed_1_minus_k": 0.35,
+   "max_turn_deg": 66.57746498684914,
+   "len_m": 1.466384978839463,
+   "max_turn_elongated_deg": 32.88077388365536
+  },
+  {
+   "A_m": 0.021,
+   "k": 0.7000000000000001,
+   "min_speed_1_minus_k": 0.29999999999999993,
+   "max_turn_deg": 88.55825768948408,
+   "len_m": 1.4886246787040647,
+   "max_turn_elongated_deg": 42.5728818227878
+  },
+  {
+   "A_m": 0.0225,
+   "k": 0.75,
+   "min_speed_1_minus_k": 0.25,
+   "max_turn_deg": 102.9427961828264,
+   "len_m": 1.513202465016251,
+   "max_turn_elongated_deg": 55.20256478691007
+  },
+  {
+   "A_m": 0.024,
+   "k": 0.8,
+   "min_speed_1_minus_k": 0.19999999999999996,
+   "max_turn_deg": 95.37137975522154,
+   "len_m": 1.5388439932432099,
+   "max_turn_elongated_deg": 68.47173180948143
+  },
+  {
+   "A_m": 0.027,
+   "k": 0.9,
+   "min_speed_1_minus_k": 0.09999999999999998,
+   "max_turn_deg": 111.36187102175495,
+   "len_m": 1.5969315853741552,
+   "max_turn_elongated_deg": 108.24820414364551
+  },
+  {
+   "A_m": 0.03,
+   "k": 1.0,
+   "min_speed_1_minus_k": 0.0,
+   "max_turn_deg": 173.20155341350326,
+   "len_m": 1.6669625822967624,
+   "max_turn_elongated_deg": 150.5858975493661
+  }
+ ],
+ "k_0p5_invariance": [
+  {
+   "A_m": 0.0075,
+   "w": 66.66666666666667,
+   "k": 0.5,
+   "max_turn_deg": 49.13957528263096,
+   "len_m": 1.413217467204332
+  },
+  {
+   "A_m": 0.015,
+   "w": 33.333333333333336,
+   "k": 0.5,
+   "max_turn_deg": 45.36829850475797,
+   "len_m": 1.4117817027811626
+  },
+  {
+   "A_m": 0.03,
+   "w": 16.666666666666668,
+   "k": 0.5,
+   "max_turn_deg": 40.035059938967095,
+   "len_m": 1.4620678710792145
+  },
+  {
+   "A_m": 0.06,
+   "w": 8.333333333333334,
+   "k": 0.5,
+   "max_turn_deg": 33.36618406115794,
+   "len_m": 1.26177499543273
+  }
+ ],
+ "k_0p5_max_turn_spread_deg": 15.77339122147302,
+ "rig_asserted_points": {
+  "k=0.75 (A=0.0225)": 102.9,
+  "k=1.00 (A=0.030)": 150.6
+ },
+ "C1_threshold_deg": 60.0,
+ "legal_A_window_m": [
+  0.005,
+  0.0165
+ ],
+ "coverage_dose_reference": "fixture_A, pose_noise 0,56, seed base 400000: the champion baseline arm is BIT-IDENTICAL across files (200/200 seeds at covc 0.7204 in the three 200-seed files, 100/100 at 0.7169 in the three 100-seed files); the candidate arms sit -0.0064 / -0.0050 / -0.0059 / -0.0001 below it at A = 0.0075 / 0.010 / 0.005 / 0.0165 -- see N202_readout.json P1 (paired) and P2 (equivalent yaw shift)."
+}

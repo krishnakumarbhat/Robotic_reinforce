@@ -1,0 +1,134 @@
+{
+ "variant": "T200 = global-only linear soft score: s=w191-lam*jerk, admit iff s>=TAU_global (2 params, zero per-tool tables, zero buffer/shrinkage)",
+ "frozen": {
+  "TAU50_global_ref": 68.0452,
+  "TAU30_ref": 55.9211,
+  "theta_marg_bitident": true,
+  "C99": 100.0,
+  "C99_degenerate": true,
+  "calB_adm_n": 16,
+  "cal_fails_n": 17,
+  "i7_binds_heldB": 0,
+  "fit_deviation": "lam gridded on CALIB train-locked (not held-out per director FIT line: held-fit would be test-peeking); single held eval"
+ },
+ "fit_calib_grid": {
+  "0": {
+   "TAU70": 74.34426535202189,
+   "n_adm": 60,
+   "p_fail_adm": 0.1,
+   "recall": 0.6471
+  },
+  "250": {
+   "TAU70": 72.5843368208462,
+   "n_adm": 61,
+   "p_fail_adm": 0.0984,
+   "recall": 0.6471
+  },
+  "500": {
+   "TAU70": 71.30261495592048,
+   "n_adm": 59,
+   "p_fail_adm": 0.1017,
+   "recall": 0.6471
+  },
+  "1000": {
+   "TAU70": 68.0007625823297,
+   "n_adm": 60,
+   "p_fail_adm": 0.1,
+   "recall": 0.6471
+  },
+  "2000": {
+   "TAU70": 62.75438770986265,
+   "n_adm": 58,
+   "p_fail_adm": 0.1034,
+   "recall": 0.6471
+  },
+  "4000": {
+   "TAU70": 58.67192385350547,
+   "n_adm": 47,
+   "p_fail_adm": 0.1277,
+   "recall": 0.6471
+  }
+ },
+ "locked": {
+  "LAM_STAR": 250,
+  "TAU_STAR": 72.5843
+ },
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T200": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "score_sel_pts": 100.0,
+   "cov_adm": 1.0
+  },
+  "ref_T199": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "score_sel_pts": 100.0,
+   "cov_adm": 1.0
+  },
+  "cov_all": 0.9883,
+  "yield_vs_T199_pts": 0.0
+ },
+ "pooled_held": {
+  "T173": {
+   "n_adm": 102,
+   "p_fail_adm": 0.1078,
+   "recall_fail_reject": 0.2667,
+   "score_recall_pts": 26.67
+  },
+  "T200": {
+   "n_adm": 57,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "ref_T199": {
+   "n_adm": 60,
+   "p_fail_adm": 0.1333,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "ref_lam0_Q70fail": {
+   "n_adm": 57,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "selective_risk_lift_vs_T173_pts": -3.26,
+  "recall_vs_T199_pts": 0.0
+ },
+ "rescue_vs_T199": {
+  "held_succ_rejected_by_T199": 53,
+  "rescued_by_T200": 0,
+  "rescue_rate": 0.0,
+  "new_mistakes_fails_adm_by_T200_not_T199": 0,
+  "heldB_succ_rejected_by_T199": 11,
+  "heldB_rescued": 0,
+  "precision_no_drop_pooled": false
+ },
+ "archive_adm_frac_T200": 0.0,
+ "cov_ok": true,
+ "director_predicted_71": 46.67,
+ "verdict_rule": {
+  "runA_keep": true,
+  "recall_ge_70": false,
+  "heldB_precision_1": true,
+  "rescue_rate_gt_0": false,
+  "precision_no_drop_vs_T199": false,
+  "no_cov_regression": true,
+  "archive_zero": true
+ },
+ "keep": false,
+ "verdict": "DISCARD"
+}

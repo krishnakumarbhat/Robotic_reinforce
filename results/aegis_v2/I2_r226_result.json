@@ -1,0 +1,2832 @@
+{
+ "run": 233,
+ "segment": 15,
+ "idea": "I2/T226",
+ "rig": "frozen R173 canonical-rig episodes (PyBullet DIRECT, physics_contact points)",
+ "command": "timeout 1200 python3 results/aegis_v2/I2_r226_analysis.py",
+ "compare_champion": "trochoid (physical champion: B success 1.00, Fisher p=0.0083 vs raster)",
+ "frozen_constants": {
+  "I7": 0.618,
+  "TH_MARG": 0.014133,
+  "E1": 0.003652,
+  "E2": 0.009075,
+  "med_band": [
+   82.7989,
+   75.1409,
+   65.6217
+  ],
+  "scale_band": [
+   17.2241,
+   10.1895,
+   9.1493
+  ],
+  "clamp_lo": 5.0,
+  "wraw_ceiling": 100.0
+ },
+ "rule": "thr(e)=clip(med_b + alpha*W(fn_p95) + beta*med_b*D_SE3, 5, 100); s=max(0,wraw-thr); p=1-exp(-s/scale_b); admit <=> p<=tau_b; non-contact episodes fall back to med_b",
+ "alpha_grid": [
+  0.0,
+  -0.1,
+  0.1,
+  -0.25,
+  0.25,
+  -0.5,
+  0.5,
+  -1.0,
+  1.0,
+  -2.0,
+  2.0,
+  -4.0,
+  4.0
+ ],
+ "beta_grid": [
+  0.0,
+  -0.5,
+  0.5
+ ],
+ "tau_grid": [
+  0.5,
+  0.6,
+  0.65,
+  0.7,
+  0.75,
+  0.8,
+  0.85,
+  0.9
+ ],
+ "norms": [
+  "robust_z (primary)",
+  "minmax (registered after arm-1 clamp saturation)"
+ ],
+ "grid_cells": 78,
+ "grid_feasible": 0,
+ "surface": [
+  {
+   "alpha": 0.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.0,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.1,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.1,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.1,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.1429
+   ],
+   "clamp_bind_frac": 0.575,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.1,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.1,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.75,
+    0.4286
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.1,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.25,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.25,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.25,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.1429
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.25,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.25,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.75,
+    0.4286
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.25,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.5,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.5,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.5,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.1429
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.5,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.75,
+    0.4286
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -1.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -1.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -1.0,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.1429
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 1.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 1.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.75,
+    0.4286
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 1.0,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -2.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -2.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -2.0,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.1429
+   ],
+   "clamp_bind_frac": 0.7,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 2.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 2.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.75,
+    0.4286
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 2.0,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.6917,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -4.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -4.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -4.0,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.1429
+   ],
+   "clamp_bind_frac": 0.7333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 4.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 4.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.75,
+    0.4286
+   ],
+   "clamp_bind_frac": 0.4833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 4.0,
+   "beta": 0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.1667,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.6833,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.0,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.0,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.1,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.1,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.1,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.1,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.1,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.1,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.25,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.25,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.25,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.25,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.25,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.25,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.5,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.5,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -0.5,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.5,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -1.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -1.0,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -1.0,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 1.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 1.0,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 1.0,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -2.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -2.0,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -2.0,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 2.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 2.0,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 2.0,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -4.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -4.0,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": -4.0,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.1429
+   ],
+   "clamp_bind_frac": 0.2333,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 4.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 4.0,
+   "beta": -0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  {
+   "alpha": 4.0,
+   "beta": 0.5,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.0
+   ],
+   "clamp_bind_frac": 0.25,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  }
+ ],
+ "selected_cell": null,
+ "ref_cell": {
+  "alpha": -0.1,
+  "beta": -0.5,
+  "norm": "robust_z",
+  "grid": "Q8",
+  "clamp": true,
+  "contact_only": true,
+  "feasible": false,
+  "calib_recall_pts": 100.0,
+  "calib_pf": 1.0,
+  "calib_n_adm": 0,
+  "feasible_bands": [],
+  "taus": [
+   null,
+   null,
+   null
+  ],
+  "recall_ceiling_band": [
+   1.0,
+   1.0,
+   0.5714
+  ],
+  "clamp_bind_frac": 0.4,
+  "heldB_keep_pct": 0.0,
+  "heldB_n_adm": 0
+ },
+ "heldB": {
+  "keep_pct": 0.0,
+  "discard_pct": 100.0,
+  "n_adm": 0,
+  "coverage_cont_champion_all20": 0.9883,
+  "coverage_cont_admitted": 0.0,
+  "precision_admitted": 1.0
+ },
+ "contact_slices": [
+  {
+   "slice": "held_0.01,2",
+   "n": 120,
+   "n_contact": 120,
+   "n_free_space": 0,
+   "contact": {
+    "n": 120,
+    "n_adm": 0,
+    "keep_pct": 0.0,
+    "discard_pct": 100.0,
+    "contact_success_pct": null,
+    "cov_adm": 0.0
+   },
+   "free_space": {
+    "n": 0,
+    "n_adm": 0,
+    "keep_pct": null,
+    "discard_pct": null,
+    "contact_success_pct": null,
+    "cov_adm": 0.0
+   }
+  },
+  {
+   "slice": "archive_2.0,2_contact_shift",
+   "n": 120,
+   "n_contact": 0,
+   "n_free_space": 120,
+   "contact": {
+    "n": 0,
+    "n_adm": 0,
+    "keep_pct": null,
+    "discard_pct": null,
+    "contact_success_pct": null,
+    "cov_adm": 0.0
+   },
+   "free_space": {
+    "n": 120,
+    "n_adm": 0,
+    "keep_pct": 0.0,
+    "discard_pct": 100.0,
+    "contact_success_pct": null,
+    "cov_adm": 0.0
+   }
+  }
+ ],
+ "free_space_episodes_total": 120,
+ "contact_restriction_active": true,
+ "diagnostics": {
+  "working_cell": {
+   "role": "ref_max_ceiling",
+   "alpha": -0.1,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ]
+  },
+  "P1_support_and_threshold_free_recall_ceiling": {
+   "statement": "s == 0 implies p == 0 implies ADMIT for every tau >= 0, so failure-recall is upper-bounded by the fraction of failures with wraw > thr_b -- independent of the tau grid. That ceiling is below the 0.65 criterion in every band at alpha=0, so the per-band fit cannot be feasible in the alpha=0 limit.",
+   "alpha0_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "alpha0_ceiling_max": 0.5,
+   "recall_min_criterion": 0.65,
+   "alpha0_n_fail_band": [
+    6,
+    4,
+    7
+   ],
+   "alpha0_fails_reachable_band": [
+    3,
+    0,
+    2
+   ],
+   "best_ceiling_cell": {
+    "alpha": -0.1,
+    "beta": -0.5,
+    "norm": "robust_z",
+    "ceiling_band": [
+     1.0,
+     1.0,
+     0.5714
+    ],
+    "ceiling_max": 1.0,
+    "feasible": false
+   },
+   "ceiling_exceeds_criterion_anywhere": true,
+   "support": {
+    "thr_min_calib": 5.0,
+    "thr_max_calib": 75.5664,
+    "wraw_hard_ceiling": 100.0,
+    "clamp_lo": 5.0,
+    "thr_below_ceiling_frac": 1.0,
+    "s_frac_zero": 0.1167,
+    "s_var": 932.2825
+   }
+  },
+  "P2_alpha_grid_is_a_no_op": {
+   "statement": "The 5% lower clamp is not a safety rail on this data, it is the whole mechanism: for every non-zero alpha the term alpha*W saturates thr at one endpoint (W_max ~ 1.6e3 under the robust z, alpha*W_max >> 100), so each cell collapses onto either the alpha=0 fence or the thr == ceiling all-reject corner. The 78-cell surface is therefore flat.",
+   "cells": 78,
+   "cells_feasible": 0,
+   "cells_clamp_binding_over_half": 12,
+   "distinct_recall_ceilings": 11,
+   "per_alpha_zero_beta": {
+    "robust_z:a=0.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=-0.1": {
+     "clamp_bind_frac": 0.4,
+     "recall_ceiling_band": [
+      1.0,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=0.1": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      0.1667,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=-0.25": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      1.0,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=0.25": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      0.1667,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=-0.5": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      1.0,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=0.5": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      0.1667,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=-1.0": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      1.0,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=1.0": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      0.1667,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=-2.0": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      1.0,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=2.0": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      0.1667,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=-4.0": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      1.0,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "robust_z:a=4.0": {
+     "clamp_bind_frac": 0.4833,
+     "recall_ceiling_band": [
+      0.1667,
+      0.25,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=0.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=-0.1": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=0.1": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=-0.25": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=0.25": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=-0.5": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=0.5": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=-1.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=1.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=-2.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=2.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=-4.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    },
+    "minmax:a=4.0": {
+     "clamp_bind_frac": 0.0,
+     "recall_ceiling_band": [
+      0.5,
+      0.0,
+      0.2857
+     ],
+     "feasible": false
+    }
+   }
+  },
+  "P3_wrench_signal_real_but_scaling_degenerate": {
+   "fp_med": 0.4973,
+   "fp_mad": 0.00088956,
+   "fp_max": 1.4699,
+   "fp_low_cluster_n": 63,
+   "fp_low_cluster_range": [
+    0.4967,
+    0.8439
+   ],
+   "fp_gap_over_mad": 1093.35,
+   "fp_spike_n": 57,
+   "fp_spike_range": [
+    1.0539,
+    1.4699
+   ],
+   "spike_failures": 9,
+   "n_fail_calib": 17,
+   "spike_fail_frac": 0.5294,
+   "z_wrench_max": 1093.35,
+   "minmax_wrench_max": 1.0,
+   "auc_hi_is_fail_fn_p95_alone": 0.582,
+   "spike_is_bimodal_atom": true,
+   "statement": "fn_p95 is the only channel with real failure signal (AUC 0.582; 9/17 failures sit in the high-force spike), but 75% of episodes sit in an atom at 0.4968 N so the robust MAD is 8.90e-04 N against a signal gap of 0.973 N. The robust z is therefore numerically degenerate (max 1093) and can only act as a hard switch, never as a graded fence -- which is why the min-max arm was registered."
+  },
+  "per_band_separation": {
+   "0": {
+    "auc_hi_is_fail_s_T226": 0.4951,
+    "auc_hi_is_fail_wrench_alone": 0.5196,
+    "auc_hi_is_fail_se3_alone": 0.5196,
+    "n_fail": 6,
+    "fail_s_q50": 68.9962,
+    "succ_s_q50": 71.658
+   },
+   "1": {
+    "auc_hi_is_fail_s_T226": 0.3403,
+    "auc_hi_is_fail_wrench_alone": 0.6111,
+    "auc_hi_is_fail_se3_alone": 0.4931,
+    "n_fail": 4,
+    "fail_s_q50": 28.4543,
+    "succ_s_q50": 36.7759
+   },
+   "2": {
+    "auc_hi_is_fail_s_T226": 0.3831,
+    "auc_hi_is_fail_wrench_alone": 0.6364,
+    "auc_hi_is_fail_se3_alone": 0.3398,
+    "n_fail": 7,
+    "fail_s_q50": 15.7981,
+    "succ_s_q50": 26.1395
+   }
+  },
+  "channel_stats": {
+   "FP_MED": 0.4973,
+   "FP_MAD": 0.00088956,
+   "FP_MAX": 1.4699,
+   "se3_cal_max": 0.192006,
+   "med_band": [
+    82.7989,
+    75.1409,
+    65.6217
+   ],
+   "scale_band": [
+    17.2241,
+    10.1895,
+    9.1493
+   ]
+  }
+ },
+ "ablations": {
+  "alpha0_beta0_frozen_median": {
+   "alpha": 0.0,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  "alpha0_minmax": {
+   "alpha": 0.0,
+   "beta": 0.0,
+   "norm": "minmax",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.0,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  "clamp_off": {
+   "alpha": -0.1,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": false,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.8571
+   ],
+   "clamp_bind_frac": 0.4,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  "beta0_wrench_only": {
+   "alpha": -0.1,
+   "beta": 0.0,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    0.25,
+    0.2857
+   ],
+   "clamp_bind_frac": 0.4,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  "se3_only": {
+   "alpha": 0.0,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    0.5,
+    0.75,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.0,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  "contact_restriction_off": {
+   "alpha": -0.1,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q8",
+   "clamp": true,
+   "contact_only": false,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  "grid_Q2": {
+   "alpha": -0.1,
+   "beta": -0.5,
+   "norm": "robust_z",
+   "grid": "Q2",
+   "clamp": true,
+   "contact_only": true,
+   "feasible": false,
+   "calib_recall_pts": 100.0,
+   "calib_pf": 1.0,
+   "calib_n_adm": 0,
+   "feasible_bands": [],
+   "taus": [
+    null,
+    null,
+    null
+   ],
+   "recall_ceiling_band": [
+    1.0,
+    1.0,
+    0.5714
+   ],
+   "clamp_bind_frac": 0.4,
+   "heldB_keep_pct": 0.0,
+   "heldB_n_adm": 0
+  },
+  "alpha_sign_scan": [
+   {
+    "alpha": 0.0,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": -0.1,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": 0.1,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": -0.25,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": 0.25,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": -0.5,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": 0.5,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": -1.0,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": 1.0,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": -2.0,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": 2.0,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": -4.0,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   },
+   {
+    "alpha": 4.0,
+    "feasible_robust_z": false,
+    "feasible_minmax": false
+   }
+  ],
+  "clamp_off_identical_to_sel": null
+ },
+ "lobo": {
+  "per_band": [
+   {
+    "held_out_band": 0,
+    "recall": 0.8333,
+    "feasible": true
+   },
+   {
+    "held_out_band": 1,
+    "recall": null,
+    "feasible": false
+   },
+   {
+    "held_out_band": 2,
+    "recall": null,
+    "feasible": false
+   }
+  ],
+  "recall_spread": 0.0,
+  "pass": false,
+  "feasible_bands": 1
+ },
+ "zero_inf_nan": 0,
+ "alpha0_s_finite": true,
+ "degenerate_all_reject": true,
+ "keep": false,
+ "g7_adaptive_gate_ban_applies": true,
+ "verdict": "DISCARD"
+}

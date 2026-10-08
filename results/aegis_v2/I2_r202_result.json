@@ -1,0 +1,380 @@
+{
+ "variant": "T202 = global dual-cut: admit iff w191>=TAU AND jerk<=JMAX (2 params, global-only, no lam, no per-tool)",
+ "frozen": {
+  "TAU50_global_ref": 68.0452,
+  "theta_marg_bitident": true,
+  "C99": 100.0,
+  "C99_degenerate": true,
+  "calB_adm_n": 16,
+  "cal_fails_n": 17,
+  "cal_succ_n": 103,
+  "i7_binds_heldB": 0,
+  "fit_scope": "CALIB-only co-tune (TAU x JMAX grid, single held eval)"
+ },
+ "fit_calib_grid": {
+  "TAUq0.5|JMAXq0.5": {
+   "TAU": 70.2768,
+   "JMAX": 0.007164,
+   "calib_recall": 0.6471,
+   "calib_p_fail_adm": 0.1333,
+   "calib_n_adm": 45
+  },
+  "TAUq0.5|JMAXq0.6": {
+   "TAU": 70.2768,
+   "JMAX": 0.008147,
+   "calib_recall": 0.6471,
+   "calib_p_fail_adm": 0.1132,
+   "calib_n_adm": 53
+  },
+  "TAUq0.5|JMAXq0.7": {
+   "TAU": 70.2768,
+   "JMAX": 0.00925,
+   "calib_recall": 0.5882,
+   "calib_p_fail_adm": 0.1148,
+   "calib_n_adm": 61
+  },
+  "TAUq0.5|JMAXq0.8": {
+   "TAU": 70.2768,
+   "JMAX": 0.012536,
+   "calib_recall": 0.5294,
+   "calib_p_fail_adm": 0.1176,
+   "calib_n_adm": 68
+  },
+  "TAUq0.5|JMAXq0.9": {
+   "TAU": 70.2768,
+   "JMAX": 0.014058,
+   "calib_recall": 0.4706,
+   "calib_p_fail_adm": 0.12,
+   "calib_n_adm": 75
+  },
+  "TAUq0.5|JMAXq0.95": {
+   "TAU": 70.2768,
+   "JMAX": 0.015175,
+   "calib_recall": 0.4706,
+   "calib_p_fail_adm": 0.1184,
+   "calib_n_adm": 76
+  },
+  "TAUq0.5|JMAXq1.0": {
+   "TAU": 70.2768,
+   "JMAX": 0.020572,
+   "calib_recall": 0.4706,
+   "calib_p_fail_adm": 0.1184,
+   "calib_n_adm": 76
+  },
+  "TAUq0.6|JMAXq0.5": {
+   "TAU": 73.2251,
+   "JMAX": 0.007164,
+   "calib_recall": 0.7059,
+   "calib_p_fail_adm": 0.125,
+   "calib_n_adm": 40
+  },
+  "TAUq0.6|JMAXq0.6": {
+   "TAU": 73.2251,
+   "JMAX": 0.008147,
+   "calib_recall": 0.7059,
+   "calib_p_fail_adm": 0.1087,
+   "calib_n_adm": 46
+  },
+  "TAUq0.6|JMAXq0.7": {
+   "TAU": 73.2251,
+   "JMAX": 0.00925,
+   "calib_recall": 0.6471,
+   "calib_p_fail_adm": 0.1111,
+   "calib_n_adm": 54
+  },
+  "TAUq0.6|JMAXq0.8": {
+   "TAU": 73.2251,
+   "JMAX": 0.012536,
+   "calib_recall": 0.5882,
+   "calib_p_fail_adm": 0.1186,
+   "calib_n_adm": 59
+  },
+  "TAUq0.6|JMAXq0.9": {
+   "TAU": 73.2251,
+   "JMAX": 0.014058,
+   "calib_recall": 0.5882,
+   "calib_p_fail_adm": 0.1094,
+   "calib_n_adm": 64
+  },
+  "TAUq0.6|JMAXq0.95": {
+   "TAU": 73.2251,
+   "JMAX": 0.015175,
+   "calib_recall": 0.5882,
+   "calib_p_fail_adm": 0.1094,
+   "calib_n_adm": 64
+  },
+  "TAUq0.6|JMAXq1.0": {
+   "TAU": 73.2251,
+   "JMAX": 0.020572,
+   "calib_recall": 0.5882,
+   "calib_p_fail_adm": 0.1094,
+   "calib_n_adm": 64
+  },
+  "TAUq0.7|JMAXq0.5": {
+   "TAU": 74.3443,
+   "JMAX": 0.007164,
+   "calib_recall": 0.7059,
+   "calib_p_fail_adm": 0.1282,
+   "calib_n_adm": 39
+  },
+  "TAUq0.7|JMAXq0.6": {
+   "TAU": 74.3443,
+   "JMAX": 0.008147,
+   "calib_recall": 0.7059,
+   "calib_p_fail_adm": 0.1111,
+   "calib_n_adm": 45
+  },
+  "TAUq0.7|JMAXq0.7": {
+   "TAU": 74.3443,
+   "JMAX": 0.00925,
+   "calib_recall": 0.7059,
+   "calib_p_fail_adm": 0.1,
+   "calib_n_adm": 50
+  },
+  "TAUq0.7|JMAXq0.8": {
+   "TAU": 74.3443,
+   "JMAX": 0.012536,
+   "calib_recall": 0.6471,
+   "calib_p_fail_adm": 0.1091,
+   "calib_n_adm": 55
+  },
+  "TAUq0.7|JMAXq0.9": {
+   "TAU": 74.3443,
+   "JMAX": 0.014058,
+   "calib_recall": 0.6471,
+   "calib_p_fail_adm": 0.1,
+   "calib_n_adm": 60
+  },
+  "TAUq0.7|JMAXq0.95": {
+   "TAU": 74.3443,
+   "JMAX": 0.015175,
+   "calib_recall": 0.6471,
+   "calib_p_fail_adm": 0.1,
+   "calib_n_adm": 60
+  },
+  "TAUq0.7|JMAXq1.0": {
+   "TAU": 74.3443,
+   "JMAX": 0.020572,
+   "calib_recall": 0.6471,
+   "calib_p_fail_adm": 0.1,
+   "calib_n_adm": 60
+  },
+  "TAUq0.8|JMAXq0.5": {
+   "TAU": 74.9317,
+   "JMAX": 0.007164,
+   "calib_recall": 0.7647,
+   "calib_p_fail_adm": 0.1111,
+   "calib_n_adm": 36
+  },
+  "TAUq0.8|JMAXq0.6": {
+   "TAU": 74.9317,
+   "JMAX": 0.008147,
+   "calib_recall": 0.7647,
+   "calib_p_fail_adm": 0.0952,
+   "calib_n_adm": 42
+  },
+  "TAUq0.8|JMAXq0.7": {
+   "TAU": 74.9317,
+   "JMAX": 0.00925,
+   "calib_recall": 0.7647,
+   "calib_p_fail_adm": 0.0851,
+   "calib_n_adm": 47
+  },
+  "TAUq0.8|JMAXq0.8": {
+   "TAU": 74.9317,
+   "JMAX": 0.012536,
+   "calib_recall": 0.7647,
+   "calib_p_fail_adm": 0.0784,
+   "calib_n_adm": 51
+  },
+  "TAUq0.8|JMAXq0.9": {
+   "TAU": 74.9317,
+   "JMAX": 0.014058,
+   "calib_recall": 0.7647,
+   "calib_p_fail_adm": 0.0714,
+   "calib_n_adm": 56
+  },
+  "TAUq0.8|JMAXq0.95": {
+   "TAU": 74.9317,
+   "JMAX": 0.015175,
+   "calib_recall": 0.7647,
+   "calib_p_fail_adm": 0.0714,
+   "calib_n_adm": 56
+  },
+  "TAUq0.8|JMAXq1.0": {
+   "TAU": 74.9317,
+   "JMAX": 0.020572,
+   "calib_recall": 0.7647,
+   "calib_p_fail_adm": 0.0714,
+   "calib_n_adm": 56
+  },
+  "TAUq0.9|JMAXq0.5": {
+   "TAU": 100.0,
+   "JMAX": 0.007164,
+   "calib_recall": 0.8235,
+   "calib_p_fail_adm": 0.2143,
+   "calib_n_adm": 14
+  },
+  "TAUq0.9|JMAXq0.6": {
+   "TAU": 100.0,
+   "JMAX": 0.008147,
+   "calib_recall": 0.8235,
+   "calib_p_fail_adm": 0.2143,
+   "calib_n_adm": 14
+  },
+  "TAUq0.9|JMAXq0.7": {
+   "TAU": 100.0,
+   "JMAX": 0.00925,
+   "calib_recall": 0.8235,
+   "calib_p_fail_adm": 0.2143,
+   "calib_n_adm": 14
+  },
+  "TAUq0.9|JMAXq0.8": {
+   "TAU": 100.0,
+   "JMAX": 0.012536,
+   "calib_recall": 0.8235,
+   "calib_p_fail_adm": 0.2,
+   "calib_n_adm": 15
+  },
+  "TAUq0.9|JMAXq0.9": {
+   "TAU": 100.0,
+   "JMAX": 0.014058,
+   "calib_recall": 0.8235,
+   "calib_p_fail_adm": 0.1765,
+   "calib_n_adm": 17
+  },
+  "TAUq0.9|JMAXq0.95": {
+   "TAU": 100.0,
+   "JMAX": 0.015175,
+   "calib_recall": 0.8235,
+   "calib_p_fail_adm": 0.1765,
+   "calib_n_adm": 17
+  },
+  "TAUq0.9|JMAXq1.0": {
+   "TAU": 100.0,
+   "JMAX": 0.020572,
+   "calib_recall": 0.8235,
+   "calib_p_fail_adm": 0.1765,
+   "calib_n_adm": 17
+  }
+ },
+ "locked": {
+  "TAU_STAR": 74.9317,
+  "JMAX_STAR": 0.020572,
+  "TAU_q": 0.8,
+  "JMAX_q": 1.0,
+  "recall_floor": 0.65,
+  "feasible_n": 19,
+  "star_at_grid_edge": true,
+  "calib_star": {
+   "recall": 0.7647,
+   "p_fail_adm": 0.0714,
+   "n_adm": 56
+  }
+ },
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "heldB_raw_keep": 0.95,
+ "heldB": {
+  "T202": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "score_sel_pts": 100.0,
+   "cov_adm": 1.0
+  },
+  "ref_T199": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "score_sel_pts": 100.0,
+   "cov_adm": 1.0
+  },
+  "TAU_only": {
+   "n_adm": 8,
+   "yield_sel": 0.4,
+   "keep_pct": 40.0,
+   "precision_adm": 1.0,
+   "score_sel_pts": 100.0,
+   "cov_adm": 1.0
+  },
+  "JMAX_only": {
+   "n_adm": 16,
+   "yield_sel": 0.8,
+   "keep_pct": 80.0,
+   "precision_adm": 1.0,
+   "score_sel_pts": 100.0,
+   "cov_adm": 1.0
+  },
+  "cov_all": 0.9883,
+  "yield_vs_T199_pts": 0.0
+ },
+ "pooled_held": {
+  "T173": {
+   "n_adm": 102,
+   "p_fail_adm": 0.1078,
+   "recall_fail_reject": 0.2667,
+   "score_recall_pts": 26.67
+  },
+  "T202": {
+   "n_adm": 57,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "ref_T199": {
+   "n_adm": 60,
+   "p_fail_adm": 0.1333,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "TAU_only": {
+   "n_adm": 57,
+   "p_fail_adm": 0.1404,
+   "recall_fail_reject": 0.4667,
+   "score_recall_pts": 46.67
+  },
+  "JMAX_only": {
+   "n_adm": 102,
+   "p_fail_adm": 0.1078,
+   "recall_fail_reject": 0.2667,
+   "score_recall_pts": 26.67
+  },
+  "veto_adds_vs_TAUonly_pts": 0.0,
+  "selective_risk_lift_vs_T173_pts": -3.26,
+  "recall_vs_T199_pts": 0.0
+ },
+ "rescue_vs_T199": {
+  "held_succ_rejected_by_T199": 53,
+  "rescued_by_T202": 0,
+  "rescue_rate": 0.0,
+  "new_mistakes_fails_adm_by_T202_not_T199": 0,
+  "heldB_succ_rejected_by_T199": 11,
+  "heldB_rescued": 0,
+  "winners_vetoed_by_JMAX_tail": 0,
+  "precision_no_drop_pooled": false
+ },
+ "archive_adm_frac_T202": 0.0,
+ "cov_ok": true,
+ "director_predicted_71_5": 46.67,
+ "per_tool_needed": false,
+ "verdict_rule": {
+  "runA_keep": true,
+  "kill_recall_le_50": true,
+  "recall_ge_70": false,
+  "heldB_precision_1": true,
+  "rescue_rate_gt_0": false,
+  "precision_no_drop_vs_T199": false,
+  "no_cov_regression": true,
+  "archive_zero": true,
+  "global_only_no_pertool": true
+ },
+ "keep": false,
+ "verdict": "DISCARD"
+}

@@ -1,0 +1,21 @@
+I22 (run 243) row-centring: paired arms vs the FROZEN champion (--compare-env AEGIS_ROW_CENTRE=0.0), canonical rig v2, PyBullet DIRECT, system python3
+
+=== pose_noise 0,0  (I22_r243_rowcentre_n00.jsonl) ===
+    header pose_noise_cfg='0,0'  path='trochoid'  compare='trochoid'  compare_env='AEGIS_ROW_CENTRE=0.0'  candidate ROW_CENTRE=1.0  baseline ROW_CENTRE=0.0
+    suite               covc cand          covc base           succ     welch_p    fisher_p        jerk c/b        slip c/b     fcomp c/b       len c/b
+    fixture_A      1.0000 (min 1.0000)     0.9354 (min 0.9062)  20/20/20/20     1.348e-09   1.000e+00 0.00280/0.00276 0.00729/0.00730 0.4864/0.4778 1.4118/1.4118
+    fixture_B      1.0000 (min 1.0000)     0.9453 (min 0.9062)  20/20/20/20     5.264e-06   1.000e+00 0.00976/0.00979 0.01059/0.01059 1.0000/1.0000 0.9098/0.9098
+    fixture_R      1.0000 (min 1.0000)     0.9427 (min 0.8958)  20/20/19/20     1.240e-06   1.000e+00 0.00981/0.00975 0.00812/0.00813 0.7548/0.7536 1.1357/1.1357
+    rig compare keep = True   cov_kernel_gap(cand) = 0.0
+    REGRESSION A vs results/aegis_v2/v2_trochoid_0,0.jsonl (31 shared fields): 60 episodes matched, 0 differing scored fields
+    REGRESSION B vs run 242's champion compare arm (I3_r242_ppo_n00.jsonl, current rig, ALL 81 fields): 60 episodes matched, 0 differing scored fields
+
+=== pose_noise 0.01,2  (I22_r243_rowcentre_n012.jsonl) ===
+    header pose_noise_cfg='0.01,2'  path='trochoid'  compare='trochoid'  compare_env='AEGIS_ROW_CENTRE=0.0'  candidate ROW_CENTRE=1.0  baseline ROW_CENTRE=0.0
+    suite               covc cand          covc base           succ     welch_p    fisher_p        jerk c/b        slip c/b     fcomp c/b       len c/b
+    fixture_A      0.9964 (min 0.9688)     0.9307 (min 0.8125)  20/20/15/20     7.137e-06   4.712e-02 0.00291/0.00297 0.00728/0.00730 0.4769/0.4757 1.4118/1.4118
+    fixture_B      0.9961 (min 0.9531)     0.9398 (min 0.8281)  20/20/15/20     1.064e-04   4.712e-02 0.01034/0.01038 0.01059/0.01059 1.0000/1.0000 0.9098/0.9098
+    fixture_R      0.9859 (min 0.9062)     0.9068 (min 0.7396)  20/20/13/20     4.712e-04   8.316e-03 0.00954/0.00956 0.00813/0.00813 0.7647/0.7514 1.1357/1.1357
+    rig compare keep = True   cov_kernel_gap(cand) = 0.0
+
+path length is IDENTICAL by construction: the fix is a pure +0.025 m translation of the row list, so the polyline is congruent (analytic path_len_ratio 1.000000 on both suites).

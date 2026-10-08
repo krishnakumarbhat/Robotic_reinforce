@@ -1,0 +1,70 @@
+{
+ "record": "compare_env",
+ "candidate": "AEGIS_REG=depth",
+ "baseline": "no_reg",
+ "env_noise": "0.01,2",
+ "keep_rule": "same as rig: >=20 seeds AND B success>0.70 AND (Welch p<0.01 cov OR Fisher p<0.01 succ) AND no cov regression",
+ "fixture_A": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9307,
+  "mean_b": 0.9307,
+  "delta": -0.0,
+  "welch_t": -0.0,
+  "welch_p": 0.9999999999999796,
+  "paired_t": 0.0,
+  "paired_p": 1.0,
+  "p_method": "scipy",
+  "succ_a": 15,
+  "succ_b": 17,
+  "succ_rate_a": 0.75,
+  "succ_rate_b": 0.85,
+  "fisher_p": 0.6947646947646948
+ },
+ "fixture_B": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9398,
+  "mean_b": 0.9406,
+  "delta": 0.0008,
+  "welch_t": 0.0516,
+  "welch_p": 0.9591361282517462,
+  "paired_t": 0.0844,
+  "paired_p": 0.9336268933483426,
+  "p_method": "scipy",
+  "succ_a": 15,
+  "succ_b": 14,
+  "succ_rate_a": 0.75,
+  "succ_rate_b": 0.7,
+  "fisher_p": 1.0
+ },
+ "fixture_R": {
+  "n_a": 20,
+  "n_b": 20,
+  "mean_a": 0.9068,
+  "mean_b": 0.9393,
+  "delta": 0.0325,
+  "welch_t": 1.5544,
+  "welch_p": 0.13095580548841196,
+  "paired_t": 1.8781,
+  "paired_p": 0.07579883088117347,
+  "p_method": "scipy",
+  "succ_a": 13,
+  "succ_b": 15,
+  "succ_rate_a": 0.65,
+  "succ_rate_b": 0.75,
+  "fisher_p": 0.7310941471119448
+ },
+ "keep": false,
+ "reg": {
+  "reg_ok_rate": 1.0,
+  "reg_err_xy_median_m": 0.00442,
+  "reg_err_xy_max_m": 0.01993,
+  "reg_err_yaw_median_deg": 0.116,
+  "prior_xy_sigma_m": 0.01
+ },
+ "harness_errors": {
+  "control": 0,
+  "candidate": 0
+ }
+}

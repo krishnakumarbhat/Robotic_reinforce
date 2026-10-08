@@ -1,0 +1,237 @@
+{
+ "idea": "I13",
+ "run": 234,
+ "verdict": "DISCARD (pre-registered abort fired)",
+ "bar": {
+  "escapes_lt": 0.05,
+  "fixture_B_success_ge": 0.5,
+  "keep_B_gt": 0.7,
+  "keep_p_lt": 0.01
+ },
+ "mechanism": "v(s) = v0/(1+alpha*kappa(s)) realised as a tick->arclength TIME re-parameterisation; kappa = |d theta|/ds of the horizontal heading; total tick budget unchanged; no force/solver/scoring term touched",
+ "flat_champion_ref": {
+  "file": "results/aegis_v2/v2_trochoid_0,0.jsonl",
+  "fixture_B_success": 1.0,
+  "fixture_B_coverage_cont": 0.9453,
+  "fixture_B_slip_p90_m": 0.0106
+ },
+ "configs": {
+  "alpha=8.0": {
+   "file": "results/aegis_v2/I13_r234_a8.0_k001.jsonl",
+   "header_check": {
+    "seeds_requested": 20,
+    "surface": "bowl",
+    "bowl_k_m": 0.01,
+    "speed_alpha": 8.0,
+    "pose_noise_cfg": "0,0",
+    "path_mode": "trochoid",
+    "rig_version": 2
+   },
+   "candidate_arm_knobs": 8.0,
+   "baseline_arm_knobs": 0.0,
+   "keep": false,
+   "per_suite": {
+    "fixture_A": {
+     "n": 20,
+     "success_base": 0,
+     "success_cand": 0,
+     "coverage_cont_base": 0.1771,
+     "coverage_cont_cand": 0.1141,
+     "coverage_cont_delta": -0.063,
+     "welch_p": 0.20465218494358905,
+     "paired_p": 0.19829326121961055,
+     "fisher_p": 1.0,
+     "arm_base": {
+      "mean_coverage_cont": 0.1771,
+      "escaped_frac": 0.85,
+      "mean_launch_frac": 0.0221,
+      "mean_z_exc_max_m": 0.1617,
+      "mean_slip_m": 0.5313,
+      "transfer_success": 0.0
+     },
+     "arm_cand": {
+      "mean_coverage_cont": 0.1141,
+      "escaped_frac": 0.75,
+      "mean_launch_frac": 0.0123,
+      "mean_z_exc_max_m": 0.1069,
+      "mean_slip_m": 0.5332,
+      "transfer_success": 0.0
+     }
+    },
+    "fixture_B": {
+     "n": 20,
+     "success_base": 0,
+     "success_cand": 1,
+     "coverage_cont_base": 0.2672,
+     "coverage_cont_cand": 0.318,
+     "coverage_cont_delta": 0.0508,
+     "welch_p": 0.6086914013515418,
+     "paired_p": 0.3169788697747964,
+     "fisher_p": 1.0,
+     "arm_base": {
+      "mean_coverage_cont": 0.2672,
+      "escaped_frac": 0.5,
+      "mean_launch_frac": 0.1115,
+      "mean_z_exc_max_m": 0.407,
+      "mean_slip_m": 0.3458,
+      "transfer_success": 0.0
+     },
+     "arm_cand": {
+      "mean_coverage_cont": 0.318,
+      "escaped_frac": 0.55,
+      "mean_launch_frac": 0.0557,
+      "mean_z_exc_max_m": 0.2212,
+      "mean_slip_m": 0.353,
+      "transfer_success": 0.05
+     }
+    },
+    "fixture_R": {
+     "n": 20,
+     "success_base": 1,
+     "success_cand": 2,
+     "coverage_cont_base": 0.2896,
+     "coverage_cont_cand": 0.3221,
+     "coverage_cont_delta": 0.0326,
+     "welch_p": 0.735166775341193,
+     "paired_p": 0.6928177676349689,
+     "fisher_p": 1.0,
+     "arm_base": {
+      "mean_coverage_cont": 0.2896,
+      "escaped_frac": 0.6,
+      "mean_launch_frac": 0.0772,
+      "mean_z_exc_max_m": 0.2098,
+      "mean_slip_m": 0.3838,
+      "transfer_success": 0.05
+     },
+     "arm_cand": {
+      "mean_coverage_cont": 0.3221,
+      "escaped_frac": 0.55,
+      "mean_launch_frac": 0.0876,
+      "mean_z_exc_max_m": 0.1219,
+      "mean_slip_m": 0.3936,
+      "transfer_success": 0.1
+     }
+    }
+   }
+  },
+  "alpha=4.0": {
+   "file": "results/aegis_v2/I13_r234_a4.0_k001.jsonl",
+   "header_check": {
+    "seeds_requested": 20,
+    "surface": "bowl",
+    "bowl_k_m": 0.01,
+    "speed_alpha": 4.0,
+    "pose_noise_cfg": "0,0",
+    "path_mode": "trochoid",
+    "rig_version": 2
+   },
+   "candidate_arm_knobs": 4.0,
+   "baseline_arm_knobs": 0.0,
+   "keep": false,
+   "per_suite": {
+    "fixture_A": {
+     "n": 20,
+     "success_base": 0,
+     "success_cand": 0,
+     "coverage_cont_base": 0.1771,
+     "coverage_cont_cand": 0.2083,
+     "coverage_cont_delta": 0.0312,
+     "welch_p": 0.6230774895850122,
+     "paired_p": 0.5529723326295051,
+     "fisher_p": 1.0,
+     "arm_base": {
+      "mean_coverage_cont": 0.1771,
+      "escaped_frac": 0.85,
+      "mean_launch_frac": 0.0221,
+      "mean_z_exc_max_m": 0.1617,
+      "mean_slip_m": 0.5313,
+      "transfer_success": 0.0
+     },
+     "arm_cand": {
+      "mean_coverage_cont": 0.2083,
+      "escaped_frac": 0.75,
+      "mean_launch_frac": 0.0287,
+      "mean_z_exc_max_m": 0.1462,
+      "mean_slip_m": 0.4886,
+      "transfer_success": 0.0
+     }
+    },
+    "fixture_B": {
+     "n": 20,
+     "success_base": 0,
+     "success_cand": 1,
+     "coverage_cont_base": 0.2672,
+     "coverage_cont_cand": 0.2805,
+     "coverage_cont_delta": 0.0133,
+     "welch_p": 0.8864126674598367,
+     "paired_p": 0.6310670545311698,
+     "fisher_p": 1.0,
+     "arm_base": {
+      "mean_coverage_cont": 0.2672,
+      "escaped_frac": 0.5,
+      "mean_launch_frac": 0.1115,
+      "mean_z_exc_max_m": 0.407,
+      "mean_slip_m": 0.3458,
+      "transfer_success": 0.0
+     },
+     "arm_cand": {
+      "mean_coverage_cont": 0.2805,
+      "escaped_frac": 0.6,
+      "mean_launch_frac": 0.0378,
+      "mean_z_exc_max_m": 0.0459,
+      "mean_slip_m": 0.4005,
+      "transfer_success": 0.05
+     }
+    },
+    "fixture_R": {
+     "n": 20,
+     "success_base": 1,
+     "success_cand": 1,
+     "coverage_cont_base": 0.2896,
+     "coverage_cont_cand": 0.2607,
+     "coverage_cont_delta": -0.0289,
+     "welch_p": 0.7397615895458668,
+     "paired_p": 0.7027381916574811,
+     "fisher_p": 1.0,
+     "arm_base": {
+      "mean_coverage_cont": 0.2896,
+      "escaped_frac": 0.6,
+      "mean_launch_frac": 0.0772,
+      "mean_z_exc_max_m": 0.2098,
+      "mean_slip_m": 0.3838,
+      "transfer_success": 0.05
+     },
+     "arm_cand": {
+      "mean_coverage_cont": 0.2607,
+      "escaped_frac": 0.35,
+      "mean_launch_frac": 0.1158,
+      "mean_z_exc_max_m": 0.0771,
+      "mean_slip_m": 0.368,
+      "transfer_success": 0.05
+     }
+    }
+   }
+  }
+ },
+ "frozen_rig_regression": {
+  "episodes": 6,
+  "fields_compared": [
+   "seed",
+   "success",
+   "coverage",
+   "coverage_cont",
+   "slip_m",
+   "jerk",
+   "stall_frac",
+   "stick_frac",
+   "path_len_m",
+   "steps"
+  ],
+  "bit_identical": true,
+  "additive_fields_only": [
+   "launch_frac",
+   "speed_alpha",
+   "z_exc_max_m"
+  ]
+ }
+}

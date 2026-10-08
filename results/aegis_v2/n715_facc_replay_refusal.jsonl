@@ -1,0 +1,1 @@
+{"compare_keep":false,"episodes":0,"note":"31st replay refusal; queue empty; mechanism absent from rig; no physical invocation.","physical_evidence":"results/aegis_v2/n715_facc_replay_refusal.jsonl","refusal_of":"director iter 11 FACC (SE3-conditioned energy policy replacing flow-matching head, predicted 81/100)","run":715,"status":"invalid"}

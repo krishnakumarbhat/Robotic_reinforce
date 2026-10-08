@@ -1,0 +1,495 @@
+{
+ "theta_marginal_logonly": 0.014133,
+ "n_success_calib": 103,
+ "fric_hi_bin": 0.7,
+ "margins_analytic": {
+  "B_t0": 0.005,
+  "B_t1": 0.01,
+  "B_t2": 0.02,
+  "A_t0": 0.005,
+  "A_t1": 0.01,
+  "A_t2": 0.005
+ },
+ "i7_binds_heldout": 0,
+ "i7_binds_calib": 0,
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "calib_OFF": {
+  "n": 120,
+  "n_adm": 120,
+  "recall": 1.0,
+  "score": 100.0,
+  "p_adm_given_fail": 1.0,
+  "p_fail_given_adm": 0.1417,
+  "valid_rate": 1.0,
+  "cov_adm": 0.9612,
+  "cov_all": 0.9612
+ },
+ "calib_ON": {
+  "n": 120,
+  "n_adm": 112,
+  "recall": 0.9417,
+  "score": 94.17,
+  "p_adm_given_fail": 0.8824,
+  "p_fail_given_adm": 0.1339,
+  "valid_rate": 0.9333,
+  "cov_adm": 0.9624,
+  "cov_all": 0.9612
+ },
+ "held_OFF": {
+  "n": 120,
+  "n_adm": 120,
+  "recall": 1.0,
+  "score": 100.0,
+  "p_adm_given_fail": 1.0,
+  "p_fail_given_adm": 0.125,
+  "valid_rate": 1.0,
+  "cov_adm": 0.9695,
+  "cov_all": 0.9695
+ },
+ "held_ON": {
+  "n": 120,
+  "n_adm": 104,
+  "recall": 0.8762,
+  "score": 87.62,
+  "p_adm_given_fail": 0.8,
+  "p_fail_given_adm": 0.1154,
+  "valid_rate": 0.8667,
+  "cov_adm": 0.973,
+  "cov_all": 0.9695
+ },
+ "arch_ON": {
+  "n": 120,
+  "n_adm": 106,
+  "recall": 1.0,
+  "score": 100.0,
+  "p_adm_given_fail": 0.8833,
+  "p_fail_given_adm": 1.0,
+  "valid_rate": 0.8833,
+  "cov_adm": 0.0,
+  "cov_all": 0.0
+ },
+ "held_ON_bins": {
+  "lo[0.05,0.30)": {
+   "n": 52,
+   "succ": 43,
+   "mincov": 0.8229,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.1731
+  },
+  "mid[0.30,0.55)": {
+   "n": 34,
+   "succ": 32,
+   "mincov": 0.8646,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.0588
+  },
+  "hi[0.55,0.70)": {
+   "n": 14,
+   "succ": 13,
+   "mincov": 0.8958,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.0714
+  },
+  "top[0.70,0.80]": {
+   "n": 20,
+   "succ": 17,
+   "mincov": 0.6875,
+   "n_abstain": 16,
+   "abstained_fail": 3,
+   "abstained_succ": 13,
+   "p_fail_given_adm": 0.0
+  }
+ },
+ "held_OFF_bins": {
+  "lo[0.05,0.30)": {
+   "n": 52,
+   "succ": 43,
+   "mincov": 0.8229,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.1731
+  },
+  "mid[0.30,0.55)": {
+   "n": 34,
+   "succ": 32,
+   "mincov": 0.8646,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.0588
+  },
+  "hi[0.55,0.70)": {
+   "n": 14,
+   "succ": 13,
+   "mincov": 0.8958,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.0714
+  },
+  "top[0.70,0.80]": {
+   "n": 20,
+   "succ": 17,
+   "mincov": 0.6875,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.15
+  }
+ },
+ "calib_ON_bins": {
+  "lo[0.05,0.30)": {
+   "n": 44,
+   "succ": 41,
+   "mincov": 0.75,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.0682
+  },
+  "mid[0.30,0.55)": {
+   "n": 54,
+   "succ": 44,
+   "mincov": 0.7396,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.1852
+  },
+  "hi[0.55,0.70)": {
+   "n": 8,
+   "succ": 6,
+   "mincov": 0.8906,
+   "n_abstain": 0,
+   "abstained_fail": 0,
+   "abstained_succ": 0,
+   "p_fail_given_adm": 0.25
+  },
+  "top[0.70,0.80]": {
+   "n": 14,
+   "succ": 12,
+   "mincov": 0.8125,
+   "n_abstain": 8,
+   "abstained_fail": 2,
+   "abstained_succ": 6,
+   "p_fail_given_adm": 0.0
+  }
+ },
+ "lift_pts": 0.96,
+ "recall_ON": 0.8762,
+ "cov_ok": true,
+ "arch_valid_rate": 0.8833,
+ "verdict_rule": {
+  "runA_keep": true,
+  "recall_ge_70": true,
+  "p_fail_given_adm_le_15": true,
+  "lift_ge_100pt": false,
+  "no_cov_regression": true,
+  "archive_abstention": false
+ },
+ "keep": false,
+ "abstained_heldout": [
+  {
+   "suite": "fixture_B",
+   "path": "fitted",
+   "seed": 210001,
+   "friction": 0.706,
+   "tool": 1,
+   "success": true,
+   "slip": 0.014259031554155038,
+   "margin": 0.01,
+   "resid": 0.00426,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "fitted",
+   "seed": 210003,
+   "friction": 0.8,
+   "tool": 0,
+   "success": false,
+   "slip": 0.01594804255171839,
+   "margin": 0.005,
+   "resid": 0.01095,
+   "cov": 0.7969
+  },
+  {
+   "suite": "fixture_B",
+   "path": "fitted",
+   "seed": 210012,
+   "friction": 0.8,
+   "tool": 0,
+   "success": true,
+   "slip": 0.015949739456188047,
+   "margin": 0.005,
+   "resid": 0.01095,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "fitted",
+   "seed": 210013,
+   "friction": 0.8,
+   "tool": 1,
+   "success": true,
+   "slip": 0.015941932224517112,
+   "margin": 0.01,
+   "resid": 0.00594,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_R",
+   "path": "fitted",
+   "seed": 230001,
+   "friction": 0.8,
+   "tool": 0,
+   "success": true,
+   "slip": 0.014672057480264346,
+   "margin": 0.005,
+   "resid": 0.00967,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_R",
+   "path": "fitted",
+   "seed": 230004,
+   "friction": 0.7978,
+   "tool": 0,
+   "success": true,
+   "slip": 0.015910174974992985,
+   "margin": 0.005,
+   "resid": 0.01091,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_R",
+   "path": "fitted",
+   "seed": 230005,
+   "friction": 0.7136,
+   "tool": 1,
+   "success": true,
+   "slip": 0.014394329387843574,
+   "margin": 0.01,
+   "resid": 0.00439,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_R",
+   "path": "fitted",
+   "seed": 230010,
+   "friction": 0.8,
+   "tool": 0,
+   "success": true,
+   "slip": 0.015950197064357945,
+   "margin": 0.005,
+   "resid": 0.01095,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "trochoid",
+   "seed": 210001,
+   "friction": 0.706,
+   "tool": 1,
+   "success": true,
+   "slip": 0.014286951011737707,
+   "margin": 0.01,
+   "resid": 0.00429,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "trochoid",
+   "seed": 210003,
+   "friction": 0.8,
+   "tool": 0,
+   "success": true,
+   "slip": 0.015972696833684238,
+   "margin": 0.005,
+   "resid": 0.01097,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "trochoid",
+   "seed": 210012,
+   "friction": 0.8,
+   "tool": 0,
+   "success": false,
+   "slip": 0.015974020024611842,
+   "margin": 0.005,
+   "resid": 0.01097,
+   "cov": 0.6875
+  },
+  {
+   "suite": "fixture_B",
+   "path": "trochoid",
+   "seed": 210013,
+   "friction": 0.8,
+   "tool": 1,
+   "success": true,
+   "slip": 0.015967391284714038,
+   "margin": 0.01,
+   "resid": 0.00597,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_R",
+   "path": "trochoid",
+   "seed": 230001,
+   "friction": 0.8,
+   "tool": 0,
+   "success": false,
+   "slip": 0.014619667990490137,
+   "margin": 0.005,
+   "resid": 0.00962,
+   "cov": 0.8958
+  },
+  {
+   "suite": "fixture_R",
+   "path": "trochoid",
+   "seed": 230004,
+   "friction": 0.7978,
+   "tool": 0,
+   "success": true,
+   "slip": 0.015935406747755163,
+   "margin": 0.005,
+   "resid": 0.01094,
+   "cov": 0.9219
+  },
+  {
+   "suite": "fixture_R",
+   "path": "trochoid",
+   "seed": 230005,
+   "friction": 0.7136,
+   "tool": 1,
+   "success": true,
+   "slip": 0.014422200805400694,
+   "margin": 0.01,
+   "resid": 0.00442,
+   "cov": 0.9375
+  },
+  {
+   "suite": "fixture_R",
+   "path": "trochoid",
+   "seed": 230010,
+   "friction": 0.8,
+   "tool": 0,
+   "success": true,
+   "slip": 0.01597464180848898,
+   "margin": 0.005,
+   "resid": 0.01097,
+   "cov": 0.9062
+  }
+ ],
+ "abstained_calib": [
+  {
+   "suite": "fixture_B",
+   "path": "fitted",
+   "seed": 111003,
+   "friction": 0.8,
+   "tool": 0,
+   "success": true,
+   "slip": 0.015949438714948274,
+   "margin": 0.005,
+   "resid": 0.01095,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "fitted",
+   "seed": 111007,
+   "friction": 0.8,
+   "tool": 1,
+   "success": true,
+   "slip": 0.015941764495157024,
+   "margin": 0.01,
+   "resid": 0.00594,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "fitted",
+   "seed": 111012,
+   "friction": 0.7288,
+   "tool": 0,
+   "success": true,
+   "slip": 0.014675013895694283,
+   "margin": 0.005,
+   "resid": 0.00968,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_R",
+   "path": "fitted",
+   "seed": 131001,
+   "friction": 0.8,
+   "tool": 0,
+   "success": true,
+   "slip": 0.014686667840479391,
+   "margin": 0.005,
+   "resid": 0.00969,
+   "cov": 1.0
+  },
+  {
+   "suite": "fixture_B",
+   "path": "trochoid",
+   "seed": 111003,
+   "friction": 0.8,
+   "tool": 0,
+   "success": false,
+   "slip": 0.01597378827490107,
+   "margin": 0.005,
+   "resid": 0.01097,
+   "cov": 0.8906
+  },
+  {
+   "suite": "fixture_B",
+   "path": "trochoid",
+   "seed": 111007,
+   "friction": 0.8,
+   "tool": 1,
+   "success": true,
+   "slip": 0.015967329236269794,
+   "margin": 0.01,
+   "resid": 0.00597,
+   "cov": 0.9531
+  },
+  {
+   "suite": "fixture_B",
+   "path": "trochoid",
+   "seed": 111012,
+   "friction": 0.7288,
+   "tool": 0,
+   "success": true,
+   "slip": 0.01469990619792708,
+   "margin": 0.005,
+   "resid": 0.0097,
+   "cov": 0.9062
+  },
+  {
+   "suite": "fixture_R",
+   "path": "trochoid",
+   "seed": 131001,
+   "friction": 0.8,
+   "tool": 0,
+   "success": false,
+   "slip": 0.014655512651784141,
+   "margin": 0.005,
+   "resid": 0.00966,
+   "cov": 0.8125
+  }
+ ]
+}

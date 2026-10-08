@@ -1,0 +1,10 @@
+{
+  "run_ref": 367,
+  "idea": "FACC-SE3-ITER1",
+  "status": "discard",
+  "evidence_reused_from": "results/facc_se3_fixture_b_result.json",
+  "fixture_B_mean_success": 0.22855,
+  "scripted_baseline": 0.8125,
+  "champion_trochoid_B": 1.0,
+  "verdict": "DISCARD (replay of validated mechanism)"
+}

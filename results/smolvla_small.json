@@ -1,0 +1,17 @@
+{
+ "small": {
+  "repo": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
+  "params": 460173504,
+  "load_s": 68.9,
+  "alloc_mb": 608.5,
+  "reserved_mb": 731.9,
+  "mode": "INT8"
+ },
+ "expert_step_ms": 7.2,
+ "gate_selftest": {
+  "gate": -0.998,
+  "fallback": false
+ },
+ "verdict": "FIT",
+ "ts": "2026-09-20 13:31:24"
+}

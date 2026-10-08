@@ -1,0 +1,218 @@
+{
+  "benchmark_version": "restroom_sim_v1_minimal",
+  "fixture_A": {
+    "tank_shape": "round",
+    "surface": "glossy",
+    "offset_cm": 0,
+    "angle_deg": 0
+  },
+  "fixture_B": {
+    "tank_shape": "elongated",
+    "surface": "matte",
+    "offset_cm": 15,
+    "angle_deg": 10
+  },
+  "scripted_baseline_score": 0.8125,
+  "friction_range": [
+    0.05,
+    0.8
+  ],
+  "gate_max_jerk": 0.618,
+  "seeds_run": 5,
+  "seeds_required_for_validation": 20,
+  "physical_validation_status": "DEFERRED (real contact dynamics require remote GPU / ManiSkill / PyBullet per AEGIS dependency)",
+  "fixture_B_transfer_success_proxy_with_gate": 0.6783,
+  "fixture_B_transfer_success_proxy_without_gate": 0.6683,
+  "interception_delta_gate_on_minus_off": 0.01,
+  "results_with_gate": [
+    {
+      "fixture": "fixture_A",
+      "seed": 1,
+      "use_gate": true,
+      "transfer_success_proxy": 0.7984,
+      "friction_sampled": 0.363,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 2,
+      "use_gate": true,
+      "transfer_success_proxy": 0.8239,
+      "friction_sampled": 0.377,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 3,
+      "use_gate": true,
+      "transfer_success_proxy": 0.7885,
+      "friction_sampled": 0.463,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 4,
+      "use_gate": true,
+      "transfer_success_proxy": 0.8172,
+      "friction_sampled": 0.775,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 5,
+      "use_gate": true,
+      "transfer_success_proxy": 0.8137,
+      "friction_sampled": 0.216,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 1,
+      "use_gate": true,
+      "transfer_success_proxy": 0.6684,
+      "friction_sampled": 0.363,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 2,
+      "use_gate": true,
+      "transfer_success_proxy": 0.6939,
+      "friction_sampled": 0.377,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 3,
+      "use_gate": true,
+      "transfer_success_proxy": 0.6585,
+      "friction_sampled": 0.463,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 4,
+      "use_gate": true,
+      "transfer_success_proxy": 0.6872,
+      "friction_sampled": 0.775,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 5,
+      "use_gate": true,
+      "transfer_success_proxy": 0.6837,
+      "friction_sampled": 0.216,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    }
+  ],
+  "results_without_gate": [
+    {
+      "fixture": "fixture_A",
+      "seed": 1,
+      "use_gate": false,
+      "transfer_success_proxy": 0.7884,
+      "friction_sampled": 0.363,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 2,
+      "use_gate": false,
+      "transfer_success_proxy": 0.8139,
+      "friction_sampled": 0.377,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 3,
+      "use_gate": false,
+      "transfer_success_proxy": 0.7785,
+      "friction_sampled": 0.463,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 4,
+      "use_gate": false,
+      "transfer_success_proxy": 0.8072,
+      "friction_sampled": 0.775,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_A",
+      "seed": 5,
+      "use_gate": false,
+      "transfer_success_proxy": 0.8037,
+      "friction_sampled": 0.216,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 1,
+      "use_gate": false,
+      "transfer_success_proxy": 0.6584,
+      "friction_sampled": 0.363,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 2,
+      "use_gate": false,
+      "transfer_success_proxy": 0.6839,
+      "friction_sampled": 0.377,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 3,
+      "use_gate": false,
+      "transfer_success_proxy": 0.6485,
+      "friction_sampled": 0.463,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 4,
+      "use_gate": false,
+      "transfer_success_proxy": 0.6772,
+      "friction_sampled": 0.775,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    },
+    {
+      "fixture": "fixture_B",
+      "seed": 5,
+      "use_gate": false,
+      "transfer_success_proxy": 0.6737,
+      "friction_sampled": 0.216,
+      "status": "validated-candidate-predicted ONLY",
+      "note": "synthetic proxy only; real contact dynamics deferred per AEGIS dependency"
+    }
+  ],
+  "aegis_notes": [
+    "Synthetic-only; NEVER displaces champion.",
+    "Full 20-seed physical validation deferred per dependency.",
+    "Tier-4 gate preserved; runs WITH and WITHOUT gate.",
+    "Keep bar: Fixture-B zero-shot >0.70 over >=20 seeds OR p<0.01 vs scripted (0.8125) \u2014 NOT MET in synthetic.",
+    "Edge budget: synthetic proxy only; vram/latency not measured this pass."
+  ]
+}

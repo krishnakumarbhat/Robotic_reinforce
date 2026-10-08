@@ -1,0 +1,154 @@
+{
+ "theta_marginal_logonly": 0.014133,
+ "theta_bitidentical_172_173": true,
+ "n_success_calib": 103,
+ "P50_slip_frozen_trainonly": 0.008106,
+ "P50_train_recomputed": 0.008106,
+ "alpha_179": 0.25,
+ "i7_binds_heldout": 0,
+ "i7_binds_calib": 0,
+ "runA_keep_cited": true,
+ "runA_B": [
+  1.0,
+  0.75
+ ],
+ "runA_welch_p": 0.00010868123615477709,
+ "spot_check": {
+  "seed": 91000,
+  "suite": "fixture_A",
+  "slip": 0.003875140692432574,
+  "fric": 0.0643,
+  "w179": 0.665688,
+  "w178": 0.654812,
+  "w177": 0.63306
+ },
+ "trainfold_T173": {
+  "n": 120,
+  "n_adm": 108,
+  "recall": 0.9126,
+  "score": 91.26,
+  "precision": 0.8704,
+  "p_fail_given_adm": 0.1296,
+  "cov_adm": 0.9655,
+  "cov_all": 0.9612
+ },
+ "trainfold_T179": {
+  "n": 120,
+  "sum_w": 50.7195,
+  "mean_w": 0.4227,
+  "ess": 101.92,
+  "p_fail_weighted": 0.1227,
+  "precision_w": 0.8773,
+  "score_w": 87.73,
+  "recall_w": 0.432,
+  "cov_w": 0.9657,
+  "cov_all": 0.9612
+ },
+ "held_T173": {
+  "n": 120,
+  "n_adm": 102,
+  "recall": 0.8667,
+  "score": 86.67,
+  "precision": 0.8922,
+  "p_fail_given_adm": 0.1078,
+  "cov_adm": 0.9729,
+  "cov_all": 0.9695
+ },
+ "held_T177": {
+  "n": 120,
+  "sum_w": 35.6474,
+  "mean_w": 0.2971,
+  "ess": 80.27,
+  "p_fail_weighted": 0.1211,
+  "precision_w": 0.8789,
+  "score_w": 87.89,
+  "recall_w": 0.2984,
+  "cov_w": 0.9727,
+  "cov_all": 0.9695
+ },
+ "held_T178": {
+  "n": 120,
+  "sum_w": 44.0933,
+  "mean_w": 0.3674,
+  "ess": 91.44,
+  "p_fail_weighted": 0.1163,
+  "precision_w": 0.8837,
+  "score_w": 88.37,
+  "recall_w": 0.3711,
+  "cov_w": 0.9728,
+  "cov_all": 0.9695
+ },
+ "held_T179": {
+  "n": 120,
+  "sum_w": 48.3162,
+  "mean_w": 0.4026,
+  "ess": 94.91,
+  "p_fail_weighted": 0.1146,
+  "precision_w": 0.8854,
+  "score_w": 88.54,
+  "recall_w": 0.4074,
+  "cov_w": 0.9729,
+  "cov_all": 0.9695
+ },
+ "lift_T179_vs_T173_pts": -0.68,
+ "lift_T179_vs_T177_pts": 0.65,
+ "lift_T179_vs_T178_pts": 0.17,
+ "train_lift_T179_vs_T173_pts": 0.69,
+ "train_lift_T179_vs_T178_pts": -0.16,
+ "cov_ok": true,
+ "ablation_alpha_x_P50_held": {
+  "alpha0_x_P50rnd0.008": {
+   "p_fail_weighted": 0.1131,
+   "precision_w": 0.8869,
+   "score_w": 88.69,
+   "mean_w": 0.4352,
+   "ess": 97.32
+  },
+  "alpha0_x_P50median": {
+   "p_fail_weighted": 0.1131,
+   "precision_w": 0.8869,
+   "score_w": 88.69,
+   "mean_w": 0.4378,
+   "ess": 97.38
+  },
+  "alpha0.25_x_P50rnd0.008": {
+   "p_fail_weighted": 0.1146,
+   "precision_w": 0.8854,
+   "score_w": 88.54,
+   "mean_w": 0.4002,
+   "ess": 94.84
+  },
+  "alpha0.25_x_P50median": {
+   "p_fail_weighted": 0.1146,
+   "precision_w": 0.8854,
+   "score_w": 88.54,
+   "mean_w": 0.4026,
+   "ess": 94.91
+  },
+  "alpha0.5_x_P50rnd0.008": {
+   "p_fail_weighted": 0.1163,
+   "precision_w": 0.8837,
+   "score_w": 88.37,
+   "mean_w": 0.3653,
+   "ess": 91.37
+  },
+  "alpha0.5_x_P50median": {
+   "p_fail_weighted": 0.1163,
+   "precision_w": 0.8837,
+   "score_w": 88.37,
+   "mean_w": 0.3674,
+   "ess": 91.44
+  }
+ },
+ "ablation_sliponly_lift_vs_T173_pts": -0.53,
+ "ablation_P50rounding_delta_pts": 0.0,
+ "ablation_alpha_slope_per0.25_pts": 0.16,
+ "archive_valid_mass_rate": 0.0,
+ "archive_T173_valid_rate": 0.0,
+ "verdict_rule": {
+  "runA_keep": true,
+  "score_w_ge_70": true,
+  "no_cov_regression": true
+ },
+ "keep": true
+}

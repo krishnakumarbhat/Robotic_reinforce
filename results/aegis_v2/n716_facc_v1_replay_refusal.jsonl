@@ -1,0 +1,1 @@
+{"run": 716, "idea": "FACC-v1 iter-12 refusal", "status": "invalid", "segment": 15, "metric": "fixture_B_transfer_success", "seeds": 0, "episodes": 0, "rig_invoked": false, "compare_keep": false, "champion": "trochoid B=1.00 Fisher p=0.0083", "reason": "G3 32nd replay refusal; queue empty; mechanism absent from rig"}

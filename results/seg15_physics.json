@@ -1,0 +1,35 @@
+{
+  "segment": "15_AEGIS",
+  "idea": "N76 DAF-EICA / Dynamic-Affordance Flow + Energy In-Context Attention",
+  "brain": "muse-spark-1.3-contributor-free",
+  "status": "validated-candidate-predicted ONLY \u2014 NEVER displaces champion N74 (92.3)",
+  "physical_validation": "ATTEMPTED (pybullet DIRECT init hang on 20-seed rollout); REAL CONTACT DYNAMICS DEFERRED to remote GPU / ManiSkill per dependency; evidence /tmp/seg15_physics_attempt.log + experiments/seg15_physics_run.py",
+  "fixture_B_transfer_success_proxy_with_gate": 0.7776,
+  "fixture_B_transfer_success_proxy_without_gate": 0.7376,
+  "interception_delta_gate_on_minus_off": 0.04,
+  "seeds_target": 20,
+  "seeds_run_proxy": 20,
+  "gate_preserved": true,
+  "tier4_max_jerk": 0.618,
+  "synthetic_predicted_metric": 78.0,
+  "keep_bar_met": false,
+  "note": "Synthetic 78 < 92.3 champion; no gain under manifold shift confirmed by proxy; DISCARD from contention; freeze N74 unconditionally",
+  "edge_budget_proxy": {
+    "vram_mb_est": 950,
+    "latency_ms_est": 1.8,
+    "params_est": 1024,
+    "ok": true
+  },
+  "benchmark_ref": "benchmarks/restroom_sim.py (Fixture A/B, friction 0.05-0.80, scripted 0.8125)",
+  "evidence_artifacts": [
+    "experiments/seg15_physics_run.py",
+    "/tmp/seg15_physics_attempt.log",
+    "results/benchmark_restroom_sim.json",
+    "results/seg15_physics.json",
+    "autoresearch_research.jsonl (append)",
+    "autoresearch_research_strategy_graph.jsonl (append)",
+    "equations.md row 78",
+    "strategies.md N76",
+    "worklog"
+  ]
+}
