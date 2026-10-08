@@ -1,0 +1,167 @@
+ 243/280 [01:20<00:09,  3.75it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  87%|████████▋ | 243/280 [01:20<00:09,  3.75it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  87%|████████▋ | 244/280 [01:20<00:09,  3.68it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  87%|████████▋ | 244/280 [01:21<00:09,  3.68it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  88%|████████▊ | 245/280 [01:21<00:09,  3.68it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  88%|████████▊ | 245/280 [01:21<00:09,  3.68it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  88%|████████▊ | 246/280 [01:21<00:09,  3.72it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  88%|████████▊ | 246/280 [01:21<00:09,  3.72it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  88%|████████▊ | 247/280 [01:21<00:08,  3.76it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  88%|████████▊ | 247/280 [01:21<00:08,  3.76it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  89%|████████▊ | 248/280 [01:21<00:08,  3.75it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  89%|████████▊ | 248/280 [01:22<00:08,  3.75it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  89%|████████▉ | 249/280 [01:22<00:08,  3.77it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  89%|████████▉ | 249/280 [01:22<00:08,  3.77it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  89%|████████▉ | 250/280 [01:22<00:08,  3.64it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  89%|████████▉ | 250/280 [01:23<00:08,  3.64it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  90%|████████▉ | 251/280 [01:23<00:13,  2.18it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  90%|████████▉ | 251/280 [01:23<00:13,  2.18it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  90%|█████████ | 252/280 [01:23<00:11,  2.51it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  90%|█████████ | 252/280 [01:23<00:11,  2.51it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  90%|█████████ | 253/280 [01:23<00:09,  2.79it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  90%|█████████ | 253/280 [01:24<00:09,  2.79it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  91%|█████████ | 254/280 [01:24<00:08,  3.05it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  91%|█████████ | 254/280 [01:24<00:08,  3.05it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  91%|█████████ | 255/280 [01:24<00:07,  3.24it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  91%|█████████ | 255/280 [01:24<00:07,  3.24it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  91%|█████████▏| 256/280 [01:24<00:07,  3.31it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  91%|█████████▏| 256/280 [01:24<00:07,  3.31it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  92%|█████████▏| 257/280 [01:24<00:06,  3.48it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  92%|█████████▏| 257/280 [01:25<00:06,  3.48it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  92%|█████████▏| 258/280 [01:25<00:06,  3.60it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  92%|█████████▏| 258/280 [01:25<00:06,  3.60it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  92%|█████████▎| 259/280 [01:25<00:05,  3.69it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  92%|█████████▎| 259/280 [01:25<00:05,  3.69it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  93%|█████████▎| 260/280 [01:25<00:05,  3.75it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  93%|█████████▎| 260/280 [01:25<00:05,  3.75it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  93%|█████████▎| 261/280 [01:25<00:04,  3.80it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  93%|█████████▎| 261/280 [01:26<00:04,  3.80it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  94%|█████████▎| 262/280 [01:26<00:04,  3.82it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  94%|█████████▎| 262/280 [01:26<00:04,  3.82it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  94%|█████████▍| 263/280 [01:26<00:04,  3.85it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  94%|█████████▍| 263/280 [01:26<00:04,  3.85it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  94%|█████████▍| 264/280 [01:26<00:04,  3.83it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  94%|█████████▍| 264/280 [01:26<00:04,  3.83it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  95%|█████████▍| 265/280 [01:26<00:03,  3.84it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  95%|█████████▍| 265/280 [01:27<00:03,  3.84it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  95%|█████████▌| 266/280 [01:27<00:03,  3.83it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  95%|█████████▌| 266/280 [01:27<00:03,  3.83it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  95%|█████████▌| 267/280 [01:27<00:03,  3.86it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  95%|█████████▌| 267/280 [01:27<00:03,  3.86it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  96%|█████████▌| 268/280 [01:27<00:03,  3.84it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  96%|█████████▌| 268/280 [01:27<00:03,  3.84it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  96%|█████████▌| 269/280 [01:27<00:02,  3.89it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  96%|█████████▌| 269/280 [01:28<00:02,  3.89it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  96%|█████████▋| 270/280 [01:28<00:02,  3.88it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  96%|█████████▋| 270/280 [01:28<00:02,  3.88it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  97%|█████████▋| 271/280 [01:28<00:02,  3.85it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  97%|█████████▋| 271/280 [01:28<00:02,  3.85it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  97%|█████████▋| 272/280 [01:28<00:02,  3.84it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  97%|█████████▋| 272/280 [01:28<00:02,  3.84it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  98%|█████████▊| 273/280 [01:28<00:01,  3.88it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  98%|█████████▊| 273/280 [01:29<00:01,  3.88it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  98%|█████████▊| 274/280 [01:29<00:01,  3.87it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  98%|█████████▊| 274/280 [01:29<00:01,  3.87it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  98%|█████████▊| 275/280 [01:29<00:01,  3.90it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  98%|█████████▊| 275/280 [01:29<00:01,  3.90it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  99%|█████████▊| 276/280 [01:29<00:01,  3.88it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  99%|█████████▊| 276/280 [01:30<00:01,  3.88it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  99%|█████████▉| 277/280 [01:30<00:00,  3.91it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  99%|█████████▉| 277/280 [01:30<00:00,  3.91it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  99%|█████████▉| 278/280 [01:30<00:00,  3.90it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps:  99%|█████████▉| 278/280 [01:30<00:00,  3.90it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps: 100%|█████████▉| 279/280 [01:30<00:00,  3.86it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps: 100%|█████████▉| 279/280 [01:30<00:00,  3.86it/s, running_success_rate=0.0%][A
+
+Running rollout with at most 280 steps: 100%|██████████| 280/280 [01:30<00:00,  3.75it/s, running_success_rate=0.0%][A
+
+                                                                                                                    [A
+Stepping through eval batches:  50%|█████     | 1/2 [03:33<01:53, 113.33s/it, running_success_rate=0.0%]
+Stepping through eval batches: 100%|██████████| 2/2 [03:33<00:00, 105.80s/it, running_success_rate=0.0%]
+Stepping through eval batches: 100%|██████████| 2/2 [03:33<00:00, 106.93s/it, running_success_rate=0.0%]
+INFO 2026-10-02 09:46:08 bot_eval.py:808 Overall Aggregated Metrics:
+INFO 2026-10-02 09:46:08 bot_eval.py:809 {'avg_sum_reward': 0.0, 'avg_max_reward': 0.0, 'pc_success': 0.0, 'n_episodes': 20, 'eval_s': 2208.552308320999, 'eval_ep_s': 110.42761546373367, 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_1.mp4'], 'predicted_video_paths': []}
+INFO 2026-10-02 09:46:08 bot_eval.py:813 
+Aggregated Metrics for per_task:
+INFO 2026-10-02 09:46:08 bot_eval.py:814 [{'task_group': 'libero_spatial', 'task_id': 0, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 1, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 2, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 3, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 4, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 5, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 6, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 7, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 8, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_1.mp4'], 'predicted_video_paths': []}}, {'task_group': 'libero_spatial', 'task_id': 9, 'metrics': {'sum_rewards': [0.0, 0.0], 'max_rewards': [0.0, 0.0], 'successes': [False, False], 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_1.mp4'], 'predicted_video_paths': []}}]
+INFO 2026-10-02 09:46:08 bot_eval.py:813 
+Aggregated Metrics for per_group:
+INFO 2026-10-02 09:46:08 bot_eval.py:814 {'libero_spatial': {'avg_sum_reward': 0.0, 'avg_max_reward': 0.0, 'pc_success': 0.0, 'n_episodes': 20, 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_1.mp4'], 'predicted_video_paths': []}}
+INFO 2026-10-02 09:46:08 bot_eval.py:813 
+Aggregated Metrics for overall:
+INFO 2026-10-02 09:46:08 bot_eval.py:814 {'avg_sum_reward': 0.0, 'avg_max_reward': 0.0, 'pc_success': 0.0, 'n_episodes': 20, 'eval_s': 2208.552308320999, 'eval_ep_s': 110.42761546373367, 'video_paths': ['outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_0/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_1/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_2/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_3/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_4/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_5/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_6/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_7/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_8/eval_episode_1.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_0.mp4', 'outputs/eval/2026-10-02/09-08-44_libero_smolvla/videos/libero_spatial_9/eval_episode_1.mp4'], 'predicted_video_paths': []}
+INFO 2026-10-02 09:46:08 bot_eval.py:822 End of eval
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

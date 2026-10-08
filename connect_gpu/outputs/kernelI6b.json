@@ -1,0 +1,88 @@
+{
+ "adapter": "krishnah27/smolvla-aegis-ft-step917",
+ "n_instr": 5,
+ "tags": [
+  "none",
+  "succ",
+  "fail",
+  "neutral",
+  "xyz"
+ ],
+ "deltas": [
+  {
+   "instr": 0,
+   "norm_action": 0.4575,
+   "d_succ_vs_none": 0.23971,
+   "d_fail_vs_none": 0.38719,
+   "d_succ_vs_fail": 0.227,
+   "d_succ_vs_neutral": 0.13114,
+   "d_fail_vs_neutral": 0.24534,
+   "d_succ_vs_xyz": 0.07472,
+   "d_xyz_vs_neutral": 0.11473,
+   "cos_succ_fail": 0.961862
+  },
+  {
+   "instr": 1,
+   "norm_action": 0.3483,
+   "d_succ_vs_none": 0.32512,
+   "d_fail_vs_none": 0.39822,
+   "d_succ_vs_fail": 0.14306,
+   "d_succ_vs_neutral": 0.08139,
+   "d_fail_vs_neutral": 0.13846,
+   "d_succ_vs_xyz": 0.04222,
+   "d_xyz_vs_neutral": 0.08059,
+   "cos_succ_fail": 0.97208
+  },
+  {
+   "instr": 2,
+   "norm_action": 0.2436,
+   "d_succ_vs_none": 0.24208,
+   "d_fail_vs_none": 0.33535,
+   "d_succ_vs_fail": 0.10752,
+   "d_succ_vs_neutral": 0.09056,
+   "d_fail_vs_neutral": 0.16796,
+   "d_succ_vs_xyz": 0.07637,
+   "d_xyz_vs_neutral": 0.14258,
+   "cos_succ_fail": 0.992566
+  },
+  {
+   "instr": 3,
+   "norm_action": 0.3471,
+   "d_succ_vs_none": 0.12671,
+   "d_fail_vs_none": 0.37411,
+   "d_succ_vs_fail": 0.30525,
+   "d_succ_vs_neutral": 0.15945,
+   "d_fail_vs_neutral": 0.19843,
+   "d_succ_vs_xyz": 0.12599,
+   "d_xyz_vs_neutral": 0.1254,
+   "cos_succ_fail": 0.907536
+  },
+  {
+   "instr": 4,
+   "norm_action": 0.6186,
+   "d_succ_vs_none": 0.40959,
+   "d_fail_vs_none": 0.35721,
+   "d_succ_vs_fail": 0.21328,
+   "d_succ_vs_neutral": 0.23088,
+   "d_fail_vs_neutral": 0.18291,
+   "d_succ_vs_xyz": 0.1415,
+   "d_xyz_vs_neutral": 0.10821,
+   "cos_succ_fail": 0.981243
+  }
+ ],
+ "summary": {
+  "mean_norm_action": 0.40302,
+  "mean_d_succ_fail": 0.199222,
+  "mean_d_succ_none": 0.268642,
+  "mean_d_succ_neutral": 0.138684,
+  "mean_d_succ_xyz": 0.09216,
+  "mean_d_xyz_neutral": 0.114302,
+  "semantic_ratio_succ_fail_over_succ_xyz": 2.1617,
+  "semantic_ratio_succ_fail_over_succ_neutral": 1.4365,
+  "mean_cross_instruction_d": 0.25865,
+  "ratio_tag_delta_over_cross": 0.7702,
+  "mean_cos_succ_fail": 0.963057,
+  "repeat_gap": 0.0
+ },
+ "wall_s": 149.9
+}

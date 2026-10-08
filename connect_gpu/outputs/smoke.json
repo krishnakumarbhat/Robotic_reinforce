@@ -1,0 +1,1 @@
+{"task": "PickCube-v1", "policy": "random", "episodes": 10, "success": 0.0, "steps": 500, "wall_s": 29.5, "torch_cuda": true}
