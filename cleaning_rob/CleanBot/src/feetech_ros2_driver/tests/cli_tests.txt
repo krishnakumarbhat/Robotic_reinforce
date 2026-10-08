@@ -1,0 +1,49 @@
+Zero-position test:
+
+ros2 action send_goal /arm_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory "
+{
+  trajectory: {
+    joint_names: ['base_twist_joint', 'elbow_joint', 'wrist_twist_joint', 'wrist_roll_joint'],
+    points: [
+      {
+        positions: [0.0, 0.0, 0.0, 0.0],
+        time_from_start: {sec: 2}
+      },
+    ]  
+  },                                     
+}"                            
+
+Full run test:
+
+ros2 action send_goal /arm_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory "
+{
+  trajectory: {
+    joint_names: ['base_twist_joint', 'elbow_joint', 'wrist_twist_joint', 'wrist_roll_joint'],
+    points: [
+      {
+        positions: [0.0, 0.0, 0.0, 0.0],
+        time_from_start: {sec: 2}
+      },
+      {
+        positions: [0.0, -1.57, 0.0, 1.57],
+        time_from_start: {sec: 5}
+      },
+      {
+        positions: [0.0, -1.57, 0.0, -0.758],
+        time_from_start: {sec: 8}
+      },
+      {
+        positions: [-1.57, 0.0, 1.57, 0.0],
+        time_from_start: {sec: 11}
+      },
+      {
+        positions: [0.0, 0.0, 1.57, 1.0],
+        time_from_start: {sec: 14}
+      },
+      {
+        positions: [0.0, 0.0, 0.0, 0.0],
+        time_from_start: {sec: 17}
+      },
+    ]  
+  },                                     
+}"         

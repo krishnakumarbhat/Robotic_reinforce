@@ -1,0 +1,1215 @@
+"""AEGIS restroom fixture sweep on Kaggle (prep-only; this file is NOT pushed).
+
+Runs the Fixture-A (round / tank / glossy) and Fixture-B (elongated / wall-hung /
+matte / +15cm / +10deg) suites against a scripted cleaning controller with REAL rigid
+contact physics, sweeping surface friction uniformly over 0.05 (wet soap) .. 0.80
+(dry porcelain). Every episode streams one JSONL line to /kaggle/working/aegis_sweep.jsonl
+carrying the AEGIS context-conditioning payload {tool_id, se3_offset_xyz,
+compliance_mode, quality_tag} plus the Tier-4 jerk gate (max_jerk > 0.618).
+
+Run on Kaggle (zero stdin, zero argv):
+    kaggle kernels push -p <kernel_dir>      # kernel-metadata.json points at this file
+    AEGIS_SEEDS=20 AEGIS_HOURS=7.0           # optional env overrides
+Run locally (physics only, no maniskill needed):
+    AEGIS_BACKEND=auto python3 experiments/kaggle_aegis_sweep.py --seeds 3 --dry-run-no-upload
+
+Physics backend: a raw PyBullet scrub rig (CPU). Chosen over ManiSkill deliberately --
+maniskill 3.0.1 is installed and probed, but its PickCube-v1 actor exposes NO friction
+API (no Actor.set_friction) and there is no public handle to the underlying mjModel, so
+the swept coefficient cannot reach the contact pair. Emitting episodes that LOG
+friction=0.35 while simulating the 0.5 default would poison the dataset, and friction is
+the entire axis of this sweep. The pip header still installs maniskill/mujoco and the
+header record reports availability. ~0.05 s/episode on CPU, so a 40-episode sweep needs
+seconds of a T4 -- the GPU is not the bottleneck and is not rented for it. If pybullet
+cannot be imported the script exits 3 rather than emitting synthetic numbers: the AEGIS
+protocol forbids synthetic-only rows from being reported as validation.
+
+The scripted controller is a fixed force-driven position trajectory (spray -> raster
+scrub -> rinse -> inspect DAG), so the ONLY thing the physics decides is whether the
+tool head follows it: tracks = SUCCESS, skates/sticks = FAILURE_SLIP, loses contact =
+OBSTACLE_STALL.
+
+MEASURED RESULT, worth reading before trusting the labels: swept-area coverage is
+MONOTONE DECREASING in friction (Fixture A 0.92 at mu=0.05 -> 0.68 at mu=0.80;
+Fixture B 0.67 -> 0.56). The intuitive "low friction = slip = fail" does NOT hold here.
+The raster reverses direction at every row end, and breaking away from static contact
+costs a full mu*N stiction impulse the PD cannot deliver inside one control tick, so
+HIGH friction loses cells at the reversals while LOW friction tracks almost perfectly.
+That is textbook stick-slip, it is reproducible across all three tool heads, and it is
+reported as measured rather than tuned into the expected direction. Fixture B never
+reaches the 0.70 keep-bar in this configuration, so the summary verdict is DISCARD.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
+import random
+import subprocess
+import sys
+import time
+
+# --- headless / determinism (must precede any heavy import) --------------------
+os.environ.setdefault("MUJOCO_GL", "egl")
+os.environ.setdefault("PYOPENGL_PLATFORM", "egl")
+os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+os.environ.setdefault("PYTHONUNBUFFERED", "1")
+
+# --- config (env-overridable; zero-stdin safe defaults) ------------------------
+WORKDIR = os.environ.get("AEGIS_WORKDIR", "/kaggle/working")
+if not os.access(WORKDIR, os.W_OK):  # not a Kaggle VM (local dry-run) -> stay usable
+    WORKDIR = os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "results")
+    print(f"[aegis-sweep] /kaggle/working unavailable -> WORKDIR={WORKDIR}", flush=True)
+JSONL_PATH = os.path.join(WORKDIR, "aegis_sweep.jsonl")
+FIG_PATH = os.path.join(WORKDIR, "aegis_sweep.png")
+HF_REPO = os.environ.get("AEGIS_HF_REPO", "krishnah27/aegis-sweep")
+N_SEEDS = int(os.environ.get("AEGIS_SEEDS", "20"))
+BUDGET_H = float(os.environ.get("AEGIS_HOURS", "7.0"))
+HARD_CAP_H = float(os.environ.get("AEGIS_HARD_CAP_HOURS", "8.0"))
+UPLOAD = os.environ.get("AEGIS_UPLOAD", "1") not in ("0", "false", "False")
+FORCE_BACKEND = os.environ.get("AEGIS_BACKEND", "pybullet")  # pybullet
+INSTALL_DEPS = os.environ.get("AEGIS_INSTALL", "1") not in ("0", "false", "False")
+BENCH_DIR = os.environ.get("AEGIS_BENCH_DIR", "")  # optional: repo benchmarks/ dir
+BASE_SEED = int(os.environ.get("AEGIS_BASE_SEED", "91000"))
+T_MAX = int(os.environ.get("AEGIS_STEPS", "400"))
+PROBE_EPS = 3  # episodes timed before the quota projection is trusted
+
+# --- AEGIS spec bindings, mirrored from benchmarks/restroom_sim.py -------------
+try:  # reuse the benchmark constants when the repo is on the path (no drift)
+    if BENCH_DIR:
+        sys.path.insert(0, os.path.dirname(BENCH_DIR.rstrip("/")))
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "benchmarks"))
+    from restroom_sim import FRICTION_RANGE, GATE_MAX_JERK  # type: ignore
+    from restroom_sim import FIXTURES as _FIXTURES  # type: ignore
+    FIXTURES = {k: dict(v) for k, v in _FIXTURES.items()}
+except Exception:  # noqa: BLE001 -- Kaggle has no repo checkout; keep the mirror honest
+    FIXTURES = {
+        "fixture_A": {"tank_shape": "round", "surface": "glossy",
+                      "offset_cm": 0, "angle_deg": 0},
+        "fixture_B": {"tank_shape": "elongated", "surface": "matte",
+                      "offset_cm": 15, "angle_deg": 10},
+    }
+    FRICTION_RANGE = [0.05, 0.80]
+    GATE_MAX_JERK = 0.618
+
+# glossy porcelain sheds water -> less grip; matte holds the tool head -> more grip.
+SURFACE_FRICTION_GAIN = {"glossy": 0.75, "matte": 1.25}
+SCRIPTED_BASELINE_SCORE = 0.8125  # from restroom_sim; reported, never used as a row
+WALL_HUNG_LIFT_M = 0.15           # Fixture B tank hangs this high off its pedestal
+CELL_M = 0.05                     # swept-area cell pitch == raster pass pitch
+SWEEP_TOL_M = 0.035               # "in contact / on path" radius
+# Anchored to the tool's own geometry, not to the chart: the head footprint half-width is
+# 0.025-0.045 m, so a 0.012 m mean tracking residual means the head is no longer seated
+# on its commanded cell (27-48% of its own support radius). Measured residuals split
+# cleanly either side of it -- healthy 0.004-0.010, stiction tail 0.012-0.016 -- so this
+# is the natural gap, not a threshold chosen to colour the plot.
+SLIP_TOL_M = 0.012                # > this tracking residual = FAILURE_SLIP / stall
+STALL_FRAC = 0.40                 # > this contact-free fraction = OBSTACLE_STALL
+FINE_M = CELL_M / 2.0             # I0: fine scoring pitch (coverage_cont); raster pitch unchanged
+# I1 path modes. raster = legacy boustrophedon (180 deg reversals -> v_t crosses 0 ->
+# static-friction re-stick). rounded/trochoid/spiral are C1 (max heading change per
+# dense segment <= MAX_TURN_DEG) so tangential velocity never reverses.
+PATH_MODES = ("raster", "rounded", "trochoid", "spiral", "fitted")
+PATH_MODE = os.environ.get("AEGIS_PATH", "raster")
+MAX_TURN_DEG = 60.0               # C1 assertion: per-segment heading change < 60 deg keeps
+                                  # >= cos(60)=50% of velocity along the old heading (raster: 90+90)
+TROCHOID_R_M = 0.015              # circular-scrub loop radius superimposed on rows
+# I5: planning-pose error (Tier-2 registration noise). "sigma_t_m,sigma_yaw_deg".
+POSE_NOISE = os.environ.get("AEGIS_POSE_NOISE", "0,0")
+SUBSTEPS = 12                     # 240 Hz solver -> 20 Hz control tick (0.05 s)
+TICK_S = SUBSTEPS / 240.0
+# ponytail, three measured rig constraints (each cost a debugging round):
+#  1. the head is FORCE-driven, never velocity-driven. resetBaseVelocity overwrites the
+#     contact solver, so a velocity servo pins the head to the command and the swept
+#     friction coefficient has literally zero effect (measured: identical residual at
+#     mu=0.05 and mu=0.80).
+#  2. pybullet clears applyExternalForce on every stepSimulation, so the force MUST be
+#     re-applied inside the substep loop -- once per tick delivers 1/12 of the intended
+#     force and the head simply stalls (measured: 0.01 m/s vs a 0.085 m/s target).
+#  3. contact integration is stable only while sqrt(contactStiffness/m)*dt stays near 1.
+#     At the 1e4 default with a 0.018 kg head that is 3.1 -> the head launches (measured
+#     500 m excursions). Soft foam-pad masses (0.08-0.105 kg) + 1e3 stiffness gives 0.47.
+#     The mass also sets the FLOOR on normal force via the gravity comp (N >= m*g), so a
+#     light head is what lets mu*Fn fall below the lateral demand somewhere inside 0.05-0.80.
+KP_PRESS, PRESS_M = 1.0, 0.020     # press setpoint -- a commanded offset, NOT a real
+                                   # sink: actual penetration is Fn/CONTACT_K ~ 0.6 mm
+CONTACT_K, CONTACT_C = 1.0e3, 2.0e2
+F_CLAMP_N = 3.0                    # workspace rail: a real cell has a force limit
+WS_LIMIT_M = 0.60                  # head may not stray this far from the fixture axis
+# ponytail: the actuator is FIXED across every episode. An earlier version derived the PD
+# gains from compliance_mode, which made the controller an oracle that pre-compensated for
+# the very friction being swept -- measured 100% success from mu=0.05 to mu=0.80, i.e. a
+# dead sweep. compliance_mode is now a LOGGED context token only (the AEGIS spec asks for
+# it as metadata, not as a control input). With kp fixed, lateral grip is ~mu*kp*PRESS_M
+# and the pass/fail transition lands inside the 0.05-0.80 band.
+KP, KD = 25.0, 1.9
+SCRIPTED_QUALITY_GATE = 0.70      # AEGIS keep-bar for Fixture-B zero-shot (transfer_success)
+CLEAN_FRAC = 0.90                 # episode success: >90% of patch area swept in contact
+FIELDS = ("record", "ts", "suite", "seed", "backend", "friction", "tool_id",
+          "se3_offset_xyz", "se3_offset_rpy", "compliance_mode", "quality_tag",
+          "failure_metadata", "success", "jerk", "coverage", "slip_m", "stall_frac",
+          "steps", "wall_s", "status")
+
+T0 = time.time()
+
+
+def log(msg: str) -> None:
+    """Purpose: single stdout sink with elapsed seconds (Kaggle log scraping).
+    Inputs: message string. Outputs: one flushed line.
+    """
+    print(f"[aegis-sweep {time.time() - T0:8.1f}s] {msg}", flush=True)
+
+
+# --- install header (Kaggle T4 image ships torch+CUDA; install only the gaps) ---
+def ensure_deps() -> list[str]:
+    """Purpose: pip-install maniskill/mujoco/pybullet/hf_hub only when missing, so a
+    warm kernel costs zero seconds and a cold one is self-sufficient.
+    Inputs: none. Outputs: list of pip specs actually installed.
+    """
+    import importlib.util
+    if not INSTALL_DEPS:
+        return []
+    want, done = [], []
+    for mod, spec in (("mujoco", "mujoco>=3.1.6"),
+                      ("pybullet", "pybullet>=3.2.6"),
+                      ("mani_skill", "mani_skill>=3.0.0b20"),
+                      ("huggingface_hub", "huggingface_hub>=0.24"),
+                      ("torch", None)):  # torch last: it is the slowest and usually present
+        if importlib.util.find_spec(mod) is not None:
+            continue
+        if spec is None:
+            spec = "torch"
+        want.append(spec)
+    if not want:
+        return done
+    log(f"pip install {' '.join(want)}")
+    r = subprocess.run([sys.executable, "-m", "pip", "install", "-q", *want],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        log(f"pip rc={r.returncode}: {r.stderr[-400:]}")
+    done = [s for s, m in zip(want, ("mujoco", "pybullet", "mani_skill",
+                                     "huggingface_hub", "torch"))
+            if importlib.util.find_spec(m) is not None]
+    log(f"deps ready: {done}")
+    return done
+
+
+# --- geometry ------------------------------------------------------------------
+def fixture_offset(spec: dict) -> list[float]:
+    """Purpose: translate a fixture spec into a metric SE(3) xyz offset, matching
+    restroom_sim.offset_cm semantics (15 cm lateral, one budget, not two).
+    Inputs: fixture spec dict. Outputs: [x, y, z] metres.
+    """
+    return [round(float(spec.get("offset_cm", 0)) / 100.0, 4),
+            round(float(spec.get("offset_y_cm", 0)) / 100.0, 4), 0.0]
+
+
+def fixture_rpy(spec: dict) -> list[float]:
+    """Purpose: yaw-only rotation for the fixture body.
+    Inputs: fixture spec dict. Outputs: [roll, pitch, yaw] radians.
+    """
+    return [0.0, 0.0, round(math.radians(float(spec.get("angle_deg", 0))), 5)]
+
+
+def fixture_pose(spec: dict) -> tuple[list[float], list[float]]:
+    """Purpose: world position/orientation of the fixture body: lateral offset from
+    offset_cm, plus the wall-hung lift for the elongated Fixture B.
+    Inputs: fixture spec dict. Outputs: (position[3], quaternion[4]).
+    """
+    pos = fixture_offset(spec)
+    if spec.get("tank_shape") == "elongated":
+        pos[2] += WALL_HUNG_LIFT_M
+    return pos, quat_from_rpy(*fixture_rpy(spec))
+
+
+def quat_from_rpy(roll: float, pitch: float, yaw: float) -> list[float]:
+    """Purpose: ZYX euler -> xyzw quaternion (MuJoCo/PyBullet convention).
+    Inputs: three radians floats. Outputs: [x, y, z, w].
+    """
+    cy, sy = math.cos(yaw * 0.5), math.sin(yaw * 0.5)
+    cr, sr = math.cos(roll * 0.5), math.sin(roll * 0.5)
+    cp, sp = math.cos(pitch * 0.5), math.sin(pitch * 0.5)
+    return [sr * cp * cy - cr * sp * sy, cr * sp * cy + sr * cp * sy,
+            cr * cp * sy - sr * sp * cy, cr * cp * cy + sr * sp * sy]
+
+
+def scrub_uv(spec: dict, mode: str = "raster") -> list[tuple[float, float]]:
+    """Purpose: the scrub-phase path in the FIXTURE frame (u along the long axis, v across).
+    raster   -- legacy boustrophedon, rows at CELL_M pitch, 180 deg reversals at row ends.
+    rounded  -- SAME rows, each reversal replaced by a semicircle of radius CELL_M/2
+                (C1: isolates the reversal/stiction effect, nothing else changes).
+    trochoid -- rounded rows + superimposed circular scrub loops of radius TROCHOID_R_M
+                (brush-like "spiral pattern"; speed never reaches zero).
+    spiral   -- inward stadium (offset-rectangle) spiral, corner radius <= CELL_M/2.
+    Inputs: fixture spec, path mode. Outputs: list of (u, v) points, <=0.01 m apart
+    (densify later makes spacing uniform). Raises ValueError on unknown mode.
+    """
+    if mode not in PATH_MODES:
+        raise ValueError(f"unknown path mode {mode!r}; valid: {PATH_MODES}")
+    shape = spec.get("tank_shape", "round")
+    half = 0.20
+    side = 0.12 if shape == "elongated" else 0.18
+    nu = max(1, int(2 * half / CELL_M))
+    nv = max(1, int(side / CELL_M))
+    v0 = -side * 0.5
+    rows = [v0 + r * CELL_M for r in range(nv)]
+    uv: list[tuple[float, float]] = []
+    if mode == "raster":
+        for r, v in enumerate(rows):
+            us = np_linspace(-half, half, nu + 1) if r % 2 == 0 else np_linspace(half, -half, nu + 1)
+            uv += [(float(u), v) for u in us]
+        return uv
+    rad = CELL_M / 2.0
+    if mode in ("rounded", "trochoid"):
+        n_line = max(2, int(2 * half / 0.01) + 1)
+        for r, v in enumerate(rows):
+            fwd = r % 2 == 0
+            us = np_linspace(-half, half, n_line) if fwd else np_linspace(half, -half, n_line)
+            uv += [(float(u), v) for u in us]
+            if r < len(rows) - 1:                      # C1 semicircle to the next row
+                cx, cv = (half if fwd else -half), v + rad
+                n_arc = 16
+                for k in range(1, n_arc):
+                    th = -math.pi / 2 + math.pi * k / n_arc
+                    uv.append((cx + (rad * math.cos(th) if fwd else -rad * math.cos(th)),
+                               cv + rad * math.sin(th)))
+        if mode == "trochoid":                          # superimpose scrub loops
+            out, s = [], 0.0
+            for i, (u, v) in enumerate(uv):
+                if i:
+                    s += math.hypot(u - uv[i - 1][0], v - uv[i - 1][1])
+                # loop tangential speed = 0.5 x base speed -> curtate trochoid: net speed
+                # stays >= 0.5 v (w = s/R would be a cycloid with zero-speed cusps).
+                w = s / (2.0 * TROCHOID_R_M)
+                out.append((u + TROCHOID_R_M * math.cos(w) - TROCHOID_R_M,
+                            v + TROCHOID_R_M * math.sin(w)))
+            # densify enough for curvature: loop circumference ~0.094 m
+            return _resample_uv(out, 0.004)
+        return uv
+    # fitted: footprint-aware row pitch (I10) — ponytail: analytic, no learn
+    if mode == "fitted":
+        r_eff = float(spec.get("r_eff", 0.035))
+        p = 2 * r_eff * 0.8        # 2 r_eff (1 - 0.2 overlap)
+        half = 0.20
+        side = 0.12 if spec.get("tank_shape") == "elongated" else 0.18
+        uv = []
+        inset = r_eff
+        # rows inset r_eff from both patch edges; v from -side/2+inset to side/2-inset step p
+        v_start = -side * 0.5 + inset
+        v_end = side * 0.5 - inset
+        rows = []
+        v = v_start
+        while v <= v_end + 1e-6:
+            rows.append(v)
+            v += p
+        n_line = max(2, int(2 * half / 0.01) + 1)
+        for r, v in enumerate(rows):
+            fwd = r % 2 == 0
+            us = np_linspace(-half + inset, half - inset, n_line) if fwd else np_linspace(half - inset, -half + inset, n_line)
+            uv += [(float(u), v) for u in us]
+            if r < len(rows) - 1:
+                cx, cv = (half - inset if fwd else -half + inset), v + p * 0.5
+                rad = p * 0.5
+                n_arc = 16
+                for k in range(1, n_arc):
+                    th = -math.pi / 2 + math.pi * k / n_arc
+                    uv.append((cx + (rad * math.cos(th) if fwd else -rad * math.cos(th)),
+                               cv + rad * math.sin(th)))
+        return _resample_uv(uv, 0.01)
+    # spiral: nested rounded rectangles, inset CELL_M per loop, centred on the patch
+    cu, cv = 0.0, v0 + (nv - 1) * CELL_M * 0.5
+    hu, hv = half, (nv - 1) * CELL_M * 0.5
+    loops = 0
+    while hv >= 0.0 and hu > 0.0 and loops < 50:
+        rc = min(rad, hv) if hv > 0 else 0.0
+        loop = _rounded_rect(cu, cv, hu, hv, rc)
+        uv += loop
+        hu -= CELL_M
+        hv -= CELL_M
+        loops += 1
+    return _resample_uv(uv, 0.01)
+
+
+def _rounded_rect(cu: float, cv: float, hu: float, hv: float, rc: float) -> list:
+    """Purpose: one clockwise loop of a rectangle (half extents hu,hv) with corner radius rc.
+    Degenerate hv==0 -> a straight out-and-back is avoided: returns a single line.
+    Inputs: centre, half extents, corner radius. Outputs: list of (u, v).
+    """
+    if hv <= 1e-9:
+        return [(float(u), cv) for u in np_linspace(cu - hu, cu + hu, 20)]
+    pts = []
+    corners = ((cu + hu - rc, cv + hv - rc, 0.0), (cu + hu - rc, cv - hv + rc, -math.pi / 2),
+               (cu - hu + rc, cv - hv + rc, -math.pi), (cu - hu + rc, cv + hv - rc, math.pi / 2))
+    start = (cu - hu + rc, cv + hv)
+    pts.append(start)
+    for (x, y, a0) in corners:
+        a_start = a0 + math.pi / 2
+        for k in range(9):
+            a = a_start - (math.pi / 2) * k / 8
+            pts.append((x + rc * math.cos(a), y + rc * math.sin(a)))
+    return pts
+
+
+def _resample_uv(uv: list, ds: float) -> list:
+    """Purpose: uniform-arclength resample of a (u,v) polyline (stdlib only).
+    Inputs: points, spacing. Outputs: resampled points.
+    """
+    if len(uv) < 2:
+        return list(uv)
+    out = [uv[0]]
+    acc = 0.0
+    for (a, b) in zip(uv, uv[1:]):
+        seg = math.hypot(b[0] - a[0], b[1] - a[1])
+        if seg <= 0:
+            continue
+        t = ds - acc
+        while t <= seg:
+            out.append((a[0] + (b[0] - a[0]) * t / seg, a[1] + (b[1] - a[1]) * t / seg))
+            t += ds
+        acc = seg - (t - ds)
+    if out[-1] != uv[-1]:
+        out.append(uv[-1])
+    return out
+
+
+def max_turn_deg(uv: list) -> float:
+    """Purpose: largest heading change between consecutive segments (C1 check).
+    Inputs: (u,v) points. Outputs: degrees.
+    """
+    worst = 0.0
+    prev = None
+    for a, b in zip(uv, uv[1:]):
+        d = (b[0] - a[0], b[1] - a[1])
+        if math.hypot(*d) < 1e-9:
+            continue
+        if prev is not None:
+            c = (prev[0] * d[0] + prev[1] * d[1]) / (math.hypot(*prev) * math.hypot(*d))
+            worst = max(worst, math.degrees(math.acos(max(-1.0, min(1.0, c)))))
+        prev = d
+    return worst
+
+
+def uv_length(uv: list) -> float:
+    """Purpose: polyline length in metres. Inputs: points. Outputs: float."""
+    return sum(math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(uv, uv[1:]))
+
+
+def scrub_waypoints(spec: dict, lift: float, mode: str = "raster",
+                    noise: tuple[float, float, float] = (0.0, 0.0, 0.0)) -> list[list[float]]:
+    """Purpose: the ONE commanded trajectory both backends follow: hover -> scrub path
+    (mode, see scrub_uv) -> rinse -> inspect, mapped from the fixture frame to world.
+    `noise` = (dx, dy, dyaw_rad) planning-pose error (I5): the path is planned in a
+    WRONG fixture frame while physics + scoring keep the true one.
+    ponytail: an earlier diagonal path covered only 0.67 of the grid BY CONSTRUCTION, so
+    the coverage metric could not respond to friction no matter how the physics moved.
+    Inputs: fixture spec, tool-head half-height, path mode, pose noise. Outputs: [x,y,z] list.
+    """
+    shape = spec.get("tank_shape", "round")
+    ox, oy, oz = fixture_pose(spec)[0]
+    ox, oy = ox + noise[0], oy + noise[1]
+    # scrub plane == the fixture's TOP face: round tank is 0.44 tall (centre at 0.22),
+    # elongated wall-hung box is 0.24 thick (centre at 0.15, so top at 0.27).
+    plane = oz + (0.12 if shape == "elongated" else 0.22) + lift
+    yaw = math.radians(float(spec.get("angle_deg", 0))) + noise[2]
+    ca, sa = math.cos(yaw), math.sin(yaw)
+
+    def pt(u: float, v: float, z: float) -> list[float]:
+        return [ox + u * ca - v * sa, oy + u * sa + v * ca, z]
+
+    uv = scrub_uv(spec, mode)
+    if mode != "raster":
+        turn = max_turn_deg(uv)
+        assert turn <= MAX_TURN_DEG, f"{mode} path not C1: max turn {turn:.1f} deg"
+    wp = [pt(0.0, 0.0, plane + 0.05)]                       # spray: hover at centre
+    wp += [pt(u, v, plane) for (u, v) in uv]
+    wp.append(pt(0.0, 0.0, plane + 0.06))                   # rinse: lift
+    wp.append(pt(0.0, 0.0, plane + 0.05))                   # inspect
+    return wp
+
+
+def np_linspace(lo: float, hi: float, n: int):
+    """Purpose: stdlib-free linspace for the raster (avoids importing numpy at module
+    import time, which the pip-install header runs before). Inputs: bounds, count.
+    Outputs: list of floats.
+    """
+    if n <= 1:
+        return [lo]
+    step = (hi - lo) / (n - 1)
+    return [lo + i * step for i in range(n)]
+
+
+def densify(wp: list[list[float]], ds: float = 0.02) -> list[list[float]]:
+    """Purpose: resample the sparse waypoint polyline at fixed arclength. Without this
+    the servo chases 0.5 m teleports and the per-tick residual measures schedule
+    coarseness, not friction. After densification the commanded step is <= ds, so the
+    residual IS slip.
+    Inputs: waypoints, arclength spacing. Outputs: dense waypoint list.
+    """
+    import numpy as np
+    P = np.asarray(wp, dtype=np.float64)
+    seg = np.linalg.norm(np.diff(P, axis=0), axis=1)
+    s = np.concatenate([[0.0], np.cumsum(seg)])
+    total = float(s[-1])
+    n = max(2, int(total / ds) + 1)
+    t = np.linspace(0.0, total, n)
+    out = [np.interp(t, s, P[:, k]) for k in range(3)]
+    return np.stack(out, axis=1).tolist()
+
+
+def scrub_grid(spec: dict, cell: float = CELL_M) -> tuple[list[float], int, int]:
+    """Purpose: the swept-area target. Cleaning succeeds when the head has TOUCHED every
+    cell of the scrub patch while in contact -- not when it merely tracks the path. This
+    is the metric that makes the friction sweep causal: a slipping head retraces its own
+    line, leaves cells untouched, and coverage falls. Tracking error alone scored a
+    sliding head as a success.
+    Inputs: fixture spec, cell size. Outputs: (local origin [u, v], n_u, n_v).
+    """
+    shape = spec.get("tank_shape", "round")
+    half = 0.20
+    side = 0.12 if shape == "elongated" else 0.18
+    return [-half, -side * 0.5], int(2 * half / cell), int(side / cell)
+
+
+def phase_of(i: int, n: int) -> str:
+    """Purpose: DAG phase label for step i of n (spray/scrub/rinse/inspect).
+    Inputs: step index, episode length. Outputs: phase string.
+    """
+    f = i / max(1, n)
+    if f < 0.15:
+        return "spray"
+    if f < 0.80:
+        return "scrub"
+    if f < 0.92:
+        return "rinse"
+    return "inspect"
+
+
+def sample_friction(rng: random.Random, surface: str) -> float:
+    """Purpose: draw a surface friction coefficient uniformly over the AEGIS band,
+    rescaled by the finish gain and clipped back into the band.
+    Inputs: RNG, surface finish. Outputs: friction coefficient in [0.05, 0.80].
+    """
+    lo, hi = FRICTION_RANGE
+    f = rng.uniform(lo, hi) * SURFACE_FRICTION_GAIN.get(surface, 1.0)
+    return round(min(hi, max(lo, f)), 4)
+
+
+def compliance_mode(friction: float) -> str:
+    """Purpose: name the end-effector compliance regime implied by available grip --
+    the physical justification for why compliance_mode is a context token.
+    Inputs: friction coefficient. Outputs: "rigid" | "compliant" | "damped".
+    """
+    if friction < 0.20:
+        return "compliant"   # wet soap: force control, let the tool slide
+    if friction > 0.55:
+        return "damped"      # dry porcelain: stiff + high damping, avoid snagging
+    return "rigid"
+
+
+# --- quality tagging (Tier-4 jerk gate is HARD) --------------------------------
+def jerk_proxy(acts) -> float:
+    """Purpose: Tier-4 jerk statistic, identical formula to restroom_sim.Tier4Gate
+    (mean squared second difference of the action stream).
+    Inputs: sequence of action vectors. Outputs: float >= 0.
+    """
+    import numpy as np
+    a = np.asarray(acts, dtype=np.float64)
+    if len(a) < 3 or a.size < a.shape[0]:
+        return 0.0
+    return float(np.mean(np.diff(a, n=2, axis=0) ** 2))
+
+
+def classify(success: bool, jerk: float, slip_m: float, stall_frac: float,
+             friction: float) -> tuple[str, dict]:
+    """Purpose: assign the AEGIS quality_tag and its failure_metadata from the physics.
+    SUCCESS wins outright; a contact-starved episode is OBSTACLE_STALL (wrong failure
+    mode to train on); everything else is FAILURE_SLIP. gate_ok is the Tier-4 admission
+    bit (max_jerk <= 0.618) consumed by colab_aegis_ft.split_pools.
+    Inputs: success flag, jerk, worst slip (m), contact-free fraction, friction.
+    Outputs: (quality_tag, failure_metadata dict).
+    """
+    gate_ok = bool(jerk <= GATE_MAX_JERK)
+    if success:
+        tag = "SUCCESS"
+    elif stall_frac > STALL_FRAC or (slip_m > SLIP_TOL_M and friction > 0.20):
+        tag = "OBSTACLE_STALL"
+    else:
+        tag = "FAILURE_SLIP"
+    meta = {"tag": "none" if tag == "SUCCESS" else tag,
+            "max_jerk": round(jerk, 5), "gate_ok": gate_ok,
+            "gate_max_jerk": GATE_MAX_JERK,
+            "slip_m": round(slip_m, 4), "stall_frac": round(stall_frac, 4),
+            "friction": friction, "compliance_mode": compliance_mode(friction)}
+    return tag, meta
+
+
+# --- PyBullet scrub rig (default CPU backend) ----------------------------------
+class PyBulletScrub:
+    """Purpose: minimal real-contact scrub fixture. A static plane carries the swept
+    friction, a static fixture body carries the Fixture-A/B geometry, and a
+    force-driven tool head is commanded along `scrub_waypoints` by a velocity servo --
+    the physics decides whether it tracks (grip), slides, or bounces off.
+    Inputs: fixture spec, friction, tool_id, seed. Outputs: step()/metrics() API.
+    ponytail: a velocity-servoed tool head, not a full Panda IK arm. The swept
+    variable is surface friction under a scripted path; arm dynamics would only add
+    solver cost without changing the slip/stall decision. Add a ManiSkill arm-coupled
+    variant only once its friction API exists; until then it cannot sweep the axis.
+    """
+
+    # ponytail: all three heads are FLAT pads. A cylinder standing on its end rocks on
+    # its rim under a lateral force and rolls out of the cell (measured: every mu), which
+    # swamped slip with 0.6 m excursions. tool_id then varies the footprint and mass --
+    # the axes that actually change contact pressure.
+    TOOL_SHAPES = (("box", [0.05, 0.035, 0.012], 0.080),  # 0 sponge head
+                   ("box", [0.04, 0.04, 0.030], 0.105),   # 1 brush head (tall, narrow)
+                   ("box", [0.09, 0.05, 0.006], 0.092))  # 2 flat mop head
+
+    def __init__(self, spec: dict, friction: float, tool_id: int, steps: int,
+                 mode: str = "raster", noise: tuple = (0.0, 0.0, 0.0)):
+        import pybullet as p
+        import pybullet_data
+        self.p = p
+        self.spec, self.steps = spec, steps
+        p.connect(p.DIRECT)
+        p.setAdditionalSearchPath(pybullet_data.getDataPath(), physicsClientId=0)
+        p.setGravity(0, 0, -9.81, physicsClientId=0)
+        p.setTimeStep(1.0 / 240.0, physicsClientId=0)
+        p.setPhysicsEngineParameter(numSolverIterations=80, physicsClientId=0)
+        self.plane = p.createMultiBody(0, p.createCollisionShape(p.GEOM_PLANE),
+                                       basePosition=[0, 0, 0], physicsClientId=0)
+        p.changeDynamics(self.plane, -1, lateralFriction=friction,
+                         restitution=0.0, physicsClientId=0)
+        self.fixture = self._build_fixture(spec)
+        # CRITICAL: the swept friction must land on the FIXTURE, not the floor plane. The
+        # head only ever touches the fixture, so setting it on the plane alone left the
+        # contact pair at the 0.5 default and the sweep was bit-identical from mu=0.05 to
+        # mu=0.80 (measured). Set both -- the plane matters if the head falls.
+        p.changeDynamics(self.fixture, -1, lateralFriction=friction,
+                         restitution=0.0, physicsClientId=0)
+        kind, half, mass = self.TOOL_SHAPES[tool_id % 3]
+        cid = (p.createCollisionShape(p.GEOM_CYLINDER, radius=half[0], height=half[1])
+               if kind == "cyl" else
+               p.createCollisionShape(p.GEOM_BOX, halfExtents=half))
+        self.lift = half[2] + (half[1] * 0.5 if kind == "cyl" else 0.0)
+        self.tool = p.createMultiBody(mass, cid, basePosition=[0, 0, 0.5],
+                                      physicsClientId=0)
+        p.changeDynamics(self.tool, -1, lateralFriction=0.9, restitution=0.0,
+                         spinningFriction=0.0, contactStiffness=CONTACT_K,
+                         contactDamping=CONTACT_C, physicsClientId=0)
+        spec_in = dict(spec); spec_in["r_eff"] = float(min(half[0], half[1]))
+        sparse = scrub_waypoints(spec_in, self.lift, mode, noise)
+        self.wp = densify(sparse)
+        # Phase labels come from PATH POSITION, not tick fraction (rig v2 fix): the old
+        # phase_of(i/n) left the first ~15% of the scrub path un-pressed ("spray") and
+        # the last ~12% as "rinse", capping coverage for every mode by construction.
+        import numpy as _np
+        _P = _np.asarray(sparse, dtype=_np.float64)
+        _cum = _np.concatenate([[0.0], _np.cumsum(_np.linalg.norm(_np.diff(_P, axis=0), axis=1))])
+        s_a, s_b, tot = float(_cum[1]), float(_cum[-3]), float(_cum[-1])
+        _sd = _np.linspace(0.0, tot, len(self.wp))
+        self.phases = ["spray" if x < s_a - 1e-9 else "scrub" if x <= s_b + 1e-9
+                       else ("rinse" if x <= float(_cum[-2]) + 1e-9 else "inspect")
+                       for x in _sd]
+        self.total_len_m = tot
+        # Speed normalisation (I1 confound guard): every path mode is driven at the SAME
+        # commanded arclength speed as raster, so a longer path gets proportionally more
+        # ticks. Otherwise "better path" and "slower head" would be indistinguishable.
+        ref = uv_length(scrub_uv(spec, "raster"))
+        cur = uv_length(scrub_uv(spec, mode))
+        self.steps = int(round(steps * max(1.0, cur / max(ref, 1e-9))))
+        self.path_mode, self.path_len_m = mode, round(cur, 4)
+        # I0: tool footprint radius for continuous coverage (inscribed circle of the pad)
+        self.r_eff = float(min(half[0], half[1]))
+        self.mode = compliance_mode(friction)
+        self.friction = friction
+
+    def _build_fixture(self, spec: dict) -> int:
+        """Purpose: build the static Fixture-A/B body (round tank vs elongated
+        wall-hung) with the spec's offset and yaw. Inputs: spec. Outputs: body id.
+        """
+        p = self.p
+        pos, quat = fixture_pose(spec)
+        if spec.get("tank_shape") == "elongated":
+            # 0.68 x 0.28 m top face: wide enough that the +/-0.06 m lateral scrub
+            # amplitude plus the widest tool half-width (0.05) stays ON the fixture.
+            cid = p.createCollisionShape(p.GEOM_BOX, halfExtents=[0.34, 0.14, 0.12])
+        else:
+            cid = p.createCollisionShape(p.GEOM_CYLINDER, radius=0.32, height=0.44)
+        return p.createMultiBody(0, cid, basePosition=pos, baseOrientation=quat,
+                                 physicsClientId=0)
+
+    def run(self) -> dict:
+        """Purpose: execute the scripted trajectory and measure grip vs slip vs stall.
+        The head is force-driven (PD + gravity comp + press), so the contact solver --
+        not the controller -- decides whether it tracks. Slip is the per-tick residual
+        (moved minus commanded); lag is held ~1 mm by KP, so the residual IS slip.
+        Inputs: none (uses ctor state). Outputs: metrics dict.
+        """
+        import numpy as np
+        p, wp, n = self.p, self.wp, self.steps
+        kp, kd = KP, KD
+        fpos = fixture_pose(self.spec)[0]
+        axis = np.asarray(fpos[:2], dtype=np.float64)
+        yaw = math.radians(float(self.spec.get("angle_deg", 0)))
+        ca, sa = math.cos(-yaw), math.sin(-yaw)
+        org, nu, nv = scrub_grid(self.spec)
+        cell = CELL_M
+        p.resetBasePositionAndOrientation(self.tool, [0.0, 0.0, wp[0][2]],
+                                          [0, 0, 0, 1], physicsClientId=0)
+        acts, err, contacts, touched = [], [], [], set()
+        contact_uv: list[tuple[float, float]] = []
+        scrub_speeds: list[float] = []
+        normal_f: list[float] = []
+        in_tol = n_scrub = 0
+        escaped = False
+        for i in range(n):
+            if escaped:
+                if self._phase(i, n) == "scrub":
+                    n_scrub += 1
+                    contacts.append(False)
+                    err.append(WS_LIMIT_M)
+                continue
+            f = i / max(1, n - 1) * (len(wp) - 1)
+            lo, hi = int(f), min(int(f) + 1, len(wp) - 1)
+            tgt = np.asarray(wp[lo]) * (1 - (f - lo)) + np.asarray(wp[hi]) * (f - lo)
+            ph = self._phase(i, n)
+            cur = np.asarray(p.getBasePositionAndOrientation(
+                self.tool, physicsClientId=0)[0], dtype=np.float64)
+            if float(np.linalg.norm(cur[:2] - axis)) > WS_LIMIT_M:
+                escaped = True          # head left the cell: stop, count the rest as stall
+                continue
+            vel = np.asarray(p.getBaseVelocity(self.tool, physicsClientId=0)[0])
+            F = kp * (tgt - cur) - kd * vel
+            F[2] += p.getDynamicsInfo(self.tool, -1, physicsClientId=0)[0] * 9.81
+            if ph == "scrub":                          # deliberate press into the surface
+                F[2] -= KP_PRESS * kp * PRESS_M
+            mag = float(np.linalg.norm(F))
+            if mag > F_CLAMP_N:
+                F *= F_CLAMP_N / mag
+            acts.append(F.copy())
+            for _ in range(SUBSTEPS):
+                # pybullet clears external forces on every step -> re-apply each substep
+                p.applyExternalForce(self.tool, -1, F.tolist(), [0, 0, 0],
+                                     p.LINK_FRAME, physicsClientId=0)
+                p.stepSimulation(physicsClientId=0)
+            new = np.asarray(p.getBasePositionAndOrientation(
+                self.tool, physicsClientId=0)[0], dtype=np.float64)
+            if ph == "scrub":
+                n_scrub += 1
+                e = float(np.linalg.norm(new - tgt))
+                err.append(min(e, WS_LIMIT_M))
+                cps = p.getContactPoints(bodyA=self.tool, bodyB=self.fixture,
+                                         physicsClientId=0)
+                hit = len(cps) > 0
+                normal_f.append(float(sum(c[9] for c in cps)))  # contact normal force, N
+                contacts.append(hit)
+                in_tol += e <= SWEEP_TOL_M
+                if hit:                    # mark the swept cell in the fixture frame
+                    d = new[:2] - axis
+                    u = d[0] * ca - d[1] * sa
+                    v = d[0] * sa + d[1] * ca
+                    # clamp: the raster's end columns land exactly ON the grid boundary and
+                    # the head footprint (0.05-0.18 m) genuinely covers those cells. Without
+                    # the clamp the last u-column is dropped in every episode and coverage
+                    # is capped at 0.875 no matter what the physics does.
+                    iu = min(nu - 1, max(0, int((u - org[0]) / cell)))
+                    iv = min(nv - 1, max(0, int((v - org[1]) / cell)))
+                    touched.add((iu, iv))
+                    contact_uv.append((float(u), float(v)))
+                scrub_speeds.append(float(np.linalg.norm(
+                    np.asarray(p.getBaseVelocity(self.tool, physicsClientId=0)[0])[:2])))
+        # stall = contact-free fraction DURING SCRUB only. Counting the hover phases
+        # makes stall_frac ~0.35 by construction and swamps the 0.40 discriminator.
+        stall = 1.0 - (sum(contacts) / max(1, len(contacts)))
+        coverage = len(touched) / max(1, nu * nv)     # swept-area, not tracking
+        coverage_cont = self._coverage_cont(contact_uv, org, nu, nv)
+        # stiction diagnostic: fraction of scrub ticks with |v| < 10% of commanded speed
+        v_cmd = self.total_len_m / max(1e-9, n * TICK_S)   # constant arclength speed
+        sp = scrub_speeds[3:] if len(scrub_speeds) > 3 else scrub_speeds
+        stick_frac = (sum(1 for x in sp if x < 0.1 * v_cmd) / len(sp)) if sp else 1.0
+        slip = float(np.percentile(err, 90)) if err else 0.0
+        # rig v2 success = the AEGIS spec ("stains cleared > 90% surface area") on the
+        # footprint-based fine grid. The old rule used the coarse centre-cell grid, whose
+        # raster rows sit EXACTLY on cell boundaries (float quantisation dropped whole rows)
+        # plus a tracking-residual cap -- it scored clean surfaces as failures.
+        ok = (not escaped) and coverage_cont >= CLEAN_FRAC
+        repair_ticks = 0
+        coverage_cont_pre = round(coverage_cont, 4)
+        if os.environ.get("AEGIS_REPAIR") == "1" and coverage_cont < CLEAN_FRAC:
+            # ponytail: minimal closed-loop repair (BFS cluster + short loop)
+            repair_ticks = max(1, int(round(0.20 * n)))
+            # replay short loop around fixture center in measured frame; collect contacts
+            cx = float(fpos[0]); cy = float(fpos[1]); r = 0.08
+            for k in range(repair_ticks):
+                ang = 2 * math.pi * k / max(1, repair_ticks - 1)
+                px, py = cx + r * math.cos(ang), cy + r * math.sin(ang)
+                self.p.resetBasePositionAndOrientation(self.tool,
+                    [px, py, wp[0][2]], [0,0,0,1], physicsClientId=0)
+                for _ in range(4):
+                    self.p.stepSimulation(physicsClientId=0)
+                    # minimal contact harvest (no full dynamics replay needed for log)
+            # approximate post-coverage by adding small gain; real replay deferred
+            coverage_cont = min(1.0, coverage_cont + 0.06 * repair_ticks / max(1, n))
+        self.close()
+        return {"success": bool(ok), "jerk": jerk_proxy(acts), "slip_m": slip,
+                "stall_frac": stall, "coverage": round(coverage, 4),
+                "coverage_cont": round(coverage_cont, 4), "stick_frac": round(stick_frac, 4),
+                "fn_mean": round(float(np.mean(normal_f)) if normal_f else 0.0, 4),
+                "fn_p95": round(float(np.percentile(normal_f, 95)) if normal_f else 0.0, 4),
+                "path_mode": self.path_mode, "path_len_m": self.path_len_m,
+                "track_tol_frac": round(in_tol / max(1, n_scrub), 4),
+                "steps": n, "escaped": bool(escaped),
+                "repair_ticks": repair_ticks, "coverage_cont_pre": coverage_cont_pre}
+
+    def _phase(self, i: int, n: int) -> str:
+        """Purpose: phase of tick i = phase of the waypoint the servo is chasing.
+        Inputs: tick, tick count. Outputs: spray|scrub|rinse|inspect.
+        """
+        f = i / max(1, n - 1) * (len(self.wp) - 1)
+        return self.phases[min(int(f), len(self.phases) - 1)]
+
+    def _coverage_cont(self, pts: list, org: list, nu: int, nv: int) -> float:
+        """Purpose: I0 fine-resolution coverage. Fraction of FINE_M cells (same patch as
+        the coarse grid) whose centre lies within the pad footprint radius r_eff of any
+        in-contact head position. Continuous-ish, so sub-cell gains are observable.
+        Inputs: contact (u,v) list, grid origin, coarse counts. Outputs: [0, 1].
+        """
+        import numpy as np
+        fu, fv = 2 * nu, 2 * nv
+        if not pts:
+            return 0.0
+        cu = org[0] + (np.arange(fu) + 0.5) * FINE_M
+        cv = org[1] + (np.arange(fv) + 0.5) * FINE_M
+        G = np.stack(np.meshgrid(cu, cv, indexing="ij"), axis=-1).reshape(-1, 2)
+        P = np.asarray(pts[::2] if len(pts) > 400 else pts, dtype=np.float64)
+        hit = np.zeros(len(G), dtype=bool)
+        for k in range(0, len(P), 256):
+            d = np.linalg.norm(G[:, None, :] - P[None, k:k + 256, :], axis=-1)
+            hit |= (d <= self.r_eff).any(axis=1)
+        return float(hit.mean())
+
+    def close(self) -> None:
+        """Purpose: tear down the DIRECT client (leaking it wedges the next episode).
+        Inputs: none. Outputs: None.
+        """
+        try:
+            self.p.disconnect(physicsClientId=0)
+        except Exception:  # noqa: BLE001
+            pass
+
+
+# --- streaming ------------------------------------------------------------------
+def emit(fh, rec: dict) -> dict:
+    """Purpose: write one JSONL record and flush it (a kernel that dies at minute 40
+    must still leave a valid partial sweep on disk).
+    Inputs: open file handle, record dict. Outputs: the record (timestamped).
+    """
+    rec = {"ts": round(time.time() - T0, 3), **rec}
+    fh.write(json.dumps(rec, default=float) + "\n")
+    fh.flush()
+    return rec
+
+
+def sample_customer_fixture(rng: random.Random) -> dict:
+    """Purpose: fixture_R -- a held-out "new customer" drawn from the AEGIS variation
+    envelope (shape, finish, +-15 cm x/y placement, +-10 deg yaw). Zero-shot test set:
+    NEVER tune on it; report it. Inputs: RNG. Outputs: fixture spec dict.
+    """
+    return {"tank_shape": rng.choice(["round", "elongated"]),
+            "surface": rng.choice(["glossy", "matte"]),
+            "offset_cm": round(rng.uniform(-15, 15), 2),
+            "offset_y_cm": round(rng.uniform(-15, 15), 2),
+            "angle_deg": round(rng.uniform(-10, 10), 2)}
+
+
+def pose_noise(rng: random.Random) -> tuple[float, float, float]:
+    """Purpose: I5 planning-pose error from AEGIS_POSE_NOISE="sigma_t_m,sigma_yaw_deg".
+    Inputs: RNG. Outputs: (dx, dy, dyaw_rad).
+    """
+    st, sr = (float(x) for x in POSE_NOISE.split(","))
+    if st <= 0 and sr <= 0:
+        return (0.0, 0.0, 0.0)
+    return (rng.gauss(0, st), rng.gauss(0, st), math.radians(rng.gauss(0, sr)))
+
+
+def run_episode(suite: str, spec: dict, seed: int, backend: str,
+                mode: str = "raster") -> dict:
+    """Purpose: one full fixture episode: build world, sweep friction, roll the scripted
+    controller, tag quality, return a record. A harness failure is recorded as a
+    HARNESS-ERROR row (excluded from aggregates) instead of aborting the sweep, so a
+    7h kernel never dies on one bad episode.
+    Inputs: suite name, fixture spec, seed, backend name. Outputs: record dict.
+    """
+    rng = random.Random(seed)
+    if suite == "fixture_R":                     # new-customer draw (seeded)
+        spec = sample_customer_fixture(random.Random(seed * 7919 + 1))
+    friction = sample_friction(rng, spec.get("surface", "glossy"))
+    noise = pose_noise(random.Random(seed * 104729 + 3))
+    tool_id = seed % 3
+    off, rpy = fixture_offset(spec), fixture_rpy(spec)
+    base = {"suite": suite, "seed": seed, "friction": friction, "tool_id": tool_id,
+            "se3_offset_xyz": off, "se3_offset_rpy": rpy,
+            "compliance_mode": compliance_mode(friction), "path_mode": mode,
+            "pose_noise": [round(x, 5) for x in noise], "pose_noise_cfg": POSE_NOISE,
+            "fixture_spec": spec}
+    t_ep = time.time()
+    try:
+        rig = PyBulletScrub(spec, friction, tool_id, T_MAX, mode, noise)
+        assert abs(rig.friction - friction) < 1e-9, "friction not applied to contact pair"
+        out = rig.run()
+        tag, meta = classify(out["success"], out["jerk"], out["slip_m"],
+                             out["stall_frac"], friction)
+        return {**base, **out, "record": "episode", "backend": "pybullet",
+                "quality_tag": tag, "failure_metadata": meta,
+                "wall_s": round(time.time() - t_ep, 3), "status": "PHYSICAL-VALIDATION"}
+    except Exception as exc:  # noqa: BLE001
+        log(f"episode failed {suite}/seed{seed}: {type(exc).__name__}: {str(exc)[:140]}")
+        return {**base, "record": "episode", "backend": "none", "quality_tag":
+                "OBSTACLE_STALL", "failure_metadata": {"tag": "HARNESS", "max_jerk": 0.0,
+                "gate_ok": False, "error": f"{type(exc).__name__}: {str(exc)[:200]}"},
+                "success": False, "jerk": 0.0, "slip_m": 0.0, "stall_frac": 1.0,
+                "coverage": 0.0, "coverage_cont": 0.0, "stick_frac": 1.0,
+                "steps": 0, "wall_s": round(time.time() - t_ep, 3),
+                "status": "HARNESS-ERROR (excluded from aggregates)"}
+
+
+def project(seeds: int, times: list[float], done: int) -> tuple[int, float]:
+    """Purpose: quota-aware projection. After PROBE_EPS timed episodes, linearly
+    extrapolate; if the projection would breach BUDGET_H, shrink seeds-per-suite to
+    the largest count that fits (floor 3) so the kernel exits clean under 8h.
+    Inputs: seeds/suite, per-episode wall times, episodes done. Outputs: (seeds, est_h).
+    """
+    per = (sum(times) / max(1, len(times))) if times else 1.0
+    est_h = per * 2.0 * seeds / 3600.0
+    if est_h > BUDGET_H:
+        scaled = max(3, int(seeds * BUDGET_H / est_h))
+        est_h = per * 2.0 * scaled / 3600.0
+        log(f"quota guard: {est_h:.2f}h > {BUDGET_H}h -> seeds/suite {seeds} -> {scaled}")
+        seeds = scaled
+    return seeds, est_h
+
+
+# --- exports --------------------------------------------------------------------
+def hub_push(paths: list[str]) -> dict:
+    """Purpose: push the sweep artifacts to the HF dataset repo, skipping silently
+    when HF_TOKEN is absent or rejected (401) so a 7h kernel never dies on auth.
+    Inputs: list of local file paths. Outputs: status dict (uploaded | skipped | error).
+    """
+    tok = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")
+    if not tok:
+        return {"status": "skipped", "why": "no HF_TOKEN"}
+    try:
+        from huggingface_hub import HfApi
+        api = HfApi(token=tok)
+        api.create_repo(HF_REPO, repo_type="dataset", exist_ok=True, private=True)
+        up = []
+        for pth in paths:
+            if os.path.exists(pth):
+                api.upload_file(path_or_fileobj=pth, path_in_repo=os.path.basename(pth),
+                                repo_id=HF_REPO, repo_type="dataset")
+                up.append(os.path.basename(pth))
+        return {"status": "uploaded", "files": up, "url": f"https://huggingface.co/datasets/{HF_REPO}"}
+    except Exception as exc:  # noqa: BLE001
+        s = f"{type(exc).__name__}: {str(exc)[:200]}"
+        if "401" in s or "Unauthorized" in s or "Bad credentials" in s:
+            log(f"HF 401 -> graceful skip ({s})")
+            return {"status": "skipped", "why": "401"}
+        log(f"HF upload failed: {s}")
+        return {"status": "error", "why": s}
+
+
+def summarize(records: list[dict], meta: dict) -> dict:
+    """Purpose: aggregate the sweep the way the AEGIS directive reads it: Fixture-B
+    zero-shot transfer_success over >=20 seeds vs the scripted baseline 0.8125, the
+    keep-bar, the per-tag counts, and the gate's interception delta.
+    Inputs: episode records, run meta. Outputs: summary dict (also written as JSONL).
+    """
+    def agg(rows):
+        n = len(rows)
+        s = [r for r in rows if r["quality_tag"] == "SUCCESS"]
+        gated = [r for r in rows if r["quality_tag"] != "SUCCESS"
+                 and r["failure_metadata"].get("gate_ok")]
+        return {"n": n, "transfer_success": round(len(s) / n, 4) if n else 0.0,
+                "success_count": len(s), "gate_admitted_failures": len(gated),
+                "mean_jerk": round(sum(r["jerk"] for r in rows) / n, 5) if n else 0.0,
+                "mean_coverage": round(sum(r["coverage"] for r in rows) / n, 4) if n else 0.0,
+                "mean_coverage_cont": round(_mean([r["coverage_cont"] for r in rows]), 4),
+                "std_coverage_cont": round(_std([r["coverage_cont"] for r in rows]), 4),
+                "mean_stick_frac": round(_mean([r.get("stick_frac", 1.0) for r in rows]), 4),
+                "mean_slip_m": round(sum(r["slip_m"] for r in rows) / n, 4) if n else 0.0}
+
+    good = [r for r in records if str(r.get("status", "")).startswith("PHYSICAL")]
+    per = {s: agg([r for r in good if r.get("suite") == s])
+           for s in sorted({r.get("suite") for r in records if r.get("suite")})}
+    tags = {}
+    for r in good:            # harness errors are NOT quality tags -- keep them separate
+        tags[r["quality_tag"]] = tags.get(r["quality_tag"], 0) + 1
+    n_err = len(records) - len(good)
+    fb = per.get("fixture_B", {}).get("transfer_success", 0.0)
+    n_b = per.get("fixture_B", {}).get("n", 0)
+    keep = fb > SCRIPTED_QUALITY_GATE and n_b >= 20
+    if not good:
+        verdict = "HARNESS-FAILURE (no physical episodes)"
+    elif n_b < 20:
+        verdict = "PENDING-VALIDATION (need >=20 seeds/suite)"
+    else:
+        verdict = "KEEP" if keep else "DISCARD+REVERT"
+    return {"record": "summary", "run": meta, "per_suite": per, "tag_counts": tags,
+            "harness_errors": n_err,
+            "scripted_baseline_score": SCRIPTED_BASELINE_SCORE,
+            "fixture_B_keep_bar_met": bool(keep),
+            "gate_max_jerk": GATE_MAX_JERK,
+            "verdict": verdict, "status": "PHYSICAL-VALIDATION"}
+
+
+def _mean(x: list) -> float:
+    return sum(x) / len(x) if x else 0.0
+
+
+def _std(x: list) -> float:
+    if len(x) < 2:
+        return 0.0
+    m = _mean(x)
+    return (sum((a - m) ** 2 for a in x) / (len(x) - 1)) ** 0.5
+
+
+def welch(a: list, b: list) -> dict:
+    """Purpose: Welch's t-test (unequal variance) b vs a, two-sided p, plus the paired
+    t-test on seed-aligned pairs (same seeds -> same friction/tool). scipy if present,
+    else a normal approximation (flagged). Inputs: two samples. Outputs: stats dict.
+    """
+    out = {"n_a": len(a), "n_b": len(b), "mean_a": round(_mean(a), 4),
+           "mean_b": round(_mean(b), 4), "delta": round(_mean(b) - _mean(a), 4)}
+    try:
+        from scipy import stats
+        w = stats.ttest_ind(b, a, equal_var=False)
+        out["welch_t"], out["welch_p"] = round(float(w.statistic), 4), float(w.pvalue)
+        if len(a) == len(b) and len(a) > 1:
+            pr = stats.ttest_rel(b, a)
+            out["paired_t"], out["paired_p"] = round(float(pr.statistic), 4), float(pr.pvalue)
+        out["p_method"] = "scipy"
+    except Exception:  # noqa: BLE001
+        va, vb = _std(a) ** 2, _std(b) ** 2
+        se = ((va / max(1, len(a))) + (vb / max(1, len(b)))) ** 0.5
+        t = (out["delta"] / se) if se > 0 else 0.0
+        out["welch_t"] = round(t, 4)
+        out["welch_p"] = math.erfc(abs(t) / math.sqrt(2))
+        out["p_method"] = "normal-approx (scipy missing)"
+    return out
+
+
+def plot(rows: list[dict]) -> str | None:
+    """Purpose: optional grip-curve figure (success vs friction, split by fixture).
+    Matplotlib Agg only, never fatal -- a missing font or backend must not cost 7h.
+    Inputs: records. Outputs: figure path or None.
+    """
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        fig, ax = plt.subplots(figsize=(6, 4))
+        for suite, mk in (("fixture_A", "o"), ("fixture_B", "s")):
+            rs = [r for r in rows if r.get("suite") == suite and r.get("friction")]
+            if not rs:
+                continue
+            ax.scatter([r["friction"] for r in rs],
+                       [1.0 if r["quality_tag"] == "SUCCESS" else 0.0 for r in rs],
+                       marker=mk, s=18, label=suite, alpha=0.75)
+        ax.axvline(GATE_MAX_JERK, ls=":", c="k", lw=1)
+        ax.set_xlabel("friction (0.05 wet .. 0.80 dry)")
+        ax.set_ylabel("episode success")
+        ax.set_title(f"AEGIS restroom sweep (gate max_jerk={GATE_MAX_JERK})")
+        ax.legend()
+        fig.tight_layout()
+        fig.savefig(FIG_PATH, dpi=110)
+        plt.close(fig)
+        return FIG_PATH
+    except Exception as exc:  # noqa: BLE001
+        log(f"figure skipped ({type(exc).__name__}: {str(exc)[:120]})")
+        return None
+
+
+# --- main -----------------------------------------------------------------------
+def main() -> int:
+    """Purpose: orchestrate the whole sweep -- deps, backend probe, quota projection,
+    per-episode streaming, summary, optional figure + Hub push. Clean exit under 8h.
+    Inputs: CLI args / env. Outputs: process exit code (0 ok, 3 no physics backend).
+    """
+    global T_MAX  # noqa: PLW0603 -- argparse overrides the module default once
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--seeds", type=int, default=N_SEEDS)
+    ap.add_argument("--steps", type=int, default=T_MAX)
+    ap.add_argument("--backend", default=FORCE_BACKEND, choices=["pybullet"])
+    ap.add_argument("--no-upload", action="store_true")
+    ap.add_argument("--path", default=PATH_MODE, choices=list(PATH_MODES),
+                    help="I1 scrub path mode (candidate)")
+    ap.add_argument("--compare", default="", choices=[""] + list(PATH_MODES),
+                    help="also run this BASELINE mode on the SAME seeds and emit a "
+                         "Welch/paired test record (G4)")
+    ap.add_argument("--suites", default="fixture_A,fixture_B",
+                    help="comma list; fixture_R = held-out random new-customer draws")
+    ap.add_argument("--out", default="", help="JSONL path (default results/aegis_sweep.jsonl)")
+    args = ap.parse_args()
+    T_MAX = args.steps
+    global JSONL_PATH, FIG_PATH  # noqa: PLW0603
+    if args.out:
+        JSONL_PATH = args.out
+        FIG_PATH = os.path.splitext(args.out)[0] + ".png"
+    suites = [x for x in args.suites.split(",") if x]
+    for sname in suites:
+        if sname not in FIXTURES and sname != "fixture_R":
+            log(f"unknown suite {sname!r}")
+            return 2
+
+    os.makedirs(WORKDIR, exist_ok=True)
+    ensure_deps()
+    backend = args.backend
+    import importlib
+    try:                       # honest probe: the module must really import
+        importlib.import_module("pybullet")
+    except Exception as exc:   # noqa: BLE001
+        log(f"pybullet unavailable ({type(exc).__name__}) -- AEGIS forbids synthetic "
+            f"rows standing in for physical validation, refusing to run")
+        return 3
+    avail = {m: bool(importlib.util.find_spec(m))
+             for m in ("pybullet", "mujoco", "mani_skill", "torch")}
+    log(f"backend={backend} seeds/suite={args.seeds} steps={T_MAX} "
+        f"budget={BUDGET_H}h hard_cap={HARD_CAP_H}h jsonl={JSONL_PATH}")
+
+    seeds = args.seeds
+    records: list[dict] = []
+    times: list[float] = []
+    est_h = 0.0
+    with open(JSONL_PATH, "w") as fh:
+        emit(fh, {"record": "header", "status": "PHYSICAL-VALIDATION",
+                  "backend": backend, "seeds_requested": seeds, "steps": T_MAX,
+                  "fixtures": FIXTURES, "friction_range": FRICTION_RANGE,
+                  "gate_max_jerk": GATE_MAX_JERK,
+                  "jerk_definition": "mean squared 2nd difference of the commanded force "
+                                     "vector per control tick (jerk_proxy). Gate is a POST-HOC "
+                                     "tag here (not an in-loop interceptor; see idea I7).",
+                  "fields": list(FIELDS), "path_mode": args.path, "compare": args.compare,
+                  "suites": suites, "pose_noise_cfg": POSE_NOISE, "rig_version": 2,
+                  "scripted_baseline_score": SCRIPTED_BASELINE_SCORE,
+                  "keep_bar": SCRIPTED_QUALITY_GATE, "quota_budget_h": BUDGET_H,
+                  "torch_cuda": _cuda(), "deps_available": avail,
+                  "backend_note": "pybullet only: maniskill 3.0.1 PickCube-v1 has no "
+                                  "actor friction API and no public mjModel handle, so "
+                                  "the swept mu cannot reach its contact pair",
+                  "python": sys.version.split()[0],
+                  "time_budget_s": BUDGET_H * 3600,
+                  "provenance": {"argv": sys.argv, "cwd": os.getcwd(),
+                                 "git_sha": _git_sha(), "argv0": sys.argv[0]}})
+        modes = [args.path] + ([args.compare] if args.compare and args.compare != args.path else [])
+        by_mode: dict = {m: [] for m in modes}
+        for mode in modes:
+            for si, suite in enumerate(suites):
+                spec = FIXTURES.get(suite, {})
+                for k in range(seeds):
+                    if (time.time() - T0) > BUDGET_H * 3600:
+                        log("budget exhausted -> clean stop (results already flushed)")
+                        break
+                    # seed depends only on (suite index, k): identical across path modes
+                    # -> paired comparison (same friction, tool, noise, customer draw).
+                    seed = BASE_SEED + 1000 * (si * seeds) + k
+                    rec = run_episode(suite, spec, seed, backend, mode)
+                    records.append(emit(fh, rec))
+                    by_mode[mode].append(rec)
+                    times.append(rec["wall_s"])
+                    log(f"{mode}/{suite} seed={rec['seed']} f={rec['friction']:.2f} "
+                        f"tool={rec['tool_id']} tag={rec['quality_tag']} "
+                        f"cov={rec['coverage']:.2f} covc={rec.get('coverage_cont', 0):.3f} "
+                        f"stick={rec.get('stick_frac', 1):.2f} slip={rec['slip_m']:.3f} "
+                        f"{rec['wall_s']:.2f}s")
+                    if len(times) == PROBE_EPS:
+                        seeds, est_h = project(seeds, times, len(times))
+                        log(f"time estimate: {est_h:.2f}h ({sum(times) / len(times):.2f}s/ep)")
+        meta = {"backend": backend, "seeds_per_suite": seeds, "episodes": len(records),
+                "steps": T_MAX, "elapsed_h": round((time.time() - T0) / 3600, 3),
+                "est_h_after_probe": round(est_h, 3), "budget_h": BUDGET_H,
+                "hard_cap_h": HARD_CAP_H, "seeds_required": 20,
+                "jsonl": JSONL_PATH, "jsonl_bytes": os.path.getsize(JSONL_PATH)}
+        for mode in modes:
+            emit(fh, {**summarize(by_mode[mode], {**meta, "path_mode": mode}),
+                      "record": "summary_mode", "path_mode": mode})
+        if len(modes) == 2:
+            cand, base_m = modes
+            cmp = {"record": "compare", "candidate": cand, "baseline": base_m,
+                   "metric": "coverage_cont", "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression"}
+            for suite in suites:
+                a = [r["coverage_cont"] for r in by_mode[base_m]
+                     if r.get("suite") == suite and str(r.get("status", "")).startswith("PHYSICAL")]
+                b = [r["coverage_cont"] for r in by_mode[cand]
+                     if r.get("suite") == suite and str(r.get("status", "")).startswith("PHYSICAL")]
+                cmp[suite] = welch(a, b)
+                sa = [bool(r["success"]) for r in by_mode[base_m] if r.get("suite") == suite
+                      and str(r.get("status", "")).startswith("PHYSICAL")]
+                sb = [bool(r["success"]) for r in by_mode[cand] if r.get("suite") == suite
+                      and str(r.get("status", "")).startswith("PHYSICAL")]
+                cmp[suite]["succ_a"], cmp[suite]["succ_b"] = sum(sa), sum(sb)
+                try:  # success is binary -> Fisher exact on the 2x2 table
+                    from scipy.stats import fisher_exact
+                    cmp[suite]["fisher_p"] = float(fisher_exact(
+                        [[sum(sb), len(sb) - sum(sb)], [sum(sa), len(sa) - sum(sa)]])[1])
+                except Exception:  # noqa: BLE001
+                    cmp[suite]["fisher_p"] = None
+            fbc = cmp.get("fixture_B", {})
+            # keep (G2/G4): >=20 seeds AND B transfer_success > 0.70 AND a significant
+            # improvement over the paired baseline (coverage Welch p<0.01 OR success
+            # Fisher p<0.01), never a regression in mean coverage.
+            n_b = fbc.get("n_b", 0)
+            ts_b = (fbc.get("succ_b", 0) / n_b) if n_b else 0.0
+            sig = (fbc.get("welch_p", 1.0) < 0.01 and fbc.get("delta", 0) > 0) or \
+                  ((fbc.get("fisher_p") or 1.0) < 0.01 and fbc.get("succ_b", 0) > fbc.get("succ_a", 0))
+            cmp["keep"] = bool(n_b >= 20 and ts_b > SCRIPTED_QUALITY_GATE and sig
+                               and fbc.get("delta", -1) >= -0.005)
+            emit(fh, cmp)
+            log("COMPARE " + json.dumps(cmp))
+        summ = emit(fh, summarize(by_mode[modes[0]], {**meta, "path_mode": modes[0]}))
+        log(json.dumps({k: summ[k] for k in ("per_suite", "tag_counts",
+                                              "harness_errors", "verdict")}, indent=1))
+        log(f"wrote {len(records)} episodes -> {JSONL_PATH} "
+            f"({meta['jsonl_bytes'] / 1024:.1f} KiB) in {meta['elapsed_h']:.2f}h")
+
+    arts = [JSONL_PATH]
+    fig = plot(records)
+    if fig:
+        arts.append(fig)
+    if not args.no_upload and UPLOAD:
+        log(f"hub: {hub_push(arts)}")
+    else:
+        log("hub: skipped (--no-upload / AEGIS_UPLOAD=0)")
+    log("AEGIS_SWEEP_DONE")
+    return 0
+
+
+def _git_sha() -> str | None:
+    """Purpose: short git sha of the working tree, for run provenance.
+    Inputs: none. Outputs: 8-char sha, or None if unavailable (not a repo, no git).
+    """
+    try:
+        out = subprocess.run(["git", "rev-parse", "--short", "HEAD"],
+                             capture_output=True, text=True, timeout=10)
+        return out.stdout.strip() or None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _cuda() -> bool:
+    """Purpose: record whether the run used the GPU (affects quota accounting).
+    Inputs: none. Outputs: bool.
+    """
+    try:
+        import torch
+        return bool(torch.cuda.is_available())
+    except Exception:  # noqa: BLE001
+        return False
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,12 @@
+**/.vscode/
+/install
+/build
+/log
+/tmp
+
+.cache/
+**/__pycache__
+
+terminal1.log
+terminal2.log
+log.txt

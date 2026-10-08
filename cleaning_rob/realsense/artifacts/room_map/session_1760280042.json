@@ -1,0 +1,755 @@
+{
+  "session": {
+    "elapsed_seconds": 10.05938720703125,
+    "map_update_count": 10,
+    "map_updates": [
+      {
+        "timestamp": 1760280032.0376325,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280033.043055,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280034.049437,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280035.0551112,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280036.0620182,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280037.0714383,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280038.0732987,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280039.079569,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280040.0864747,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      },
+      {
+        "timestamp": 1760280041.0917523,
+        "pose": [
+          1.0,
+          2.0,
+          0.5
+        ],
+        "rgb_resolution": [
+          480,
+          640,
+          3
+        ],
+        "depth_resolution": [
+          480,
+          640
+        ]
+      }
+    ],
+    "semantic_events": [
+      {
+        "map_update": {
+          "timestamp": 1760280032.0376325,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280033.043055,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280034.049437,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280035.0551112,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280036.0620182,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280037.0714383,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280038.0732987,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280039.079569,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280040.0864747,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      },
+      {
+        "map_update": {
+          "timestamp": 1760280041.0917523,
+          "pose": [
+            1.0,
+            2.0,
+            0.5
+          ],
+          "rgb_resolution": [
+            480,
+            640,
+            3
+          ],
+          "depth_resolution": [
+            480,
+            640
+          ]
+        },
+        "detections": [
+          {
+            "id": 1,
+            "class": "chair",
+            "3d_pos": [
+              2.1,
+              0.5,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "class": "monitor",
+            "3d_pos": [
+              1.5,
+              1.2,
+              0.8
+            ]
+          }
+        ]
+      }
+    ],
+    "change_events": [],
+    "dynamic_objects": [
+      {
+        "class": "person",
+        "velocity": [
+          0.5,
+          0.0
+        ],
+        "last_seen": 1760280041.0918403
+      }
+    ],
+    "baseline_filename": "initial_scan.pcd"
+  },
+  "map_updates": [
+    {
+      "timestamp": 1760280032.0376325,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280033.043055,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280034.049437,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280035.0551112,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280036.0620182,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280037.0714383,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280038.0732987,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280039.079569,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280040.0864747,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    },
+    {
+      "timestamp": 1760280041.0917523,
+      "pose": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "rgb_resolution": [
+        480,
+        640,
+        3
+      ],
+      "depth_resolution": [
+        480,
+        640
+      ]
+    }
+  ],
+  "change_events": []
+}

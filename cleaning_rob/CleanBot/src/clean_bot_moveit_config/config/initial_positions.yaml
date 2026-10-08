@@ -1,0 +1,8 @@
+initial_positions:
+  shoulder_pan_joint: 0
+  shoulder_lift_joint: 0
+  elbow_joint: 0
+  wrist_yaw_joint: 0
+  wrist_pitch_joint: 0
+  wrist_roll_joint: 0
+  gripper_jaw_joint: 0

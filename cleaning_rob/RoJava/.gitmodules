@@ -1,0 +1,3 @@
+[submodule "src/clean_bot"]
+	path = src/clean_bot
+	url = https://github.com/LeevAI-Devs/clean_bot

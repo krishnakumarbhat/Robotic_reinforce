@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<robot name="clean_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- <xacro:include filename="macros.xacro"/> -->
+
+    <!-- world link -->
+    <link name="world" />
+
+    <!-- geo measures before face simplification
+    barycenter and inertia tensor.
+
+    BASE LINK:
+    Principal axes are :
+    | -0.005182 -0.980204 0.197923 |
+    | 0.999987 -0.005054 0.001153 |
+    | -0.000130 0.197926 0.980217 | 
+    
+    SHOULDER LNK:
+    Principal axes are :
+    | -0.998731 -0.049554 0.008989 |
+    | 0.005133 -0.277721 -0.960648 |
+    | -0.050100 0.959383 -0.277623 |
+
+    UPPER ARM LNK:
+    Principal axes are :
+    | -0.007219 -0.998171 -0.060018 |
+    | 0.999968 -0.007418 0.003097 |
+    | 0.003536 0.059994 -0.998192 |
+    
+    FOREARM LNK:
+    Principal axes are :
+    | -0.998728 -0.049622 0.008973 |
+    | 0.005157 -0.277518 -0.960707 |
+    | -0.050162 0.959438 -0.277421 |
+
+    WRIST PITCH LNK:
+    | -0.007235 -0.998173 -0.059986 |
+    | 0.999968 -0.007434 0.003088 |
+    | 0.003528 0.059962 -0.998194 |
+
+    WRIST ROLL LNK:
+    | -0.998731 -0.049561 0.008985 |
+    | 0.005130 -0.277535 -0.960702 |
+    | -0.050107 0.959436 -0.277437 |
+
+    
+    -->
+
+    <!-- Robot Base/Foundation -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/1.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/1.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.209"></xacro:simple_inertial>
+    </link>
+
+    <!-- Shoulder/Base Rotation Link -->
+    <link name="shoulder_link">
+        <visual>
+            <origin xyz="0.01 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/2.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin xyz="0.01 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/2.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.164"></xacro:simple_inertial>
+    </link>
+
+    <!-- Upper Arm Link -->
+    <link name="upper_arm_link">
+        <visual>
+            <origin xyz="0.022 0 -0.1" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/3.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin xyz="0.022 0 -0.1" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/3.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.194"></xacro:simple_inertial>
+    </link>
+
+    <!-- Forearm Link -->
+    <link name="forearm_link">
+        <visual>
+            <origin xyz="0.0415 0 -0.24" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/4.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin xyz="0.0415 0 -0.24" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/4.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.159"></xacro:simple_inertial>
+    </link>
+
+    <!-- Wrist Pitch Link -->
+    <link name="wrist_pitch_link">
+        <visual>
+            <origin xyz="0.0547 0 -0.278" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/5.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin xyz="0.0547 0 -0.278" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/5.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.199"></xacro:simple_inertial>
+    </link>
+
+    <!-- Wrist Roll Link -->
+    <link name="wrist_roll_link">
+        <visual>
+            <origin xyz="0.075 0 -0.4178" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/6.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin xyz="0.075 0 -0.4178" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/6.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.159"></xacro:simple_inertial>
+    </link>
+
+    <!-- Tool Mount -->
+    <link name="tool_mount_link">
+        <visual>
+            <origin xyz="0.086 -0.001 -0.455" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/7.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin xyz="0.086 -0.001 -0.455" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/7.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.189"></xacro:simple_inertial>
+    </link>
+
+    <link name="gripper_anchor_link" />
+    <link name="gripper_center_link" />
+
+    <!-- Gripper Jaw -->
+    <link name="gripper_jaw_link">
+        <visual>
+            <origin xyz="0.1182 0.0115 -0.455" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/8.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="red" />
+        </visual>
+        <collision>
+            <origin xyz="0.1182 0.0115 -0.455" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://clean_bot/description/meshes/collision/8.stl"
+                    scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+
+        <xacro:simple_inertial mass="0.035"></xacro:simple_inertial>
+    </link>
+
+
+    <!-- Joints -->
+
+    <!-- needed if table is added to simulation - removing for now [ make sure to not keep redundant
+    joint if sim variant is re-added ] -->
+
+    <!-- <xacro:if value="$(arg is_sim)">
+        <joint name="world_joint" type="fixed">
+            <parent link="world" />
+            <child link="base_link" />
+            <origin xyz="0 -0.4 0.75" rpy="0 -1.578 0" />
+        </joint>
+    </xacro:if>
+    <xacro:unless value="$(arg is_sim)">
+        <joint name="world_joint" type="fixed">
+            <parent link="world" />
+            <child link="base_link" />
+            <origin xyz="0 0 0" rpy="0 -1.578 0" />
+        </joint> -->
+
+
+    <!-- world joint -->
+
+    <joint name="world_joint" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
+
+    <!-- Base Shoulder Joint - Main rotation of the arm -->
+    <joint name="shoulder_pan_joint" type="revolute">
+        <parent link="base_link" />
+        <child link="shoulder_link" />
+        <origin xyz="-0.01 0 0.001" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="${shoulder_pan_joint_min}" upper="${shoulder_pan_joint_max}"
+            effort="${effort}"
+            velocity="${velocity}" />
+    </joint>
+
+    <!-- Shoulder to Upper Arm - Vertical arm movement -->
+    <joint name="shoulder_lift_joint" type="revolute">
+        <parent link="shoulder_link" />
+        <child link="upper_arm_link" />
+        <!-- <origin xyz="-0.0145 0 0.1" rpy="0 0 0" /> -->
+        <origin xyz="-0.012 0 0.1" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="${shoulder_lift_joint_min}" upper="${shoulder_lift_joint_max}"
+            effort="${effort}"
+            velocity="${velocity}" />
+    </joint>
+
+    <!-- Elbow Joint - Bend the arm -->
+    <joint name="elbow_joint" type="revolute">
+        <parent link="upper_arm_link" />
+        <child link="forearm_link" />
+        <origin xyz="-0.0195 0 0.14" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="${elbow_joint_min}" upper="${elbow_joint_max}" effort="${effort}"
+            velocity="${velocity}" />
+    </joint>
+
+    <!-- Wrist Yaw Joint - Tool orientation control -->
+    <joint name="wrist_yaw_joint" type="revolute">
+        <parent link="forearm_link" />
+        <child link="wrist_pitch_link" />
+        <origin xyz="-0.0125 0 0.038" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="${wrist_yaw_joint_min}" upper="${wrist_yaw_joint_max}" effort="${effort}"
+            velocity="${velocity}" />
+    </joint>
+
+    <!-- Wrist Pitch Joint - Tool tilt control -->
+    <joint name="wrist_pitch_joint" type="revolute">
+        <parent link="wrist_pitch_link" />
+        <child link="wrist_roll_link" />
+        <origin xyz="-0.019 0 0.14" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="${wrist_pitch_joint_min}" upper="${wrist_pitch_joint_max}" effort="${effort}"
+            velocity="${velocity}" />
+    </joint>
+
+    <!-- Wrist Roll Joint - Tool rotation -->
+    <joint name="wrist_roll_joint" type="revolute">
+        <parent link="wrist_roll_link" />
+        <child link="tool_mount_link" />
+        <origin xyz="-0.0112 0 0.0372" rpy="0 1.57 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="${wrist_roll_joint_min}" upper="${wrist_roll_joint_max}" effort="${effort}"
+            velocity="${velocity}" />
+    </joint>
+
+    <joint name="gripper_anchor_joint" type="fixed">
+        <parent link="tool_mount_link" />
+        <child link="gripper_anchor_link" />
+        <origin xyz="-0.02 0 0" rpy="0 0 0" />
+    </joint>
+
+    <joint name="gripper_center_joint" type="fixed">
+        <parent link="gripper_anchor_link" />
+        <child link="gripper_center_link" />
+        <origin xyz="-0.017 -0.01 0" rpy="0 0 0" />
+    </joint>
+
+    <!-- Wrist Roll Joint - Tool rotation -->
+    <joint name="gripper_jaw_joint" type="revolute">
+        <parent link="gripper_center_link" />
+        <child link="gripper_jaw_link" />
+        <origin xyz="0.004 -0.002 0" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="${gripper_jaw_joint_min}" upper="${gripper_jaw_joint_max}" effort="${effort}"
+            velocity="${velocity}" />
+    </joint>
+
+</robot>

@@ -1,0 +1,56 @@
+% Gated Degradation: Small VLAs That Fail Honestly
+% Skeleton — numbers fill in as runs land. Target: CoRL 2026.
+\documentclass{article}
+\begin{document}
+
+\section*{Title (working)}
+\emph{Graceful Degradation Beats Silent Memorization: Energy-Gated Small
+Vision-Language-Action Policies under Perturbation}
+
+\section*{Claim 1: Standard LIBERO is saturated AND misleading}
+Standard LIBERO: pi0.5 96.85\%, GR00T-N1.7 97.0\% (3B, paper-scale budgets).
+LIBERO-PRO (May 2026): all SOTA collapse to $\approx$0\% under
+position/instruction perturbations. Benchmark memorization, not competence.
+
+\section*{Claim 2: Single-run LIBERO numbers are lottery tickets}
+OUR measurement (SmolVLA-450M fine-tuned, 15k steps, local RTX 3050):
+same task + same seed $\to$ 3/6 successes across 6 repetitions.
+Three full 30-episode sweeps, identical seeds: 7/30, 8/30, 0/30-manual-loop.
+Success flips run-to-run (unseeded flow-matching sampling + GPU nondeterminism).
+Implication: report distributions, never single runs.
+
+\section*{Claim 3: Action jerk predicts failure (dense signal where LIBERO is sparse)}
+LIBERO reward is binary; failed episodes show competent reach-grasp-lift
+with reward 0 throughout. Command-jitter energy separates outcomes:
+\begin{itemize}
+\item successes: mean jerk $0.155\pm0.025$, max jerk $0.651\pm0.168$
+\item failures: mean jerk $0.180\pm0.045$, max jerk $0.980\pm0.263$
+\item veto rule max\_jerk$>0.618$: precision 0.84, recall 1.00, F1 0.91 (n=30)
+\item validation on held-out seeds: PENDING (seed-8000 run)
+\end{itemize}
+Combined with a scripted fallback that never scores 0 (measured adapt gap
+$-0.125$ under novelty where learned policies score 0.06), the gated system
+has higher expected real-world success than a 0.97$\to$0.0 collapser.
+
+\section*{Claim 4: Efficiency axis (uncontested)}
+450M params, 950MB working set, 1.8ms/call on a 4GB laptop GPU;
+post-train at 1.79GB VRAM for $\approx$\$0.50/run. pi0.5 needs 22.5GB LoRA
+floor; GR00T 40GB; Gemini closed. Reward curve: base 0.060 $\to$ 0.26 (20k)
+$\to$ 0.368 (15k$\times$b8) on PushT; LIBERO-spatial 35\% probe, 23.3\%
+screening at $\sim$3\% of paper sample budget.
+
+\section*{Results tables TODO}
+\begin{itemize}
+\item Table 1: standard LIBERO (ours vs pi05\_libero vs GR00T-N1.7-LIBERO)
+\item Table 2: LIBERO-PRO perturbations (the actual bet)
+\item Table 3: run-variance (reps per task, same seeds)
+\item Table 4: gate precision/recall + seed-generalization
+\item Table 5: efficiency (params/VRAM/latency/\$)
+\end{itemize}
+
+\section*{Honest limitations}
+N71 90.3 synthetic never confirmed on real physics. OpenVLA-7B preset
+reports 901M params (identity unconfirmed). Full-protocol 100-ep evals need
+paid tier ($\sim$15h/suite). Real-hand runs blocked on hardware.
+
+\end{document}

@@ -84,3 +84,23 @@ maniskill_suite/experiments/*/videos/
 # Upstream lerobot clone (pristine huggingface/lerobot, re-clone via git) + local venv
 lerobot_rl/lerobot/
 lerobot_rl/.venv/
+connect_gpu/usage.log
+connect_gpu/usage_*.out
+paper1/*.pdf
+
+# push hygiene: no LFS, nothing >=99MB, no caches/snapshots (added 2026-10-08)
+.opencode-snapshot-a164/
+graphify-out/
+connect_gpu/outputs/smolvla_out/
+lerobot_rl/lerobot/
+lerobot_rl/.venv/
+*.safetensors
+*.safetensor
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pkl
+*.bin
+*.ckpt
+cleaning_rob/lerobot-configured/tests/artifacts/

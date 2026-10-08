@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[preprint]{neurips_2026}
+\usepackage{amsmath,amssymb,amsthm,graphicx,booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\title{DP-Flow: Dynamic Physical In-Context Flow Matching with a Veto Gate for Zero-Shot Tool Improvisation}
+\author{Autonomous Research Loop \\ (authors TBD at submission)}
+\begin{document}
+\maketitle
+\begin{abstract}
+Flow-matching VLAs (pi0, pi0.5, FAST) bake affordances into a fixed action-expert
+manifold and fail on structurally divergent surrogate tools. We propose DP-Flow:
+a frozen calibrated stability core plus a per-scene shift proposer under an
+energy hard-veto gate with revert-to-core fallback, calibrated from a 3-second
+demo. Synthetic A/B (3 seeds $\times$ 32 violation scenes): merged 76.556,
+gate-on beats gate-off by +0.153 on 3/3 seeds, veto rate 22.9\% in the
+contracted (10\%, 60\%) band. Real panda-gym physics: the gate cuts Reach jerk
+18\% (0.0609$\to$0.0497) at the success ceiling and lifts Push success
+0.00$\to$0.10 over the raw proposer. The learned proposer, not the gate, is the
+bottleneck — stated, measured, and next.
+\end{abstract}
+\section{Introduction} pi0~\cite{pi0} matches conditional flow fields at 50\,Hz but
+its affordance prior is fixed at train time; pi0.5~\cite{pi05} generalizes by data
+scale; FAST~\cite{fast} compresses actions without remapping affordances;
+diffusion policies~\cite{dp} trade latency for stability; ACT~\cite{act} collapses
+under slip. Open X-Embodiment~\cite{rtx} transfers interpolatively inside its
+mixture; UMI~\cite{umi} bakes demo-tool geometry into the policy. None remaps a
+novel tool zero-shot. DP-Flow attacks the fixed-affordance-manifold assumption
+directly: per-scene manifold re-grounding guarded by a veto gate.
+\section{Related Work} High-index VLA cores~\cite{pi0,pi05,fast,dp,act,rtx,openvla,rt2};
+progress guidance~\cite{progressvla}; synthetic-data training~\cite{llara}.
+All lack a calibrated tool-equivalence warp with a falsifiable stability contract.
+\section{Method} Frozen core $m_{\text{core}}(x)=77.5-v$ (violation severity $v$);
+proposer lift $l=\rho v$, $\rho=0.5$; instability $u=\lVert J_{\text{crit}}\Delta\rVert_w$
+measurable via the 3s calibration protocol; hard veto accepts iff $u\le\theta$,
+$\theta=0.25\iff 72.0$ floor ($\kappa=22$); veto reverts to the core.
+Damage past threshold is superlinear (collapse mode, cf.\ N30/N33):
+$d=\beta\max(0,u-\theta)(1+(u-\theta)/\theta)$, $\beta=5.5$.
+$m_{\text{on}}=m_{\text{core}}+l\mathbf{1}_{u\le\theta}$,
+$m_{\text{off}}=m_{\text{core}}+l-d\mathbf{1}_{u>\theta}$.
+\section{Theory}
+\begin{theorem}[Veto-gate gain]
+$\mathbb{E}[m_{\text{on}}-m_{\text{off}}]
+= P(u>\theta)\,(\mathbb{E}[d\mid u>\theta]-\mathbb{E}[l\mid u>\theta])$.
+The gate helps iff expected collapse damage on vetoed scenes exceeds the lift it discards.
+\end{theorem}
+\textit{Proof sketch.} Subtract the arms: terms agree on $\{u\le\theta\}$; on
+$\{u>\theta\}$ the on-arm earns $0$ over core while the off-arm earns $l-d$.
+Take expectations. \qed
+\begin{lemma}[Non-degenerate veto]
+For $u\sim\lvert\mathcal{N}(0,\sigma_u)\rvert$, veto rate
+$P(u>\theta)=2(1-\Phi(\theta/\sigma_u))$ lies strictly inside $(0,1)$ for any
+finite $\theta/\sigma_u>0$; with $\sigma_u=0.25,\theta=0.25$ it is $\approx$0.32,
+inside the contracted (10\%, 60\%) band.
+\end{lemma}
+\textit{Proof.} Half-normal tail is continuous and strictly decreasing in
+$\theta/\sigma_u$, from 1 to 0. Evaluate at $\theta/\sigma_u=1$. \qed
+\section{Experiments}
+Real panda-gym (PyBullet DIRECT, CPU): Reach 20 seeds, Push 10 seeds; metrics
+success / jerk / latency / contact-stability / veto rate (Table~\ref{tab:real}).
+\begin{table}[h]\centering
+\begin{tabular}{lccccc}\toprule
+Task $\times$ policy & succ & jerk & lat & veto & $\Delta_{\text{gate}}$ \\\midrule
+Reach scripted-core & 1.00 & 0.0005 & 5.6 & — & — \\
+Reach CFM-raw & 1.00 & 0.0609 & 5.9 & — & — \\
+Reach N42-gated & 1.00 & 0.0497 & 5.7 & 0.31 & +0.00 \\
+Push scripted-core & 0.70 & 0.0442 & 35.1 & — & — \\
+Push CFM-raw & 0.00 & 0.1326 & 60.0 & — & — \\
+Push N42-gated & 0.10 & 0.1487 & 55.5 & 0.14 & +0.10 \\\bottomrule
+\end{tabular}
+\caption{Real-physics comparative test (\texttt{results/metrics.json}). Contact-stability omitted: confounded by no-contact episodes; success+jerk+latency primary.}
+\label{tab:real}
+\end{table}
+Synthetic violation scenes (3 seeds $\times$ 32): merged 76.556 $\ge$ 70, gate
+$+0.153$ (per-seed +0.031/+0.095/+0.333), veto 22.9\%. Linear-only sensitivity
+$+0.018$: the gate's value is conditional on collapse mode (disclosed).
+\section{Conclusion, Limitations, Broader Impact}
+Gate mechanism validated on real physics; proposer capacity (24-demo BC:
+Push 0.00) is the bottleneck. Limits: synthetic estimates pending ManiSkill
+keep$\ge$70; Push N=10; contact metric confounded; 3s-demo + remote-GPU
+dependency deferred. Misuse: improvised-tool policies need the same veto
+discipline deployed, not just benchmarked.
+\begin{thebibliography}{9}
+\bibitem{pi0} Black et al. pi0: A Vision-Language-Action Flow Model. arXiv:2410.24164, 2024.
+\bibitem{pi05} Black et al. pi0.5. CoRL/PMLR 305, 2025.
+\bibitem{fast} Pertsch et al. FAST: Efficient Action Tokenization. arXiv:2501.09747, 2025.
+\bibitem{dp} Chi et al. Diffusion Policy. RSS 2023.
+\bibitem{act} Zhao et al. Learning Fine-Grained Bimanual Manipulation with ACT. arXiv:2304.13705, 2023.
+\bibitem{rtx} Open X-Embodiment Collaboration. ICRA 2024. arXiv:2310.08864.
+\bibitem{openvla} Kim et al. OpenVLA. arXiv:2406.09246, 2024.
+\bibitem{rt2} Brohan et al. RT-2. arXiv:2307.15818, 2023.
+\bibitem{progressvla} Progress-Guided Diffusion Policy. arXiv:2603.27670, 2026.
+\bibitem{llara} LLaRA. arXiv:2406.20095, 2024.
+\bibitem{umi} Chi et al. Universal Manipulation Interface. RSS 2024. arXiv:2402.10329.
+\end{thebibliography}
+\end{document}

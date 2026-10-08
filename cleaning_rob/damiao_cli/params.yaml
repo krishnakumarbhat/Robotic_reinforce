@@ -1,0 +1,130 @@
+# Control-tuning parameters for MotorBus (motor.py).
+# Loaded on MotorBus init; edit here instead of the library source.
+#
+# Gains are keyed by motor MODEL, because they depend on the gearbox. Reflected
+# inertia at the output scales with the reduction ratio squared, so the 10:1
+# J4310 sees ~16x less than the 40:1 J4340 -- identical gains on both leave one
+# of them badly underdamped. The model is detected automatically from the
+# PMAX/VMAX/TMAX the motor reports (see `limits` below), so adding a motor is
+# just adding a block here.
+#
+# Check what a given motor resolved to with:  python run.py limits 0x01
+
+limits:
+  auto_read: true   # read PMAX/VMAX/TMAX (RID 21/22/23) off each motor at init.
+                    # Set false only if the register read is unsupported; then
+                    # the per-model `limits:` below are used with `motors:`.
+
+defaults:           # applied to any model without an override in `models:`
+  move:
+    kp: 10.0        # position stiffness during moves
+    kd: 3.5         # velocity damping (MIT protocol max: 5.0, never 0)
+    torque_ff: 0.0  # Nm feedforward during moves
+    velocity: 1.57  # rad/s default cruise speed / pos_vel limit
+    accel: 3.14     # rad/s^2 accel/decel for S-curve profile (ramp = velocity/accel)
+  hold:
+    kp: 20.0
+    kd: 3.5
+  bilateral:        # virtual spring/damper coupling two motors (scripts/bilateral.py)
+    kp: 5.0         # coupling stiffness: how hard the pair pulls back to equilibrium
+    kd: 2.0         # coupling damping, on the *relative* velocity of the two
+    leader:         # gains for the motor being driven by hand (--leader)
+      kp: 5.0       # same spring -- force reflection is unchanged
+      kd: 0.6       # much less drag: kd fights the follower's velocity lag
+  settle:           # end-of-move convergence. A PD law only makes torque from
+                    # error, so a loaded joint parks at target - load/kp and stays
+                    # there however the trajectory is shaped. This walks a
+                    # feedforward torque up until it carries the load, putting the
+                    # equilibrium ON the target. Runs after the profile finishes,
+                    # including after the stall guard fires -- above
+                    # kp_move*stop_thresh of load the droop alone exceeds the
+                    # arrival tolerance, so a loaded joint always stalls short.
+    enabled: true
+    ki: 50.0        # Nm per rad-second. Higher converges sooner but rings.
+    ff_max: 3.0     # Nm ceiling on the learned feedforward. Set it a little above
+                    # the heaviest static load this joint carries -- it doubles as
+                    # the give-up threshold (see below), so oversizing it means a
+                    # jammed joint pushes harder for longer before relaxing.
+    max_err_deg: 5.0  # commanded position is clamped to within this of the measured
+                    # one, so the kp term can never exceed kp_hold*max_err no matter
+                    # how far off target the joint is. Without it a joint jammed
+                    # 45 deg short takes the full TMAX (28 Nm, simulated) instead
+                    # of ~9. Same saturating-spring trick as scripts/bilateral.py.
+    tol_deg: 0.1    # arrival tolerance for the settle (tighter than guards.stop_thresh)
+    vel_thresh: 0.05  # rad/s below which the joint counts as at rest
+    max_secs: 1.5   # cap on the settle window; heavy joints use most of it
+    stall_secs: 0.3 # give up this long after the feedforward hits its ceiling and
+                    # still buys no progress -> mechanical stop, relax and report.
+                    # Gated on the ceiling, not on "no progress" alone: a genuinely
+                    # heavy joint needs a big feedforward and takes time to build
+                    # it, so the looser test false-fires on the very loads this is
+                    # here to fix.
+  guards:           # stop a move that can't reach target (mechanical limit / load)
+    stop_thresh_deg: 1.0    # arrival tolerance
+    stall_thresh_deg: 0.2   # min progress to still count as moving
+    stall_secs: 0.4         # no-progress timeout -> accept & continue
+    move_timeout: 8.0       # hard cap per move (s)
+
+models:
+  # DM-J4340-2EC — 40:1, rated 9 Nm / peak 27 Nm, ~36 rpm.
+  # Long-standing tuning for this motor; leave alone unless retesting it.
+  DM4340:
+    limits: {p_max: 12.5, v_max: 8.0, t_max: 28.0}
+    move:
+      kp: 80.0
+      kd: 2.5
+    hold:
+      kp: 90.0
+      kd: 3.5
+    settle:
+      ff_max: 7.0   # 40:1 output; carries a lot more static load than the J4310
+    # Much softer than hold: at kp=40 the 40:1 gearbox is barely backdrivable by
+    # hand, which is the whole point of the coupling test. kp=8 gives ~1.4 Nm at
+    # 10 deg of coupling error -- clearly felt, still easy to push through.
+    bilateral:
+      kp: 12.0
+      kd: 3.0
+      leader:       # only used when --leader names this motor
+        kp: 12.0
+        kd: 0.9
+
+  # DM-J4310-2EC V1.1 — 10:1, rated 3 Nm / peak 7 Nm, 120 rpm rated.
+  # ~16x lower reflected inertia than the J4340, so kp scales down by roughly
+  # the same factor to keep the closed-loop natural frequency sane. kp=45 here
+  # would saturate the 7 Nm peak at only ~9 deg of error (bang-bang -> buzz).
+  # Starting point: raise kp until it stiffens without ringing, then raise kd
+  # just enough to kill the overshoot.
+  DM4310:
+    limits: {p_max: 12.5, v_max: 30.0, t_max: 10.0}
+    move:
+      kp: 4.0
+      kd: 1.0
+    hold:
+      kp: 5.0
+      kd: 1.0
+    settle:
+      ff_max: 2.5   # 10:1, TMAX 10 Nm -- keep the ceiling well under it
+    # 10:1, so it is already easy to backdrive -- coupling gains sit close to the
+    # hold gains here. Two coupled compliant motors can ring against each other,
+    # so tune the pair together: raise kp until equilibrium feels crisp, then
+    # raise kd just enough to kill the ringing. Start low on both.
+    bilateral:
+      kp: 5.0
+      kd: 2.0
+      # Leader gains: same spring, ~30% of the damping. kd acts on the pair's
+      # *relative* velocity, so both motors' kd terms damp the same coordinate --
+      # the follower's kd anchors the pair and the leader's share can drop a long
+      # way before the two ring. Tune: lower kd until the leader stops feeling
+      # viscous; if the pair rings on release, raise the FOLLOWER's kd first.
+      leader:
+        kp: 5.0
+        kd: 0.6
+
+motors:             # pin a model to a CAN ID. A pin OVERRIDES auto-detection:
+                    # identify() matches on VMAX/TMAX, so a unit whose VMAX was
+                    # reconfigured in Damiao's Debug Assistant lands on another
+                    # variant's row and is named wrongly with full confidence.
+                    # Only gain selection is affected -- MIT scaling always comes
+                    # from the limits read off the motor itself.
+  # 0x01: DM4340      # 24V unit; registers read VMAX 10 / TMAX 28 -> "DM4340_48"
+  # 0x04: DM4310      # 24V unit; registers read VMAX 50 / TMAX 10 -> "DM4310_48"

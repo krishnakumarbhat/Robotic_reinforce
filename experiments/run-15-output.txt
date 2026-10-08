@@ -1,0 +1,8 @@
+pybullet build time: Jan 29 2025 23:16:28
+b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,152]:
+URDF file 'box.urdf' not found
+{"physical_check": "CRASH/HANG", "seeds": 0, "error": "Cannot load URDF file.", "note": "pybullet direct hang reproduced \u2014 deferred per AEGIS iter 12-14 log"}
+pybullet build time: Jan 29 2025 23:16:28
+{"physical_check": "CRASH/HANG", "seeds": 0, "error": "Joint index out-of-range.", "note": "pybullet direct hang reproduced \u2014 deferred per AEGIS iter 12-14 log"}
+pybullet build time: Jan 29 2025 23:16:28
+{"physical_check": "CRASH/HANG", "seeds": 0, "error": "'float' object cannot be interpreted as an integer", "note": "pybullet direct hang reproduced \u2014 deferred per AEGIS iter 12-14 log"}

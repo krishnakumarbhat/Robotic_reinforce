@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="plain">
+    <physics name="default" type="ode">
+      <max_step_size>0.05</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <include>
+      <uri>model://Sun</uri>
+    </include>
+    <include>
+      <uri>model://Ground Plane</uri>
+    </include>
+    <!-- <include>
+      <uri>
+         https://fuel.gazebosim.org/1.0/OpenRobotics/models/Cafe table
+      </uri>
+    </include> -->
+    <!-- <include>
+      <uri>model://box_obstacle</uri>
+      <pose>0.5 0.25 0.5 0 0 0</pose>
+    </include> -->
+
+    <!-- Cup object for MTC pick-and-place task -->
+    <include>
+      <uri>model://cup</uri>
+      <pose>-0.3 0.0 0.033 0 0 0</pose>
+    </include>
+  </world>
+</sdf>

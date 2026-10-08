@@ -1,0 +1,141 @@
+/* Blog Post Page Styles */
+
+.post-hero {
+    margin-top: 80px;
+    height: 50vh;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-content {
+    padding: 4rem 0;
+}
+
+.post-article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.post-meta .date {
+    color: var(--color-text-muted);
+}
+
+.post-meta .category {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+.post-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+}
+
+.post-subtitle {
+    font-size: 1.3rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.post-content {
+    line-height: 1.8;
+    color: var(--color-text-muted);
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.post-content h2 {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin: 2.5rem 0 1.5rem 0;
+    font-weight: 600;
+}
+
+.post-content ul {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.post-content strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.post-navigation {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-card-bg);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-accent);
+    font-weight: 500;
+    transition: color var(--transition-base);
+}
+
+.back-link:hover {
+    color: #00ccdd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .post-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .main-content {
+        padding: 2rem 0;
+    }
+    
+    .post-content p,
+    .post-content li {
+        font-size: 1rem;
+    }
+    
+    .post-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-hero {
+        height: 30vh;
+        min-height: 250px;
+    }
+    
+    .post-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .post-content {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,19 @@
+[project]
+name = "damiao-cli"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "canalystii>=0.1",
+    "python-can>=4.6.1",
+    "pyusb>=1.3.1",
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+damiao-cli = "damiao_cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"

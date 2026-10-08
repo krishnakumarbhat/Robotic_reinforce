@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Inertial macros -->
+
+  <xacro:macro name="simple_inertial" params="mass">
+    <inertial>
+      <mass value="${mass}" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0" />
+    </inertial>
+  </xacro:macro>
+
+  <!-- Simulation joint macro -->
+  <xacro:macro name="sim_joint" params="name min_val max_val">
+    <joint name="${name}">
+      <command_interface name="position">
+        <param name="min">${min_val}</param>
+        <param name="max">${max_val}</param>
+      </command_interface>
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </xacro:macro>
+
+  <!-- Real joint macro -->
+  <xacro:macro name="real_joint"
+    params="name id use_offset=true offset=0 drive_mode=false start_position=0 end_position=0">
+    <joint name="${name}">
+      <param name="id">${id}</param>
+      <param name="use_offset">${use_offset}</param>
+      <param name="offset">${offset}</param>
+      <param name="drive_mode">${drive_mode}</param>
+      <param name="start_position">${start_position}</param>
+      <param name="end_position">${end_position}</param>
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </xacro:macro>
+</robot>

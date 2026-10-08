@@ -1,0 +1,28 @@
+homing_offset:
+  elbow_joint: 1024
+  shoulder_lift_joint: 1024
+  shoulder_pan_joint: 1024
+  wrist_pitch_joint: 1024
+  wrist_roll_joint: 1024
+  wrist_yaw_joint: 1024
+start_position:
+  elbow_joint: 2379
+  shoulder_lift_joint: 762
+  shoulder_pan_joint: 961
+  wrist_pitch_joint: 3544
+  wrist_roll_joint: 3560
+  wrist_yaw_joint: 1295
+end_position:
+  elbow_joint: 0
+  shoulder_lift_joint: 0
+  shoulder_pan_joint: 0
+  wrist_pitch_joint: 0
+  wrist_roll_joint: 0
+  wrist_yaw_joint: 0
+drive_mode:
+  elbow_joint: -1
+  shoulder_lift_joint: -1
+  shoulder_pan_joint: -1
+  wrist_pitch_joint: -1
+  wrist_roll_joint: -1
+  wrist_yaw_joint: -1

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  slam-app:
+    build: .
+    container_name: slam-robot-orchestrator
+    privileged: true  # Required for USB device access
+    network_mode: host  # Required for ROS2 communication
+    environment:
+      - DISPLAY=${DISPLAY}
+      - ROS_DOMAIN_ID=0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # X11 forwarding for GUI
+      - /dev:/dev:rw  # Device access for RealSense camera
+      - ./data:/workspace/data  # Persistent data storage
+      - ~/.ros:/root/.ros  # ROS configuration and maps
+    devices:
+      - /dev/bus/usb:/dev/bus/usb  # USB device access
+      - /dev/video0:/dev/video0  # Video device access
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+  # Optional: RViz2 service for visualization
+  rviz:
+    build: .
+    container_name: slam-rviz
+    privileged: true
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - ROS_DOMAIN_ID=0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    command: ["rviz2"]
+    depends_on:
+      - slam-app
+    profiles:
+      - gui 

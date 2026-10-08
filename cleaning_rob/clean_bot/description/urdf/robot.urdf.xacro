@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="clean_bot">
+    <xacro:property name="port" value="/dev/ttyACM0" />
+    <xacro:arg name="is_sim" default="true" />
+    <xacro:arg name="is_calib" default="false" />
+    <xacro:arg name="is_mock" default="false" />
+
+    <xacro:include filename="colors.xacro" />
+    <xacro:include filename="props.xacro" />
+    <xacro:include filename="macros.xacro" />
+
+    <!-- include gazebo controls only in simulation -->
+    <xacro:if value="$(arg is_sim)">
+        <xacro:include filename="gazebo.xacro" />
+    </xacro:if>
+
+    <xacro:include filename="control.xacro" />
+
+    <xacro:include filename="robot_core.xacro" />
+
+</robot>

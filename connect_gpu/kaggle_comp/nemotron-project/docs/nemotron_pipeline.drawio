@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" modified="2026-04-05T00:00:00.000Z" agent="GitHub Copilot" version="24.7.17" type="device">
+  <diagram id="nemotron-pipeline" name="Nemotron Pipeline">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Nemotron GPU Kaggle Pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="520" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bootstrap" value="1. Bootstrap Cell&#xa;- Kaggle-only guard&#xa;- Install only missing core Python packages&#xa;- Prefer local wheels for runtime deps&#xa;- Fall back to GitHub release URLs when Internet is available&#xa;- Set allocator: expandable_segments" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime" value="2. RuntimeManager&#xa;- Detect GPU count and names&#xa;- Reject pre-sm_70 GPUs&#xa;- Compute per-device memory budgets&#xa;- Snapshot allocated/reserved VRAM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="360" y="100" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="variant" value="3. RunVariant Selection&#xa;- gpu_fast / gpu_balanced / gpu_accuracy&#xa;- T4 aliases retained for compatibility&#xa;- RTX Pro 6000 aliases map to the same plans&#xa;Each variant tunes LoRA rank, stage count, seq length, and headroom" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="290" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="data" value="4. SupervisedDataBuilder&#xa;- Resolve competition + GSM8K dataset dirs&#xa;- Discover CSV/JSON/Parquet tables&#xa;- Infer question/answer columns&#xa;- Build train/valid pools&#xa;- Sample per-stage source mix" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="100" width="290" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="modelFactory" value="5. NemotronModelFactory&#xa;- Load tokenizer&#xa;- Decide load mode: full precision or 4-bit&#xa;- Use 4-bit only when bitsandbytes exists or a small GPU needs it&#xa;- Prepare AutoConfig(use_cache=False)&#xa;- Narrow LoRA target modules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="360" y="320" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="planA" value="Plan A: Full Precision / bf16&#xa;device_map=auto&#xa;max_memory={gpu...}&#xa;Goal: use large GPUs directly (RTX Pro 6000 / A100)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="720" y="300" width="230" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="planB" value="Plan B: 4-bit or CPU Offload Fallback&#xa;- install/use bitsandbytes when available&#xa;- offload_folder + offload_state_dict&#xa;- fallback for smaller GPUs or tighter memory" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="720" y="410" width="230" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="decision" value="OOM during load?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="350" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="trainer" value="6. Training Orchestrator&#xa;- For each stage:&#xa;  sample source mix&#xa;  tokenize with masked prompt labels&#xa;  Trainer + paged_adamw_8bit&#xa;  gradient accumulation for effective batch&#xa;  clear cache after each stage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="320" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="stages" value="Stage Strategy&#xa;Warmup: more auxiliary reasoning rows&#xa;Mixed: competition + auxiliary blend&#xa;Focus: mostly competition rows for final alignment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="510" width="320" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="preview" value="7. Validation Preview&#xa;- Generate on held-out rows&#xa;- Extract boxed answers&#xa;- Numeric-tolerant comparison&#xa;- Save preview_predictions.csv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="560" y="570" width="260" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="package" value="8. Packaging&#xa;- save_pretrained(adapter)&#xa;- persist tokenizer&#xa;- write training_summary.json&#xa;- zip adapter files into submission.zip" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="900" y="570" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="goal" value="Outcome&#xa;Avoid brittle online installs, support large-GPU full-precision LoRA, keep 4-bit as an optional small-GPU path, and keep notebook cell boundaries clean." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="700" width="360" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="bootstrap" target="runtime">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="runtime" target="variant">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="variant" target="data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="runtime" target="modelFactory">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="try first" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="modelFactory" target="planA">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="planA" target="decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="decision" target="planB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="decision" target="trainer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="planB" target="trainer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="data" target="trainer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="trainer" target="stages">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="trainer" target="preview">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="preview" target="package">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="package" target="goal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

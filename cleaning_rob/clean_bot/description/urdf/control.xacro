@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot name="clean_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <ros2_control name="RobotSystem" type="system">
+
+    <xacro:if value="$(arg is_mock)">
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+      </hardware>
+
+      <!-- arm action group -->
+      <xacro:sim_joint name="shoulder_pan_joint" min_val="${shoulder_pan_joint_min}"
+        max_val="${shoulder_pan_joint_max}" />
+      <xacro:sim_joint name="shoulder_lift_joint" min_val="${shoulder_lift_joint_min}"
+        max_val="${shoulder_lift_joint_max}" />
+      <xacro:sim_joint name="elbow_joint" min_val="${elbow_joint_min}"
+        max_val="${elbow_joint_max}" />
+      <xacro:sim_joint name="wrist_yaw_joint" min_val="${wrist_yaw_joint_min}"
+        max_val="${wrist_yaw_joint_max}" />
+      <xacro:sim_joint name="wrist_pitch_joint" min_val="${wrist_pitch_joint_min}"
+        max_val="${wrist_pitch_joint_max}" />
+      <xacro:sim_joint name="wrist_roll_joint" min_val="${wrist_roll_joint_min}"
+        max_val="${wrist_roll_joint_max}" />
+
+      <!-- gripper action group -->
+      <xacro:sim_joint name="gripper_jaw_joint" min_val="${gripper_jaw_joint_min}"
+        max_val="${gripper_jaw_joint_max}" />
+    </xacro:if>
+    <xacro:unless value="$(arg is_mock)">
+
+      <!-- Simulation -->
+      <xacro:if value="$(arg is_sim)">
+        <hardware>
+          <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+
+        <!-- arm action group -->
+        <xacro:sim_joint name="shoulder_pan_joint" min_val="${shoulder_pan_joint_min}"
+          max_val="${shoulder_pan_joint_max}" />
+        <xacro:sim_joint name="shoulder_lift_joint" min_val="${shoulder_lift_joint_min}"
+          max_val="${shoulder_lift_joint_max}" />
+        <xacro:sim_joint name="elbow_joint" min_val="${elbow_joint_min}"
+          max_val="${elbow_joint_max}" />
+        <xacro:sim_joint name="wrist_yaw_joint" min_val="${wrist_yaw_joint_min}"
+          max_val="${wrist_yaw_joint_max}" />
+        <xacro:sim_joint name="wrist_pitch_joint" min_val="${wrist_pitch_joint_min}"
+          max_val="${wrist_pitch_joint_max}" />
+        <xacro:sim_joint name="wrist_roll_joint" min_val="${wrist_roll_joint_min}"
+          max_val="${wrist_roll_joint_max}" />
+
+        <!-- gripper action group -->
+        <xacro:sim_joint name="gripper_jaw_joint" min_val="${gripper_jaw_joint_min}"
+          max_val="${gripper_jaw_joint_max}" />
+      </xacro:if>
+
+      <!-- gripper configs yet to be setup for hardware. Will break upon controller initialization -->
+
+      <!-- Real hardware -->
+      <xacro:unless value="$(arg is_sim)">
+        <xacro:if value="$(arg is_calib)">
+          <hardware>
+            <plugin>feetech_ros2_driver/FeetechHardwareInterface</plugin>
+            <param name="usb_port">${port}</param>
+            <param name="disable_torque">true</param>
+            <param name="use_offsets">true</param>
+            <param name="use_drive_modes">true</param>
+          </hardware>
+
+        </xacro:if>
+        <xacro:unless value="$(arg is_calib)">
+          <hardware>
+            <plugin>feetech_ros2_driver/FeetechHardwareInterface</plugin>
+            <param name="usb_port">${port}</param>
+            <param name="use_offsets">true</param>
+            <param name="use_drive_modes">true</param>
+          </hardware>
+        </xacro:unless>
+
+        <!-- 0 -> 2048 by default ( assumes rage between -pi to pi ) -->
+        <xacro:real_joint name="shoulder_pan_joint" id="1" offset="0" drive_mode="true"
+          start_position="${shoulder_pan_joint_min}" end_position="${shoulder_pan_joint_max}" />
+        <xacro:real_joint name="shoulder_lift_joint" id="2" offset="0" drive_mode="false"
+          start_position="${shoulder_lift_joint_min}" end_position="${shoulder_lift_joint_max}" />
+        <xacro:real_joint name="elbow_joint" id="3" offset="0" drive_mode="true"
+          start_position="${elbow_joint_min}" end_position="${elbow_joint_max}" />
+        <xacro:real_joint name="wrist_yaw_joint" id="4" offset="0" drive_mode="false"
+          start_position="${wrist_yaw_joint_min}" end_position="${wrist_yaw_joint_max}" />
+        <xacro:real_joint name="wrist_pitch_joint" id="5" offset="0" drive_mode="true"
+          start_position="${wrist_pitch_joint_min}" end_position="${wrist_pitch_joint_max}" />
+        <xacro:real_joint name="wrist_roll_joint" id="6" offset="0" drive_mode="false"
+          start_position="${wrist_roll_joint_min}" end_position="${wrist_roll_joint_max}" />
+        <xacro:real_joint name="gripper_jaw_joint" id="7" offset="0" drive_mode="true"
+          start_position="${gripper_jaw_joint_min}" end_position="${gripper_jaw_joint_max}" />
+
+      </xacro:unless>
+    </xacro:unless>
+
+  </ros2_control>
+</robot>

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: clean_bot
+    relative_path: description/urdf/robot.urdf.xacro
+  SRDF:
+    package: moveit
+    relative_path: config/clean_bot.srdf
+  CONFIG:
+    author_name: Aryan Hedge
+    author_email: hedgearyandeveloper@gmail.com
+    generated_timestamp: 1758456807

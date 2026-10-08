@@ -1,0 +1,1642 @@
+{
+ "0.03,6": {
+  "level": "0.03,6",
+  "base_seed": {
+   "N197_certs": 91000,
+   "N199_heldout": 250000
+  },
+  "rig_header_drift_vs_N197": {
+   "provenance": [
+    {
+     "argv": [
+      "experiments/kaggle_aegis_sweep.py",
+      "--seeds",
+      "100",
+      "--no-upload",
+      "--path",
+      "trochoid",
+      "--compare",
+      "trochoid",
+      "--compare-env",
+      "AEGIS_REG_CASTS=1",
+      "--suites",
+      "fixture_A,fixture_B,fixture_R",
+      "--out",
+      "results/aegis_v2/N197_r310_s100_0.03,6.jsonl"
+     ],
+     "cwd": "/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce",
+     "git_sha": "fa3f559",
+     "argv0": "experiments/kaggle_aegis_sweep.py"
+    },
+    {
+     "argv": [
+      "experiments/kaggle_aegis_sweep.py",
+      "--seeds",
+      "100",
+      "--no-upload",
+      "--path",
+      "trochoid",
+      "--compare",
+      "trochoid",
+      "--compare-env",
+      "AEGIS_REG_CASTS=1",
+      "--suites",
+      "fixture_A,fixture_B,fixture_R",
+      "--out",
+      "results/aegis_v2/N199_r311_s100_0.03_6.jsonl"
+     ],
+     "cwd": "/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce",
+     "git_sha": "3fafb84",
+     "argv0": "experiments/kaggle_aegis_sweep.py"
+    }
+   ]
+  },
+  "N199": {
+   "fixture_A/single_cast": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.991,
+    "covc_min": 0.9167,
+    "covc_p10": 0.9583,
+    "covc_k_over_128": [
+     117,
+     119,
+     121,
+     123
+    ],
+    "reg_err_xy_med": 0.00222,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_A/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.991,
+    "covc_min": 0.9167,
+    "covc_p10": 0.9583,
+    "covc_k_over_128": [
+     117,
+     119,
+     121,
+     123
+    ],
+    "reg_err_xy_med": 0.00222,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_B/single_cast": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 1.0,
+    "covc_min": 1.0,
+    "covc_p10": 1.0,
+    "covc_k_over_128": [
+     128
+    ],
+    "reg_err_xy_med": 0.0069,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_B/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 1.0,
+    "covc_min": 1.0,
+    "covc_p10": 1.0,
+    "covc_k_over_128": [
+     128
+    ],
+    "reg_err_xy_med": 0.0069,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/single_cast": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9935,
+    "covc_min": 0.9167,
+    "covc_p10": 0.9688,
+    "covc_k_over_128": [
+     117,
+     119,
+     120,
+     121
+    ],
+    "reg_err_xy_med": 0.00504,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9935,
+    "covc_min": 0.9167,
+    "covc_p10": 0.9688,
+    "covc_k_over_128": [
+     117,
+     119,
+     120,
+     121
+    ],
+    "reg_err_xy_med": 0.00504,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   }
+  },
+  "N197": {
+   "fixture_A/single_cast": {
+    "n": 100,
+    "success": 0.98,
+    "covc": 0.9888,
+    "covc_min": 0.8646,
+    "covc_p10": 0.9583,
+    "covc_k_over_128": [
+     111,
+     119,
+     120,
+     121
+    ],
+    "reg_err_xy_med": 0.0024,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_A/lattice": {
+    "n": 100,
+    "success": 0.98,
+    "covc": 0.9888,
+    "covc_min": 0.8646,
+    "covc_p10": 0.9583,
+    "covc_k_over_128": [
+     111,
+     119,
+     120,
+     121
+    ],
+    "reg_err_xy_med": 0.0024,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_B/single_cast": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 1.0,
+    "covc_min": 1.0,
+    "covc_p10": 1.0,
+    "covc_k_over_128": [
+     128
+    ],
+    "reg_err_xy_med": 0.00729,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_B/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 1.0,
+    "covc_min": 1.0,
+    "covc_p10": 1.0,
+    "covc_k_over_128": [
+     128
+    ],
+    "reg_err_xy_med": 0.00729,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/single_cast": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9943,
+    "covc_min": 0.9062,
+    "covc_p10": 0.9792,
+    "covc_k_over_128": [
+     116,
+     120,
+     121,
+     123
+    ],
+    "reg_err_xy_med": 0.00495,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9943,
+    "covc_min": 0.9062,
+    "covc_p10": 0.9792,
+    "covc_k_over_128": [
+     116,
+     120,
+     121,
+     123
+    ],
+    "reg_err_xy_med": 0.00495,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   }
+  },
+  "compare_N199": {
+   "ts": 56.349,
+   "record": "compare",
+   "candidate": "trochoid",
+   "baseline": "trochoid[AEGIS_REG_CASTS=1]",
+   "candidate_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 0.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 0.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "baseline_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 1.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 1.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "pose_noise_cfg": "0.03,6",
+   "metric": "coverage_cont",
+   "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression",
+   "fixture_A": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.991,
+    "mean_b": 0.991,
+    "delta": 0.0,
+    "welch_t": 0.0,
+    "welch_p": 1.0,
+    "paired_t": NaN,
+    "paired_p": NaN,
+    "p_method": "scipy",
+    "succ_a": 100,
+    "succ_b": 100,
+    "fisher_p": 1.0
+   },
+   "fixture_B": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 1.0,
+    "mean_b": 1.0,
+    "delta": 0.0,
+    "welch_t": NaN,
+    "welch_p": NaN,
+    "paired_t": NaN,
+    "paired_p": NaN,
+    "p_method": "scipy",
+    "succ_a": 100,
+    "succ_b": 100,
+    "fisher_p": 1.0
+   },
+   "fixture_R": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.9935,
+    "mean_b": 0.9935,
+    "delta": 0.0,
+    "welch_t": 0.0,
+    "welch_p": 1.0,
+    "paired_t": NaN,
+    "paired_p": NaN,
+    "p_method": "scipy",
+    "succ_a": 100,
+    "succ_b": 100,
+    "fisher_p": 1.0
+   },
+   "keep": false
+  },
+  "compare_N197": {
+   "ts": 58.314,
+   "record": "compare",
+   "candidate": "trochoid",
+   "baseline": "trochoid[AEGIS_REG_CASTS=1]",
+   "candidate_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 0.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 0.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "baseline_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 1.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 1.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "pose_noise_cfg": "0.03,6",
+   "metric": "coverage_cont",
+   "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression",
+   "fixture_A": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.9888,
+    "mean_b": 0.9888,
+    "delta": 0.0,
+    "welch_t": 0.0,
+    "welch_p": 1.0,
+    "paired_t": NaN,
+    "paired_p": NaN,
+    "p_method": "scipy",
+    "succ_a": 98,
+    "succ_b": 98,
+    "fisher_p": 1.0
+   },
+   "fixture_B": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 1.0,
+    "mean_b": 1.0,
+    "delta": 0.0,
+    "welch_t": NaN,
+    "welch_p": NaN,
+    "paired_t": NaN,
+    "paired_p": NaN,
+    "p_method": "scipy",
+    "succ_a": 100,
+    "succ_b": 100,
+    "fisher_p": 1.0
+   },
+   "fixture_R": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.9943,
+    "mean_b": 0.9943,
+    "delta": 0.0,
+    "welch_t": 0.0,
+    "welch_p": 1.0,
+    "paired_t": NaN,
+    "paired_p": NaN,
+    "p_method": "scipy",
+    "succ_a": 100,
+    "succ_b": 100,
+    "fisher_p": 1.0
+   },
+   "keep": false
+  },
+  "delta_heldout_minus_cert_lattice": {
+   "fixture_A": {
+    "d_success": 0.02,
+    "d_covc": 0.0022
+   },
+   "fixture_B": {
+    "d_success": 0.0,
+    "d_covc": 0.0
+   },
+   "fixture_R": {
+    "d_success": 0.0,
+    "d_covc": -0.0008
+   }
+  },
+  "coverage_cont_grid_D_per_suite": {
+   "fixture_A": null,
+   "fixture_B": 2,
+   "fixture_R": null
+  }
+ },
+ "0.28,56": {
+  "level": "0.28,56",
+  "base_seed": {
+   "N197_certs": 91000,
+   "N199_heldout": 250000
+  },
+  "rig_header_drift_vs_N197": {
+   "provenance": [
+    {
+     "argv": [
+      "experiments/kaggle_aegis_sweep.py",
+      "--seeds",
+      "100",
+      "--no-upload",
+      "--path",
+      "trochoid",
+      "--compare",
+      "trochoid",
+      "--compare-env",
+      "AEGIS_REG_CASTS=1",
+      "--suites",
+      "fixture_A,fixture_B,fixture_R",
+      "--out",
+      "results/aegis_v2/N197_r310_s100_0.28,56.jsonl"
+     ],
+     "cwd": "/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce",
+     "git_sha": "fa3f559",
+     "argv0": "experiments/kaggle_aegis_sweep.py"
+    },
+    {
+     "argv": [
+      "experiments/kaggle_aegis_sweep.py",
+      "--seeds",
+      "100",
+      "--no-upload",
+      "--path",
+      "trochoid",
+      "--compare",
+      "trochoid",
+      "--compare-env",
+      "AEGIS_REG_CASTS=1",
+      "--suites",
+      "fixture_A,fixture_B,fixture_R",
+      "--out",
+      "results/aegis_v2/N199_r311_s100_0.28_56.jsonl"
+     ],
+     "cwd": "/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce",
+     "git_sha": "3fafb84",
+     "argv0": "experiments/kaggle_aegis_sweep.py"
+    }
+   ]
+  },
+  "N199": {
+   "fixture_A/single_cast": {
+    "n": 100,
+    "success": 0.18,
+    "covc": 0.7012,
+    "covc_min": 0.1562,
+    "covc_p10": 0.4583,
+    "covc_k_over_128": [
+     20,
+     33,
+     40,
+     51
+    ],
+    "reg_err_xy_med": 0.00413,
+    "casts": [
+     1
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_A/lattice": {
+    "n": 100,
+    "success": 0.24,
+    "covc": 0.732,
+    "covc_min": 0.4167,
+    "covc_p10": 0.4583,
+    "covc_k_over_128": [
+     53,
+     55,
+     56,
+     57
+    ],
+    "reg_err_xy_med": 0.00243,
+    "casts": [
+     25
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_B/single_cast": {
+    "n": 100,
+    "success": 0.81,
+    "covc": 0.9269,
+    "covc_min": 0.0,
+    "covc_p10": 0.7344,
+    "covc_k_over_128": [
+     0,
+     64,
+     72,
+     80
+    ],
+    "reg_err_xy_med": 0.01279,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.99
+   },
+   "fixture_B/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9973,
+    "covc_min": 0.9219,
+    "covc_p10": 1.0,
+    "covc_k_over_128": [
+     118,
+     126,
+     128
+    ],
+    "reg_err_xy_med": 0.00739,
+    "casts": [
+     25
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/single_cast": {
+    "n": 100,
+    "success": 0.55,
+    "covc": 0.7989,
+    "covc_min": 0.0,
+    "covc_p10": 0.4479,
+    "covc_k_over_128": [
+     0,
+     49,
+     52,
+     55
+    ],
+    "reg_err_xy_med": 0.01002,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.99
+   },
+   "fixture_R/lattice": {
+    "n": 100,
+    "success": 0.67,
+    "covc": 0.8763,
+    "covc_min": 0.4271,
+    "covc_p10": 0.5104,
+    "covc_k_over_128": [
+     55,
+     56,
+     57,
+     59
+    ],
+    "reg_err_xy_med": 0.00491,
+    "casts": [
+     25
+    ],
+    "reg_ok": 1.0
+   }
+  },
+  "N197": {
+   "fixture_A/single_cast": {
+    "n": 100,
+    "success": 0.17,
+    "covc": 0.6521,
+    "covc_min": 0.0,
+    "covc_p10": 0.2917,
+    "covc_k_over_128": [
+     0,
+     24,
+     37,
+     55
+    ],
+    "reg_err_xy_med": 0.00098,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.96
+   },
+   "fixture_A/lattice": {
+    "n": 100,
+    "success": 0.2,
+    "covc": 0.7225,
+    "covc_min": 0.4167,
+    "covc_p10": 0.4792,
+    "covc_k_over_128": [
+     53,
+     55,
+     57,
+     59
+    ],
+    "reg_err_xy_med": 0.00237,
+    "casts": [
+     25
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_B/single_cast": {
+    "n": 100,
+    "success": 0.84,
+    "covc": 0.9153,
+    "covc_min": 0.0,
+    "covc_p10": 0.7812,
+    "covc_k_over_128": [
+     0,
+     36,
+     48,
+     78
+    ],
+    "reg_err_xy_med": 0.01221,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.97
+   },
+   "fixture_B/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9977,
+    "covc_min": 0.9219,
+    "covc_p10": 1.0,
+    "covc_k_over_128": [
+     118,
+     120,
+     122,
+     124
+    ],
+    "reg_err_xy_med": 0.00748,
+    "casts": [
+     25
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/single_cast": {
+    "n": 100,
+    "success": 0.51,
+    "covc": 0.7893,
+    "covc_min": 0.0,
+    "covc_p10": 0.4896,
+    "covc_k_over_128": [
+     0,
+     17,
+     50,
+     55
+    ],
+    "reg_err_xy_med": 0.0092,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.99
+   },
+   "fixture_R/lattice": {
+    "n": 100,
+    "success": 0.61,
+    "covc": 0.8476,
+    "covc_min": 0.4271,
+    "covc_p10": 0.5,
+    "covc_k_over_128": [
+     55,
+     56,
+     60,
+     61
+    ],
+    "reg_err_xy_med": 0.0051,
+    "casts": [
+     25
+    ],
+    "reg_ok": 1.0
+   }
+  },
+  "compare_N199": {
+   "ts": 54.547,
+   "record": "compare",
+   "candidate": "trochoid",
+   "baseline": "trochoid[AEGIS_REG_CASTS=1]",
+   "candidate_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 0.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 0.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "baseline_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 1.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 1.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "pose_noise_cfg": "0.28,56",
+   "metric": "coverage_cont",
+   "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression",
+   "fixture_A": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.7012,
+    "mean_b": 0.732,
+    "delta": 0.0307,
+    "welch_t": 1.1462,
+    "welch_p": 0.25308493055728193,
+    "paired_t": 3.0678,
+    "paired_p": 0.002781378311081058,
+    "p_method": "scipy",
+    "succ_a": 18,
+    "succ_b": 24,
+    "fisher_p": 0.3855574352865068
+   },
+   "fixture_B": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.9269,
+    "mean_b": 0.9973,
+    "delta": 0.0705,
+    "welch_t": 4.024,
+    "welch_p": 0.00011119619802243356,
+    "paired_t": 4.0342,
+    "paired_p": 0.00010790795387777593,
+    "p_method": "scipy",
+    "succ_a": 81,
+    "succ_b": 100,
+    "fisher_p": 1.4845070643582561e-06
+   },
+   "fixture_R": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.7989,
+    "mean_b": 0.8763,
+    "delta": 0.0774,
+    "welch_t": 2.4474,
+    "welch_p": 0.015351253711637659,
+    "paired_t": 3.8617,
+    "paired_p": 0.00020101742094885108,
+    "p_method": "scipy",
+    "succ_a": 55,
+    "succ_b": 67,
+    "fisher_p": 0.1105070229048466
+   },
+   "keep": true
+  },
+  "compare_N197": {
+   "ts": 54.564,
+   "record": "compare",
+   "candidate": "trochoid",
+   "baseline": "trochoid[AEGIS_REG_CASTS=1]",
+   "candidate_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 0.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 0.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "baseline_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 1.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 1.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "pose_noise_cfg": "0.28,56",
+   "metric": "coverage_cont",
+   "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression",
+   "fixture_A": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.6521,
+    "mean_b": 0.7225,
+    "delta": 0.0704,
+    "welch_t": 2.2264,
+    "welch_p": 0.027282084328632338,
+    "paired_t": 3.5034,
+    "paired_p": 0.0006911024130392086,
+    "p_method": "scipy",
+    "succ_a": 17,
+    "succ_b": 20,
+    "fisher_p": 0.7160804504681471
+   },
+   "fixture_B": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.9153,
+    "mean_b": 0.9977,
+    "delta": 0.0823,
+    "welch_t": 3.7611,
+    "welch_p": 0.00028576217842679613,
+    "paired_t": 3.7918,
+    "paired_p": 0.0002572718958220201,
+    "p_method": "scipy",
+    "succ_a": 84,
+    "succ_b": 100,
+    "fisher_p": 1.5912973462727138e-05
+   },
+   "fixture_R": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.7893,
+    "mean_b": 0.8476,
+    "delta": 0.0583,
+    "welch_t": 1.8283,
+    "welch_p": 0.0690968520679568,
+    "paired_t": 3.0919,
+    "paired_p": 0.00258338005903034,
+    "p_method": "scipy",
+    "succ_a": 51,
+    "succ_b": 61,
+    "fisher_p": 0.1997019777230014
+   },
+   "keep": true
+  },
+  "delta_heldout_minus_cert_lattice": {
+   "fixture_A": {
+    "d_success": 0.04,
+    "d_covc": 0.0095
+   },
+   "fixture_B": {
+    "d_success": 0.0,
+    "d_covc": -0.0004
+   },
+   "fixture_R": {
+    "d_success": 0.06,
+    "d_covc": 0.0287
+   }
+  },
+  "coverage_cont_grid_D_per_suite": {
+   "fixture_A": null,
+   "fixture_B": null,
+   "fixture_R": null
+  }
+ },
+ "3.2,640": {
+  "level": "3.2,640",
+  "base_seed": {
+   "N197_certs": 91000,
+   "N199_heldout": 250000
+  },
+  "rig_header_drift_vs_N197": {
+   "provenance": [
+    {
+     "argv": [
+      "experiments/kaggle_aegis_sweep.py",
+      "--seeds",
+      "100",
+      "--no-upload",
+      "--path",
+      "trochoid",
+      "--compare",
+      "trochoid",
+      "--compare-env",
+      "AEGIS_REG_CASTS=1",
+      "--suites",
+      "fixture_A,fixture_B,fixture_R",
+      "--out",
+      "results/aegis_v2/N197_r310_s100_3.2,640.jsonl"
+     ],
+     "cwd": "/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce",
+     "git_sha": "fa3f559",
+     "argv0": "experiments/kaggle_aegis_sweep.py"
+    },
+    {
+     "argv": [
+      "experiments/kaggle_aegis_sweep.py",
+      "--seeds",
+      "100",
+      "--no-upload",
+      "--path",
+      "trochoid",
+      "--compare",
+      "trochoid",
+      "--compare-env",
+      "AEGIS_REG_CASTS=1",
+      "--suites",
+      "fixture_A,fixture_B,fixture_R",
+      "--out",
+      "results/aegis_v2/N199_r311_s100_3.2_640.jsonl"
+     ],
+     "cwd": "/media/pope/projecteo/github_proj/a_resume/Robotic_reinforce",
+     "git_sha": "3fafb84",
+     "argv0": "experiments/kaggle_aegis_sweep.py"
+    }
+   ]
+  },
+  "N199": {
+   "fixture_A/single_cast": {
+    "n": 100,
+    "success": 0.0,
+    "covc": 0.0329,
+    "covc_min": 0.0,
+    "covc_p10": 0.0,
+    "covc_k_over_128": [
+     0,
+     27,
+     55,
+     59
+    ],
+    "reg_err_xy_med": NaN,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.07
+   },
+   "fixture_A/lattice": {
+    "n": 100,
+    "success": 0.17,
+    "covc": 0.6839,
+    "covc_min": 0.4271,
+    "covc_p10": 0.4583,
+    "covc_k_over_128": [
+     55,
+     56,
+     57,
+     59
+    ],
+    "reg_err_xy_med": 0.00215,
+    "casts": [
+     1849
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_B/single_cast": {
+    "n": 100,
+    "success": 0.01,
+    "covc": 0.0231,
+    "covc_min": 0.0,
+    "covc_p10": 0.0,
+    "covc_k_over_128": [
+     0,
+     74,
+     94,
+     128
+    ],
+    "reg_err_xy_med": NaN,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.03
+   },
+   "fixture_B/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9856,
+    "covc_min": 0.9219,
+    "covc_p10": 0.9375,
+    "covc_k_over_128": [
+     118,
+     120,
+     122,
+     126
+    ],
+    "reg_err_xy_med": 0.00769,
+    "casts": [
+     1849
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/single_cast": {
+    "n": 100,
+    "success": 0.01,
+    "covc": 0.0159,
+    "covc_min": 0.0,
+    "covc_p10": 0.0,
+    "covc_k_over_128": [
+     0,
+     84,
+     120
+    ],
+    "reg_err_xy_med": NaN,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.03
+   },
+   "fixture_R/lattice": {
+    "n": 100,
+    "success": 0.56,
+    "covc": 0.8381,
+    "covc_min": 0.4375,
+    "covc_p10": 0.5208,
+    "covc_k_over_128": [
+     56,
+     57,
+     60,
+     61
+    ],
+    "reg_err_xy_med": 0.00473,
+    "casts": [
+     1849
+    ],
+    "reg_ok": 1.0
+   }
+  },
+  "N197": {
+   "fixture_A/single_cast": {
+    "n": 100,
+    "success": 0.0,
+    "covc": 0.0008,
+    "covc_min": 0.0,
+    "covc_p10": 0.0,
+    "covc_k_over_128": [
+     0,
+     11
+    ],
+    "reg_err_xy_med": NaN,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.02
+   },
+   "fixture_A/lattice": {
+    "n": 100,
+    "success": 0.11,
+    "covc": 0.6538,
+    "covc_min": 0.0,
+    "covc_p10": 0.4479,
+    "covc_k_over_128": [
+     0,
+     56,
+     57,
+     59
+    ],
+    "reg_err_xy_med": 0.00026,
+    "casts": [
+     1849
+    ],
+    "reg_ok": 0.99
+   },
+   "fixture_B/single_cast": {
+    "n": 100,
+    "success": 0.0,
+    "covc": 0.0,
+    "covc_min": 0.0,
+    "covc_p10": 0.0,
+    "covc_k_over_128": [
+     0
+    ],
+    "reg_err_xy_med": NaN,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.0
+   },
+   "fixture_B/lattice": {
+    "n": 100,
+    "success": 1.0,
+    "covc": 0.9827,
+    "covc_min": 0.9219,
+    "covc_p10": 0.9375,
+    "covc_k_over_128": [
+     118,
+     120,
+     122,
+     124
+    ],
+    "reg_err_xy_med": 0.00756,
+    "casts": [
+     1849
+    ],
+    "reg_ok": 1.0
+   },
+   "fixture_R/single_cast": {
+    "n": 100,
+    "success": 0.0,
+    "covc": 0.0,
+    "covc_min": 0.0,
+    "covc_p10": 0.0,
+    "covc_k_over_128": [
+     0
+    ],
+    "reg_err_xy_med": NaN,
+    "casts": [
+     1
+    ],
+    "reg_ok": 0.0
+   },
+   "fixture_R/lattice": {
+    "n": 100,
+    "success": 0.52,
+    "covc": 0.8184,
+    "covc_min": 0.4271,
+    "covc_p10": 0.5,
+    "covc_k_over_128": [
+     55,
+     57,
+     59,
+     60
+    ],
+    "reg_err_xy_med": 0.00539,
+    "casts": [
+     1849
+    ],
+    "reg_ok": 1.0
+   }
+  },
+  "compare_N199": {
+   "ts": 134.997,
+   "record": "compare",
+   "candidate": "trochoid",
+   "baseline": "trochoid[AEGIS_REG_CASTS=1]",
+   "candidate_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 0.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 0.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "baseline_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 1.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 1.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "pose_noise_cfg": "3.2,640",
+   "metric": "coverage_cont",
+   "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression",
+   "fixture_A": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.0329,
+    "mean_b": 0.6839,
+    "delta": 0.6509,
+    "welch_t": 29.0051,
+    "welch_p": 2.2363488109600572e-68,
+    "paired_t": 27.1441,
+    "paired_p": 1.1737868209096482e-47,
+    "p_method": "scipy",
+    "succ_a": 0,
+    "succ_b": 17,
+    "fisher_p": 7.264618319940649e-06
+   },
+   "fixture_B": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.0231,
+    "mean_b": 0.9856,
+    "delta": 0.9625,
+    "welch_t": 69.657,
+    "welch_p": 9.912650806443553e-91,
+    "paired_t": 68.7848,
+    "paired_p": 2.159905820581167e-85,
+    "p_method": "scipy",
+    "succ_a": 1,
+    "succ_b": 100,
+    "fisher_p": 2.230848300131498e-57
+   },
+   "fixture_R": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.0159,
+    "mean_b": 0.8381,
+    "delta": 0.8221,
+    "welch_t": 36.8841,
+    "welch_p": 1.751439791361569e-80,
+    "paired_t": 38.7165,
+    "paired_p": 1.3302650518523643e-61,
+    "p_method": "scipy",
+    "succ_a": 1,
+    "succ_b": 56,
+    "fisher_p": 1.9711223278671635e-20
+   },
+   "keep": true
+  },
+  "compare_N197": {
+   "ts": 125.38,
+   "record": "compare",
+   "candidate": "trochoid",
+   "baseline": "trochoid[AEGIS_REG_CASTS=1]",
+   "candidate_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 0.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 0.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "baseline_knobs": {
+    "TROCHOID_R_M": 0.015,
+    "TROCHOID_DS_M": 0.004,
+    "TROCHOID_DR": 0.5,
+    "BASE_DS_M": 0.01,
+    "TROCHOID_AMP_M": 0.015,
+    "TROCHOID_W": 33.333333333333336,
+    "TROCH_ALT": 0.0,
+    "ROW_CENTRE": 1.0,
+    "SPEED_ALPHA": 0.0,
+    "FORCE_PI": 0,
+    "FN_SET_N": 0.5,
+    "FN_KP": 0.0,
+    "FN_KI": 0.0,
+    "INSET_M": 0.0,
+    "WALL_ONLY": 0,
+    "WALL_KP": 25.0,
+    "RESIDUAL_ACTIVE": 0,
+    "RESIDUAL_CLIP_M": 0.02,
+    "GATE_ADVISORY": 0.0,
+    "GATE_PROP": 0.0,
+    "GATE_TRIG": 0.0,
+    "GATE_THETA": 0.618,
+    "GATE_PROP_MIN": 0.3,
+    "REG_HALF_M": 0.6,
+    "REG_N": 32,
+    "REG_CASTS": 1.0,
+    "REG_DFACT": 2.0,
+    "REG_CN": 16.0,
+    "AEGIS_REG": "depth",
+    "AEGIS_REG_HALF_M": 0.6,
+    "AEGIS_REG_N": 32,
+    "AEGIS_REG_EST": "mean",
+    "AEGIS_REG_CASTS": 1.0,
+    "AEGIS_REG_DFACT": 2.0,
+    "AEGIS_REG_CN": 16.0,
+    "AEGIS_GATE": "post-hoc"
+   },
+   "pose_noise_cfg": "3.2,640",
+   "metric": "coverage_cont",
+   "keep_rule": ">=20 seeds AND B transfer_success > 0.70 AND (Welch p<0.01 coverage OR Fisher p<0.01 success) AND no coverage regression",
+   "fixture_A": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.0008,
+    "mean_b": 0.6538,
+    "delta": 0.6529,
+    "welch_t": 33.2855,
+    "welch_p": 1.0926484360849717e-55,
+    "paired_t": 33.2343,
+    "paired_p": 1.670223273411736e-55,
+    "p_method": "scipy",
+    "succ_a": 0,
+    "succ_b": 11,
+    "fisher_p": 0.0007304457436274371
+   },
+   "fixture_B": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.0,
+    "mean_b": 0.9827,
+    "delta": 0.9827,
+    "welch_t": 374.1201,
+    "welch_p": 8.786710342196978e-158,
+    "paired_t": 374.1201,
+    "paired_p": 8.786710342196978e-158,
+    "p_method": "scipy",
+    "succ_a": 0,
+    "succ_b": 100,
+    "fisher_p": 2.208760693199503e-59
+   },
+   "fixture_R": {
+    "n_a": 100,
+    "n_b": 100,
+    "mean_a": 0.0,
+    "mean_b": 0.8184,
+    "delta": 0.8184,
+    "welch_t": 40.5448,
+    "welch_p": 1.805779907733352e-63,
+    "paired_t": 40.5448,
+    "paired_p": 1.805779907733352e-63,
+    "p_method": "scipy",
+    "succ_a": 0,
+    "succ_b": 52,
+    "fisher_p": 4.87362495790538e-20
+   },
+   "keep": true
+  },
+  "delta_heldout_minus_cert_lattice": {
+   "fixture_A": {
+    "d_success": 0.06,
+    "d_covc": 0.0301
+   },
+   "fixture_B": {
+    "d_success": 0.0,
+    "d_covc": 0.0029
+   },
+   "fixture_R": {
+    "d_success": 0.04,
+    "d_covc": 0.0197
+   }
+  },
+  "coverage_cont_grid_D_per_suite": {
+   "fixture_A": null,
+   "fixture_B": null,
+   "fixture_R": null
+  }
+ }
+}

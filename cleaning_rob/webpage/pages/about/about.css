@@ -1,0 +1,230 @@
+/* About Page Specific Styles */
+
+.hero-banner {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--color-text);
+    z-index: 2;
+}
+
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main-content {
+    padding: 4rem 0;
+}
+
+.mission-section {
+    background: var(--color-card-muted);
+    padding: 4rem 0;
+}
+
+.mission-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+}
+
+.mission-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+}
+
+.collaboration-section {
+    padding: 4rem 0;
+}
+
+.collaboration-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+}
+
+.collaboration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.collaboration-card {
+    background: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-base);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.collaboration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+.collaboration-card img {
+    width: 120px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    object-fit: contain;
+}
+
+.collaboration-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.collaboration-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.founder-section {
+    background: var(--color-card-muted);
+    padding: 4rem 0;
+}
+
+.founder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.founder-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-base);
+}
+
+.founder-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.founder-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.founder-details h3 {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+    margin-bottom: 0;
+    color: var(--color-text);
+}
+
+.founder-details .subheading {
+    font-size: 1.5em;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.founder-details p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.linkedin-btn {
+    display: inline-block;
+    background: #0077b5;
+    color: var(--color-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: all var(--transition-base);
+}
+
+.linkedin-btn:hover {
+    background: #005582;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 30vh;
+        min-height: 250px;
+    }
+    
+    .collaboration-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .founder-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .founder-image {
+        order: 1;
+    }
+    
+    .founder-details {
+        order: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 2rem 0;
+    }
+    
+    .mission-section,
+    .collaboration-section,
+    .founder-section {
+        padding: 2rem 0;
+    }
+    
+    .collaboration-card {
+        padding: 1.5rem;
+    }
+}

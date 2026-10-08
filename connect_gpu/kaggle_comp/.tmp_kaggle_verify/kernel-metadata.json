@@ -1,0 +1,23 @@
+{
+  "id": "krishnakumarbhat/nemotron-gpu-lora",
+  "id_no": 114666070,
+  "title": "nemotron-gpu-lora",
+  "code_file": "nemotron-gpu-lora.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "thedevastator/grade-school-math-8k-q-a"
+  ],
+  "kernel_sources": [],
+  "competition_sources": [
+    "nvidia-nemotron-model-reasoning-challenge"
+  ],
+  "model_sources": [
+    "metric/nemotron-3-nano-30b-a3b-bf16/Transformers/default/1"
+  ]
+}
